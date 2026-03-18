@@ -8,3 +8,4 @@ deploy-final
 deploy-lite
 deploy-vercel
 portfolio-*.zip
+*.tmp
