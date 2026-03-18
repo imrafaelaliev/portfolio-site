@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lori — кейс Рафаэля Алиева</title>
+    <meta
+      name="description"
+      content="Кейс Lori: дизайн MVP приложения для трекинга питания с AI-генерацией блюд, исследованием и UX-архитектурой."
+    />
+    <link rel="preload" as="image" href="../assets/images/lori/hero-new.png" />
+    <link rel="stylesheet" href="../css/style.css?v=20260317-desktop-fonts-fix-34" />
+    <link rel="stylesheet" href="../css/marshall.css?v=20260317-desktop-fonts-fix-34" />
+    <link rel="stylesheet" href="../css/lori.css?v=20260317-desktop-fonts-fix-34" />
+  </head>
+  <body class="marshall-page lori-page">
+    <main class="marshall-page__main">
+      <aside class="marshall-page__intro" aria-label="Информация о кейсе">
+        <h1 class="marshall-page__title">Мобильное приложение Lori</h1>
+        <p class="marshall-page__subtitle">Дизайн MVP-версии приложения для отслеживания потребления калорий</p>
+        <p class="marshall-page__role">
+          <span class="marshall-page__role-label">Роль</span>
+          <span class="marshall-page__role-dot" aria-hidden="true"></span>
+          <span>Продуктовый дизайнер</span>
+        </p>
+      </aside>
+
+      <a class="marshall-btn marshall-btn--ghost marshall-page__back" data-back-to-home href="../index.html">↤ Назад</a>
+
+      <div class="marshall-page__actions">
+        <a
+          class="btn btn--ghost"
+          href="https://disk.yandex.ru/d/BzEm_BL0T9i5PQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Скачать CV
+          <img class="btn__icon-cv" src="../assets/icons/cv-arrow.svg" alt="" aria-hidden="true" />
+        </a>
+        <a
+          class="btn btn--primary"
+          href="https://t.me/imrafaelaliev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Связаться ↦
+        </a>
+      </div>
+
+      <article class="marshall-page__content">
+        <img
+          class="marshall-page__hero-preview"
+          src="../assets/images/lori/hero-new.png"
+          alt="Главный экран кейса Lori"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Задача</h2>
+          <p class="marshall-page__text">Основная проблема большинства приложений для трекинга калорий:</p>
+          <ul class="marshall-page__list">
+            <li>Процесс требует слишком много времени и дисциплины.</li>
+            <li>Пользователи быстро перестают пользоваться приложением.</li>
+          </ul>
+          <p class="marshall-page__text">Я предложил решение:</p>
+          <ul class="marshall-page__list">
+            <li>AI-генерация блюд из имеющихся продуктов.</li>
+            <li>Быстрый трекинг питания.</li>
+            <li>Визуализация баланса БЖУ.</li>
+            <li>Маскот, который помогает не бросать привычку.</li>
+          </ul>
+          <p class="marshall-page__text">
+            В рамках проекта я разработал MVP приложения, включая пользовательские сценарии,
+            UX-архитектуру и интерфейс.
+          </p>
+        </section>
+
+        <img
+          class="marshall-page__shot"
+          src="../assets/images/lori/task-shot.png"
+          alt="Визуализация задачи и контекста проекта Lori"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Проблема</h2>
+          <p class="marshall-page__text">
+            Большинство приложений для отслеживания питания сталкиваются с низким удержанием.
+            Пользователи начинают считать калории, но быстро бросают.
+          </p>
+          <p class="marshall-page__text">Основные причины:</p>
+          <ul class="marshall-page__list">
+            <li>Неудобно добавлять продукты.</li>
+            <li>Нужно вручную вводить данные.</li>
+            <li>Сложно планировать рацион.</li>
+          </ul>
+          <p class="marshall-page__text">
+            В результате приложение превращается в рутинный инструмент, которым перестают
+            пользоваться.
+          </p>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Цель проекта</h2>
+          <p class="marshall-page__text">Создать приложение, которое:</p>
+          <ul class="marshall-page__list">
+            <li>Упрощает трекинг питания.</li>
+            <li>Помогает быстро составлять рацион.</li>
+            <li>Мотивирует пользователя продолжать следить за питанием.</li>
+          </ul>
+        </section>
+
+        <img
+          class="marshall-page__shot"
+          src="../assets/images/lori/goal-shot.png"
+          alt="Цель и визуальная концепция продукта Lori"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Этапы</h2>
+          <div class="lori-page__stages">
+            <p><strong>1. Исследование пользователей</strong></p>
+            <p>
+              Провёл анализ аудитории приложений для отслеживания калорий: изучил мотивацию,
+              цели, паттерны поведения и ключевые сценарии использования.
+            </p>
+
+            <p><strong>2. Формирование пользовательских сегментов</strong></p>
+            <p>
+              На основе исследования сформировал сегменты и описал их задачи, потребности и
+              барьеры при использовании приложений для трекинга питания.
+            </p>
+
+            <p><strong>3. Проработка пользовательских сценариев</strong></p>
+            <p>
+              Спроектировал сценарии и составил User Flow для ключевых действий: добавление еды,
+              отслеживание калорий, поиск рецептов и генерация блюд.
+            </p>
+
+            <p><strong>4. Описание Jobs To Be Done</strong></p>
+            <p>
+              Описал Job Story для каждого сегмента, определил мотивацию и предложил конкретные
+              функции для внедрения.
+            </p>
+
+            <p><strong>5. Customer Journey Map</strong></p>
+            <p>
+              Разработал CJM по 6 ключевым сценариям: онбординг, авторизация, заполнение данных,
+              подсчёт калорий, покупка подписки, поиск рецепта.
+            </p>
+
+            <p><strong>6. Анализ рынка и конкурентов</strong></p>
+            <p>Изучил существующие приложения на рынке, определил их плюсы и минусы.</p>
+
+            <p><strong>7. Дизайн MVP-версии продукта</strong></p>
+            <p>
+              Разработал интерфейс MVP, сфокусированный на ключевых функциях: трекинг питания,
+              работа с рецептами и генерация блюд из имеющихся ингредиентов.
+            </p>
+          </div>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Исследование пользователей</h2>
+          <p class="marshall-page__text">
+            Я изучил аудиторию приложений для трекинга питания и выделил три ключевых сегмента:
+          </p>
+
+          <div class="lori-page__audience-card">
+            <p class="lori-page__audience-title">Спортсмены</p>
+            <p class="lori-page__audience-text">Следят за балансом БЖУ для улучшения результатов.</p>
+            <p class="lori-page__audience-text">Проблемы:</p>
+            <ul class="lori-page__audience-list">
+              <li>Долго вводить продукты.</li>
+              <li>Сложно составлять рацион.</li>
+            </ul>
+          </div>
+
+          <div class="lori-page__audience-card">
+            <p class="lori-page__audience-title">Люди с пищевыми ограничениями</p>
+            <p class="lori-page__audience-text">Должны строго контролировать питание.</p>
+            <p class="lori-page__audience-text">Проблемы:</p>
+            <ul class="lori-page__audience-list">
+              <li>Сложно анализировать состав блюд.</li>
+              <li>Сложно подобрать подходящие рецепты.</li>
+            </ul>
+          </div>
+
+          <div class="lori-page__audience-card">
+            <p class="lori-page__audience-title">Занятые родители</p>
+            <p class="lori-page__audience-text">Хотят готовить полезную еду для семьи.</p>
+            <p class="lori-page__audience-text">Проблемы:</p>
+            <ul class="lori-page__audience-list">
+              <li>Нет времени считать калории.</li>
+              <li>Сложно планировать питание.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Анализ конкурентов</h2>
+          <p class="marshall-page__text">Я изучил популярные приложения для трекинга питания:</p>
+          <ul class="marshall-page__list">
+            <li>FatSecret.</li>
+            <li>MyFitnessPal.</li>
+            <li>Lifesum.</li>
+          </ul>
+          <p class="marshall-page__text">Основные проблемы существующих продуктов:</p>
+          <ul class="marshall-page__list">
+            <li>Устаревший интерфейс.</li>
+            <li>Отсутствие вовлекающих механик.</li>
+            <li>Сложный процесс добавления еды.</li>
+          </ul>
+          <p class="marshall-page__text">
+            Например, в MyFitnessPal большая база продуктов, но интерфейс перегружен, а часть
+            функций доступна только по подписке.
+          </p>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/competitors-shot.png"
+            alt="Сравнение конкурентов"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">CJM</h2>
+          <p class="marshall-page__text">
+            Для составления CJM я взял ключевые сценарии и для каждого определил 6 показателей:
+            действие, вопросы, негатив, позитив, решение и метрики.
+          </p>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/cjm-shot.png"
+            alt="CJM для ключевых сценариев"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Ключевые инсайты</h2>
+          <p class="marshall-page__text">После исследования я выделил несколько инсайтов:</p>
+          <div class="lori-page__insight">
+            <p class="lori-page__insight-title">1. Пользователи быстро теряют мотивацию</p>
+            <p class="lori-page__insight-text">Трекинг питания требует дисциплины и времени.</p>
+          </div>
+          <div class="lori-page__insight">
+            <p class="lori-page__insight-title">2. Добавление еды - главный friction</p>
+            <p class="lori-page__insight-text">Пользователи не хотят вручную вводить продукты.</p>
+          </div>
+          <div class="lori-page__insight">
+            <p class="lori-page__insight-title">3. Люди хотят готовые решения</p>
+            <p class="lori-page__insight-text">
+              Большинство пользователей не хотят самостоятельно составлять рацион.
+            </p>
+          </div>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Решение</h2>
+          <p class="marshall-page__text">
+            Я предложил концепцию приложения, которое не просто считает калории, а помогает
+            планировать питание.
+          </p>
+          <p class="marshall-page__text">Основные функции продукта:</p>
+          <ul class="marshall-page__list">
+            <li>Трекинг питания.</li>
+            <li>Поиск рецептов.</li>
+            <li>Генерация блюд из имеющихся продуктов.</li>
+            <li>AI-ассистент для советов по питанию.</li>
+          </ul>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">UX-архитектура</h2>
+          <p class="marshall-page__text">Я разработал пользовательские сценарии для ключевых действий:</p>
+          <ul class="marshall-page__list">
+            <li>Добавление еды.</li>
+            <li>Отслеживание калорий.</li>
+            <li>Поиск рецептов.</li>
+            <li>Генерация блюд.</li>
+          </ul>
+          <p class="marshall-page__text">Для этого был составлен User Flow основных сценариев продукта.</p>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/ux-flow.png"
+            alt="UX flow ключевых сценариев"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Главный экран</h2>
+          <p class="marshall-page__text">
+            Главный экран показывает ключевую информацию о питании пользователя.
+          </p>
+          <p class="marshall-page__text">Основные элементы:</p>
+          <ul class="marshall-page__list">
+            <li>Количество оставшихся калорий.</li>
+            <li>Баланс БЖУ.</li>
+            <li>Информация о приёмах пищи.</li>
+            <li>Быстрый доступ к добавлению продуктов.</li>
+          </ul>
+          <p class="marshall-page__text">
+            Добавление еды выделено контрастной кнопкой, так как это основной сценарий приложения.
+          </p>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline lori-page__shot--w665"
+            src="../assets/images/lori/home-main.png"
+            alt="Главный экран Lori"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="marshall-page__text">
+            Далее идет блок с информацией о пищевом балансе. С помощью табов можно смотреть
+            разную информацию: вкладка Structure показывает граммовку БЖУ, вкладка Meal - деление
+            по приёмам пищи.
+          </p>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/home-balance.png"
+            alt="Баланс БЖУ в Lori"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="marshall-page__text">
+            Далее идёт блок с информацией по завтраку, обеду и ужину. График показывает каждый
+            продукт в его процентном соотношении.
+          </p>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/home-meals.png"
+            alt="Блок приёмов пищи"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Генерация блюд</h2>
+          <p class="marshall-page__text">
+            Одной из ключевых функций приложения стала генерация рецептов.
+          </p>
+          <p class="marshall-page__text">Пользователь может:</p>
+          <ul class="marshall-page__list">
+            <li>Добавить продукты, которые есть дома.</li>
+            <li>Получить рецепт блюда из этих ингредиентов.</li>
+          </ul>
+          <p class="marshall-page__text">Это упрощает планирование питания и повышает ценность продукта.</p>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/recipe-generation.png"
+            alt="Генерация рецептов"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Быстрое добавление еды</h2>
+          <p class="marshall-page__text">
+            Чтобы ускорить трекинг питания, я добавил несколько способов добавления продуктов:
+          </p>
+          <ul class="marshall-page__list">
+            <li>Поиск продуктов.</li>
+            <li>Добавление рецептов.</li>
+            <li>Сканирование штрих-кода.</li>
+            <li>Использование камеры для распознавания продуктов.</li>
+          </ul>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/quick-add-1.png"
+            alt="Способы быстрого добавления еды"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/quick-add-2.png"
+            alt="Экран быстрого добавления еды"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Результат</h2>
+          <p class="marshall-page__text">В рамках проекта я разработал:</p>
+          <ul class="marshall-page__list">
+            <li>Пользовательские сегменты.</li>
+            <li>Ключевые пользовательские сценарии.</li>
+            <li>UX-архитектуру приложения.</li>
+            <li>Интерфейс MVP продукта.</li>
+          </ul>
+          <p class="marshall-page__text">
+            Проект показал, как можно повысить вовлеченность пользователей в приложениях для
+            трекинга питания за счёт AI-механик и упрощения сценариев использования.
+          </p>
+          <img
+            class="marshall-page__shot marshall-page__shot--inline"
+            src="../assets/images/lori/result-final.png"
+            alt="Итоговый результат кейса Lori"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
+        <section class="marshall-page__end-links" aria-label="Ссылки на полный кейс">
+          <a
+            class="marshall-btn marshall-btn--ghost marshall-page__end-link"
+            href="https://www.figma.com/design/ShQOWQeKPwPOjw7tM3KwOf/Lori?node-id=0-1&t=P0uquxNyd6IVMw2D-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Смотреть в Figma
+          </a>
+          <a
+            class="marshall-btn marshall-btn--dark marshall-page__end-link"
+            href="https://buildin.ai/rafaelaliev/ac6ead16-bb51-4b35-8bad-11d6314eeb2a"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Полный кейс на BuildIn
+          </a>
+          <a
+            class="marshall-btn marshall-btn--ghost marshall-page__end-link lori-page__end-link-icon"
+            href="https://www.behance.net/gallery/234106435/Lori-MedTech-Mobile-App"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Открыть кейс Lori на Behance"
+          >
+            <img class="lori-page__behance-icon" src="../assets/icons/behance-fill.svg" alt="" aria-hidden="true" />
+          </a>
+        </section>
+        <section class="marshall-page__next-case" aria-label="Следующий проект">
+          <h2 class="marshall-page__next-case-title">Следующий кейс</h2>
+          <a
+            class="marshall-page__next-case-link"
+            data-case-link
+            href="../dacha/index.html"
+            aria-label="Открыть следующий кейс: Дача | Приложение для поиска друзей"
+          >
+            <div class="marshall-page__next-case-preview-wrap">
+              <img
+                class="marshall-page__next-case-preview"
+                src="../assets/images/dacha/hero-preview.png"
+                alt="Следующий кейс: Дача | Приложение для поиска друзей"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <p class="marshall-page__next-case-caption marshall-page__next-case-caption--short">Дача | Приложение для поиска друзей</p>
+          </a>
+        </section>
+      </article>
+
+      <footer class="marshall-page__footer" aria-label="Контакты">
+        <img class="marshall-page__phone" src="../assets/images/contacts-phone.gif" alt="Анимированный телефон" loading="lazy" decoding="async" />
+
+        <div class="marshall-page__contacts">
+          <div class="marshall-page__contact-links">
+            <a
+              class="marshall-page__contact-link"
+              href="https://t.me/imrafaelaliev"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              telegram
+            </a>
+            <a
+              class="marshall-page__contact-link"
+              href="https://www.linkedin.com/in/%D1%80%D0%B0%D1%84%D0%B0%D1%8D%D0%BB%D1%8C-%D0%B0%D0%BB%D0%B8%D0%B5%D0%B2-a10539399/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin
+            </a>
+            <a class="marshall-page__contact-link" href="mailto:rafaealiev53@gmail.com">email</a>
+          </div>
+
+          <div class="marshall-page__banner" aria-hidden="true">
+            <img
+              class="marshall-page__banner-bg"
+              src="../assets/images/figma/a460e4f0-6df0-4bc0-b5d4-e2bc38197c5f.webp"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="marshall-page__banner-word"
+              src="../assets/images/figma/349bfdff-d9cf-46ef-8f10-92643d30afd7.svg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../js/main.js?v=20260317-desktop-fonts-fix-34" defer></script>
+  </body>
+</html>

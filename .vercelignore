@@ -1,0 +1,12 @@
+.DS_Store
+**/.DS_Store
+.gitignore
+.netlify-deploy.env
+README.md
+deploy
+deploy-lite
+deploy-final
+scripts
+cleanup-unused-assets-*.zip
+cleanup-unused-assets-*.txt
+portfolio-*.zip

@@ -1,0 +1,10 @@
+.DS_Store
+.netlify-deploy.env
+deploy/netlify-live-*
+cleanup-unused-assets-*.txt
+cleanup-unused-assets-*.zip
+deploy
+deploy-final
+deploy-lite
+deploy-vercel
+portfolio-*.zip

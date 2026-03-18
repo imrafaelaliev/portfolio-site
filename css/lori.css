@@ -1,0 +1,113 @@
+.lori-page .marshall-page__section .marshall-page__text + .marshall-page__text {
+  margin-top: 12px;
+}
+
+.lori-page .marshall-page__section .marshall-page__list + .marshall-page__text {
+  margin-top: 12px;
+}
+
+.lori-page__stages {
+  margin-top: 16px;
+  width: 550px;
+  max-width: 100%;
+  color: #070707;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.lori-page__stages p {
+  margin: 0;
+}
+
+.lori-page__stages p + p {
+  margin-top: 8px;
+}
+
+.lori-page__audience-card {
+  margin-top: 16px;
+  width: 432px;
+  max-width: 100%;
+  padding: 16px;
+  background: #eeeeee;
+}
+
+.lori-page__audience-title,
+.lori-page__audience-text {
+  margin: 0;
+  color: #070707;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.lori-page__audience-text + .lori-page__audience-text {
+  margin-top: 8px;
+}
+
+.lori-page__audience-list {
+  margin: 0;
+  padding: 0 0 0 24px;
+  color: #070707;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.lori-page__insight {
+  margin-top: 16px;
+  width: 550px;
+  max-width: 100%;
+}
+
+.lori-page__insight-title,
+.lori-page__insight-text {
+  margin: 0;
+  color: #070707;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.lori-page__end-link-icon {
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lori-page__behance-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.lori-page__shot--w665 {
+  width: 665px;
+  max-width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .lori-page__audience-card,
+  .lori-page__shot--w665 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .lori-page__stages,
+  .lori-page__audience-title,
+  .lori-page__audience-text,
+  .lori-page__audience-list,
+  .lori-page__insight-title,
+  .lori-page__insight-text {
+    font-size: 20px;
+  }
+}

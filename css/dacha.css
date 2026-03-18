@@ -1,0 +1,20 @@
+.dacha-page .marshall-page__hero-preview {
+  aspect-ratio: 664 / 390;
+}
+
+.dacha-page .dacha-page__design-groups {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.dacha-page .dacha-page__design-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dacha-page .dacha-page__design-group .marshall-page__shot {
+  margin-top: 0;
+}

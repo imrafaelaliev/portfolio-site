@@ -1,0 +1,95 @@
+.sladonezh-page .marshall-page__section .marshall-page__text + .marshall-page__text {
+  margin-top: 12px;
+}
+
+.sladonezh-page .marshall-page__section .marshall-page__list + .marshall-page__text {
+  margin-top: 12px;
+}
+
+.sladonezh-page__audience-card {
+  margin-top: 16px;
+  width: 432px;
+  max-width: 100%;
+  padding: 16px;
+  background: #eeeeee;
+}
+
+.sladonezh-page__audience-card-title,
+.sladonezh-page__audience-card-text {
+  margin: 0;
+  color: #070707;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.sladonezh-page__audience-card-text + .sladonezh-page__audience-card-text {
+  margin-top: 8px;
+}
+
+.sladonezh-page__audience-card-list {
+  margin: 0;
+  padding: 0 0 0 24px;
+  color: #070707;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.sladonezh-page__story {
+  margin-top: 16px;
+  width: 550px;
+  max-width: 100%;
+  color: #070707;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.sladonezh-page__story p {
+  margin: 0;
+}
+
+.sladonezh-page__story p + p {
+  margin-top: 12px;
+}
+
+.sladonezh-page__quote {
+  font-style: italic;
+}
+
+.sladonezh-page__shot--w332 {
+  width: 332px;
+  max-width: 100%;
+}
+
+.sladonezh-page__shot--w662 {
+  width: 662px;
+  max-width: 100%;
+}
+
+.sladonezh-page__shot--w663 {
+  width: 663px;
+  max-width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .sladonezh-page__audience-card-title,
+  .sladonezh-page__audience-card-text,
+  .sladonezh-page__audience-card-list,
+  .sladonezh-page__story {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .sladonezh-page__audience-card,
+  .sladonezh-page__shot--w332,
+  .sladonezh-page__shot--w662,
+  .sladonezh-page__shot--w663 {
+    width: 100%;
+  }
+}
