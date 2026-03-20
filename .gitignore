@@ -5,6 +5,7 @@ cleanup-unused-assets-*.txt
 cleanup-unused-assets-*.zip
 deploy
 deploy-final
+deploy-final-favicon
 deploy-lite
 deploy-vercel
 portfolio-*.zip
