@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "description": "Static portfolio website",
   "scripts": {
-    "start": "serve . -l $PORT"
+    "start": "http-server . -p $PORT -c-1"
   },
   "dependencies": {
-    "serve": "^14.2.4"
+    "http-server": "^14.1.1"
   }
 }
