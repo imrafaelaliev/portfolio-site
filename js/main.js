@@ -1,5 +1,12 @@
 (() => {
   document.documentElement.classList.add('js');
+
+  // Normalize old direct links like /path/index.html to /path/
+  const normalizedPath = window.location.pathname.replace(/\/index\.html$/, '/');
+  if (normalizedPath !== window.location.pathname) {
+    window.history.replaceState(null, '', `${normalizedPath}${window.location.search}${window.location.hash}`);
+  }
+
   const HOME_SCROLL_KEY = 'portfolioHomeScrollY';
   const RESTORE_HOME_SCROLL_KEY = 'portfolioRestoreHomeScroll';
 
