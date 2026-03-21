@@ -8,5 +8,7 @@ deploy-final
 deploy-final-favicon
 deploy-lite
 deploy-vercel
+deploy-clean-urls
+node_modules
 portfolio-*.zip
 *.tmp

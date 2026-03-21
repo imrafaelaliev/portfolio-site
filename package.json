@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static portfolio website",
+  "scripts": {
+    "start": "serve -s . -l $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
