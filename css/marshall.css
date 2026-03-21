@@ -488,14 +488,16 @@
 }
 
 .marshall-page__contact-links {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 36px;
 }
 
 .marshall-page__contact-link {
-  justify-self: center;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: inline-block;
   width: max-content;
   font-family: "Kommuna Narrow", "Times New Roman", serif;
@@ -504,6 +506,18 @@
   letter-spacing: -0.02em;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.marshall-page__contact-link:nth-child(1) {
+  left: 7.455%;
+}
+
+.marshall-page__contact-link:nth-child(2) {
+  left: 52.786%;
+}
+
+.marshall-page__contact-link:nth-child(3) {
+  left: 95.331%;
 }
 
 .marshall-page__contact-link::after {
@@ -827,8 +841,18 @@
   }
 
   .marshall-page__contact-links {
+    display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
+    height: auto;
+  }
+
+  .marshall-page__contact-link {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    justify-self: center;
   }
 
   .marshall-page__contact-link {
