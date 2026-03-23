@@ -2658,7 +2658,7 @@ main {
   position: relative;
   width: min(664px, calc(100% - 56px));
   margin: 0 auto;
-  aspect-ratio: 664 / 873;
+  aspect-ratio: 664 / 809;
 }
 
 .home--rebuild .collage--figma .collage__item {
@@ -2668,73 +2668,73 @@ main {
 }
 
 .home--rebuild .collage__item--insis {
-  left: 6.02%;
-  top: 3.67%;
-  width: 36.75%;
+  left: 4.2169%;
+  top: 20.5192%;
+  width: 36.747%;
   z-index: 4;
 }
 
 .home--rebuild .collage__item--knob {
-  left: 50.15%;
-  top: 5.96%;
-  width: 14.46%;
-  z-index: 8;
-}
-
-.home--rebuild .collage__item--cups {
-  left: 59.49%;
-  top: 11.91%;
-  width: 32.98%;
-  z-index: 9;
-}
-
-.home--rebuild .collage__item--ribbon {
-  left: 45.78%;
-  top: 19.93%;
-  width: 20.03%;
-  z-index: 8;
-}
-
-.home--rebuild .collage__item--sladonezh {
-  left: 4.22%;
-  top: 22.68%;
-  width: 48.04%;
-  z-index: 4;
-}
-
-.home--rebuild .collage__item--shape {
-  left: 59.79%;
-  top: 41.28%;
-  width: 40.21%;
-  z-index: 6;
-}
-
-.home--rebuild .collage__item--burger {
-  left: 55.72%;
-  top: 44.1%;
-  width: 44.28%;
+  left: 50.1506%;
+  top: 2.4722%;
+  width: 14.4578%;
   z-index: 7;
 }
 
+.home--rebuild .collage__item--cups {
+  left: 59.488%;
+  top: 8.8999%;
+  width: 32.9819%;
+  z-index: 8;
+}
+
+.home--rebuild .collage__item--ribbon {
+  left: 45.7831%;
+  top: 17.5525%;
+  width: 20.0301%;
+  z-index: 6;
+}
+
+.home--rebuild .collage__item--sladonezh {
+  left: 6.0241%;
+  top: 0%;
+  width: 48.0422%;
+  z-index: 3;
+}
+
+.home--rebuild .collage__item--shape {
+  left: 59.7892%;
+  top: 40.5856%;
+  width: 40.2108%;
+  z-index: 1;
+}
+
+.home--rebuild .collage__item--burger {
+  left: 55.7229%;
+  top: 43.6341%;
+  width: 44.2771%;
+  z-index: 5;
+}
+
 .home--rebuild .collage__item--phone-ui {
-  left: 43.67%;
-  top: 44.56%;
-  width: 24.08%;
-  z-index: 10;
+  left: 43.6747%;
+  top: 44.1286%;
+  width: 24.0823%;
+  z-index: 9;
 }
 
 .home--rebuild .collage__item--marshall {
   left: 0%;
-  top: 52.81%;
-  width: 43.07%;
+  top: 53.0284%;
+  width: 43.0723%;
   z-index: 2;
 }
 
 .home--rebuild .collage__item--poster {
-  left: 42.77%;
-  top: 71.59%;
-  width: 17.77%;
-  z-index: 11;
+  left: 42.7711%;
+  top: 73.3004%;
+  width: 17.7711%;
+  z-index: 10;
 }
 
 .home--rebuild .projects--figma.section {
