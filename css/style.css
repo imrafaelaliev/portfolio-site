@@ -2709,6 +2709,13 @@ main {
   z-index: 6;
 }
 
+.home--rebuild .collage__item--burger {
+  left: 55.72%;
+  top: 44.1%;
+  width: 44.28%;
+  z-index: 7;
+}
+
 .home--rebuild .collage__item--phone-ui {
   left: 43.67%;
   top: 44.56%;
