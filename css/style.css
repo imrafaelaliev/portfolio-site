@@ -2658,7 +2658,7 @@ main {
   position: relative;
   width: min(1440px, 100%);
   margin: 0 auto;
-  aspect-ratio: 1440 / 1637;
+  aspect-ratio: 1440 / 1777;
 }
 
 .home--rebuild .collage--figma .collage__item {
@@ -2669,63 +2669,63 @@ main {
 
 .home--rebuild .collage__item--insis {
   left: 9.03%;
-  top: 0%;
+  top: 3.94%;
   width: 34.31%;
   z-index: 4;
 }
 
 .home--rebuild .collage__item--knob {
   left: 50.21%;
-  top: 2.44%;
+  top: 6.19%;
   width: 13.47%;
   z-index: 8;
 }
 
 .home--rebuild .collage__item--cups {
   left: 58.82%;
-  top: 8.86%;
+  top: 12.1%;
   width: 30.76%;
   z-index: 7;
 }
 
 .home--rebuild .collage__item--ribbon {
   left: 46.11%;
-  top: 17.59%;
+  top: 20.15%;
   width: 18.61%;
   z-index: 6;
 }
 
 .home--rebuild .collage__item--sladonezh {
   left: 7.29%;
-  top: 20.53%;
+  top: 22.85%;
   width: 44.86%;
   z-index: 3;
 }
 
 .home--rebuild .collage__item--shape {
   left: 59.17%;
-  top: 40.56%;
+  top: 41.31%;
   width: 37.5%;
   z-index: 1;
 }
 
 .home--rebuild .collage__item--phone-ui {
   left: 44.1%;
-  top: 44.11%;
+  top: 44.57%;
   width: 22.57%;
   z-index: 9;
 }
 
 .home--rebuild .collage__item--marshall {
   left: 3.33%;
-  top: 52.96%;
+  top: 52.73%;
   width: 40.21%;
   z-index: 2;
 }
 
 .home--rebuild .collage__item--poster {
   left: 43.33%;
-  top: 73.37%;
+  top: 71.53%;
   width: 16.46%;
   z-index: 10;
 }
