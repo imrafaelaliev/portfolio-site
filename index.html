@@ -19,10 +19,10 @@
     <script>
       document.documentElement.classList.add('js');
     </script>
-    <link rel="preload" as="image" href="./assets/images/hero-portrait.webp" />
-    <link rel="stylesheet" href="./css/style.css?v=20260317-desktop-fonts-fix-34" />
+    <link rel="preload" as="image" href="./assets/images/home/hero-portrait.png" />
+    <link rel="stylesheet" href="./css/style.css?v=20260323-home-rebuild-1" />
   </head>
-  <body class="home">
+  <body class="home home--rebuild">
     <main>
       <section class="hero hero--figma">
         <div class="container hero__canvas">
@@ -43,11 +43,10 @@
           </div>
 
           <picture>
-            <source media="(max-width: 767px)" srcset="./assets/images/figma/2ded75f9-ac29-4671-890b-5b194c226954.svg" />
             <img
               class="hero__word-art reveal"
               data-reveal-group="hero-intro"
-              src="./assets/images/figma/57cb1941-5ee1-4ae2-b4be-ca122067291d.svg"
+              src="./assets/images/home/hero-word.svg"
               alt="ALIEV R"
               decoding="async"
               fetchpriority="high"
@@ -56,7 +55,7 @@
           <img
             class="hero__portrait reveal"
             data-reveal-group="hero-intro"
-            src="./assets/images/hero-portrait.webp"
+            src="./assets/images/home/hero-portrait.png"
             alt="Портрет Рафаэля Алиева"
             loading="eager"
             decoding="async"
@@ -64,7 +63,6 @@
           />
         </div>
       </section>
-      <div class="block-spacer" aria-hidden="true"></div>
 
       <section id="about" class="section about about--figma">
         <div class="about__canvas">
@@ -75,15 +73,12 @@
             <span class="about__line about__line--with-logo">
               <span class="about__line-chunk">агентстве <span class="about__accent">«восход»</span></span>
               <span class="about__logo-inline" aria-hidden="true">
-                <picture>
-                  <source media="(max-width: 767px)" srcset="./assets/images/figma/ff852cd6-4f67-4583-a774-772a1fb6a976.svg" />
-                  <img
-                    src="./assets/images/figma/5155bf05-0847-4227-8104-68195ef08bfc.svg"
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
+                <img
+                  src="./assets/images/home/about-voshkod.svg"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </span>
               <span class="about__line-chunk">там</span>
             </span>
@@ -94,39 +89,49 @@
 
           <img
             class="about__globe reveal"
-            src="./assets/images/about-globe.gif"
-            alt="Анимированный глобус"
+            src="./assets/images/home/about-globe.png"
+            alt="Глобус"
             loading="lazy"
             decoding="async"
           />
 
           <p class="about__sublead reveal">
-            <span class="about__line">создаю продуктовые интерфейсы</span>
-            <span class="about__line about__line--with-pc">
-              <span class="about__line-chunk">и сложные цифровые</span>
-              <span class="about__pc-icon" aria-hidden="true">
-                <picture>
-                  <source media="(max-width: 767px)" srcset="./assets/images/figma/234c1bb4-aa1a-42ff-b43c-c69e41a853e1.svg" />
-                  <img
-                    src="./assets/images/figma/af494c25-03fe-4ed4-8ffc-6373e085d7b8.svg"
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
+            <span class="about__line">совмещаю упор на сильный ui</span>
+            <span class="about__line about__line--with-search">
+              <span class="about__line-chunk">и продуктовые</span>
+              <span class="about__search-icon" aria-hidden="true">
+                <img
+                  src="./assets/images/home/about-search.svg"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </span>
-              <span class="about__line-chunk">продукты</span>
+              <span class="about__line-chunk">исследования</span>
             </span>
           </p>
         </div>
       </section>
-      <div class="block-spacer" aria-hidden="true"></div>
+
+      <section class="section collage collage--figma" aria-label="Коллаж кейсов">
+        <div class="collage__canvas">
+          <img class="collage__item collage__item--insis reveal" src="./assets/images/home/collage-insis.png" alt="" loading="lazy" decoding="async" />
+          <img class="collage__item collage__item--knob reveal" src="./assets/images/home/collage-knob.png" alt="" loading="lazy" decoding="async" />
+          <img class="collage__item collage__item--cups reveal" src="./assets/images/home/collage-cups.png" alt="" loading="lazy" decoding="async" />
+          <img class="collage__item collage__item--ribbon reveal" src="./assets/images/home/collage-ribbon.png" alt="" loading="lazy" decoding="async" />
+          <img class="collage__item collage__item--sladonezh reveal" src="./assets/images/home/collage-sladonezh.png" alt="" loading="lazy" decoding="async" />
+          <img class="collage__item collage__item--shape reveal" src="./assets/images/home/collage-shape.svg" alt="" loading="lazy" decoding="async" />
+          <img class="collage__item collage__item--phone-ui reveal" src="./assets/images/home/collage-phone-ui.png" alt="" loading="lazy" decoding="async" />
+          <img class="collage__item collage__item--marshall reveal" src="./assets/images/home/collage-marshall.png" alt="" loading="lazy" decoding="async" />
+          <img class="collage__item collage__item--poster reveal" src="./assets/images/home/projects-sticker.png" alt="" loading="lazy" decoding="async" />
+        </div>
+      </section>
 
       <section id="projects" class="section projects projects--figma">
         <div class="projects__canvas">
           <div class="projects__head reveal" aria-hidden="true">
-            <img class="projects__word" src="./assets/images/figma/213dda03-e40e-482a-b1df-96706563defc.svg" alt="" loading="lazy" decoding="async" />
-            <img class="projects__sticker" src="./assets/images/figma/524367c0-10dd-454a-8071-ad3b785e4cf3.webp" alt="" loading="lazy" decoding="async" />
+            <img class="projects__word" src="./assets/images/home/projects-word.svg" alt="" loading="lazy" decoding="async" />
+            <img class="projects__sticker" src="./assets/images/home/projects-sticker.png" alt="" loading="lazy" decoding="async" />
           </div>
 
           <a class="project-item reveal" data-case-link href="./marshall/" aria-label="Открыть кейс MARSHALL">
@@ -210,8 +215,8 @@
         <div class="contacts__canvas">
           <img
             class="contacts__phone reveal"
-            src="./assets/images/contacts-phone.gif"
-            alt="Анимированный телефон"
+            src="./assets/images/home/footer-phone.png"
+            alt="Телефон"
             loading="lazy"
             decoding="async"
           />
@@ -227,13 +232,13 @@
           <a class="contacts__link contacts__link--email reveal" href="mailto:rafaealiev53@gmail.com">email</a>
 
           <div class="contacts__banner reveal" aria-hidden="true">
-            <img class="contacts__banner-bg" src="./assets/images/figma/a460e4f0-6df0-4bc0-b5d4-e2bc38197c5f.webp" alt="" loading="lazy" decoding="async" />
-            <img class="contacts__banner-word" src="./assets/images/figma/349bfdff-d9cf-46ef-8f10-92643d30afd7.svg" alt="" loading="lazy" decoding="async" />
+            <img class="contacts__banner-bg" src="./assets/images/home/footer-bg.png" alt="" loading="lazy" decoding="async" />
+            <img class="contacts__banner-word" src="./assets/images/home/footer-word.svg" alt="" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
     </main>
 
-    <script src="./js/main.js?v=20260317-desktop-fonts-fix-34" defer></script>
+    <script src="./js/main.js?v=20260323-home-rebuild-1" defer></script>
   </body>
 </html>
