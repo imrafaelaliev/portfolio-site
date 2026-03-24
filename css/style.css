@@ -3437,3 +3437,21 @@ main {
     font-size: 22px;
   }
 }
+
+/* Keep About section in normal document flow for home rebuild on all breakpoints. */
+.home.home--rebuild .about--figma .about__lead,
+.home.home--rebuild .about--figma .about__sublead {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  --reveal-base-transform: none;
+}
+
+.home.home--rebuild .about--figma .about__globe {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  --reveal-base-transform: none;
+}
