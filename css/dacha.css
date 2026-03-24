@@ -1,9 +1,25 @@
+.dacha-page .marshall-page__intro {
+  width: 252px;
+}
+
 .dacha-page .marshall-page__hero-preview {
-  aspect-ratio: 664 / 390;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.dacha-page .dacha-page__shot--h374 {
+  height: 374px;
+  object-fit: cover;
+}
+
+.dacha-page .dacha-page__section--design {
+  gap: 32px;
 }
 
 .dacha-page .dacha-page__design-groups {
-  margin-top: 32px;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -12,9 +28,21 @@
 .dacha-page .dacha-page__design-group {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .dacha-page .dacha-page__design-group .marshall-page__shot {
   margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+  .dacha-page .dacha-page__shot--h374 {
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .dacha-page .marshall-page__intro {
+    width: min(294px, calc(100vw - 32px));
+  }
 }

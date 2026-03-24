@@ -2549,21 +2549,26 @@ main {
 }
 
 .home--rebuild .about--figma.section {
-  padding: 0;
+  padding: 180px 0 0;
 }
 
 .home--rebuild .about--figma .about__canvas {
   position: relative;
-  width: min(1440px, 100%);
-  height: 1033px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  width: min(680px, calc(100% - 56px));
+  min-height: 0;
+  padding-top: 32px;
   margin: 0 auto;
 }
 
 .home--rebuild .about__lead,
 .home--rebuild .about__sublead {
-  position: absolute;
-  left: 50%;
-  width: 540px;
+  position: relative;
+  left: auto;
+  width: 680px;
   margin: 0;
   color: #070707;
   font-family: "Kommuna Narrow", "Times New Roman", serif;
@@ -2572,16 +2577,17 @@ main {
   letter-spacing: -0.96px;
   text-transform: uppercase;
   text-align: center;
-  --reveal-base-transform: translateX(-50%);
-  transform: translateX(-50%);
+  --reveal-base-transform: none;
+  transform: none;
 }
 
 .home--rebuild .about__lead {
-  top: 168px;
+  top: auto;
 }
 
 .home--rebuild .about__sublead {
-  top: 927px;
+  top: auto;
+  width: 540px;
 }
 
 .home--rebuild .about__line {
@@ -2627,7 +2633,7 @@ main {
 .home--rebuild .about__search-icon {
   display: inline-flex;
   width: 32px;
-  height: 32px;
+  height: 32.269px;
   align-items: center;
   justify-content: center;
   margin: 0 0.04ch;
@@ -2636,18 +2642,19 @@ main {
 
 .home--rebuild .about__search-icon img {
   width: 32px;
-  height: 32px;
+  height: 32.269px;
 }
 
 .home--rebuild .about__globe {
-  position: absolute;
-  top: 571px;
-  left: 50%;
+  position: relative;
+  top: auto;
+  left: auto;
   width: 324px;
   height: 324px;
+  margin: 0;
   object-fit: cover;
-  --reveal-base-transform: translateX(-50%);
-  transform: translateX(-50%);
+  --reveal-base-transform: none;
+  transform: none;
 }
 
 .home--rebuild .collage--figma.section {
@@ -2656,15 +2663,16 @@ main {
 
 .home--rebuild .collage--figma .collage__canvas {
   position: relative;
-  width: min(664px, calc(100% - 56px));
+  width: min(680px, calc(100% - 56px));
   margin: 0 auto;
-  aspect-ratio: 664 / 860;
+  aspect-ratio: 680 / 1185;
 }
 
 .home--rebuild .collage--figma .collage__flat {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .home--rebuild .projects--figma.section {
@@ -2672,16 +2680,16 @@ main {
 }
 
 .home--rebuild .projects--figma .projects__canvas {
-  width: min(664px, calc(100% - 56px));
+  width: min(680px, calc(100% - 56px));
   margin: 0 auto;
 }
 
 .home--rebuild .projects--figma .projects__head {
   position: relative;
-  width: 664px;
+  width: 680px;
   max-width: 100%;
-  height: 400px;
-  margin: 0 auto 80px;
+  height: 410px;
+  margin: 0 auto 75px;
 }
 
 .home--rebuild .projects--figma .projects__word {
@@ -2694,8 +2702,8 @@ main {
 
 .home--rebuild .projects--figma .projects__sticker {
   position: absolute;
-  left: 165px;
-  top: 28px;
+  left: 173px;
+  top: 33.5px;
   width: 333px;
   height: 333px;
   object-fit: cover;
@@ -2703,7 +2711,7 @@ main {
 
 .home--rebuild .projects--figma .project-item {
   display: block;
-  width: 664px;
+  width: 680px;
   max-width: 100%;
   color: #070707;
   text-decoration: none;
@@ -2722,8 +2730,8 @@ main {
 .home--rebuild .projects--figma .project-item__title {
   margin: 24px 0 0;
   font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 32px;
-  line-height: 1.1;
+  font-size: 24px;
+  line-height: 1.2;
   font-weight: 400;
 }
 
@@ -2819,8 +2827,8 @@ main {
 .home--rebuild .contacts--figma .contacts__banner {
   position: absolute;
   top: 631px;
-  left: calc(50% - 332px);
-  width: 664px;
+  left: calc(50% - 340px);
+  width: 680px;
   height: 415px;
   overflow: hidden;
 }
@@ -2842,6 +2850,112 @@ main {
 }
 
 .js .home--rebuild .contacts--figma .contacts__link.reveal {
+  --reveal-base-transform: translateX(-50%);
+}
+
+.contacts--figma.contacts--shared.section {
+  padding: 100px 0 0;
+}
+
+.marshall-page .marshall-page__footer {
+  display: none !important;
+}
+
+.contacts--figma.contacts--shared .contacts__canvas {
+  position: relative;
+  width: min(1440px, 100%);
+  height: 1078px;
+  margin: 0 auto;
+}
+
+.contacts--figma.contacts--shared .contacts__phone {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 480px;
+  height: 480px;
+  object-fit: cover;
+  --reveal-base-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.contacts--figma.contacts--shared .contacts__link {
+  position: absolute;
+  display: inline-flex;
+  width: max-content;
+  top: 580px;
+  transform: translateX(-50%);
+  color: #070707;
+  font-family: "Kommuna Narrow", "Times New Roman", serif;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.contacts--figma.contacts--shared .contacts__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.contacts--figma.contacts--shared .contacts__link:hover::after,
+.contacts--figma.contacts--shared .contacts__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.contacts--figma.contacts--shared .contacts__link:hover,
+.contacts--figma.contacts--shared .contacts__link:focus-visible {
+  opacity: 0.72;
+}
+
+.contacts--figma.contacts--shared .contacts__link--telegram {
+  left: calc(50% - 282.5px);
+}
+
+.contacts--figma.contacts--shared .contacts__link--linkedin {
+  left: calc(50% + 18.5px);
+}
+
+.contacts--figma.contacts--shared .contacts__link--email {
+  left: calc(50% + 301px);
+}
+
+.contacts--figma.contacts--shared .contacts__banner {
+  position: absolute;
+  top: 631px;
+  left: calc(50% - 340px);
+  width: 680px;
+  height: 415px;
+  overflow: hidden;
+}
+
+.contacts--figma.contacts--shared .contacts__banner-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contacts--figma.contacts--shared .contacts__banner-word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 328.048px;
+  height: 363.619px;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+}
+
+.js .contacts--figma.contacts--shared .contacts__link.reveal {
   --reveal-base-transform: translateX(-50%);
 }
 
@@ -2967,7 +3081,7 @@ main {
   .home--rebuild .about__search-icon,
   .home--rebuild .about__search-icon img {
     width: 32px;
-    height: 32px;
+    height: 32.269px;
   }
 
   .home--rebuild .collage--figma.section {
@@ -2975,7 +3089,7 @@ main {
   }
 
   .home--rebuild .collage--figma .collage__canvas {
-    width: min(664px, calc(100% - 64px));
+    width: min(680px, calc(100% - 64px));
   }
 
   .home--rebuild .projects--figma.section {
@@ -2988,14 +3102,14 @@ main {
 
   .home--rebuild .projects--figma .projects__head {
     height: auto;
-    aspect-ratio: 664 / 400;
+    aspect-ratio: 680 / 410;
     margin-bottom: 56px;
   }
 
   .home--rebuild .projects--figma .projects__sticker {
-    left: 24.85%;
-    top: 7%;
-    width: 50.15%;
+    left: 25.44%;
+    top: 8.12%;
+    width: 48.97%;
     height: auto;
     aspect-ratio: 1 / 1;
   }
@@ -3069,12 +3183,76 @@ main {
     top: auto;
     width: 100%;
     height: auto;
-    aspect-ratio: 664 / 415;
+    aspect-ratio: 680 / 415;
     grid-column: 1 / -1;
   }
 
   .home--rebuild .contacts--figma .contacts__banner-word {
-    width: 49.41%;
+    width: 48.24%;
+    height: 87.62%;
+  }
+
+  .contacts--figma.contacts--shared.section {
+    padding-top: 84px;
+  }
+
+  .contacts--figma.contacts--shared .contacts__canvas {
+    width: min(840px, calc(100% - 64px));
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 18px;
+    align-items: center;
+  }
+
+  .contacts--figma.contacts--shared .contacts__phone,
+  .contacts--figma.contacts--shared .contacts__link {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    --reveal-base-transform: none;
+  }
+
+  .contacts--figma.contacts--shared .contacts__phone {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(460px, 60vw);
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .contacts--figma.contacts--shared .contacts__link {
+    justify-self: center;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+  }
+
+  .contacts--figma.contacts--shared .contacts__link--telegram {
+    grid-column: 1;
+  }
+
+  .contacts--figma.contacts--shared .contacts__link--linkedin {
+    grid-column: 2;
+  }
+
+  .contacts--figma.contacts--shared .contacts__link--email {
+    grid-column: 3;
+  }
+
+  .contacts--figma.contacts--shared .contacts__banner {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 680 / 415;
+    grid-column: 1 / -1;
+  }
+
+  .contacts--figma.contacts--shared .contacts__banner-word {
+    width: 48.24%;
     height: 87.62%;
   }
 }
@@ -3170,7 +3348,7 @@ main {
   .home--rebuild .about__search-icon,
   .home--rebuild .about__search-icon img {
     width: 28px;
-    height: 28px;
+    height: 28.235px;
   }
 
   .home--rebuild .about__globe {
@@ -3184,7 +3362,7 @@ main {
   }
 
   .home--rebuild .collage--figma .collage__canvas {
-    width: min(664px, calc(100% - 30px));
+    width: min(680px, calc(100% - 30px));
   }
 
   .home--rebuild .projects--figma.section {
@@ -3197,14 +3375,14 @@ main {
 
   .home--rebuild .projects--figma .projects__head {
     height: auto;
-    aspect-ratio: 664 / 400;
+    aspect-ratio: 680 / 410;
     margin-bottom: 34px;
   }
 
   .home--rebuild .projects--figma .projects__sticker {
-    left: 24.85%;
-    top: 7%;
-    width: 50.15%;
+    left: 25.44%;
+    top: 8.12%;
+    width: 48.97%;
     height: auto;
   }
 
@@ -3238,6 +3416,24 @@ main {
   }
 
   .home--rebuild .contacts--figma .contacts__link {
+    font-size: 22px;
+  }
+
+  .contacts--figma.contacts--shared.section {
+    padding-top: 72px;
+  }
+
+  .contacts--figma.contacts--shared .contacts__canvas {
+    width: min(664px, calc(100% - 30px));
+    column-gap: 10px;
+    row-gap: 14px;
+  }
+
+  .contacts--figma.contacts--shared .contacts__phone {
+    width: min(420px, 84vw);
+  }
+
+  .contacts--figma.contacts--shared .contacts__link {
     font-size: 22px;
   }
 }

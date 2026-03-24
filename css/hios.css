@@ -1,3 +1,98 @@
 .hios-page .marshall-page__section .marshall-page__text + .marshall-page__text {
-  margin-top: 12px;
+  margin-top: 0;
+}
+
+.hios-page .hios-page__hero {
+  width: 680px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.hios-page .hios-page__shot {
+  display: block;
+  object-fit: cover;
+}
+
+.hios-page .hios-page__shot--about {
+  width: 664px;
+  height: 400px;
+}
+
+.hios-page .hios-page__shot--os-analysis {
+  width: 680px;
+  height: 374px;
+}
+
+.hios-page .hios-page__shot--research {
+  width: 664px;
+  height: 374px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.hios-page .hios-page__shot--cultural {
+  width: 680px;
+  height: 382px;
+}
+
+.hios-page .hios-page__shot--concept-v1,
+.hios-page .hios-page__shot--concept-v1-phone {
+  width: 680px;
+  height: 374px;
+}
+
+.hios-page .hios-page__shot--concept-v2-main {
+  width: 664px;
+  height: 400px;
+}
+
+.hios-page .hios-page__shot--concept-v2-grid,
+.hios-page .hios-page__shot--concept-v2-shot,
+.hios-page .hios-page__shot--concept-v2-phone {
+  width: 680px;
+  height: 382px;
+}
+
+.hios-page .hios-page__shot--result {
+  width: 680px;
+  height: 446px;
+}
+
+@media (max-width: 767px) {
+  .hios-page .hios-page__hero {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 680 / 400;
+  }
+
+  .hios-page .hios-page__shot--about,
+  .hios-page .hios-page__shot--concept-v2-main {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 664 / 400;
+  }
+
+  .hios-page .hios-page__shot--os-analysis,
+  .hios-page .hios-page__shot--research,
+  .hios-page .hios-page__shot--concept-v1,
+  .hios-page .hios-page__shot--concept-v1-phone {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 680 / 374;
+  }
+
+  .hios-page .hios-page__shot--cultural,
+  .hios-page .hios-page__shot--concept-v2-grid,
+  .hios-page .hios-page__shot--concept-v2-shot,
+  .hios-page .hios-page__shot--concept-v2-phone {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 680 / 382;
+  }
+
+  .hios-page .hios-page__shot--result {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 680 / 446;
+  }
 }

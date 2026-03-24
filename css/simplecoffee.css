@@ -1,3 +1,36 @@
+.simplecoffee-page .marshall-page__intro {
+  width: 252px;
+}
+
+.simplecoffee-page .marshall-page__subtitle,
+.simplecoffee-page .marshall-page__role {
+  line-height: 1.2;
+}
+
 .simplecoffee-page .marshall-page__hero-preview {
-  aspect-ratio: 664 / 390;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.simplecoffee-page .simplecoffee-page__shot--h400 {
+  height: 400px;
+  object-fit: cover;
+}
+
+@media (max-width: 1199px) {
+  .simplecoffee-page .marshall-page__hero-preview {
+    height: auto;
+  }
+
+  .simplecoffee-page .simplecoffee-page__shot--h400 {
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .simplecoffee-page .marshall-page__intro {
+    width: min(294px, calc(100vw - 32px));
+  }
 }

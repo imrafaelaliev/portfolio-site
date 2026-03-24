@@ -1,18 +1,34 @@
+.lori-page .marshall-page__intro {
+  width: 252px;
+}
+
+.lori-page .marshall-page__subtitle,
+.lori-page .marshall-page__role {
+  line-height: 1.2;
+}
+
+.lori-page .marshall-page__hero-preview {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
 .lori-page .marshall-page__section .marshall-page__text + .marshall-page__text {
-  margin-top: 12px;
+  margin-top: 0;
 }
 
 .lori-page .marshall-page__section .marshall-page__list + .marshall-page__text {
-  margin-top: 12px;
+  margin-top: 0;
 }
 
 .lori-page__stages {
-  margin-top: 16px;
+  margin: 0;
   width: 550px;
   max-width: 100%;
   color: #070707;
   font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -26,7 +42,7 @@
 }
 
 .lori-page__audience-card {
-  margin-top: 16px;
+  margin: 0;
   width: 432px;
   max-width: 100%;
   padding: 16px;
@@ -58,7 +74,7 @@
 }
 
 .lori-page__insight {
-  margin-top: 16px;
+  margin: 0;
   width: 550px;
   max-width: 100%;
 }
@@ -68,7 +84,7 @@
   margin: 0;
   color: #070707;
   font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -83,31 +99,78 @@
   justify-content: center;
 }
 
+.lori-page .marshall-page__end-links {
+  width: auto;
+}
+
+.lori-page .marshall-page__end-link {
+  min-width: max-content;
+  flex: 0 0 auto;
+}
+
+.lori-page .marshall-page__end-link:first-child,
+.lori-page .marshall-page__end-link:last-child {
+  width: auto;
+}
+
 .lori-page__behance-icon {
   width: 20px;
   height: 20px;
   display: block;
 }
 
-.lori-page__shot--w665 {
-  width: 665px;
+.lori-page__shot--narrow {
+  width: 680px;
   max-width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.lori-page__shot--h416 {
+  height: 416px;
+  object-fit: cover;
+}
+
+.lori-page__shot--h424 {
+  height: 424px;
+  object-fit: cover;
+}
+
+.lori-page__shot--h526 {
+  height: 526px;
+  object-fit: cover;
+}
+
+.lori-page__shot--h374 {
+  height: 374px;
+  object-fit: cover;
+}
+
+.lori-page__shot--h544 {
+  height: 544px;
+  object-fit: cover;
 }
 
 @media (max-width: 1199px) {
   .lori-page__audience-card,
-  .lori-page__shot--w665 {
+  .lori-page__shot--narrow {
     width: 100%;
+  }
+
+  .lori-page .marshall-page__hero-preview,
+  .lori-page__shot--narrow,
+  .lori-page__shot--h416,
+  .lori-page__shot--h424,
+  .lori-page__shot--h526,
+  .lori-page__shot--h374,
+  .lori-page__shot--h544 {
+    height: auto;
   }
 }
 
-@media (min-width: 1200px) {
-  .lori-page__stages,
-  .lori-page__audience-title,
-  .lori-page__audience-text,
-  .lori-page__audience-list,
-  .lori-page__insight-title,
-  .lori-page__insight-text {
-    font-size: 20px;
+@media (max-width: 767px) {
+  .lori-page .marshall-page__intro {
+    width: min(294px, calc(100vw - 32px));
   }
 }

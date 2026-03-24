@@ -1,3 +1,47 @@
+.nl-page .marshall-page__intro {
+  width: 252px;
+}
+
+.nl-page .marshall-page__subtitle,
+.nl-page .marshall-page__role {
+  line-height: 1.2;
+}
+
 .nl-page .marshall-page__hero-preview {
-  aspect-ratio: 664 / 390;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.nl-page .nl-page__shot--h834 {
+  height: 834px;
+  object-fit: cover;
+}
+
+.nl-page .nl-page__shot--h400 {
+  height: 400px;
+  object-fit: cover;
+}
+
+.nl-page .nl-page__section-title--small {
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+@media (max-width: 1199px) {
+  .nl-page .marshall-page__hero-preview {
+    height: auto;
+  }
+
+  .nl-page .nl-page__shot--h834,
+  .nl-page .nl-page__shot--h400 {
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .nl-page .marshall-page__intro {
+    width: min(294px, calc(100vw - 32px));
+  }
 }

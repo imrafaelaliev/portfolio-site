@@ -1,3 +1,40 @@
+.tochka-page .marshall-page__intro {
+  width: 252px;
+}
+
+.tochka-page .marshall-page__subtitle,
+.tochka-page .marshall-page__role {
+  line-height: 1.2;
+}
+
 .tochka-page .marshall-page__hero-preview {
-  aspect-ratio: 664 / 390;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.tochka-page .tochka-page__section--cjm {
+  gap: 16px;
+}
+
+.tochka-page .tochka-page__shot--h324 {
+  height: 324px;
+  object-fit: cover;
+}
+
+@media (max-width: 1199px) {
+  .tochka-page .marshall-page__hero-preview {
+    height: auto;
+  }
+
+  .tochka-page .tochka-page__shot--h324 {
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .tochka-page .marshall-page__intro {
+    width: min(294px, calc(100vw - 32px));
+  }
 }
