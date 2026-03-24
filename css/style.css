@@ -2408,7 +2408,7 @@ main {
 .home--rebuild .hero--figma .hero__brand {
   position: fixed;
   top: 32px;
-  left: 48px;
+  left: 32px;
   width: 204px;
   margin: 0;
   color: #070707;
@@ -2421,7 +2421,7 @@ main {
 .home--rebuild .hero--figma .hero__actions {
   position: fixed;
   top: 32px;
-  right: 48px;
+  right: 32px;
   left: auto;
   display: flex;
   align-items: center;
@@ -2506,7 +2506,7 @@ main {
 .home--rebuild .hero--figma .hero__side-nav {
   position: fixed;
   bottom: 32px;
-  left: 48px;
+  left: 32px;
   top: auto;
   width: max-content;
   display: flex;
