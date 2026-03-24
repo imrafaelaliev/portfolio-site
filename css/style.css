@@ -2388,6 +2388,28 @@ main {
   overflow-x: clip;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .home--rebuild img[data-pixel-hover-target='1'] {
+    transition: transform 0.12s ease;
+  }
+
+  .home--rebuild .pixel-hover-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.09s linear;
+    image-rendering: pixelated;
+    filter: contrast(1.03);
+    transform: translateZ(0);
+    will-change: left, top, width, height, clip-path, opacity;
+  }
+}
+
 .home--rebuild .section {
   padding: 0;
 }
