@@ -747,7 +747,7 @@
   .marshall-page__back {
     position: fixed;
     top: auto;
-    left: 32px;
+    left: 16px;
     bottom: 32px;
     margin: 0;
     align-self: flex-start;
@@ -850,6 +850,10 @@
 @media (max-width: 479px) {
   .marshall-page__main {
     width: min(960px, calc(100% - 24px));
+  }
+
+  .marshall-page__back {
+    left: 12px;
   }
 }
 
