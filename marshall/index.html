@@ -10,9 +10,9 @@
       name="description"
       content="Кейс MARSHALL: продуктовый сайт производителя автозапчастей, задача, цели проекта, результат и роль."
     />
-    <link rel="preload" as="image" href="../assets/images/marshall/hero-preview.png" />
+    <link rel="preload" as="image" href="../assets/images/marshall/hero-preview.webp" />
     <link rel="stylesheet" href="../css/style.css?v=20260317-desktop-fonts-fix-34" />
-    <link rel="stylesheet" href="../css/marshall.css?v=20260317-desktop-fonts-fix-34" />
+    <link rel="stylesheet" href="../css/marshall.css?v=20260324-marshall-update-1" />
   </head>
   <body class="marshall-page">
     <main class="marshall-page__main">
@@ -77,7 +77,7 @@
             <article class="marshall-page__triad-item">
               <h3 class="marshall-page__triad-title">Результат</h3>
               <p class="marshall-page__triad-text">
-                3 сайта объединены<br />
+                3 сайта → 1 сервис<br />
                 67 экранов<br />
                 UI kit на 220 компонентов
               </p>
@@ -89,18 +89,29 @@
           <h2 class="marshall-page__section-title">О проекте</h2>
           <p class="marshall-page__text">
             Компания MARSHALL — производитель и дистрибьютор автозапчастей. У компании было три
-            отдельных сайта: корпоративный, интернет-магазин бренда и магазин дистрибьютора. Это
-            создавало проблемы: пользователи путались между сайтами, путь покупки был сложным, а
-            интерфейсы не были едиными.
+            отдельных сайта: корпоративный, интернет-магазин бренда и магазин дистрибьютора.
           </p>
+          <p class="marshall-page__text">Это создавало проблемы:</p>
+          <ul class="marshall-page__list">
+            <li>пользователи путались между сайтами</li>
+            <li>сложный путь покупки</li>
+            <li>разные интерфейсы.</li>
+          </ul>
         </section>
+        <img
+          class="marshall-page__shot"
+          src="../assets/images/marshall/about-visual.png"
+          alt="Старый интерфейс MARSHALL до обновления"
+          loading="lazy"
+          decoding="async"
+        />
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Задача</h2>
           <p class="marshall-page__text">
             Клиент обратился с нетривиальной задачей: объединить три старых сайта в один большой.
-            Итогом работы должен был стать продукт, который объединяет корпоративный сайт,
-            интернет-магазин и личный кабинет.
+            Итогом работы должен стать продукт, объединяющий в себе корпоративный сайт,
+            интернет-магазин и личный кабинет. Подробнее про три существующих сайта:
           </p>
         </section>
 
@@ -115,8 +126,8 @@
           />
           <p class="marshall-page__text">
             MARSHALL является не только производителем собственного бренда автозапчастей, но и
-            дистрибьютором запчастей других производителей. Это направление работало на отдельном
-            сайте «Корона Авто».
+            дистрибьютором запчастей других производителей. Это дистрибьюторство осуществляется на
+            отдельном сайте «Корона Авто». Тут продаются запчасти MARSHALL и других брендов.
           </p>
         </section>
 
@@ -131,8 +142,8 @@
           />
           <p class="marshall-page__text">
             Еще один интернет-магазин, но уже для продажи запчастей только собственного
-            производства. Он выглядел современнее и давал более качественный UX по сравнению с
-            «Короной Авто».
+            производства. Обладает более современным дизайном и качественным UX по сравнению с
+            «Корона Авто».
           </p>
         </section>
 
@@ -146,47 +157,52 @@
             decoding="async"
           />
           <p class="marshall-page__text">
-            Этот сайт рассказывал о компании и направлениях работы. Он был полезен для знакомства с
-            брендом, но не решал задачи покупки.
+            Сайт, который рассказывает о деятельности компании и направлениях работы. Будет ценен
+            для тех, кто хочет просто узнать о MARSHALL как о бренде, заказ на этом сайте
+            невозможен. Судя по всему, сделан по готовому шаблону.
           </p>
         </section>
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Проблемы, возникшие из-за такой структуры</h2>
           <ul class="marshall-page__list">
-            <li>Пользователи путались между сайтами</li>
-            <li>Путь покупки был длинным и неудобным</li>
-            <li>UX устарел и не соответствовал ожиданиям рынка</li>
-            <li>Отсутствовала единая продуктовая логика</li>
+            <li>пользователи путались между сайтами</li>
+            <li>сложный путь покупки</li>
+            <li>устаревший UX</li>
+            <li>отсутствие единой продуктовой логики.</li>
           </ul>
         </section>
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Цели проекта</h2>
           <ul class="marshall-page__list">
-            <li>Объединить три сайта в один продукт</li>
-            <li>Четко разделить направления деятельности компании</li>
-            <li>Показать масштаб бренда и производства</li>
-            <li>Улучшить пользовательский путь оформления заказа</li>
-            <li>Сделать сайт удобным для конечных покупателей и для бизнеса</li>
+            <li>объединить три сайта в один продукт</li>
+            <li>четко разделить направления деятельности компании</li>
+            <li>показать масштаб бренда и производства</li>
+            <li>улучшить пользовательский путь оформления заказа</li>
+            <li>сделать сайт удобным как для конечных покупателей, так и для бизнеса</li>
           </ul>
         </section>
-
         <img
           class="marshall-page__shot"
-          src="../assets/images/marshall/structure-mobile.png"
-          alt="Структура и мобильные экраны продукта"
+          src="../assets/images/marshall/goals-visual.png"
+          alt="Мобильные экраны обновленного продукта"
           loading="lazy"
           decoding="async"
         />
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Мои обязанности</h2>
-          <p class="marshall-page__text">
-            Я отвечал за продуктовую часть проекта: анализ конкурентов и рынка, сегментацию
-            аудитории, пересборку структуры продукта, проектирование сценариев, прототипирование 67
-            экранов, дизайн интерфейса и создание UI Kit.
-          </p>
+          <p class="marshall-page__text">Я отвечал за продуктовую часть проекта:</p>
+          <ul class="marshall-page__list">
+            <li>анализ конкурентов и рынка</li>
+            <li>сегментацию аудитории</li>
+            <li>пересборку структуры продукта</li>
+            <li>проектирование пользовательских сценариев</li>
+            <li>прототипирование 67 экранов</li>
+            <li>дизайн интерфейса</li>
+            <li>создание UI kit.</li>
+          </ul>
         </section>
 
         <section class="marshall-page__section">
@@ -198,24 +214,44 @@
             loading="lazy"
             decoding="async"
           />
-          <ul class="marshall-page__list">
-            <li>Владельцы магазинов автозапчастей</li>
-            <li>Дистрибьюторы</li>
-            <li>Автолюбители</li>
-            <li>Владельцы автосервисов</li>
-          </ul>
+          <p class="marshall-page__text">Я выделил несколько ключевых сегментов пользователей:</p>
+          <p class="marshall-page__text">1. Владельцы магазинов автозапчастей</p>
           <p class="marshall-page__text">
-            Главные барьеры аудитории: недоверие к новым поставщикам, страх получить некачественный
-            товар, сложность поиска нужной детали и непрозрачная информация о наличии.
+            Основные клиенты компании. Важны гибкие условия сотрудничества и прозрачная система
+            скидок.
           </p>
+          <p class="marshall-page__text">2. Дистрибьюторы</p>
+          <p class="marshall-page__text">Ищут надежного производителя и стабильные поставки.</p>
+          <p class="marshall-page__text">3. Автолюбители</p>
+          <p class="marshall-page__text">
+            Хотят быстро подобрать качественную деталь по разумной цене.
+          </p>
+          <p class="marshall-page__text">4. Владельцы автосервисов</p>
+          <p class="marshall-page__text">Ценят надежность деталей и скорость поставки.</p>
+          <p class="marshall-page__text">Главные барьеры аудитории:</p>
+          <ul class="marshall-page__list">
+            <li>недоверие к новым поставщикам</li>
+            <li>страх получить некачественный товар</li>
+            <li>сложность поиска нужной детали</li>
+            <li>отсутствие прозрачной информации о наличии товара</li>
+          </ul>
         </section>
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Исследование рынка</h2>
           <p class="marshall-page__text">
-            Мы изучили сайты основных игроков рынка: Brembo, Trialli, Luzar. Типичные проблемы
-            индустрии: устаревший визуал, перегруженные карточки товара, слабая навигация и
-            неудобный поиск.
+            Мы изучили сайты основных игроков рынка: Brembo, Trialli, Luzar.
+          </p>
+          <p class="marshall-page__text">Типичные проблемы индустрии:</p>
+          <ul class="marshall-page__list">
+            <li>устаревший дизайн</li>
+            <li>перегруженные карточки товара</li>
+            <li>слабая навигация</li>
+            <li>отсутствие удобного поиска.</li>
+          </ul>
+          <p class="marshall-page__text">
+            При разработке интерфейса мы также ориентировались на лучшие практики крупных
+            e-commerce сервисов (Ozon, Lamoda, Яндекс Маркет).
           </p>
           <img
             class="marshall-page__shot"
@@ -228,20 +264,31 @@
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Инсайты после исследований</h2>
-          <ul class="marshall-page__list">
-            <li>Пользователи привыкли искать детали по артикулу</li>
-            <li>Карточки товаров в нише часто перегружены информацией</li>
-            <li>Существенная доля аудитории покупает оптом</li>
-          </ul>
+          <p class="marshall-page__text">После исследования мы выделили три ключевых инсайта:</p>
+          <ol class="marshall-page__ordered-list">
+            <li>пользователи привыкли искать детали по артикулу</li>
+            <li>карточки товаров в нише перегружены информацией</li>
+            <li>многие пользователи покупают оптом.</li>
+          </ol>
         </section>
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Структура продукта</h2>
           <p class="marshall-page__text">
-            На основе анализа была полностью пересобрана структура сайта. Мы разработали новую mind
-            map продукта, которая объединила корпоративный сайт, магазин и личный кабинет в единую
-            систему.
+            На основе анализа была полностью пересобрана структура сайта.
           </p>
+          <p class="marshall-page__text">
+            Мы разработали новую mind map продукта, которая позволила объединить корпоративный сайт,
+            магазин и личный кабинет в единую систему.
+          </p>
+          <p class="marshall-page__text">После согласования структуры я приступил к прототипированию.</p>
+          <img
+            class="marshall-page__shot"
+            src="../assets/images/marshall/product-structure.png"
+            alt="Схема объединения трех сайтов в один сервис"
+            loading="lazy"
+            decoding="async"
+          />
         </section>
 
         <section class="marshall-page__section">
@@ -250,20 +297,35 @@
             <article class="marshall-page__solutions-item">
               <h3 class="marshall-page__subheading">Новая карточка товара</h3>
               <p class="marshall-page__solutions-text">
-                На старом сайте карточка выглядела как список характеристик, что усложняло
-                восприятие.
+                Самая важная часть сайта. Одно ее изменение способно увеличить средний чек и
+                повысить конверсию в корзину.
+              </p>
+              <p class="marshall-page__solutions-text">
+                На старом сайте карточка была перегружена информацией и имела непривычный вид. Было
+                ощущение, что ты уже в корзине, а не на карточке. Для теста мы попросили небольшую
+                группу людей оформить заказ на сайте «Корона Авто». Для этого заказчик предоставил
+                нам тестовые аккаунты.
+              </p>
+              <p class="marshall-page__solutions-text">
+                При открытии карточки товара, пользователям потребовалось время, чтобы
+                сориентироваться куда они попали. До целевого действия (Добавление в корзину)
+                требовалось от 15 до 20 секунд.
               </p>
               <p class="marshall-page__solutions-text">Я предложил более понятную структуру:</p>
               <ul class="marshall-page__solutions-list">
-                <li>Изображение товара</li>
-                <li>Ключевые характеристики</li>
-                <li>Цена и покупка</li>
-                <li>Способы доставки</li>
+                <li>изображение товара</li>
+                <li>ключевые характеристики</li>
+                <li>цена и покупка</li>
+                <li>способы доставки.</li>
               </ul>
               <p class="marshall-page__solutions-text">
+                В обновленном варианте карточка имеет более понятный и привычный для пользователя
+                вид, поэтому нам удалось сократить время ЦД до 8 секунд.
+              </p>
+              <p class="marshall-page__solutions-text">
                 Клиент привык к старому формату карточки товара и сначала не принял новый вариант.
-                После серии обсуждений и аргументации UX-паттернами из e-commerce решение было
-                согласовано.
+                После серии обсуждений и аргументации UX-паттернами из e-commerce аналогов, решение
+                было согласовано.
               </p>
               <img
                 class="marshall-page__shot"
@@ -272,15 +334,21 @@
                 loading="lazy"
                 decoding="async"
               />
+              <p class="marshall-page__solutions-metric">Добавление в корзину: 20 секунд → 8 секунд</p>
             </article>
 
             <article class="marshall-page__solutions-item">
               <h3 class="marshall-page__subheading">Ускорение покупки</h3>
+              <p class="marshall-page__solutions-text">
+                Путем исследования мы поняли, что большое количество пользователей уже «на
+                автомате» оформляют заказ. Поэтому нужно сократить флоу от карточки до оформленного
+                заказа.
+              </p>
               <p class="marshall-page__solutions-text">Чтобы сократить путь покупки, я добавил:</p>
               <ul class="marshall-page__solutions-list">
-                <li>Выбор способа доставки прямо в карточке товара</li>
-                <li>Гибкую настройку доставки для каждого товара</li>
-                <li>Трехэтапный процесс оформления заказа</li>
+                <li>выбор способа доставки прямо в карточке товара</li>
+                <li>гибкую настройку доставки для каждого товара</li>
+                <li>трехэтапный процесс оформления заказа.</li>
               </ul>
               <img
                 class="marshall-page__shot"
@@ -296,6 +364,22 @@
                 loading="lazy"
                 decoding="async"
               />
+              <p class="marshall-page__solutions-metric">Флоу до покупки: 5 действий → 3 действия</p>
+            </article>
+
+            <article class="marshall-page__solutions-item">
+              <h3 class="marshall-page__subheading">Прозрачная информация о наличии</h3>
+              <p class="marshall-page__solutions-text">
+                Информация о наличии доступна прямо в карточке товара. Достаточно нажать кнопку и
+                откроется большой попап с подробной информацией.
+              </p>
+              <img
+                class="marshall-page__shot"
+                src="../assets/images/marshall/solution-stock.png"
+                alt="Попап с наличием и условиями доставки"
+                loading="lazy"
+                decoding="async"
+              />
             </article>
           </div>
         </section>
@@ -304,19 +388,26 @@
           <h2 class="marshall-page__section-title">Дизайн</h2>
           <p class="marshall-page__text">
             Мы разработали три концепции интерфейса. Клиент выбрал концепт в bento-стиле, который
-            легко масштабируется на разные разделы сайта.
+            легко масштабируется на разные разделы сайта. Тем не менее, мы использовали и
+            «смелые» решения с необычной версткой и повествованием.
           </p>
           <img class="marshall-page__shot" src="../assets/images/marshall/design-1.png" alt="Дизайн-концепция 1" loading="lazy" decoding="async" />
           <img class="marshall-page__shot" src="../assets/images/marshall/design-2.png" alt="Дизайн-концепция 2" loading="lazy" decoding="async" />
           <img class="marshall-page__shot" src="../assets/images/marshall/design-3.png" alt="Дизайн-концепция 3" loading="lazy" decoding="async" />
+          <img class="marshall-page__shot" src="../assets/images/marshall/design-4.png" alt="Дизайн-концепция 4" loading="lazy" decoding="async" />
+          <img class="marshall-page__shot" src="../assets/images/marshall/design-5.png" alt="Дизайн-концепция 5" loading="lazy" decoding="async" />
         </section>
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">UI Kit</h2>
           <p class="marshall-page__text">
-            Для передачи макетов разработчикам я собрал UI Kit на 220 элементов: компоненты,
-            состояния, интеракции и анимации.
+            Для передачи макетов разработчикам я создал UI kit из 220 элементов, включающий:
           </p>
+          <ul class="marshall-page__list">
+            <li>компоненты интерфейса</li>
+            <li>состояния элементов</li>
+            <li>интеракции и анимации.</li>
+          </ul>
           <img class="marshall-page__shot" src="../assets/images/marshall/uikit-1.png" alt="UI Kit, блок 1" loading="lazy" decoding="async" />
           <img class="marshall-page__shot" src="../assets/images/marshall/uikit-2.png" alt="UI Kit, блок 2" loading="lazy" decoding="async" />
           <img class="marshall-page__shot" src="../assets/images/marshall/uikit-3.png" alt="UI Kit, блок 3" loading="lazy" decoding="async" />
@@ -324,20 +415,21 @@
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Результат</h2>
-          <ul class="marshall-page__list">
-            <li>Три разрозненных сайта объединены в единую платформу</li>
-            <li>Улучшена навигация и структура продукта</li>
-            <li>Упрощен поиск и покупка автозапчастей</li>
-            <li>Создана масштабируемая дизайн-система</li>
-          </ul>
-          <img
-            class="marshall-page__shot"
-            src="../assets/images/marshall/result-final.png"
-            alt="Финальный результат проекта"
-            loading="lazy"
-            decoding="async"
-          />
+          <p class="marshall-page__result-line">3 сайта → 1 сервис</p>
+          <p class="marshall-page__result-line">67 экранов</p>
+          <p class="marshall-page__result-line">220 компонентов</p>
+          <p class="marshall-page__result-line">5 шагов покупки → 3 шага покупки</p>
+          <p class="marshall-page__result-line">улучшена навигация и структура продукта</p>
+          <p class="marshall-page__result-line">упрощен поиск и покупка автозапчастей</p>
+          <p class="marshall-page__result-line">с нуля создана масштабируемая дизайн-система</p>
         </section>
+        <img
+          class="marshall-page__shot"
+          src="../assets/images/marshall/result-final.png"
+          alt="Финальный результат проекта"
+          loading="lazy"
+          decoding="async"
+        />
 
         <section class="marshall-page__end-links" aria-label="Ссылки на полный кейс">
           <a

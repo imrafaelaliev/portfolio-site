@@ -277,14 +277,14 @@
   margin: 0;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(7, 7, 7, 0.16);
-  font-size: 24px;
+  font-size: 32px;
   line-height: 1.1;
   font-weight: 400;
 }
 
 .marshall-page__subheading {
   margin: 0;
-  font-size: 24px;
+  font-size: 32px;
   line-height: 1.1;
   font-weight: 400;
 }
@@ -294,7 +294,8 @@
 }
 
 .marshall-page__text,
-.marshall-page__list {
+.marshall-page__list,
+.marshall-page__ordered-list {
   margin: 16px 0 0;
   width: 550px;
   font-size: 16px;
@@ -302,10 +303,24 @@
 }
 
 .marshall-page__list {
-  padding: 0 0 0 24px;
+  padding: 0 0 0 30px;
+}
+
+.marshall-page__ordered-list {
+  padding: 0 0 0 30px;
 }
 
 .marshall-page__list li + li {
+  margin-top: 0;
+}
+
+.marshall-page__ordered-list li + li {
+  margin-top: 0;
+}
+
+.marshall-page__section .marshall-page__text + .marshall-page__text,
+.marshall-page__section .marshall-page__text + .marshall-page__list,
+.marshall-page__section .marshall-page__text + .marshall-page__ordered-list {
   margin-top: 0;
 }
 
@@ -354,7 +369,7 @@
 }
 
 .marshall-page__solutions-list {
-  padding: 0 0 0 24px;
+  padding: 0 0 0 30px;
 }
 
 .marshall-page__solutions-list li + li {
@@ -363,6 +378,24 @@
 
 .marshall-page__solutions-item .marshall-page__shot {
   margin-top: 0;
+}
+
+.marshall-page__solutions-metric {
+  margin: 0;
+  width: 550px;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.marshall-page__result-line {
+  margin: 0;
+  width: 100%;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.marshall-page__section .marshall-page__result-line + .marshall-page__result-line {
+  margin-top: 16px;
 }
 
 .marshall-page__end-links {
@@ -617,7 +650,9 @@
   }
 
   .marshall-page__text,
-  .marshall-page__list {
+  .marshall-page__list,
+  .marshall-page__ordered-list,
+  .marshall-page__solutions-metric {
     width: 100%;
   }
 
@@ -823,7 +858,10 @@
     font-size: 14px;
   }
 
-  .marshall-page__subheading {
+  .marshall-page__section-title,
+  .marshall-page__subheading,
+  .marshall-page__solutions-metric,
+  .marshall-page__result-line {
     font-size: 24px;
   }
 
@@ -882,6 +920,7 @@
   .marshall-page__triad-text,
   .marshall-page__text,
   .marshall-page__list,
+  .marshall-page__ordered-list,
   .marshall-page__solutions-text,
   .marshall-page__solutions-list,
   .marshall-page__summary p {
