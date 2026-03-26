@@ -36,7 +36,8 @@
 }
 
 .hios-page .hios-page__shot--concept-v1,
-.hios-page .hios-page__shot--concept-v1-phone {
+.hios-page .hios-page__shot--concept-v1-phone,
+.hios-page .hios-page__shot--concept-v1-phone-alt {
   width: 680px;
   height: 374px;
 }
@@ -48,7 +49,10 @@
 
 .hios-page .hios-page__shot--concept-v2-grid,
 .hios-page .hios-page__shot--concept-v2-shot,
-.hios-page .hios-page__shot--concept-v2-phone {
+.hios-page .hios-page__shot--concept-v2-phone,
+.hios-page .hios-page__shot--concept-v2-phone-alt-1,
+.hios-page .hios-page__shot--concept-v2-phone-alt-2,
+.hios-page .hios-page__shot--concept-v2-phone-alt-3 {
   width: 680px;
   height: 382px;
 }
@@ -75,7 +79,8 @@
   .hios-page .hios-page__shot--os-analysis,
   .hios-page .hios-page__shot--research,
   .hios-page .hios-page__shot--concept-v1,
-  .hios-page .hios-page__shot--concept-v1-phone {
+  .hios-page .hios-page__shot--concept-v1-phone,
+  .hios-page .hios-page__shot--concept-v1-phone-alt {
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 374;
@@ -84,7 +89,10 @@
   .hios-page .hios-page__shot--cultural,
   .hios-page .hios-page__shot--concept-v2-grid,
   .hios-page .hios-page__shot--concept-v2-shot,
-  .hios-page .hios-page__shot--concept-v2-phone {
+  .hios-page .hios-page__shot--concept-v2-phone,
+  .hios-page .hios-page__shot--concept-v2-phone-alt-1,
+  .hios-page .hios-page__shot--concept-v2-phone-alt-2,
+  .hios-page .hios-page__shot--concept-v2-phone-alt-3 {
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 382;
