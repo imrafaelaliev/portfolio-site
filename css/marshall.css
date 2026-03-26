@@ -279,6 +279,11 @@
   object-fit: cover;
 }
 
+.marshall-page__shot--design-short {
+  height: 378px;
+  object-fit: cover;
+}
+
 .marshall-page__triad {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -720,7 +725,8 @@
   .marshall-page__shot--checkout,
   .marshall-page__shot--delivery,
   .marshall-page__shot--result,
-  .marshall-page__shot--design-narrow {
+  .marshall-page__shot--design-narrow,
+  .marshall-page__shot--design-short {
     width: 100%;
     height: auto;
   }
