@@ -324,7 +324,7 @@
           rel="noopener noreferrer"
           >linkedin</a
         >
-        <a class="contacts__link contacts__link--email reveal" href="mailto:rafaealiev53@gmail.com">email</a>
+        <a class="contacts__link contacts__link--email reveal" href="mailto:rafaelaliev53@gmail.com">email</a>
 
         <div class="contacts__banner reveal" aria-hidden="true">
           <img class="contacts__banner-bg" src="../assets/images/home/footer-bg.png" alt="" loading="lazy" decoding="async" />

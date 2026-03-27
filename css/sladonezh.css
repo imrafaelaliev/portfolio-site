@@ -91,11 +91,14 @@
 }
 
 .sladonezh-page .sladonezh-page__shot--design-main,
+.sladonezh-page .sladonezh-page__shot--brand-1,
 .sladonezh-page .sladonezh-page__shot--design-extra-1,
 .sladonezh-page .sladonezh-page__shot--design-extra-2,
-.sladonezh-page .sladonezh-page__shot--brand-1,
-.sladonezh-page .sladonezh-page__shot--brand-2,
-.sladonezh-page .sladonezh-page__shot--brand-3 {
+.sladonezh-page .sladonezh-page__shot--design-extra-3,
+.sladonezh-page .sladonezh-page__shot--design-extra-4,
+.sladonezh-page .sladonezh-page__shot--design-extra-5,
+.sladonezh-page .sladonezh-page__shot--design-extra-6,
+.sladonezh-page .sladonezh-page__shot--design-extra-7 {
   width: 680px;
   height: 378px;
 }
@@ -250,11 +253,14 @@
   }
 
   .sladonezh-page .sladonezh-page__shot--design-main,
+  .sladonezh-page .sladonezh-page__shot--brand-1,
   .sladonezh-page .sladonezh-page__shot--design-extra-1,
   .sladonezh-page .sladonezh-page__shot--design-extra-2,
-  .sladonezh-page .sladonezh-page__shot--brand-1,
-  .sladonezh-page .sladonezh-page__shot--brand-2,
-  .sladonezh-page .sladonezh-page__shot--brand-3 {
+  .sladonezh-page .sladonezh-page__shot--design-extra-3,
+  .sladonezh-page .sladonezh-page__shot--design-extra-4,
+  .sladonezh-page .sladonezh-page__shot--design-extra-5,
+  .sladonezh-page .sladonezh-page__shot--design-extra-6,
+  .sladonezh-page .sladonezh-page__shot--design-extra-7 {
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 378;
