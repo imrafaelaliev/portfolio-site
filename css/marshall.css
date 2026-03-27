@@ -226,14 +226,12 @@
   width: 680px;
   height: 400px;
   background: #eeeeee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
 .marshall-page__hero-preview {
-  width: 540px;
-  height: 299.7px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
@@ -715,8 +713,8 @@
 
   .marshall-page__hero-preview {
     display: block;
-    width: 79.4118%;
-    height: 74.9999%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     flex: 0 0 auto;
   }
