@@ -2554,21 +2554,17 @@ main {
 
 .home--rebuild .about--figma .about__canvas {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 64px;
+  display: block;
   width: min(680px, calc(100% - 56px));
-  min-height: 0;
-  padding-top: 32px;
+  height: 855px;
   margin: 0 auto;
+  padding-top: 0;
 }
 
 .home--rebuild .about__lead,
 .home--rebuild .about__sublead {
-  position: relative;
-  left: auto;
-  width: 680px;
+  position: absolute;
+  left: 50%;
   margin: 0;
   color: #070707;
   font-family: "Kommuna Narrow", "Times New Roman", serif;
@@ -2577,16 +2573,17 @@ main {
   letter-spacing: -0.96px;
   text-transform: uppercase;
   text-align: center;
-  --reveal-base-transform: none;
-  transform: none;
+  --reveal-base-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .home--rebuild .about__lead {
-  top: auto;
+  top: 32px;
+  width: 692px;
 }
 
 .home--rebuild .about__sublead {
-  top: auto;
+  top: 749px;
   width: 540px;
 }
 
@@ -2646,15 +2643,15 @@ main {
 }
 
 .home--rebuild .about__globe {
-  position: relative;
-  top: auto;
-  left: auto;
+  position: absolute;
+  top: 361px;
+  left: 50%;
   width: 324px;
   height: 324px;
   margin: 0;
   object-fit: cover;
-  --reveal-base-transform: none;
-  transform: none;
+  --reveal-base-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .home--rebuild .collage--figma.section {
@@ -3469,26 +3466,6 @@ main {
 
   .contacts--figma.contacts--shared .contacts__link {
     font-size: 22px;
-  }
-}
-
-/* Keep About section in normal flow on tablet/desktop. Mobile has dedicated absolute layout. */
-@media (min-width: 768px) {
-  .home.home--rebuild .about--figma .about__lead,
-  .home.home--rebuild .about--figma .about__sublead {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    --reveal-base-transform: none;
-  }
-
-  .home.home--rebuild .about--figma .about__globe {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    --reveal-base-transform: none;
   }
 }
 
