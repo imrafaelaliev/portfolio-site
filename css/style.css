@@ -3347,32 +3347,31 @@ main {
   }
 
   .home--rebuild .about__line {
-    display: inline;
-    white-space: normal;
-  }
-
-  .home--rebuild .about__line + .about__line::before {
-    content: " ";
+    display: block;
+    white-space: nowrap;
   }
 
   .home--rebuild .about__line-chunk {
-    display: inline;
+    display: inline-block;
   }
 
   .home--rebuild .about__line--with-logo,
   .home--rebuild .about__line--with-search {
-    display: inline;
-    gap: 0;
+    display: block;
+    gap: 0.08ch;
   }
 
   .home--rebuild .about__logo-inline {
+    position: absolute;
+    left: calc(50% + 68.75px);
+    top: 129px;
     width: 45.5px;
     height: 28px;
     border-width: 0.7px;
     border-radius: 3.111px;
     padding: 2.428px;
-    margin: 0 0.06ch;
-    transform: translateY(-0.08em);
+    margin: 0;
+    transform: none;
   }
 
   .home--rebuild .about__logo-inline img {
@@ -3381,10 +3380,13 @@ main {
   }
 
   .home--rebuild .about__search-icon {
+    position: absolute;
+    left: calc(25% + 90.75px);
+    top: 616px;
     width: 28px;
     height: 28px;
-    margin: 0 0.04ch;
-    transform: translateY(-0.01em);
+    margin: 0;
+    transform: none;
   }
 
   .home--rebuild .about__search-icon img {
