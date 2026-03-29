@@ -3357,21 +3357,21 @@ main {
 
   .home--rebuild .about__line--with-logo,
   .home--rebuild .about__line--with-search {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     gap: 0.08ch;
   }
 
   .home--rebuild .about__logo-inline {
-    position: absolute;
-    left: calc(50% + 68.75px);
-    top: 129px;
     width: 45.5px;
     height: 28px;
     border-width: 0.7px;
     border-radius: 3.111px;
     padding: 2.428px;
-    margin: 0;
-    transform: none;
+    margin: 0 0.06ch;
+    transform: translateY(-0.08em);
   }
 
   .home--rebuild .about__logo-inline img {
@@ -3380,13 +3380,10 @@ main {
   }
 
   .home--rebuild .about__search-icon {
-    position: absolute;
-    left: calc(25% + 90.75px);
-    top: 616px;
     width: 28px;
     height: 28px;
-    margin: 0;
-    transform: none;
+    margin: 0 0.04ch;
+    transform: translateY(-0.01em);
   }
 
   .home--rebuild .about__search-icon img {
