@@ -291,16 +291,31 @@
 
 .marshall-page__triad {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  flex-direction: column;
+  gap: 20px;
   width: 680px;
 }
 
+.marshall-page__triad-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
 .marshall-page__triad-item {
-  flex: 1 0 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
+}
+
+.marshall-page__triad-row .marshall-page__triad-item {
+  flex: 1 0 0;
+}
+
+.marshall-page__triad-item--result {
+  width: 332px;
+  max-width: 100%;
 }
 
 .marshall-page__triad-title {
@@ -693,7 +708,13 @@
   .marshall-page__triad {
     display: flex;
     flex-direction: column;
+    gap: 16px;
     width: 100%;
+  }
+
+  .marshall-page__triad-row {
+    flex-direction: column;
+    gap: 16px;
   }
 
   .marshall-page__triad-item {
