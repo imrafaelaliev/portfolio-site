@@ -3346,9 +3346,23 @@ main {
     top: 577px;
   }
 
+  .home--rebuild .about__line {
+    display: inline;
+    white-space: normal;
+  }
+
+  .home--rebuild .about__line + .about__line::before {
+    content: " ";
+  }
+
+  .home--rebuild .about__line-chunk {
+    display: inline;
+  }
+
   .home--rebuild .about__line--with-logo,
   .home--rebuild .about__line--with-search {
-    gap: 0.08ch;
+    display: inline;
+    gap: 0;
   }
 
   .home--rebuild .about__logo-inline {
