@@ -2578,8 +2578,16 @@ main {
 }
 
 .home--rebuild .about__lead {
-  top: 32px;
-  width: 692px;
+  top: 25px;
+  width: 680px;
+}
+
+.home--rebuild .about__lead--desktop {
+  display: block;
+}
+
+.home--rebuild .about__lead--mobile {
+  display: none;
 }
 
 .home--rebuild .about__sublead {
@@ -2589,7 +2597,7 @@ main {
 
 .home--rebuild .about__line {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .home--rebuild .about__accent {
@@ -3349,6 +3357,14 @@ main {
   .home--rebuild .about__line {
     display: block;
     white-space: nowrap;
+  }
+
+  .home--rebuild .about__lead--desktop {
+    display: none;
+  }
+
+  .home--rebuild .about__lead--mobile {
+    display: block;
   }
 
   .home--rebuild .about__line-chunk {
