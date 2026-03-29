@@ -3315,9 +3315,9 @@ main {
 
   .home--rebuild .about--figma .about__canvas {
     position: relative;
-    width: 100%;
-    max-width: none;
-    margin: 0;
+    width: min(393px, 100%);
+    max-width: 393px;
+    margin: 0 auto;
     height: 668px;
     display: block;
     padding-top: 0;
@@ -3327,7 +3327,8 @@ main {
   .home--rebuild .about__sublead {
     position: absolute;
     left: 50%;
-    width: min(361px, calc(100vw - 32px));
+    width: 361px;
+    max-width: calc(100% - 32px);
     margin: 0;
     font-size: 32px;
     line-height: 1.1;
