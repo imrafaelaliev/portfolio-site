@@ -366,14 +366,30 @@
   color: #070707;
   font-size: 20px;
   line-height: 1.5;
+  text-decoration: none;
+}
+
+.marshall-page__research-link:hover,
+.marshall-page__research-link:focus-visible {
+  opacity: 1;
+}
+
+.marshall-page__research-link-text {
+  text-decoration: none;
+}
+
+.marshall-page__research-link:hover .marshall-page__research-link-text,
+.marshall-page__research-link:focus-visible .marshall-page__research-link-text {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
-.marshall-page__research-link:hover,
-.marshall-page__research-link:focus-visible {
-  opacity: 0.6;
+.marshall-page__research-link-icon {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  display: block;
 }
 
 .marshall-page__section {
