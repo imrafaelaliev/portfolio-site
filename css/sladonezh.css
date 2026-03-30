@@ -73,7 +73,7 @@
 }
 
 .sladonezh-page__mascots {
-  width: 664px;
+  width: 680px;
   max-width: 100%;
   display: flex;
   align-items: flex-start;
@@ -83,11 +83,15 @@
 .sladonezh-page .sladonezh-page__shot--mascot-main {
   width: 332px;
   height: 250px;
+  object-fit: contain;
+  object-position: center top;
 }
 
 .sladonezh-page .sladonezh-page__shot--mascot-companion {
   width: 332px;
   height: 245px;
+  object-fit: contain;
+  object-position: center top;
 }
 
 .sladonezh-page .sladonezh-page__shot--design-main,
@@ -201,6 +205,27 @@
 
 .sladonezh-page__research-link {
   margin-top: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #070707;
+  text-decoration: none;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.sladonezh-page__research-link::after {
+  content: "↗";
+  font-size: 10px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.sladonezh-page__research-link:hover,
+.sladonezh-page__research-link:focus-visible {
+  text-decoration: underline;
 }
 
 @media (min-width: 1200px) {
@@ -315,6 +340,10 @@
   }
 
   .sladonezh-page__insights-row p {
+    font-size: 16px;
+  }
+
+  .sladonezh-page__research-link {
     font-size: 16px;
   }
 
