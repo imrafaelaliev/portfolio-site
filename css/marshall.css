@@ -307,14 +307,11 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-}
-
-.marshall-page__triad-row .marshall-page__triad-item {
-  flex: 1 0 0;
+  width: 100%;
 }
 
 .marshall-page__triad-item--result {
-  width: 332px;
+  width: 100%;
   max-width: 100%;
 }
 
