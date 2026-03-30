@@ -216,15 +216,25 @@
   font-weight: 400;
 }
 
-.sladonezh-page__research-link::after {
-  content: "↗";
-  font-size: 10px;
-  line-height: 1;
+.sladonezh-page__research-link-text {
+  text-decoration: none;
+}
+
+.sladonezh-page__research-link-icon {
+  width: 10px;
+  height: 10px;
+  display: block;
+  flex: 0 0 auto;
   transform: translateY(-1px);
 }
 
 .sladonezh-page__research-link:hover,
 .sladonezh-page__research-link:focus-visible {
+  text-decoration: none;
+}
+
+.sladonezh-page__research-link:hover .sladonezh-page__research-link-text,
+.sladonezh-page__research-link:focus-visible .sladonezh-page__research-link-text {
   text-decoration: underline;
 }
 
