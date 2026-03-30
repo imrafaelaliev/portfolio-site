@@ -2733,27 +2733,42 @@ main {
 }
 
 .home--rebuild .projects--figma .project-item__title {
-  margin: 24px 0 0;
+  margin: 20px 0 0;
+  width: 100%;
   font-family: "Arial Narrow", "Arial", sans-serif;
   font-size: 24px;
   line-height: 1.2;
   font-weight: 400;
 }
 
-.home--rebuild .projects--figma .project-item:nth-of-type(1) .project-item__title {
-  width: 355px;
+.home--rebuild .projects--figma .project-item__meta {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 
-.home--rebuild .projects--figma .project-item:nth-of-type(2) .project-item__title {
-  width: 380px;
+.home--rebuild .projects--figma .project-item__meta-col--role {
+  width: 280px;
+  min-width: 280px;
 }
 
-.home--rebuild .projects--figma .project-item:nth-of-type(3) .project-item__title {
-  width: 340px;
+.home--rebuild .projects--figma .project-item__meta-col--results {
+  width: 400px;
 }
 
-.home--rebuild .projects--figma .project-item:nth-of-type(4) .project-item__title {
-  width: 325px;
+.home--rebuild .projects--figma .project-item__meta-label,
+.home--rebuild .projects--figma .project-item__meta-text {
+  margin: 0;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #070707;
+}
+
+.home--rebuild .projects--figma .project-item__meta-label {
+  opacity: 0.4;
 }
 
 .home--rebuild .contacts--figma.section {
@@ -3127,11 +3142,32 @@ main {
     height: auto;
   }
 
-  .home--rebuild .projects--figma .project-item__title {
-    margin-top: 16px;
-    font-size: 32px;
-    width: min(460px, 100%);
-  }
+.home--rebuild .projects--figma .project-item__title {
+  margin-top: 16px;
+  width: 100%;
+  font-size: 32px;
+}
+
+.home--rebuild .projects--figma .project-item__meta {
+  margin-top: 16px;
+}
+
+.home--rebuild .projects--figma .project-item__meta-col--role {
+  width: 40%;
+  min-width: 0;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+.home--rebuild .projects--figma .project-item__meta-col--results {
+  width: 60%;
+}
+
+.home--rebuild .projects--figma .project-item__meta-label,
+.home--rebuild .projects--figma .project-item__meta-text {
+  font-size: 18px;
+  line-height: 1.4;
+}
 
   .home--rebuild .contacts--figma.section {
     padding-top: 84px;
@@ -3455,12 +3491,29 @@ main {
     height: auto;
   }
 
-  .home--rebuild .projects--figma .project-item__title {
-    margin-top: 12px;
-    width: min(320px, 100%);
-    font-size: 24px;
-    line-height: 1.1;
-  }
+.home--rebuild .projects--figma .project-item__title {
+  margin-top: 12px;
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.home--rebuild .projects--figma .project-item__meta {
+  margin-top: 12px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home--rebuild .projects--figma .project-item__meta-col--role,
+.home--rebuild .projects--figma .project-item__meta-col--results {
+  width: 100%;
+}
+
+.home--rebuild .projects--figma .project-item__meta-label,
+.home--rebuild .projects--figma .project-item__meta-text {
+  font-size: 16px;
+  line-height: 1.4;
+}
 
   .home--rebuild .contacts--figma.section {
     padding-top: 72px;
