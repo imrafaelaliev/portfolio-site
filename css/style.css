@@ -3555,6 +3555,120 @@ main {
   }
 }
 
+@media (max-width: 767px) {
+  .home.home--rebuild .about--figma.section {
+    padding-top: 0;
+  }
+
+  .home.home--rebuild .about--figma .about__canvas {
+    position: relative;
+    width: min(393px, 100%);
+    max-width: 393px;
+    margin: 0 auto;
+    height: 668px;
+    display: block;
+    padding-top: 0;
+  }
+
+  .home.home--rebuild .about--figma .about__lead,
+  .home.home--rebuild .about--figma .about__sublead {
+    position: absolute;
+    left: 50%;
+    width: 361px;
+    max-width: 361px;
+    margin: 0;
+    color: #070707;
+    font-family: "Kommuna Narrow", "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.64px;
+    text-transform: uppercase;
+    text-align: center;
+    --reveal-base-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .home.home--rebuild .about--figma .about__lead {
+    top: 20px;
+  }
+
+  .home.home--rebuild .about--figma .about__sublead {
+    top: 577px;
+  }
+
+  .home.home--rebuild .about--figma .about__line {
+    display: block;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .home.home--rebuild .about--figma .about__lead--desktop {
+    display: none;
+  }
+
+  .home.home--rebuild .about--figma .about__lead--mobile {
+    display: block;
+  }
+
+  .home.home--rebuild .about--figma .about__line-chunk {
+    display: inline-block;
+  }
+
+  .home.home--rebuild .about--figma .about__line--with-logo,
+  .home.home--rebuild .about--figma .about__line--with-search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    gap: 0.08ch;
+  }
+
+  .home.home--rebuild .about--figma .about__line--with-logo {
+    gap: 0.12ch;
+  }
+
+  .home.home--rebuild .about--figma .about__logo-inline {
+    width: 45.5px;
+    height: 28px;
+    border: 0.7px solid #000000;
+    border-radius: 3.111px;
+    padding: 2.428px;
+    margin: 0 0.06ch;
+    transform: translateY(-0.08em);
+    background: #ffffff;
+  }
+
+  .home.home--rebuild .about--figma .about__logo-inline img {
+    width: 32.704px;
+    height: 17.818px;
+  }
+
+  .home.home--rebuild .about--figma .about__search-icon {
+    width: 28px;
+    height: 28px;
+    margin: 0 0.04ch;
+    transform: translateY(-0.01em);
+  }
+
+  .home.home--rebuild .about--figma .about__search-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .home.home--rebuild .about--figma .about__globe {
+    position: absolute;
+    top: 305px;
+    left: 50%;
+    width: 232px;
+    height: 232px;
+    margin: 0;
+    --reveal-base-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
 .home--rebuild .about__accent-link {
   position: relative;
   display: inline-flex;
@@ -3578,4 +3692,66 @@ main {
 .home--rebuild .about__accent-link:hover::after,
 .home--rebuild .about__accent-link:focus-visible::after {
   transform: scaleX(1);
+}
+
+@media (max-width: 767px) {
+  .home.home--rebuild .projects--figma .projects__canvas {
+    width: 361px;
+    max-width: calc(100% - 32px);
+    margin: 0 auto;
+  }
+
+  .home.home--rebuild .projects--figma .project-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 361 / 212;
+    object-fit: cover;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__title {
+    width: 100%;
+    margin: 0;
+    font-family: "Arial Narrow", "Arial", sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__meta {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__meta-col {
+    width: 100%;
+    min-width: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__meta-label,
+  .home.home--rebuild .projects--figma .project-item__meta-text {
+    margin: 0;
+    font-family: "Arial Narrow", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__meta-label {
+    opacity: 0.4;
+  }
 }

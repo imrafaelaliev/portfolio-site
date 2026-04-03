@@ -764,8 +764,7 @@
   .marshall-page__main {
     width: calc(100% - 32px);
     margin: 16px auto 0;
-    display: flex;
-    flex-direction: column;
+    display: block;
     padding-top: 0;
   }
 
@@ -773,7 +772,6 @@
     width: 100%;
     margin-top: 24px;
     gap: 48px;
-    order: 3;
   }
 
   .marshall-page__triad {
@@ -862,19 +860,17 @@
   }
 
   .marshall-page__actions {
-    position: static;
-    top: auto;
-    left: auto;
+    position: fixed;
+    top: 20px;
+    left: 16px;
     right: auto;
     bottom: auto;
     margin: 0;
-    width: auto;
+    width: min(274px, calc(100vw - 32px));
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: auto;
-    order: 1;
-    align-self: flex-start;
+    z-index: 90;
   }
 
   .marshall-page__back {
@@ -892,7 +888,6 @@
     width: 100%;
     max-width: 100%;
     margin-top: 48px;
-    order: 2;
   }
 
   .marshall-page__title {
