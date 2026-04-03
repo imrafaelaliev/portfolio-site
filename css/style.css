@@ -3760,9 +3760,21 @@ main {
 }
 
 @media (max-width: 767px) {
-  .marshall-page .contacts--figma.contacts--shared .contacts__canvas {
+  .marshall-page .contacts--figma.contacts--shared.section {
     width: 361px;
     max-width: calc(100% - 32px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .marshall-page .contacts--figma.contacts--shared .contacts__canvas {
+    width: 361px;
+    max-width: 361px;
     margin: 0 auto;
+  }
+
+  .marshall-page .contacts--figma.contacts--shared .contacts__banner {
+    width: 361px;
+    max-width: 361px;
   }
 }
