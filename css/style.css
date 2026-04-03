@@ -3853,3 +3853,24 @@ main {
     object-fit: cover;
   }
 }
+
+@media (max-width: 767px) {
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma.section {
+    width: 100%;
+    max-width: 361px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__canvas {
+    width: 100%;
+    max-width: 361px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__banner {
+    width: 100%;
+    max-width: 361px;
+  }
+}
