@@ -171,6 +171,12 @@
 
 @media (max-width: 767px) {
   .lori-page .marshall-page__intro {
-    width: min(294px, calc(100vw - 32px));
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .lori-page .marshall-page__subtitle,
+  .lori-page .marshall-page__role {
+    line-height: 1.5;
   }
 }

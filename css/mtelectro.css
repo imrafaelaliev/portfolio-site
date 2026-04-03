@@ -62,7 +62,8 @@
 
 @media (max-width: 767px) {
   .mtelectro-page .marshall-page__intro {
-    width: min(294px, calc(100vw - 32px));
+    width: 100%;
+    max-width: 100%;
   }
 
   .mtelectro-page .mtelectro-page__shot--h400,

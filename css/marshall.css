@@ -762,16 +762,18 @@
 
 @media (max-width: 767px) {
   .marshall-page__main {
-    width: min(960px, calc(100% - 32px));
-    margin: 20px auto 0;
-    display: block;
-    padding-top: 144px;
+    width: calc(100% - 32px);
+    margin: 16px auto 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
   }
 
   .marshall-page__content {
     width: 100%;
-    margin-top: 48px;
-    gap: 34px;
+    margin-top: 24px;
+    gap: 48px;
+    order: 3;
   }
 
   .marshall-page__triad {
@@ -791,6 +793,7 @@
     flex: 1 1 auto;
     height: auto;
     min-height: 0;
+    gap: 2px;
   }
 
   .marshall-page__triad-text {
@@ -803,7 +806,11 @@
   }
 
   .marshall-page__insights-col {
-    gap: 12px;
+    gap: 24px;
+  }
+
+  .marshall-page__hero-block {
+    gap: 24px;
   }
 
   .marshall-page__hero-preview {
@@ -816,20 +823,36 @@
 
   .marshall-page__hero-preview-wrap {
     width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 400;
+    height: 212px;
+    aspect-ratio: auto;
   }
 
   .marshall-page__shot--fixed,
   .marshall-page__shot--market,
   .marshall-page__shot--checkout,
   .marshall-page__shot--delivery,
-  .marshall-page__shot--result,
-  .marshall-page__shot--design-narrow,
-  .marshall-page__shot--about-narrow,
+  .marshall-page__shot--about-narrow {
+    width: 100%;
+    height: 212px;
+    object-fit: cover;
+  }
+
+  .marshall-page__shot--design-narrow {
+    width: 100%;
+    height: 218px;
+    object-fit: cover;
+  }
+
   .marshall-page__shot--design-short {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .marshall-page__shot--result {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
   }
 
   .marshall-page__intro,
@@ -839,16 +862,19 @@
   }
 
   .marshall-page__actions {
-    position: fixed;
-    top: 20px;
-    left: 16px;
+    position: static;
+    top: auto;
+    left: auto;
     right: auto;
+    bottom: auto;
     margin: 0;
-    width: min(274px, calc(100vw - 32px));
+    width: auto;
     display: flex;
     align-items: center;
-    gap: 8px !important;
-    z-index: 90;
+    gap: 8px;
+    z-index: auto;
+    order: 1;
+    align-self: flex-start;
   }
 
   .marshall-page__back {
@@ -863,8 +889,10 @@
 
   .marshall-page__intro {
     position: static;
-    width: min(294px, calc(100vw - 32px));
+    width: 100%;
     max-width: 100%;
+    margin-top: 48px;
+    order: 2;
   }
 
   .marshall-page__title {
@@ -875,39 +903,40 @@
   .marshall-page__subtitle {
     margin-top: 16px;
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1.5;
   }
 
   .marshall-page__role {
     margin-top: 24px;
     font-size: 16px;
-    line-height: 1.2;
+    line-height: 1.5;
     gap: 8px;
   }
 
   .marshall-btn {
     width: auto;
     min-width: 0;
-    height: 40px;
+    height: 44px;
     padding: 8px 20px;
     font-size: 14px;
+    line-height: normal;
   }
 
   .marshall-page__actions .btn {
-    height: 40px;
-    min-height: 40px;
+    height: 44px;
+    min-height: 44px;
     padding: 8px 20px;
     font-size: 14px;
-    line-height: 1;
+    line-height: normal;
     white-space: nowrap;
   }
 
   .marshall-page__back {
-    height: 40px;
-    min-height: 40px;
+    height: 44px;
+    min-height: 44px;
     padding: 8px 20px;
     font-size: 14px;
-    line-height: 1;
+    line-height: normal;
   }
 
   .marshall-page__actions .marshall-btn,
@@ -915,52 +944,123 @@
     flex: 0 0 auto;
   }
 
+  .marshall-page__triad-title,
+  .marshall-page__triad-text,
+  .marshall-page__text,
+  .marshall-page__list,
+  .marshall-page__ordered-list,
+  .marshall-page__text-flow,
+  .marshall-page__insights-label,
+  .marshall-page__insights-text,
+  .marshall-page__solutions-text,
+  .marshall-page__solutions-list,
+  .marshall-page__solutions-metric,
+  .marshall-page__result-line {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .marshall-page__list,
+  .marshall-page__ordered-list,
+  .marshall-page__solutions-list {
+    padding-left: 24px;
+  }
+
   .marshall-page__section {
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .marshall-page__section-title {
+    font-size: 24px;
+    line-height: 1.1;
+    padding-bottom: 12px;
   }
 
   .marshall-page__next-case {
-    margin-top: 66px;
-    gap: 16px;
+    margin-top: 64px;
+    gap: 12px;
   }
 
   .marshall-page__next-case-title {
     font-size: 24px;
+    line-height: 1.1;
+  }
+
+  .marshall-page__next-case-preview-wrap {
+    height: 212px;
+  }
+
+  .marshall-page__next-case-caption {
+    margin: 0;
+    width: 100%;
+    font-size: 20px;
+    line-height: 1.2;
   }
 
   .marshall-page__next-case-caption--project {
-    width: min(220px, 78%);
+    width: 100%;
   }
 
   .marshall-page__end-links {
-    flex-wrap: wrap;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 8px;
   }
 
   .marshall-page__end-link {
     width: auto;
-    height: 40px;
+    height: 44px;
     padding: 8px 20px;
     font-size: 14px;
+    line-height: normal;
   }
 
-  .marshall-page__section-title,
-  .marshall-page__subheading,
-  .marshall-page__solutions-metric {
-    font-size: 24px;
+  .marshall-page__end-link:first-child,
+  .marshall-page__end-link:last-child {
+    width: auto;
   }
 
-  .marshall-page__result-line {
+  .marshall-page__subheading {
     font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .marshall-page__solutions-items {
+    gap: 24px;
+  }
+
+  .marshall-page__solutions-item {
+    gap: 12px;
+  }
+
+  .marshall-page__research-link {
+    width: 100%;
+    height: 44px;
+    padding: 8px 20px;
+    border: 1px solid #070707;
+    justify-content: center;
+    font-size: 14px;
+    line-height: normal;
+    text-decoration: none;
+  }
+
+  .marshall-page__research-link-text {
+    text-decoration: none;
+  }
+
+  .marshall-page__research-link-icon {
+    width: 8px;
+    height: 8px;
   }
 }
 
 @media (max-width: 479px) {
   .marshall-page__main {
-    width: min(960px, calc(100% - 24px));
+    width: calc(100% - 32px);
   }
 
   .marshall-page__back {
-    left: 12px;
+    left: 16px;
   }
 }
 

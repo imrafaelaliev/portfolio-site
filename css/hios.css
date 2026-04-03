@@ -67,6 +67,11 @@
 }
 
 @media (max-width: 767px) {
+  .hios-page .marshall-page__intro {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .hios-page .hios-page__hero {
     width: 100%;
     height: auto;

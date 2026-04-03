@@ -35,6 +35,12 @@
 
 @media (max-width: 767px) {
   .tochka-page .marshall-page__intro {
-    width: min(294px, calc(100vw - 32px));
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tochka-page .marshall-page__subtitle,
+  .tochka-page .marshall-page__role {
+    line-height: 1.5;
   }
 }

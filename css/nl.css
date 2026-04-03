@@ -42,6 +42,12 @@
 
 @media (max-width: 767px) {
   .nl-page .marshall-page__intro {
-    width: min(294px, calc(100vw - 32px));
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nl-page .marshall-page__subtitle,
+  .nl-page .marshall-page__role {
+    line-height: 1.5;
   }
 }

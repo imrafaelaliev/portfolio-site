@@ -3392,7 +3392,9 @@ main {
 
   .home--rebuild .about__line {
     display: block;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .home--rebuild .about__lead--desktop {
@@ -3412,6 +3414,7 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: nowrap;
     width: 100%;
     gap: 0.08ch;
   }

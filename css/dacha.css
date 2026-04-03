@@ -43,6 +43,7 @@
 
 @media (max-width: 767px) {
   .dacha-page .marshall-page__intro {
-    width: min(294px, calc(100vw - 32px));
+    width: 100%;
+    max-width: 100%;
   }
 }
