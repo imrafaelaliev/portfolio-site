@@ -22,6 +22,35 @@
   margin-top: 0;
 }
 
+.lori-page__insights-grid {
+  gap: 20px;
+}
+
+.lori-page__insights-rows {
+  gap: 20px;
+}
+
+.lori-page__research-link {
+  margin-top: 0;
+}
+
+.lori-page__key-solutions {
+  gap: 20px;
+}
+
+.lori-page__solution-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lori-page__solution-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(7, 7, 7, 0.16);
+}
+
 .lori-page__stages {
   margin: 0;
   width: 550px;
@@ -178,5 +207,17 @@
   .lori-page .marshall-page__subtitle,
   .lori-page .marshall-page__role {
     line-height: 1.5;
+  }
+
+  .lori-page__insights-grid {
+    gap: 4px;
+  }
+
+  .lori-page__insights-rows {
+    gap: 24px;
+  }
+
+  .lori-page__solution-item {
+    gap: 12px;
   }
 }
