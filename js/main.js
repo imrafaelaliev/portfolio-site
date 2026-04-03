@@ -304,7 +304,7 @@
     if (mainNode.querySelector('[data-shared-home-footer]')) return;
 
     const footerShell = document.createElement('div');
-    footerShell.className = 'home--rebuild marshall-page__shared-home-footer';
+    footerShell.className = 'home home--rebuild marshall-page__shared-home-footer';
     footerShell.setAttribute('data-shared-home-footer', '');
 
     const footerSection = document.createElement('section');
@@ -314,23 +314,32 @@
       <div class="contacts__canvas">
         <img
           class="contacts__phone reveal"
-          src="../assets/images/contacts-phone.gif"
+          src="../assets/images/home/footer-phone-mobile-figma.png"
           alt="Телефон"
           loading="lazy"
           decoding="async"
         />
 
-        <a class="contacts__link contacts__link--telegram reveal" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">telegram</a>
-        <a
-          class="contacts__link contacts__link--linkedin reveal"
-          href="https://www.linkedin.com/in/%D1%80%D0%B0%D1%84%D0%B0%D1%8D%D0%BB%D1%8C-%D0%B0%D0%BB%D0%B8%D0%B5%D0%B2-a10539399/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >linkedin</a
-        >
-        <a class="contacts__link contacts__link--email reveal" href="mailto:rafaelaliev53@gmail.com">email</a>
+        <div class="contacts__links-row reveal">
+          <a class="contacts__link contacts__link--telegram" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">telegram</a>
+          <a
+            class="contacts__link contacts__link--linkedin"
+            href="https://www.linkedin.com/in/%D1%80%D0%B0%D1%84%D0%B0%D1%8D%D0%BB%D1%8C-%D0%B0%D0%BB%D0%B8%D0%B5%D0%B2-a10539399/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >linkedin</a
+          >
+          <a class="contacts__link contacts__link--email" href="mailto:rafaelaliev53@gmail.com">email</a>
+        </div>
 
         <div class="contacts__banner reveal" aria-hidden="true">
+          <img
+            class="contacts__banner-image contacts__banner-image--mobile"
+            src="../assets/images/home/footer-banner-mobile-figma.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
           <img class="contacts__banner-bg" src="../assets/images/home/footer-bg.png" alt="" loading="lazy" decoding="async" />
           <img class="contacts__banner-word" src="../assets/images/home/footer-word.svg" alt="" loading="lazy" decoding="async" />
         </div>
