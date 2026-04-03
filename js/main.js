@@ -301,10 +301,14 @@
 
     document.querySelectorAll('.marshall-page__footer').forEach((footerNode) => footerNode.remove());
 
-    if (mainNode.querySelector('.contacts--shared')) return;
+    if (mainNode.querySelector('[data-shared-home-footer]')) return;
+
+    const footerShell = document.createElement('div');
+    footerShell.className = 'home--rebuild marshall-page__shared-home-footer';
+    footerShell.setAttribute('data-shared-home-footer', '');
 
     const footerSection = document.createElement('section');
-    footerSection.className = 'section contacts contacts--figma contacts--shared';
+    footerSection.className = 'section contacts contacts--figma';
     footerSection.setAttribute('aria-label', 'Контакты');
     footerSection.innerHTML = `
       <div class="contacts__canvas">
@@ -333,7 +337,8 @@
       </div>
     `;
 
-    mainNode.appendChild(footerSection);
+    footerShell.appendChild(footerSection);
+    mainNode.appendChild(footerShell);
   };
 
   injectSharedCaseFooter();
