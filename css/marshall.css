@@ -765,7 +765,8 @@
     width: calc(100% - 32px);
     margin: 16px auto 0;
     display: block;
-    padding-top: 0;
+    /* 20(top actions) + 44(button height) + 48(required gap) - 16(main margin-top) */
+    padding-top: 96px;
   }
 
   .marshall-page__content {
@@ -887,7 +888,7 @@
     position: static;
     width: 100%;
     max-width: 100%;
-    margin-top: 48px;
+    margin-top: 0;
   }
 
   .marshall-page__title {
@@ -973,7 +974,13 @@
 
   .marshall-page__next-case {
     margin-top: 64px;
-    gap: 12px;
+    gap: 24px;
+  }
+
+  .marshall-page__next-case-link {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   .marshall-page__next-case-title {

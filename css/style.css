@@ -3322,9 +3322,12 @@ main {
   }
 
   .home--rebuild .hero--figma .hero__actions .btn {
-    min-height: 40px;
+    height: 44px;
+    min-height: 44px;
     padding: 8px 20px;
     font-size: 14px;
+    line-height: normal;
+    white-space: nowrap;
   }
 
   .home--rebuild .hero--figma .hero__side-nav {
@@ -3753,5 +3756,13 @@ main {
 
   .home.home--rebuild .projects--figma .project-item__meta-label {
     opacity: 0.4;
+  }
+}
+
+@media (max-width: 767px) {
+  .marshall-page .contacts--figma.contacts--shared .contacts__canvas {
+    width: 361px;
+    max-width: calc(100% - 32px);
+    margin: 0 auto;
   }
 }
