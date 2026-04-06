@@ -2187,27 +2187,31 @@ main {
 
 .home .shots--figma .shots__canvas {
   position: relative;
+  isolation: isolate;
   width: min(680px, calc(100% - 56px));
   margin: 0 auto;
 }
 
 .home .shots--figma .shots__headline {
   position: absolute;
-  top: calc((72 / 680) * 100%);
+  top: 72px;
   left: 0;
   width: 100%;
-  aspect-ratio: 680 / 460;
+  height: 460px;
   display: block;
   object-fit: cover;
   pointer-events: none;
+  z-index: 0;
 }
 
 .home .shots--figma .shots__list {
+  position: relative;
+  z-index: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: calc((98 / 680) * 100%);
-  padding-top: calc((472 / 680) * 100%);
+  gap: 100px;
+  padding-top: 472px;
 }
 
 .home .shots--figma .shots__item {
@@ -2248,6 +2252,17 @@ main {
 
   .home .shots--figma .shots__canvas {
     width: min(680px, calc(100% - 30px));
+  }
+
+  .home .shots--figma .shots__headline {
+    top: 38px;
+    height: auto;
+    aspect-ratio: 680 / 460;
+  }
+
+  .home .shots--figma .shots__list {
+    gap: 53px;
+    padding-top: 251px;
   }
 
   .home .shots--figma .shots__caption {
