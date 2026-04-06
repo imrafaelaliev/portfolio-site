@@ -3966,3 +3966,51 @@ main {
     max-width: 361px;
   }
 }
+
+@media (min-width: 1920px) {
+  .home.home--rebuild .collage--figma .collage__canvas,
+  .home.home--rebuild .projects--figma .projects__canvas,
+  .home.home--rebuild .shots--figma .shots__canvas,
+  .home.home--rebuild .mentions--figma .mentions__canvas {
+    width: 800px;
+  }
+
+  .home.home--rebuild .projects--figma .projects__head {
+    width: 800px;
+    height: 482.353px;
+  }
+
+  .home.home--rebuild .projects--figma .projects__sticker {
+    left: 203.529px;
+    top: 39.412px;
+    width: 391.765px;
+    height: 391.765px;
+  }
+
+  .home.home--rebuild .projects--figma .project-item {
+    width: 800px;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__cover {
+    height: 470.588px;
+  }
+
+  .home.home--rebuild .mentions--figma .mentions__title,
+  .home.home--rebuild .mentions--figma .mentions__grid {
+    width: 800px;
+  }
+
+  .home.home--rebuild .mentions--figma .mentions__grid {
+    grid-template-columns: repeat(2, 392px);
+  }
+
+  .home.home--rebuild .mentions--figma .mentions__card,
+  .home.home--rebuild .mentions--figma .mentions__cover {
+    width: 392px;
+  }
+
+  .home.home--rebuild .shots--figma .shots__headline {
+    height: auto;
+    aspect-ratio: 680 / 460;
+  }
+}
