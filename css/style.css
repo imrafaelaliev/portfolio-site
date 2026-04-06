@@ -3296,6 +3296,7 @@ main {
   }
 
   .home--rebuild .contacts--figma .contacts__link {
+    position: relative;
     justify-self: center;
     font-size: 26px;
     letter-spacing: -0.02em;
@@ -3360,6 +3361,7 @@ main {
   }
 
   .contacts--figma.contacts--shared .contacts__link {
+    position: relative;
     justify-self: center;
     font-size: 26px;
     letter-spacing: -0.02em;
@@ -4043,7 +4045,7 @@ main {
   }
 
   .home.home--rebuild .contacts--figma .contacts__link {
-    position: static;
+    position: relative;
     top: auto;
     left: auto;
     transform: none;
