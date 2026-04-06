@@ -1108,3 +1108,9 @@
     font-size: 20px;
   }
 }
+
+@media (min-width: 1920px) {
+  .marshall-page__content {
+    width: clamp(800px, 50vw, 1120px);
+  }
+}
