@@ -20,12 +20,14 @@
 }
 
 .sladonezh-page .sladonezh-page__hero {
-  width: 680px;
-  height: 400px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 680 / 400;
   object-fit: cover;
 }
 
 .sladonezh-page .sladonezh-page__shot {
+  width: 100%;
   display: block;
   object-fit: cover;
 }
@@ -33,47 +35,47 @@
 .sladonezh-page .sladonezh-page__shot--about,
 .sladonezh-page .sladonezh-page__shot--task,
 .sladonezh-page .sladonezh-page__shot--role {
-  width: 680px;
-  height: 400px;
+  height: auto;
+  aspect-ratio: 680 / 400;
 }
 
 .sladonezh-page .sladonezh-page__shot--analysis {
-  width: 680px;
-  height: 320px;
+  height: auto;
+  aspect-ratio: 680 / 320;
 }
 
 .sladonezh-page .sladonezh-page__shot--architecture {
-  width: 680px;
-  height: 118px;
+  height: auto;
+  aspect-ratio: 680 / 118;
 }
 
 .sladonezh-page .sladonezh-page__shot--catalog-entry {
-  width: 680px;
-  height: 184px;
+  height: auto;
+  aspect-ratio: 680 / 184;
 }
 
 .sladonezh-page .sladonezh-page__shot--catalog-flow {
-  width: 680px;
-  height: 400px;
+  height: auto;
+  aspect-ratio: 680 / 400;
 }
 
 .sladonezh-page .sladonezh-page__shot--product-card {
-  width: 680px;
-  height: 536px;
+  height: auto;
+  aspect-ratio: 680 / 536;
 }
 
 .sladonezh-page .sladonezh-page__shot--suppliers {
-  width: 680px;
-  height: 254px;
+  height: auto;
+  aspect-ratio: 680 / 254;
 }
 
 .sladonezh-page .sladonezh-page__shot--concept-main {
-  width: 680px;
-  height: 450px;
+  height: auto;
+  aspect-ratio: 680 / 450;
 }
 
 .sladonezh-page__mascots {
-  width: 680px;
+  width: 100%;
   max-width: 100%;
   display: flex;
   align-items: flex-start;
@@ -81,15 +83,17 @@
 }
 
 .sladonezh-page .sladonezh-page__shot--mascot-main {
-  width: 332px;
-  height: 250px;
+  width: 48.8235294%;
+  height: auto;
+  aspect-ratio: 332 / 250;
   object-fit: contain;
   object-position: center top;
 }
 
 .sladonezh-page .sladonezh-page__shot--mascot-companion {
-  width: 332px;
-  height: 245px;
+  width: 48.8235294%;
+  height: auto;
+  aspect-ratio: 332 / 245;
   object-fit: contain;
   object-position: center top;
 }
@@ -103,18 +107,18 @@
 .sladonezh-page .sladonezh-page__shot--design-extra-5,
 .sladonezh-page .sladonezh-page__shot--design-extra-6,
 .sladonezh-page .sladonezh-page__shot--design-extra-7 {
-  width: 680px;
-  height: 378px;
+  height: auto;
+  aspect-ratio: 680 / 378;
 }
 
 .sladonezh-page .sladonezh-page__shot--design-strip {
-  width: 680px;
-  height: 198px;
+  height: auto;
+  aspect-ratio: 680 / 198;
 }
 
 .sladonezh-page .sladonezh-page__shot--result {
-  width: 680px;
-  height: 480px;
+  height: auto;
+  aspect-ratio: 680 / 480;
 }
 
 .sladonezh-page__audience-card {

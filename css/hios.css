@@ -7,48 +7,50 @@
 }
 
 .hios-page .hios-page__hero {
-  width: 680px;
-  height: 400px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 680 / 400;
   object-fit: cover;
 }
 
 .hios-page .hios-page__shot {
+  width: 100%;
   display: block;
   object-fit: cover;
 }
 
 .hios-page .hios-page__shot--about {
-  width: 680px;
-  height: 400px;
+  height: auto;
+  aspect-ratio: 680 / 400;
 }
 
 .hios-page .hios-page__shot--os-analysis {
-  width: 680px;
-  height: 374px;
+  height: auto;
+  aspect-ratio: 680 / 374;
 }
 
 .hios-page .hios-page__shot--research {
-  width: 680px;
-  height: 380px;
+  height: auto;
+  aspect-ratio: 680 / 380;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
 }
 
 .hios-page .hios-page__shot--cultural {
-  width: 680px;
-  height: 382px;
+  height: auto;
+  aspect-ratio: 680 / 382;
 }
 
 .hios-page .hios-page__shot--concept-v1,
 .hios-page .hios-page__shot--concept-v1-phone,
 .hios-page .hios-page__shot--concept-v1-phone-alt {
-  width: 680px;
-  height: 374px;
+  height: auto;
+  aspect-ratio: 680 / 374;
 }
 
 .hios-page .hios-page__shot--concept-v2-main {
-  width: 680px;
-  height: 400px;
+  height: auto;
+  aspect-ratio: 680 / 400;
 }
 
 .hios-page .hios-page__shot--concept-v2-grid,
@@ -57,13 +59,13 @@
 .hios-page .hios-page__shot--concept-v2-phone-alt-1,
 .hios-page .hios-page__shot--concept-v2-phone-alt-2,
 .hios-page .hios-page__shot--concept-v2-phone-alt-3 {
-  width: 680px;
-  height: 382px;
+  height: auto;
+  aspect-ratio: 680 / 382;
 }
 
 .hios-page .hios-page__shot--result {
-  width: 680px;
-  height: 446px;
+  height: auto;
+  aspect-ratio: 680 / 446;
 }
 
 @media (max-width: 767px) {

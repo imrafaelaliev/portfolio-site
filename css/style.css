@@ -2785,7 +2785,8 @@ main {
   position: relative;
   width: 680px;
   max-width: 100%;
-  height: 410px;
+  height: auto;
+  aspect-ratio: 680 / 410;
   margin: 0 auto 75px;
 }
 
@@ -2802,7 +2803,8 @@ main {
   left: 173px;
   top: 33.5px;
   width: 333px;
-  height: 333px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
@@ -2820,7 +2822,8 @@ main {
 
 .home--rebuild .projects--figma .project-item__cover {
   width: 100%;
-  height: 400px;
+  height: auto;
+  aspect-ratio: 680 / 400;
   object-fit: cover;
 }
 
@@ -3968,48 +3971,57 @@ main {
 }
 
 @media (min-width: 1920px) {
+  .home.home--rebuild {
+    --home-wide-canvas: clamp(800px, 50vw, 1120px);
+  }
+
   .home.home--rebuild .collage--figma .collage__canvas,
   .home.home--rebuild .projects--figma .projects__canvas,
   .home.home--rebuild .shots--figma .shots__canvas,
   .home.home--rebuild .mentions--figma .mentions__canvas {
-    width: 800px;
+    width: var(--home-wide-canvas);
   }
 
   .home.home--rebuild .projects--figma .projects__head {
-    width: 800px;
-    height: 482.353px;
+    width: var(--home-wide-canvas);
+    height: auto;
+    aspect-ratio: 680 / 410;
   }
 
   .home.home--rebuild .projects--figma .projects__sticker {
-    left: 203.529px;
-    top: 39.412px;
-    width: 391.765px;
-    height: 391.765px;
+    left: 25.44%;
+    top: 8.12%;
+    width: 48.97%;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .home.home--rebuild .projects--figma .project-item {
-    width: 800px;
+    width: var(--home-wide-canvas);
   }
 
   .home.home--rebuild .projects--figma .project-item__cover {
-    height: 470.588px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 680 / 400;
   }
 
   .home.home--rebuild .mentions--figma .mentions__title,
   .home.home--rebuild .mentions--figma .mentions__grid {
-    width: 800px;
+    width: var(--home-wide-canvas);
   }
 
   .home.home--rebuild .mentions--figma .mentions__grid {
-    grid-template-columns: repeat(2, 392px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .home.home--rebuild .mentions--figma .mentions__card,
   .home.home--rebuild .mentions--figma .mentions__cover {
-    width: 392px;
+    width: 100%;
   }
 
   .home.home--rebuild .shots--figma .shots__headline {
+    width: 100%;
     height: auto;
     aspect-ratio: 680 / 460;
   }

@@ -4,13 +4,16 @@
 
 .dacha-page .marshall-page__hero-preview {
   width: 100%;
-  height: 400px;
+  height: auto;
+  aspect-ratio: 680 / 400;
   object-fit: cover;
   display: block;
 }
 
 .dacha-page .dacha-page__shot--h374 {
-  height: 374px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 680 / 374;
   object-fit: cover;
 }
 
