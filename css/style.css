@@ -2180,6 +2180,83 @@ main {
   }
 }
 
+/* HOME SHOTS (FIGMA NODE 273:1459) */
+.home .shots--figma.section {
+  padding: 0 0 120px;
+}
+
+.home .shots--figma .shots__canvas {
+  position: relative;
+  width: min(680px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
+.home .shots--figma .shots__headline {
+  position: absolute;
+  top: calc((72 / 680) * 100%);
+  left: 0;
+  width: 100%;
+  aspect-ratio: 680 / 460;
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.home .shots--figma .shots__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: calc((98 / 680) * 100%);
+  padding-top: calc((472 / 680) * 100%);
+}
+
+.home .shots--figma .shots__item {
+  width: 100%;
+}
+
+.home .shots--figma .shots__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 680 / 454;
+  object-fit: cover;
+}
+
+.home .shots--figma .shots__caption {
+  margin: 20px 0 0;
+  width: 100%;
+  color: #070707;
+  font-family: "Arial Narrow", "Arial", sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@media (max-width: 1199px) {
+  .home .shots--figma.section {
+    padding-bottom: 84px;
+  }
+
+  .home .shots--figma .shots__canvas {
+    width: min(680px, calc(100% - 64px));
+  }
+}
+
+@media (max-width: 767px) {
+  .home .shots--figma.section {
+    padding-bottom: 72px;
+  }
+
+  .home .shots--figma .shots__canvas {
+    width: min(680px, calc(100% - 30px));
+  }
+
+  .home .shots--figma .shots__caption {
+    margin-top: 16px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
 /* HOME CONTACTS (FIGMA NODE 23:15985) */
 .home .contacts--figma.section {
   padding: 0 0 32px;
