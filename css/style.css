@@ -2073,12 +2073,12 @@ main {
 }
 
 .home .mentions--figma .mentions__canvas {
-  width: min(664px, calc(100% - 56px));
+  width: min(680px, calc(100% - 56px));
   margin: 0 auto;
 }
 
 .home .mentions--figma .mentions__title {
-  width: 664px;
+  width: 680px;
   max-width: 100%;
   aspect-ratio: 664 / 190;
   object-fit: cover;
@@ -2086,24 +2086,24 @@ main {
 
 .home .mentions--figma .mentions__grid {
   margin-top: -24px;
-  width: 664px;
+  width: 680px;
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 324px);
+  grid-template-columns: repeat(2, 332px);
   column-gap: 16px;
   row-gap: 32px;
 }
 
 .home .mentions--figma .mentions__card {
   display: block;
-  width: 324px;
+  width: 332px;
   max-width: 100%;
   color: inherit;
   text-decoration: none;
 }
 
 .home .mentions--figma .mentions__cover {
-  width: 324px;
+  width: 332px;
   max-width: 100%;
   aspect-ratio: 324 / 190;
   overflow: hidden;
