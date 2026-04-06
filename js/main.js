@@ -314,7 +314,7 @@
       <div class="contacts__canvas">
         <img
           class="contacts__phone reveal"
-          src="../assets/images/home/footer-phone-mobile-figma.png"
+          src="../assets/images/contacts-phone.gif"
           alt="Телефон"
           loading="lazy"
           decoding="async"
