@@ -24,11 +24,11 @@
 }
 
 .lori-page__insights-grid {
-  gap: 20px;
+  gap: 0;
 }
 
 .lori-page__insights-rows {
-  gap: 20px;
+  gap: 16px;
 }
 
 .lori-page__research-link {

@@ -4025,4 +4025,39 @@ main {
     height: auto;
     aspect-ratio: 680 / 460;
   }
+
+  .home.home--rebuild .contacts--figma .contacts__canvas {
+    width: var(--home-wide-canvas);
+    height: calc(631px + (var(--home-wide-canvas) * 415 / 680));
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__links-row {
+    position: absolute;
+    top: 580px;
+    left: 50%;
+    width: var(--home-wide-canvas);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(-50%);
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__link {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__banner {
+    left: calc(50% - (var(--home-wide-canvas) / 2));
+    width: var(--home-wide-canvas);
+    height: auto;
+    aspect-ratio: 680 / 415;
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__banner-word {
+    width: 48.24%;
+    height: 87.62%;
+  }
 }

@@ -184,7 +184,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
 }
 
 .sladonezh-page__insights-row {
