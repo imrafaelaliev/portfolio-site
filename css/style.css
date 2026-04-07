@@ -2788,6 +2788,7 @@ main {
   height: auto;
   aspect-ratio: 680 / 410;
   margin: 0 auto -44px;
+  z-index: 0;
 }
 
 .home--rebuild .projects--figma .projects__word {
@@ -2810,6 +2811,8 @@ main {
 
 .home--rebuild .projects--figma .project-item {
   display: block;
+  position: relative;
+  z-index: 1;
   width: 680px;
   max-width: 100%;
   color: #070707;
