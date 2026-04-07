@@ -67,7 +67,7 @@
     },
     {
       slug: 'hios',
-      title: 'Дизайн операционной системы HiOS',
+      title: 'Дизайн операционной системы HiOS под русский культурный код',
       image: 'assets/images/hios/hero-preview.png',
       captionClass: 'marshall-page__next-case-caption--project'
     },
