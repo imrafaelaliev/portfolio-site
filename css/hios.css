@@ -68,6 +68,10 @@
   aspect-ratio: 680 / 446;
 }
 
+.hios-page .hios-page__research-link {
+  margin-top: 28px;
+}
+
 @media (max-width: 767px) {
   .hios-page .marshall-page__intro {
     width: 100%;
@@ -118,5 +122,9 @@
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 446;
+  }
+
+  .hios-page .hios-page__research-link {
+    margin-top: 8px;
   }
 }
