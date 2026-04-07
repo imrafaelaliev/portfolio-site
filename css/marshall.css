@@ -348,6 +348,7 @@
   flex-direction: column;
   gap: 0;
   width: 100%;
+  margin-bottom: 28px;
 }
 
 .marshall-page__insights-head,
@@ -385,10 +386,10 @@
 .marshall-page__research-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   color: #070707;
-  font-size: 20px;
-  line-height: 1.5;
+  font-size: 24px;
+  line-height: 1.2;
   text-decoration: none;
 }
 
@@ -409,8 +410,8 @@
 }
 
 .marshall-page__research-link-icon {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   flex: 0 0 auto;
   display: block;
 }
