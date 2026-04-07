@@ -2787,7 +2787,7 @@ main {
   max-width: 100%;
   height: auto;
   aspect-ratio: 680 / 410;
-  margin: 0 auto 75px;
+  margin: 0 auto -44px;
 }
 
 .home--rebuild .projects--figma .projects__word {
@@ -3988,6 +3988,7 @@ main {
     width: var(--home-wide-canvas);
     height: auto;
     aspect-ratio: 680 / 410;
+    margin: 0 auto calc(var(--home-wide-canvas) * -44 / 680);
   }
 
   .home.home--rebuild .projects--figma .projects__sticker {
