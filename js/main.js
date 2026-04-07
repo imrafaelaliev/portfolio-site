@@ -62,7 +62,7 @@
     {
       slug: 'marshall',
       title: 'Продуктовый сайт MARSHALL Autoparts',
-      image: 'assets/images/marshall/hero-preview.webp',
+      image: 'assets/images/marshall/hero-cover-20260407.png?v=20260407-marshall-cover-1',
       captionClass: 'marshall-page__next-case-caption--project'
     },
     {
