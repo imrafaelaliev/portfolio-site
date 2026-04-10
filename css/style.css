@@ -4620,3 +4620,58 @@ main {
 .home.home--rebuild .projects--figma .project-card__cover {
   border-radius: 0;
 }
+
+/* MOBILE SPACING LOCK (FIGMA NODE 367:3253) */
+@media (max-width: 767px) {
+  .home.home--rebuild .projects--figma.section {
+    padding: 0 0 72px;
+  }
+
+  .home.home--rebuild .projects--figma .projects__canvas {
+    width: min(361px, calc(100vw - 32px));
+    margin: 0 auto;
+  }
+
+  .home.home--rebuild .projects--figma .projects__head {
+    width: 100%;
+    max-width: 361px;
+    margin: 16px auto -26px;
+    aspect-ratio: 680 / 410;
+  }
+
+  .home.home--rebuild .projects--figma .projects__sticker {
+    top: 21px;
+    width: 176px;
+  }
+
+  .home.home--rebuild .projects--figma .project-item + .project-item {
+    margin-top: 24px;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__mobile {
+    gap: 24px;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 361 / 212;
+  }
+
+  .home.home--rebuild .projects--figma .project-mobile__content {
+    gap: 20px;
+  }
+
+  .home.home--rebuild .projects--figma .project-mobile__head {
+    gap: 12px;
+  }
+
+  .home.home--rebuild .projects--figma .project-mobile__body {
+    gap: 20px;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__tags,
+  .home.home--rebuild .projects--figma .project-card__tags-row {
+    gap: 8px;
+  }
+}
