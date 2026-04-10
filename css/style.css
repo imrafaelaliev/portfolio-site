@@ -3835,7 +3835,7 @@ main {
   }
 
   .home.home--rebuild .projects--figma .project-item + .project-item {
-    margin-top: 24px;
+    margin-top: 80px;
   }
 
   .home.home--rebuild .projects--figma .project-item__mobile {
@@ -4645,7 +4645,7 @@ main {
   }
 
   .home.home--rebuild .projects--figma .project-item + .project-item {
-    margin-top: 24px;
+    margin-top: 80px;
   }
 
   .home.home--rebuild .projects--figma .project-item__mobile {
@@ -4706,7 +4706,7 @@ main {
   }
 
   .home.home--rebuild .projects--figma .project-item + .project-item {
-    margin-top: 24px !important;
+    margin-top: 80px !important;
   }
 
   .home.home--rebuild .projects--figma .project-item__desktop {
