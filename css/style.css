@@ -3823,6 +3823,7 @@ main {
   }
 
   .home.home--rebuild .projects--figma .projects__canvas {
+    position: relative;
     width: 361px;
     max-width: calc(100% - 32px);
     margin: 0 auto;
@@ -3936,7 +3937,11 @@ main {
   }
 
   .home.home--rebuild .projects--figma .project-card__accent {
-    color: #1400ff;
+    color: inherit;
+  }
+
+  .home.home--rebuild .projects--figma .projects__float-arrow {
+    display: none;
   }
 
   .home.home--rebuild .projects--figma .project-card__role {
@@ -4392,6 +4397,10 @@ main {
 }
 
 /* HOME PROJECTS BLOCK REFRESH (FIGMA NODE 362:981) */
+.home.home--rebuild .projects--figma .projects__canvas {
+  position: relative;
+}
+
 .home.home--rebuild .projects--figma .project-item__desktop {
   display: none;
 }
@@ -4516,7 +4525,7 @@ main {
   }
 
   .home.home--rebuild .projects--figma .project-card__accent {
-    color: #1400ff;
+    color: inherit;
   }
 
   .home.home--rebuild .projects--figma .project-card__role {
@@ -4562,7 +4571,12 @@ main {
     align-items: flex-start;
     justify-content: flex-end;
     gap: 8px;
-    width: 100%;
+    width: auto;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__tags--triple {
+    width: auto;
+    flex: 0 0 auto;
   }
 
   .home.home--rebuild .projects--figma .project-card__tag {
@@ -4581,31 +4595,17 @@ main {
     white-space: nowrap;
     color: #070707;
   }
-}
 
-/* FORCE FIGMA PROJECT PREVIEW FIT (2026-04-11) */
-@media (min-width: 768px) {
-  .projects--figma .project-item[href*="hios"] .project-card__cover,
-  .projects--figma .project-item[href*="hios"] .project-item__cover,
-  .projects--figma .project-item[href*="hios"] img[src*="fe2bd4cd"] {
-    object-fit: contain !important;
-    object-position: center !important;
-    background: #eeeeee !important;
-  }
-
-  .projects--figma .project-item[href*="lori"] .project-card__cover,
-  .projects--figma .project-item[href*="lori"] .project-item__cover,
-  .projects--figma .project-item[href*="lori"] img[src*="3b5c33ba"] {
-    object-fit: contain !important;
-    object-position: center !important;
-    background-image: url("./assets/images/figma/cc41b954-3c62-45f6-951f-1e7c5f1511a8.webp") !important;
-    background-position: center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-  }
-
-  .projects--figma .project-card__dots,
-  .projects--figma .project-item__dots {
-    display: none !important;
+  .home.home--rebuild .projects--figma .projects__float-arrow {
+    position: absolute;
+    top: 641px;
+    right: -92px;
+    width: 64px;
+    height: 63px;
+    display: block;
+    object-fit: contain;
+    filter: invert(1);
+    pointer-events: none;
+    z-index: 2;
   }
 }
