@@ -4137,3 +4137,202 @@ main {
     height: 87.62%;
   }
 }
+
+/* ABOUT GLOBE OVERRIDE (FIGMA NODES 144:1029, 348:979) */
+.home.home--rebuild .about--figma .about__canvas {
+  position: relative;
+  display: block;
+  width: min(680px, calc(100% - 56px));
+  height: 855px;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+.home.home--rebuild .about--figma .about__lead,
+.home.home--rebuild .about--figma .about__sublead {
+  position: absolute;
+  left: 50%;
+  margin: 0;
+  color: #070707;
+  font-family: "Kommuna Narrow", "Times New Roman", serif;
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.96px;
+  text-transform: uppercase;
+  text-align: center;
+  --reveal-base-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.home.home--rebuild .about--figma .about__lead {
+  top: 32px;
+  width: 680px;
+}
+
+.home.home--rebuild .about--figma .about__lead--desktop {
+  display: block;
+}
+
+.home.home--rebuild .about--figma .about__lead--mobile {
+  display: none;
+}
+
+.home.home--rebuild .about--figma .about__sublead {
+  top: 717px;
+  width: 680px;
+}
+
+.home.home--rebuild .about--figma .about__sublead--desktop {
+  display: block;
+}
+
+.home.home--rebuild .about--figma .about__sublead--mobile {
+  display: none;
+}
+
+.home.home--rebuild .about--figma .about__line {
+  display: block;
+  white-space: normal;
+}
+
+.home.home--rebuild .about--figma .about__line-chunk {
+  display: inline-block;
+}
+
+.home.home--rebuild .about--figma .about__line--with-logo,
+.home.home--rebuild .about--figma .about__line--with-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12ch;
+}
+
+.home.home--rebuild .about--figma .about__logo-inline {
+  display: inline-flex;
+  width: 65px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000000;
+  border-radius: 4.444px;
+  padding: 3.469px;
+  margin: 0 0.06ch;
+  transform: translateY(-0.1em);
+  background: #ffffff;
+}
+
+.home.home--rebuild .about--figma .about__logo-inline img {
+  width: 46.719px;
+  height: 25.455px;
+}
+
+.home.home--rebuild .about--figma .about__star-icon {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.04ch;
+  transform: translateY(-0.03em);
+}
+
+.home.home--rebuild .about--figma .about__star-icon img {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.home.home--rebuild .about--figma .about__search-icon {
+  display: none;
+}
+
+.home.home--rebuild .about--figma .about__globe {
+  position: absolute;
+  top: 345px;
+  left: 50%;
+  width: 324px;
+  height: 324px;
+  margin: 0;
+  object-fit: cover;
+  --reveal-base-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  .home.home--rebuild .about--figma .about__canvas {
+    width: min(361px, calc(100vw - 32px));
+    max-width: calc(100vw - 32px);
+    height: 668px;
+  }
+
+  .home.home--rebuild .about--figma .about__lead,
+  .home.home--rebuild .about--figma .about__sublead {
+    width: 100%;
+    max-width: 100%;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.64px;
+  }
+
+  .home.home--rebuild .about--figma .about__lead {
+    top: 20px;
+  }
+
+  .home.home--rebuild .about--figma .about__sublead {
+    top: 542px;
+  }
+
+  .home.home--rebuild .about--figma .about__lead--desktop,
+  .home.home--rebuild .about--figma .about__sublead--desktop {
+    display: none;
+  }
+
+  .home.home--rebuild .about--figma .about__lead--mobile,
+  .home.home--rebuild .about--figma .about__sublead--mobile {
+    display: block;
+  }
+
+  .home.home--rebuild .about--figma .about__line {
+    white-space: normal;
+  }
+
+  .home.home--rebuild .about--figma .about__line--with-logo,
+  .home.home--rebuild .about--figma .about__line--with-star {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 0.1ch;
+  }
+
+  .home.home--rebuild .about--figma .about__logo-inline {
+    width: 45.5px;
+    height: 28px;
+    border: 0.7px solid #000000;
+    border-radius: 3.111px;
+    padding: 2.428px;
+    margin: 0 0.06ch;
+    transform: translateY(-0.08em);
+  }
+
+  .home.home--rebuild .about--figma .about__logo-inline img {
+    width: 32.704px;
+    height: 17.818px;
+  }
+
+  .home.home--rebuild .about--figma .about__star-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 0.04ch;
+    transform: translateY(-0.01em);
+  }
+
+  .home.home--rebuild .about--figma .about__star-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .home.home--rebuild .about--figma .about__globe {
+    top: 270px;
+    width: 232px;
+    height: 232px;
+  }
+}
