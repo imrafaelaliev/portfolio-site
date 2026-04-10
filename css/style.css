@@ -1923,8 +1923,8 @@ main {
 
 /* HOME PROJECTS (FIGMA NODE 22:11727) */
 .home .projects--figma.section {
-  padding-top: 32px;
-  padding-bottom: 120px;
+  padding-top: 64px;
+  padding-bottom: 240px;
 }
 
 .home .projects--figma .projects__canvas {
@@ -1992,8 +1992,8 @@ main {
 
 @media (max-width: 1199px) {
   .home .projects--figma.section {
-    padding-top: 20px;
-    padding-bottom: 84px;
+    padding-top: 40px;
+    padding-bottom: 168px;
   }
 
   .home .projects--figma .projects__canvas {
@@ -2031,8 +2031,8 @@ main {
 
 @media (max-width: 767px) {
   .home .projects--figma.section {
-    padding-top: 16px;
-    padding-bottom: 72px;
+    padding-top: 32px;
+    padding-bottom: 144px;
   }
 
   .home .projects--figma .projects__canvas {
@@ -2069,7 +2069,7 @@ main {
 
 /* HOME HONORABLE MENTIONS (FIGMA NODE 0:3176) */
 .home .mentions--figma.section {
-  padding: 0 0 120px;
+  padding: 0 0 240px;
 }
 
 .home .mentions--figma .mentions__canvas {
@@ -2141,7 +2141,7 @@ main {
 
 @media (max-width: 1199px) {
   .home .mentions--figma.section {
-    padding-bottom: 84px;
+    padding-bottom: 168px;
   }
 
   .home .mentions--figma .mentions__canvas {
@@ -2166,7 +2166,7 @@ main {
 
 @media (max-width: 767px) {
   .home .mentions--figma.section {
-    padding-bottom: 72px;
+    padding-bottom: 144px;
   }
 
   .home .mentions--figma .mentions__canvas {
@@ -2182,7 +2182,7 @@ main {
 
 /* HOME OPEN WORK (FIGMA NODE 312:2688) */
 .home .open-work--figma.section {
-  padding: 0 0 120px;
+  padding: 0 0 240px;
 }
 
 .home .open-work--figma .open-work__canvas {
@@ -2225,7 +2225,7 @@ main {
 
 @media (max-width: 1199px) {
   .home .open-work--figma.section {
-    padding-bottom: 84px;
+    padding-bottom: 168px;
   }
 
   .home .open-work--figma .open-work__canvas {
@@ -2235,7 +2235,7 @@ main {
 
 @media (max-width: 767px) {
   .home .open-work--figma.section {
-    padding-bottom: 72px;
+    padding-bottom: 144px;
   }
 
   .home .open-work--figma .open-work__canvas {
@@ -2252,7 +2252,7 @@ main {
 
 /* HOME SHOTS (FIGMA NODE 273:1459) */
 .home .shots--figma.section {
-  padding: 0 0 120px;
+  padding: 0 0 240px;
 }
 
 .home .shots--figma .shots__canvas {
@@ -2307,7 +2307,7 @@ main {
 
 @media (max-width: 1199px) {
   .home .shots--figma.section {
-    padding-bottom: 84px;
+    padding-bottom: 168px;
   }
 
   .home .shots--figma .shots__canvas {
@@ -2317,7 +2317,7 @@ main {
 
 @media (max-width: 767px) {
   .home .shots--figma.section {
-    padding-bottom: 72px;
+    padding-bottom: 144px;
   }
 
   .home .shots--figma .shots__canvas {
