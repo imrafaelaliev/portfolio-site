@@ -4582,3 +4582,30 @@ main {
     color: #070707;
   }
 }
+
+/* FORCE FIGMA PROJECT PREVIEW FIT (2026-04-11) */
+@media (min-width: 768px) {
+  .projects--figma .project-item[href*="hios"] .project-card__cover,
+  .projects--figma .project-item[href*="hios"] .project-item__cover,
+  .projects--figma .project-item[href*="hios"] img[src*="fe2bd4cd"] {
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #eeeeee !important;
+  }
+
+  .projects--figma .project-item[href*="lori"] .project-card__cover,
+  .projects--figma .project-item[href*="lori"] .project-item__cover,
+  .projects--figma .project-item[href*="lori"] img[src*="3b5c33ba"] {
+    object-fit: contain !important;
+    object-position: center !important;
+    background-image: url("./assets/images/figma/cc41b954-3c62-45f6-951f-1e7c5f1511a8.webp") !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .projects--figma .project-card__dots,
+  .projects--figma .project-item__dots {
+    display: none !important;
+  }
+}
