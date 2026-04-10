@@ -4675,3 +4675,77 @@ main {
     gap: 8px;
   }
 }
+
+/* MOBILE SPACING FINAL OVERRIDE (FIGMA NODE 367:3253) */
+@media (max-width: 767px) {
+  .home.home--rebuild .projects--figma.section {
+    padding: 0 0 72px !important;
+  }
+
+  .home.home--rebuild .projects--figma .projects__canvas {
+    width: min(361px, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    margin: 0 auto !important;
+  }
+
+  .home.home--rebuild .projects--figma .projects__head {
+    width: 100% !important;
+    max-width: 361px !important;
+    margin: 16px auto -26px !important;
+    aspect-ratio: 680 / 410 !important;
+  }
+
+  .home.home--rebuild .projects--figma .projects__sticker {
+    top: 21px !important;
+    width: 176px !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-item {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-item + .project-item {
+    margin-top: 24px !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__desktop {
+    display: none !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__media {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 361 / 212 !important;
+    overflow: hidden !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-mobile__content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-mobile__head {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-mobile__body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__tags,
+  .home.home--rebuild .projects--figma .project-card__tags-row {
+    gap: 8px !important;
+  }
+}
