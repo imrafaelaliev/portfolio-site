@@ -4465,8 +4465,8 @@ main {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background: #eeeeee;
+    object-fit: cover;
+    object-position: center;
   }
 
   .home.home--rebuild .projects--figma .project-card__dots {
