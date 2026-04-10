@@ -4609,3 +4609,25 @@ main {
     z-index: 2;
   }
 }
+
+/* PROJECT IMAGES: HARD FIXED SIZE 680x400 (DESKTOP) */
+@media (min-width: 768px) {
+  .home.home--rebuild .projects--figma .projects__canvas,
+  .home.home--rebuild .projects--figma .projects__head,
+  .home.home--rebuild .projects--figma .project-item {
+    width: 680px;
+    max-width: 680px;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__media {
+    width: 680px;
+    height: 400px;
+    aspect-ratio: auto;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__cover {
+    width: 680px;
+    height: 400px;
+    object-fit: fill;
+  }
+}
