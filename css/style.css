@@ -3940,10 +3940,6 @@ main {
     color: inherit;
   }
 
-  .home.home--rebuild .projects--figma .projects__float-arrow {
-    display: none;
-  }
-
   .home.home--rebuild .projects--figma .project-card__role {
     width: 100%;
     display: flex;
@@ -4596,18 +4592,6 @@ main {
     color: #070707;
   }
 
-  .home.home--rebuild .projects--figma .projects__float-arrow {
-    position: absolute;
-    top: 641px;
-    right: -92px;
-    width: 64px;
-    height: 63px;
-    display: block;
-    object-fit: contain;
-    filter: invert(1);
-    pointer-events: none;
-    z-index: 2;
-  }
 }
 
 /* PROJECT IMAGES: HARD FIXED SIZE 680x400 (DESKTOP) */
@@ -4630,4 +4614,9 @@ main {
     height: 400px;
     object-fit: fill;
   }
+}
+
+.home.home--rebuild .projects--figma .project-card__media,
+.home.home--rebuild .projects--figma .project-card__cover {
+  border-radius: 0;
 }
