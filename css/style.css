@@ -1923,8 +1923,8 @@ main {
 
 /* HOME PROJECTS (FIGMA NODE 22:11727) */
 .home .projects--figma.section {
-  padding-top: 64px;
-  padding-bottom: 240px;
+  padding-top: 32px;
+  padding-bottom: 120px;
 }
 
 .home .projects--figma .projects__canvas {
@@ -1992,8 +1992,8 @@ main {
 
 @media (max-width: 1199px) {
   .home .projects--figma.section {
-    padding-top: 40px;
-    padding-bottom: 168px;
+    padding-top: 20px;
+    padding-bottom: 84px;
   }
 
   .home .projects--figma .projects__canvas {
@@ -2031,8 +2031,8 @@ main {
 
 @media (max-width: 767px) {
   .home .projects--figma.section {
-    padding-top: 32px;
-    padding-bottom: 144px;
+    padding-top: 16px;
+    padding-bottom: 72px;
   }
 
   .home .projects--figma .projects__canvas {
@@ -2069,7 +2069,7 @@ main {
 
 /* HOME HONORABLE MENTIONS (FIGMA NODE 0:3176) */
 .home .mentions--figma.section {
-  padding: 0 0 240px;
+  padding: 0 0 120px;
 }
 
 .home .mentions--figma .mentions__canvas {
@@ -2141,7 +2141,7 @@ main {
 
 @media (max-width: 1199px) {
   .home .mentions--figma.section {
-    padding-bottom: 168px;
+    padding-bottom: 84px;
   }
 
   .home .mentions--figma .mentions__canvas {
@@ -2166,7 +2166,7 @@ main {
 
 @media (max-width: 767px) {
   .home .mentions--figma.section {
-    padding-bottom: 144px;
+    padding-bottom: 72px;
   }
 
   .home .mentions--figma .mentions__canvas {
@@ -2180,79 +2180,9 @@ main {
   }
 }
 
-/* HOME OPEN WORK (FIGMA NODE 312:2688) */
-.home .open-work--figma.section {
-  padding: 0 0 240px;
-}
-
-.home .open-work--figma .open-work__canvas {
-  position: relative;
-  width: min(680px, calc(100% - 56px));
-  height: 480px;
-  margin: 0 auto;
-}
-
-.home .open-work--figma .open-work__base {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.home .open-work--figma .open-work__globe {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 170px;
-  height: 170px;
-}
-
-.home .open-work--figma .open-work__globe-crop {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.home .open-work--figma .open-work__globe-image {
-  position: absolute;
-  width: 371.29%;
-  height: 495.05%;
-  left: -271.29%;
-  top: -395.05%;
-  max-width: none;
-  display: block;
-}
-
-@media (max-width: 1199px) {
-  .home .open-work--figma.section {
-    padding-bottom: 168px;
-  }
-
-  .home .open-work--figma .open-work__canvas {
-    width: min(680px, calc(100% - 64px));
-  }
-}
-
-@media (max-width: 767px) {
-  .home .open-work--figma.section {
-    padding-bottom: 144px;
-  }
-
-  .home .open-work--figma .open-work__canvas {
-    width: min(680px, calc(100% - 30px));
-    height: auto;
-    aspect-ratio: 680 / 480;
-  }
-
-  .home .open-work--figma .open-work__globe {
-    width: 84px;
-    height: 84px;
-  }
-}
-
 /* HOME SHOTS (FIGMA NODE 273:1459) */
 .home .shots--figma.section {
-  padding: 0 0 240px;
+  padding: 0 0 120px;
 }
 
 .home .shots--figma .shots__canvas {
@@ -2307,7 +2237,7 @@ main {
 
 @media (max-width: 1199px) {
   .home .shots--figma.section {
-    padding-bottom: 168px;
+    padding-bottom: 84px;
   }
 
   .home .shots--figma .shots__canvas {
@@ -2317,7 +2247,7 @@ main {
 
 @media (max-width: 767px) {
   .home .shots--figma.section {
-    padding-bottom: 144px;
+    padding-bottom: 72px;
   }
 
   .home .shots--figma .shots__canvas {
@@ -4138,50 +4068,7 @@ main {
   }
 }
 
-/* ABOUT GLOBE OVERRIDE (FIGMA NODES 144:1029, 348:979) */
-.home.home--rebuild .about--figma .about__canvas {
-  position: relative;
-  display: block;
-  width: min(680px, calc(100% - 56px));
-  height: 855px;
-  margin: 0 auto;
-  padding-top: 0;
-}
-
-.home.home--rebuild .about--figma .about__lead,
-.home.home--rebuild .about--figma .about__sublead {
-  position: absolute;
-  left: 50%;
-  margin: 0;
-  color: #070707;
-  font-family: "Kommuna Narrow", "Times New Roman", serif;
-  font-size: 48px;
-  line-height: 1.1;
-  letter-spacing: -0.96px;
-  text-transform: uppercase;
-  text-align: center;
-  --reveal-base-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.home.home--rebuild .about--figma .about__lead {
-  top: 32px;
-  width: 680px;
-}
-
-.home.home--rebuild .about--figma .about__lead--desktop {
-  display: block;
-}
-
-.home.home--rebuild .about--figma .about__lead--mobile {
-  display: none;
-}
-
-.home.home--rebuild .about--figma .about__sublead {
-  top: 717px;
-  width: 680px;
-}
-
+/* HOME ABOUT/GLOBE REFRESH (FIGMA NODES 359:1073, 348:979) */
 .home.home--rebuild .about--figma .about__sublead--desktop {
   display: block;
 }
@@ -4190,40 +4077,13 @@ main {
   display: none;
 }
 
-.home.home--rebuild .about--figma .about__line {
-  display: block;
-  white-space: normal;
-}
-
-.home.home--rebuild .about--figma .about__line-chunk {
-  display: inline-block;
-}
-
-.home.home--rebuild .about--figma .about__line--with-logo,
 .home.home--rebuild .about--figma .about__line--with-star {
   display: inline-flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
   gap: 0.12ch;
-}
-
-.home.home--rebuild .about--figma .about__logo-inline {
-  display: inline-flex;
-  width: 65px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #000000;
-  border-radius: 4.444px;
-  padding: 3.469px;
-  margin: 0 0.06ch;
-  transform: translateY(-0.1em);
-  background: #ffffff;
-}
-
-.home.home--rebuild .about--figma .about__logo-inline img {
-  width: 46.719px;
-  height: 25.455px;
+  flex-wrap: nowrap;
 }
 
 .home.home--rebuild .about--figma .about__star-icon {
@@ -4232,46 +4092,123 @@ main {
   height: 44px;
   align-items: center;
   justify-content: center;
-  margin: 0 0.04ch;
+  margin: 0 0.06ch;
   transform: translateY(-0.03em);
 }
 
 .home.home--rebuild .about--figma .about__star-icon img {
-  width: 44px;
-  height: 44px;
-  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.home.home--rebuild .about--figma .about__search-icon {
-  display: none;
-}
-
-.home.home--rebuild .about--figma .about__globe {
-  position: absolute;
-  top: 345px;
-  left: 50%;
-  width: 324px;
-  height: 324px;
-  margin: 0;
-  object-fit: cover;
-  --reveal-base-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-@media (max-width: 767px) {
+@media (min-width: 1200px) {
   .home.home--rebuild .about--figma .about__canvas {
-    width: min(361px, calc(100vw - 32px));
-    max-width: calc(100vw - 32px);
-    height: 668px;
+    position: relative;
+    width: min(680px, calc(100% - 56px));
+    height: 908px;
+    margin: 0 auto;
+    padding-top: 0;
   }
 
   .home.home--rebuild .about--figma .about__lead,
   .home.home--rebuild .about--figma .about__sublead {
+    position: absolute;
+    left: 50%;
+    width: 680px;
+    max-width: 680px;
+    margin: 0;
+    color: #070707;
+    font-family: "Kommuna Narrow", "Times New Roman", serif;
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: -0.96px;
+    text-transform: uppercase;
+    text-align: center;
+    --reveal-base-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .home.home--rebuild .about--figma .about__lead {
+    top: 32px;
+  }
+
+  .home.home--rebuild .about--figma .about__sublead {
+    top: 717px;
+  }
+
+  .home.home--rebuild .about--figma .about__line {
+    display: block;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .home.home--rebuild .about--figma .about__line--with-logo,
+  .home.home--rebuild .about--figma .about__line--with-star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    max-width: 100%;
+    gap: 0.12ch;
+    flex-wrap: nowrap;
+  }
+
+  .home.home--rebuild .about--figma .about__logo-inline {
+    width: 65px;
+    height: 40px;
+    border: 1px solid #000000;
+    border-radius: 4.444px;
+    padding: 3.469px;
+    margin: 0 0.06ch;
+    transform: translateY(-0.1em);
+    background: #ffffff;
+  }
+
+  .home.home--rebuild .about--figma .about__logo-inline img {
+    width: 46.719px;
+    height: 25.455px;
+  }
+
+  .home.home--rebuild .about--figma .about__globe {
+    position: absolute;
+    top: 345px;
+    left: 50%;
+    width: 324px;
+    height: 324px;
+    margin: 0;
+    object-fit: cover;
+    --reveal-base-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767px) {
+  .home.home--rebuild .about--figma .about__canvas {
+    position: relative;
+    width: min(393px, 100%);
+    max-width: 393px;
+    margin: 0 auto;
+    height: 737px;
+    display: block;
+    padding-top: 0;
+  }
+
+  .home.home--rebuild .about--figma .about__lead,
+  .home.home--rebuild .about--figma .about__sublead {
+    position: absolute;
+    left: 50%;
+    width: 361px;
+    max-width: 361px;
+    margin: 0;
+    color: #070707;
+    font-family: "Kommuna Narrow", "Times New Roman", serif;
     font-size: 32px;
     line-height: 1.1;
     letter-spacing: -0.64px;
+    text-transform: uppercase;
+    text-align: center;
+    --reveal-base-transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   .home.home--rebuild .about--figma .about__lead {
@@ -4279,7 +4216,7 @@ main {
   }
 
   .home.home--rebuild .about--figma .about__sublead {
-    top: 542px;
+    top: 577px;
   }
 
   .home.home--rebuild .about--figma .about__lead--desktop,
@@ -4293,24 +4230,31 @@ main {
   }
 
   .home.home--rebuild .about--figma .about__line {
-    white-space: normal;
+    display: block;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .home.home--rebuild .about--figma .about__line--with-logo,
   .home.home--rebuild .about--figma .about__line--with-star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    gap: 0.08ch;
     flex-wrap: nowrap;
-    gap: 0.1ch;
   }
 
   .home.home--rebuild .about--figma .about__logo-inline {
-    width: 45.5px;
+    width: 46px;
     height: 28px;
     border: 0.7px solid #000000;
-    border-radius: 3.111px;
-    padding: 2.428px;
+    border-radius: 4px;
+    padding: 3px;
     margin: 0 0.06ch;
     transform: translateY(-0.08em);
+    background: #ffffff;
   }
 
   .home.home--rebuild .about--figma .about__logo-inline img {
@@ -4321,18 +4265,18 @@ main {
   .home.home--rebuild .about--figma .about__star-icon {
     width: 30px;
     height: 30px;
-    margin: 0 0.04ch;
-    transform: translateY(-0.01em);
-  }
-
-  .home.home--rebuild .about--figma .about__star-icon img {
-    width: 30px;
-    height: 30px;
+    margin: 0 0.06ch;
+    transform: translateY(-0.02em);
   }
 
   .home.home--rebuild .about--figma .about__globe {
-    top: 270px;
+    position: absolute;
+    top: 305px;
+    left: 50%;
     width: 232px;
     height: 232px;
+    margin: 0;
+    --reveal-base-transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
