@@ -3798,6 +3798,26 @@ main {
 }
 
 @media (max-width: 767px) {
+  .home.home--rebuild .projects--figma .projects__head {
+    width: 100%;
+    max-width: 361px;
+    margin: 16px auto -10px;
+    height: auto;
+    aspect-ratio: 680 / 410;
+  }
+
+  .home.home--rebuild .projects--figma .projects__word {
+    object-fit: contain;
+  }
+
+  .home.home--rebuild .projects--figma .projects__sticker {
+    left: 50%;
+    top: 21px;
+    width: 176px;
+    height: auto;
+    transform: translateX(-50%);
+  }
+
   .home.home--rebuild .projects--figma .projects__canvas {
     width: 361px;
     max-width: calc(100% - 32px);
@@ -3805,56 +3825,141 @@ main {
   }
 
   .home.home--rebuild .projects--figma .project-item {
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    gap: 12px;
+    margin: 0;
   }
 
-  .home.home--rebuild .projects--figma .project-item__cover {
+  .home.home--rebuild .projects--figma .project-item + .project-item {
+    margin-top: 24px;
+  }
+
+  .home.home--rebuild .projects--figma .project-item__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__media {
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 361 / 212;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__cover {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
-  .home.home--rebuild .projects--figma .project-item__title {
-    width: 100%;
-    margin: 0;
-    font-family: "Arial Narrow", "Arial", sans-serif;
-    font-size: 20px;
-    line-height: 1.2;
-    font-weight: 400;
+  .home.home--rebuild .projects--figma .project-card__dots {
+    display: none;
   }
 
-  .home.home--rebuild .projects--figma .project-item__meta {
+  .home.home--rebuild .projects--figma .project-mobile__content {
     width: 100%;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .home.home--rebuild .projects--figma .project-mobile__head {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  .home.home--rebuild .projects--figma .project-item__meta-col {
+  .home.home--rebuild .projects--figma .project-mobile__body {
     width: 100%;
-    min-width: 0;
-    padding-right: 0;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 20px;
   }
 
-  .home.home--rebuild .projects--figma .project-item__meta-label,
-  .home.home--rebuild .projects--figma .project-item__meta-text {
+  .home.home--rebuild .projects--figma .project-card__title {
+    width: 100%;
+    margin: 0;
+    font-family: "Kommuna Narrow", "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.64px;
+    font-weight: 400;
+    color: #070707;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__tags {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__tags-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 8px 14px;
+    border: 1px solid #070707;
+    font-family: "Arial Narrow", "Arial", sans-serif;
+    font-size: 14px;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #070707;
+    white-space: nowrap;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__description {
+    width: 100%;
     margin: 0;
     font-family: "Arial Narrow", "Arial", sans-serif;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
+    color: #070707;
   }
 
-  .home.home--rebuild .projects--figma .project-item__meta-label {
+  .home.home--rebuild .projects--figma .project-card__accent {
+    color: #1400ff;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__role {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__role-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 100px;
+    background: #070707;
+    flex: 0 0 auto;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__role-label,
+  .home.home--rebuild .projects--figma .project-card__role-text {
+    margin: 0;
+    font-family: "Arial Narrow", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #070707;
+  }
+
+  .home.home--rebuild .projects--figma .project-card__role-label {
     opacity: 0.4;
   }
 }
