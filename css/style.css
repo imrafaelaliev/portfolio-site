@@ -4600,3 +4600,26 @@ main {
     letter-spacing: -0.48px;
   }
 }
+
+/* FOOTER UPDATE (FIGMA 45:2563) */
+@media (min-width: 1200px) {
+  .home.home--rebuild .contacts--figma .contacts__canvas,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__canvas {
+    height: 1035px;
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__link,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link {
+    top: 528px;
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__link--linkedin,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--linkedin {
+    left: calc(50% + 18px);
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__banner,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__banner {
+    display: none;
+  }
+}

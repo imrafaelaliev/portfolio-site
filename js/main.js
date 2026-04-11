@@ -327,10 +327,10 @@
           <a class="contacts__link contacts__link--telegram" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">telegram</a>
           <a
             class="contacts__link contacts__link--linkedin"
-            href="https://www.linkedin.com/in/rafael-aliev-a10539399/"
+            href="https://www.behance.net/rafaelaliev"
             target="_blank"
             rel="noopener noreferrer"
-            >linkedin</a
+            >behance</a
           >
           <a class="contacts__link contacts__link--email" href="mailto:rafaelaliev53@gmail.com">email</a>
         </div>
