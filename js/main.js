@@ -195,18 +195,21 @@
   const storeCaseSequenceFromHome = () => {
     if (!document.body.classList.contains('home')) return;
 
-    const links = Array.from(document.querySelectorAll('.project-item[data-case-link], .mentions__card[data-case-link]'));
-    if (!links.length) return;
+    const cards = Array.from(document.querySelectorAll('.project-item, .mentions__card[data-case-link]'));
+    if (!cards.length) return;
 
-    const sequence = links
-      .map((link) => {
-        const slug = extractCaseSlug(link.getAttribute('href') || '');
+    const sequence = cards
+      .map((card) => {
+        const caseLink = card.matches('a[data-case-link]') ? card : card.querySelector('a[data-case-link]');
+        if (!caseLink) return null;
+
+        const slug = extractCaseSlug(caseLink.getAttribute('href') || '');
         if (!slug) return null;
 
         const fallback = caseMetaBySlug.get(slug);
-        const titleNode = link.querySelector('.project-item__title, .mentions__caption');
+        const titleNode = card.querySelector('.project-item__title, .mentions__caption');
         const domTitle = titleNode ? titleNode.textContent.replace(/\s+/g, ' ').trim() : '';
-        const imageNode = link.querySelector('img');
+        const imageNode = card.querySelector('.project-card__cover, .mentions__cover img, img');
         const domImage = imageNode ? (imageNode.getAttribute('src') || '').trim() : '';
 
         return {
