@@ -4603,9 +4603,18 @@ main {
 
 /* FOOTER UPDATE (FIGMA 45:2563) */
 @media (min-width: 1200px) {
+  .home.home--rebuild #contacts.contacts--figma.section,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma.section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .home.home--rebuild .contacts--figma .contacts__canvas,
   body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__canvas {
+    position: relative;
+    width: min(1440px, 100%);
     height: 1035px;
+    margin: 0 auto;
   }
 
   .home.home--rebuild .contacts--figma .contacts__link,
@@ -4616,6 +4625,20 @@ main {
   .home.home--rebuild .contacts--figma .contacts__link--linkedin,
   body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--linkedin {
     left: calc(50% + 18px);
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__phone,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__phone {
+    top: 0;
+    left: 50%;
+    width: 480px;
+    height: 480px;
+    transform: translateX(-50%);
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__link--email,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--email {
+    left: calc(50% + 301px);
   }
 
 }
