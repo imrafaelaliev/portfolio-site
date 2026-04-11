@@ -4622,6 +4622,11 @@ main {
     top: 528px;
   }
 
+  .home.home--rebuild .contacts--figma .contacts__link--telegram,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--telegram {
+    left: calc(50% - 282.5px);
+  }
+
   .home.home--rebuild .contacts--figma .contacts__link--linkedin,
   body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--linkedin {
     left: calc(50% + 18px);
@@ -4639,6 +4644,28 @@ main {
   .home.home--rebuild .contacts--figma .contacts__link--email,
   body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--email {
     left: calc(50% + 301px);
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__banner,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__banner {
+    display: block;
+    top: 583px;
+    left: calc(50% - 340px);
+    width: 680px;
+    height: 420px;
+    overflow: hidden;
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__banner-bg,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__banner-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__banner-word,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__banner-word {
+    display: none;
   }
 
 }

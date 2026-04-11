@@ -343,8 +343,7 @@
             loading="lazy"
             decoding="async"
           />
-          <img class="contacts__banner-bg" src="../assets/images/home/footer-bg.png" alt="" loading="lazy" decoding="async" />
-          <img class="contacts__banner-word" src="../assets/images/home/footer-word.svg" alt="" loading="lazy" decoding="async" />
+          <img class="contacts__banner-bg" src="../assets/images/home/footer-banner-figma-406-851.png" alt="" loading="lazy" decoding="async" />
         </div>
       </div>
     `;
