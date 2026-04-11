@@ -15,25 +15,57 @@
   position: fixed;
   top: 32px;
   left: 32px;
-  width: 285px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   z-index: 70;
+}
+
+.marshall-page__intro-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
 .marshall-page__title {
   margin: 0;
-  font-size: 32px;
+  font-family: "Kommuna Narrow", "Times New Roman", serif;
+  font-size: 48px;
   line-height: 1.1;
+  letter-spacing: -0.96px;
   font-weight: 400;
 }
 
 .marshall-page__subtitle {
-  margin: 16px 0 0;
+  margin: 0;
   font-size: 20px;
   line-height: 1.5;
 }
 
+.marshall-page__tags {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.marshall-page__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 8px 16px;
+  border: 1px solid #070707;
+  font-size: 16px;
+  line-height: normal;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .marshall-page__role {
-  margin: 24px 0 0;
+  margin: 0;
   display: inline-flex;
   align-items: center;
   gap: 8px;
