@@ -253,7 +253,7 @@
 }
 
 .marshall-page__content {
-  width: clamp(680px, 44vw, 980px);
+  width: clamp(680px, calc(100vw * 680 / 1440), 1200px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1177,11 +1177,5 @@
 
   .marshall-page__text.marshall-page__text--small {
     font-size: 20px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .marshall-page__content {
-    width: clamp(800px, 50vw, 1120px);
   }
 }
