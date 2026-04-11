@@ -4488,7 +4488,7 @@ main {
   }
 
   .home.home--rebuild .projects--figma .project-card__copy {
-    width: min(506px, calc(100% - 174px));
+    width: calc(100% - 174px);
     min-width: 0;
   }
 
@@ -4582,28 +4582,6 @@ main {
     color: #070707;
   }
 
-}
-
-/* PROJECT IMAGES: HARD FIXED SIZE 680x400 (DESKTOP) */
-@media (min-width: 768px) {
-  .home.home--rebuild .projects--figma .projects__canvas,
-  .home.home--rebuild .projects--figma .projects__head,
-  .home.home--rebuild .projects--figma .project-item {
-    width: 680px;
-    max-width: 680px;
-  }
-
-  .home.home--rebuild .projects--figma .project-card__media {
-    width: 680px;
-    height: 400px;
-    aspect-ratio: auto;
-  }
-
-  .home.home--rebuild .projects--figma .project-card__cover {
-    width: 680px;
-    height: 400px;
-    object-fit: fill;
-  }
 }
 
 .home.home--rebuild .projects--figma .project-card__media,
