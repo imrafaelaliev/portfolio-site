@@ -29,21 +29,8 @@
   aspect-ratio: 680 / 374;
 }
 
-.hios-page .hios-page__shot--research {
-  height: auto;
-  aspect-ratio: 680 / 380;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-}
-
-.hios-page .hios-page__shot--cultural {
-  height: auto;
-  aspect-ratio: 680 / 382;
-}
-
 .hios-page .hios-page__shot--concept-v1,
-.hios-page .hios-page__shot--concept-v1-phone,
-.hios-page .hios-page__shot--concept-v1-phone-alt {
+.hios-page .hios-page__shot--concept-v1-phone {
   height: auto;
   aspect-ratio: 680 / 374;
 }
@@ -55,10 +42,7 @@
 
 .hios-page .hios-page__shot--concept-v2-grid,
 .hios-page .hios-page__shot--concept-v2-shot,
-.hios-page .hios-page__shot--concept-v2-phone,
-.hios-page .hios-page__shot--concept-v2-phone-alt-1,
-.hios-page .hios-page__shot--concept-v2-phone-alt-2,
-.hios-page .hios-page__shot--concept-v2-phone-alt-3 {
+.hios-page .hios-page__shot--concept-v2-phone {
   height: auto;
   aspect-ratio: 680 / 382;
 }
@@ -93,26 +77,15 @@
 
   .hios-page .hios-page__shot--os-analysis,
   .hios-page .hios-page__shot--concept-v1,
-  .hios-page .hios-page__shot--concept-v1-phone,
-  .hios-page .hios-page__shot--concept-v1-phone-alt {
+  .hios-page .hios-page__shot--concept-v1-phone {
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 374;
   }
 
-  .hios-page .hios-page__shot--research {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 380;
-  }
-
-  .hios-page .hios-page__shot--cultural,
-  .hios-page .hios-page__shot--concept-v2-grid,
-  .hios-page .hios-page__shot--concept-v2-shot,
   .hios-page .hios-page__shot--concept-v2-phone,
-  .hios-page .hios-page__shot--concept-v2-phone-alt-1,
-  .hios-page .hios-page__shot--concept-v2-phone-alt-2,
-  .hios-page .hios-page__shot--concept-v2-phone-alt-3 {
+  .hios-page .hios-page__shot--concept-v2-grid,
+  .hios-page .hios-page__shot--concept-v2-shot {
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 382;

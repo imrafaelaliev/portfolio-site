@@ -33,20 +33,9 @@
 }
 
 .sladonezh-page .sladonezh-page__shot--about,
-.sladonezh-page .sladonezh-page__shot--task,
 .sladonezh-page .sladonezh-page__shot--role {
   height: auto;
   aspect-ratio: 680 / 400;
-}
-
-.sladonezh-page .sladonezh-page__shot--analysis {
-  height: auto;
-  aspect-ratio: 680 / 320;
-}
-
-.sladonezh-page .sladonezh-page__shot--architecture {
-  height: auto;
-  aspect-ratio: 680 / 118;
 }
 
 .sladonezh-page .sladonezh-page__shot--catalog-entry {
@@ -67,11 +56,6 @@
 .sladonezh-page .sladonezh-page__shot--suppliers {
   height: auto;
   aspect-ratio: 680 / 254;
-}
-
-.sladonezh-page .sladonezh-page__shot--concept-main {
-  height: auto;
-  aspect-ratio: 680 / 450;
 }
 
 .sladonezh-page__mascots {
@@ -105,8 +89,7 @@
 .sladonezh-page .sladonezh-page__shot--design-extra-3,
 .sladonezh-page .sladonezh-page__shot--design-extra-4,
 .sladonezh-page .sladonezh-page__shot--design-extra-5,
-.sladonezh-page .sladonezh-page__shot--design-extra-6,
-.sladonezh-page .sladonezh-page__shot--design-extra-7 {
+.sladonezh-page .sladonezh-page__shot--design-extra-6 {
   height: auto;
   aspect-ratio: 680 / 378;
 }
@@ -121,90 +104,11 @@
   aspect-ratio: 680 / 480;
 }
 
-.sladonezh-page__audience-card {
-  margin-top: 0;
-  width: 432px;
-  max-width: 100%;
-  padding: 16px;
-  background: #eeeeee;
-}
-
-.sladonezh-page__audience-card-title,
-.sladonezh-page__audience-card-text {
-  margin: 0;
-  color: #070707;
-  font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: normal;
-  font-weight: 400;
-}
-
-.sladonezh-page__audience-card-text + .sladonezh-page__audience-card-text {
-  margin-top: 8px;
-}
-
-.sladonezh-page__audience-card-list {
-  margin: 0;
-  padding: 0 0 0 24px;
-  color: #070707;
-  font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: normal;
-  font-weight: 400;
-}
-
-.sladonezh-page__audience-card-list li {
-  margin: 0;
-}
-
-.sladonezh-page__story {
-  margin-top: 0;
-  width: 550px;
-  max-width: 100%;
-  color: #070707;
-  font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.sladonezh-page__story p {
-  margin: 0;
-}
-
-.sladonezh-page__story p + p {
-  margin-top: 12px;
-}
-
-.sladonezh-page__quote {
-  font-style: italic;
-}
-
 .sladonezh-page__insights {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0;
-}
-
-.sladonezh-page__insights-row {
-  width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 48px;
-}
-
-.sladonezh-page__insights-row p {
-  margin: 0;
-  color: #070707;
-  font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.sladonezh-page__insights-row--head p {
-  opacity: 0.4;
 }
 
 
@@ -232,8 +136,6 @@
 }
 
 @media (max-width: 1199px) {
-  .sladonezh-page__audience-card,
-  .sladonezh-page__story,
   .sladonezh-page__mascots {
     width: 100%;
   }
@@ -256,24 +158,11 @@
 
   .sladonezh-page .sladonezh-page__hero,
   .sladonezh-page .sladonezh-page__shot--about,
-  .sladonezh-page .sladonezh-page__shot--task,
   .sladonezh-page .sladonezh-page__shot--role,
   .sladonezh-page .sladonezh-page__shot--catalog-flow {
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 400;
-  }
-
-  .sladonezh-page .sladonezh-page__shot--analysis {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 320;
-  }
-
-  .sladonezh-page .sladonezh-page__shot--architecture {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 118;
   }
 
   .sladonezh-page .sladonezh-page__shot--catalog-entry {
@@ -292,12 +181,6 @@
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 254;
-  }
-
-  .sladonezh-page .sladonezh-page__shot--concept-main {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 450;
   }
 
   .sladonezh-page__mascots {
@@ -326,8 +209,7 @@
   .sladonezh-page .sladonezh-page__shot--design-extra-3,
   .sladonezh-page .sladonezh-page__shot--design-extra-4,
   .sladonezh-page .sladonezh-page__shot--design-extra-5,
-  .sladonezh-page .sladonezh-page__shot--design-extra-6,
-  .sladonezh-page .sladonezh-page__shot--design-extra-7 {
+  .sladonezh-page .sladonezh-page__shot--design-extra-6 {
     width: 100%;
     height: auto;
     aspect-ratio: 680 / 378;
@@ -349,24 +231,11 @@
     gap: 4px;
   }
 
-  .sladonezh-page__insights-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .sladonezh-page__insights-row p {
-    font-size: 16px;
-  }
-
   .sladonezh-page__key-solutions {
     gap: 24px;
   }
 
   .sladonezh-page__key-item {
     gap: 16px;
-  }
-
-  .sladonezh-page__story {
-    font-size: 16px;
   }
 }

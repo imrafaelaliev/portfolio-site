@@ -52,73 +52,6 @@
   background: rgba(7, 7, 7, 0.16);
 }
 
-.lori-page__stages {
-  margin: 0;
-  width: 550px;
-  max-width: 100%;
-  color: #070707;
-  font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.lori-page__stages p {
-  margin: 0;
-}
-
-.lori-page__stages p + p {
-  margin-top: 8px;
-}
-
-.lori-page__audience-card {
-  margin: 0;
-  width: 432px;
-  max-width: 100%;
-  padding: 16px;
-  background: #eeeeee;
-}
-
-.lori-page__audience-title,
-.lori-page__audience-text {
-  margin: 0;
-  color: #070707;
-  font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.lori-page__audience-text + .lori-page__audience-text {
-  margin-top: 8px;
-}
-
-.lori-page__audience-list {
-  margin: 0;
-  padding: 0 0 0 24px;
-  color: #070707;
-  font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.lori-page__insight {
-  margin: 0;
-  width: 550px;
-  max-width: 100%;
-}
-
-.lori-page__insight-title,
-.lori-page__insight-text {
-  margin: 0;
-  color: #070707;
-  font-family: "Arial Narrow", "Arial", sans-serif;
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
 .lori-page__end-link-icon {
   width: 48px;
   min-width: 48px;
@@ -158,27 +91,6 @@
   object-fit: cover;
 }
 
-.lori-page__shot--h416 {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 680 / 416;
-  object-fit: cover;
-}
-
-.lori-page__shot--h424 {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 680 / 424;
-  object-fit: cover;
-}
-
-.lori-page__shot--h526 {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 680 / 526;
-  object-fit: cover;
-}
-
 .lori-page__shot--h374 {
   width: 100%;
   height: auto;
@@ -194,16 +106,12 @@
 }
 
 @media (max-width: 1199px) {
-  .lori-page__audience-card,
   .lori-page__shot--narrow {
     width: 100%;
   }
 
   .lori-page .marshall-page__hero-preview,
   .lori-page__shot--narrow,
-  .lori-page__shot--h416,
-  .lori-page__shot--h424,
-  .lori-page__shot--h526,
   .lori-page__shot--h374,
   .lori-page__shot--h544 {
     height: auto;
