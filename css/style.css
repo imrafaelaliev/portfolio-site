@@ -4528,24 +4528,38 @@ main {
   .home.home--rebuild .contacts--figma .contacts__canvas,
   body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__canvas {
     position: relative;
-    width: min(1440px, 100%);
-    height: 1035px;
+    width: min(1440px, calc(100vw - 96px));
+    height: calc(583px + (var(--home-center-fluid, 680px) * 420 / 680) + 32px);
     margin: 0 auto;
+  }
+
+  .home.home--rebuild .contacts--figma .contacts__links-row,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__links-row {
+    position: absolute;
+    top: 528px;
+    left: 50%;
+    width: var(--home-center-fluid, 680px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(-50%);
   }
 
   .home.home--rebuild .contacts--figma .contacts__link,
   body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link {
-    top: 528px;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
   }
 
   .home.home--rebuild .contacts--figma .contacts__link--telegram,
-  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--telegram {
-    left: calc(50% - 282.5px);
-  }
-
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--telegram,
   .home.home--rebuild .contacts--figma .contacts__link--linkedin,
-  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--linkedin {
-    left: calc(50% + 18px);
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--linkedin,
+  .home.home--rebuild .contacts--figma .contacts__link--email,
+  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--email {
+    left: auto;
   }
 
   .home.home--rebuild .contacts--figma .contacts__phone,
@@ -4557,18 +4571,13 @@ main {
     transform: translateX(-50%);
   }
 
-  .home.home--rebuild .contacts--figma .contacts__link--email,
-  body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__link--email {
-    left: calc(50% + 301px);
-  }
-
   .home.home--rebuild .contacts--figma .contacts__banner,
   body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma .contacts__banner {
     display: block;
     top: 583px;
-    left: calc(50% - 340px);
-    width: 680px;
-    height: 420px;
+    left: calc(50% - (var(--home-center-fluid, 680px) / 2));
+    width: var(--home-center-fluid, 680px);
+    height: calc(var(--home-center-fluid, 680px) * 420 / 680);
     overflow: hidden;
   }
 
