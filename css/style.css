@@ -2103,9 +2103,7 @@ main {
 
 .home .mentions--figma .mentions__project-link:hover .mentions__project-title,
 .home .mentions--figma .mentions__project-link:focus-visible .mentions__project-title {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 
 .home .mentions--figma .mentions__project-title {
