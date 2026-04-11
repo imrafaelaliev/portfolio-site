@@ -315,20 +315,36 @@
     footerSection.setAttribute('aria-label', 'Контакты');
     footerSection.innerHTML = `
       <div class="contacts__canvas">
-        <p class="contacts__headline reveal">
-          веду блог про дизайн<br />
-          в телеграме и Linkedin
-        </p>
+        <img
+          class="contacts__phone reveal"
+          src="../assets/images/contacts-phone.gif"
+          alt="Телефон"
+          loading="lazy"
+          decoding="async"
+        />
 
         <div class="contacts__links-row reveal">
-          <a class="contacts__link contacts__link--telegram contacts__link--circle" href="https://t.me/alievtalk" target="_blank" rel="noopener noreferrer">telegram</a>
+          <a class="contacts__link contacts__link--telegram" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">telegram</a>
           <a
-            class="contacts__link contacts__link--linkedin contacts__link--square"
+            class="contacts__link contacts__link--linkedin"
             href="https://www.linkedin.com/in/rafael-aliev-a10539399/"
             target="_blank"
             rel="noopener noreferrer"
             >linkedin</a
           >
+          <a class="contacts__link contacts__link--email" href="mailto:rafaelaliev53@gmail.com">email</a>
+        </div>
+
+        <div class="contacts__banner reveal" aria-hidden="true">
+          <img
+            class="contacts__banner-image contacts__banner-image--mobile"
+            src="../assets/images/home/footer-banner-mobile-figma.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          <img class="contacts__banner-bg" src="../assets/images/home/footer-bg.png" alt="" loading="lazy" decoding="async" />
+          <img class="contacts__banner-word" src="../assets/images/home/footer-word.svg" alt="" loading="lazy" decoding="async" />
         </div>
       </div>
     `;
