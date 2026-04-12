@@ -4196,19 +4196,19 @@ main {
 }
 
 .home.home--rebuild .projects--figma .project-card__tags {
-  width: 158px;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px;
-  flex: 0 0 158px;
+  gap: 4px;
+  flex: 0 0 auto;
 }
 
 .home.home--rebuild .projects--figma .project-card__tags-row {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 4px;
 }
 
 .home.home--rebuild .projects--figma .project-card__tags--triple {
@@ -4220,9 +4220,10 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  padding: 8px 16px;
-  border: 1px solid #070707;
+  min-height: 0;
+  padding: 4px 6px;
+  border: 0;
+  background: rgba(7, 7, 7, 0.08);
   font-family: "Arial Narrow", "Arial", sans-serif;
   font-size: 16px;
   line-height: normal;
@@ -4308,7 +4309,7 @@ main {
   }
 
   .home.home--rebuild .projects--figma .project-item + .project-item {
-    margin-top: 80px;
+    margin-top: 96px;
   }
 
   .home.home--rebuild .projects--figma .project-item__desktop {
@@ -4378,8 +4379,8 @@ main {
   }
 
 .home.home--rebuild .projects--figma .project-card__tag {
-  min-height: 36px;
-  padding: 8px 14px;
+  min-height: 0;
+  padding: 4px;
   font-size: 14px;
   }
 }
