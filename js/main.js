@@ -196,6 +196,9 @@
           const fallback = caseMetaBySlug.get(slug);
           const title = typeof entry.title === 'string' && entry.title.trim() ? entry.title.trim() : fallback?.title || slug;
           const image = typeof entry.image === 'string' && entry.image.trim() ? entry.image.trim() : fallback?.image || '';
+          const summary = typeof entry.summary === 'string' && entry.summary.trim() ? entry.summary.trim() : fallback?.summary || '';
+          const role = typeof entry.role === 'string' && entry.role.trim() ? entry.role.trim() : fallback?.role || '';
+          const tags = Array.isArray(entry.tags) && entry.tags.length ? entry.tags : fallback?.tags || [];
           const captionClass =
             typeof entry.captionClass === 'string' && NEXT_CASE_CAPTION_CLASSES.includes(entry.captionClass)
               ? entry.captionClass
@@ -205,6 +208,9 @@
             slug,
             title,
             image,
+            summary,
+            role,
+            tags,
             captionClass
           };
         })
@@ -218,13 +224,8 @@
 
   const getCaseSequence = () => readStoredCaseSequence() || FALLBACK_CASE_SEQUENCE;
 
-  const storeCaseSequenceFromHome = () => {
-    if (!document.body.classList.contains('home')) return;
-
-    const cards = Array.from(document.querySelectorAll('.project-item, .mentions__card[data-case-link]'));
-    if (!cards.length) return;
-
-    const sequence = cards
+  const buildCaseSequenceFromCards = (cards = []) =>
+    cards
       .map((card) => {
         const caseLink = card.matches('a[data-case-link]') ? card : card.querySelector('a[data-case-link]');
         if (!caseLink) return null;
@@ -235,21 +236,61 @@
         const fallback = caseMetaBySlug.get(slug);
         const titleNode = card.querySelector('.project-item__title, .mentions__caption');
         const domTitle = titleNode ? titleNode.textContent.replace(/\s+/g, ' ').trim() : '';
-        const imageNode = card.querySelector('.project-card__cover, .mentions__cover img, img');
+        const imageNode = card.querySelector('.project-item__desktop .project-card__cover, .project-card__cover, .mentions__cover img, img');
         const domImage = imageNode ? (imageNode.getAttribute('src') || '').trim() : '';
+        const descriptionNode = card.querySelector('.project-item__desktop .project-card__description, .project-card__description');
+        const roleNode = card.querySelector('.project-item__desktop .project-card__role-text, .project-card__role-text');
+        const tags = Array.from(card.querySelectorAll('.project-item__desktop .project-card__tag, .project-card__tag'))
+          .map((tagNode) => tagNode.textContent.replace(/\s+/g, ' ').trim())
+          .filter(Boolean);
 
         return {
           slug,
           title: domTitle || fallback?.title || slug,
-          image: fallback?.image || domImage,
+          image: domImage || fallback?.image || '',
+          summary: descriptionNode ? descriptionNode.textContent.replace(/\s+/g, ' ').trim() : fallback?.summary || '',
+          role: roleNode ? roleNode.textContent.replace(/\s+/g, ' ').trim() : fallback?.role || '',
+          tags: tags.length ? tags : fallback?.tags || [],
           captionClass: fallback?.captionClass || 'marshall-page__next-case-caption--project'
         };
       })
       .filter(Boolean);
 
+  const storeCaseSequenceFromHome = () => {
+    if (!document.body.classList.contains('home')) return;
+
+    const cards = Array.from(document.querySelectorAll('.project-item, .mentions__card[data-case-link]'));
+    if (!cards.length) return;
+
+    const sequence = buildCaseSequenceFromCards(cards);
+
     if (!sequence.length) return;
 
     storage.set(CASE_SEQUENCE_KEY, JSON.stringify(sequence));
+  };
+
+  const refreshCaseSequenceFromHomePage = async () => {
+    if (isFileProtocol) return;
+    if (readStoredCaseSequence()) return;
+
+    try {
+      const response = await fetch('../index.html', { credentials: 'same-origin' });
+      if (!response.ok) return;
+
+      const html = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const cards = Array.from(doc.querySelectorAll('.project-item, .mentions__card[data-case-link]'));
+      if (!cards.length) return;
+
+      const sequence = buildCaseSequenceFromCards(cards);
+      if (!sequence.length) return;
+
+      storage.set(CASE_SEQUENCE_KEY, JSON.stringify(sequence));
+      syncNextCaseCard();
+    } catch {
+      // Keep fallback behavior when preload from home is unavailable.
+    }
   };
 
   const syncNextCaseCard = () => {
@@ -268,7 +309,9 @@
     if (currentIndex === -1) return;
 
     const forcedNextSlug = FORCED_NEXT_CASE_BY_SLUG[currentSlug] || '';
-    const forcedNextCase = forcedNextSlug ? caseMetaBySlug.get(forcedNextSlug) : null;
+    const forcedNextCase = forcedNextSlug
+      ? caseSequence.find((entry) => entry.slug === forcedNextSlug) || caseMetaBySlug.get(forcedNextSlug)
+      : null;
     const sequenceNextCase = caseSequence[(currentIndex + 1) % caseSequence.length];
     const nextCase = forcedNextCase || sequenceNextCase;
     const nextCaseMeta = caseMetaBySlug.get(nextCase.slug) || {};
@@ -386,6 +429,7 @@
   });
 
   syncNextCaseCard();
+  refreshCaseSequenceFromHomePage();
   const injectSharedCaseFooter = () => {
     if (!document.body.classList.contains('marshall-page')) return;
 
