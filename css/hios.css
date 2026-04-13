@@ -1,59 +1,55 @@
 .hios-page .marshall-page__intro {
-  width: 291px;
+  width: 316px;
 }
 
 .hios-page .marshall-page__section .marshall-page__text + .marshall-page__text {
   margin-top: 0;
 }
 
-.hios-page .hios-page__hero {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 680 / 400;
-  object-fit: cover;
-}
-
-.hios-page .hios-page__shot {
+.hios-page .hios-page__hero,
+.hios-page .hios-page__shot--design-374,
+.hios-page .hios-page__shot--design-382 {
   width: 100%;
   display: block;
   object-fit: cover;
 }
 
-.hios-page .hios-page__shot--about {
-  height: auto;
+.hios-page .hios-page__hero {
   aspect-ratio: 680 / 400;
 }
 
-.hios-page .hios-page__shot--os-analysis {
-  height: auto;
+.hios-page .hios-page__shot--design-374 {
   aspect-ratio: 680 / 374;
 }
 
-.hios-page .hios-page__shot--concept-v1,
-.hios-page .hios-page__shot--concept-v1-phone {
-  height: auto;
-  aspect-ratio: 680 / 374;
-}
-
-.hios-page .hios-page__shot--concept-v2-main {
-  height: auto;
-  aspect-ratio: 680 / 400;
-}
-
-.hios-page .hios-page__shot--concept-v2-grid,
-.hios-page .hios-page__shot--concept-v2-shot,
-.hios-page .hios-page__shot--concept-v2-phone {
-  height: auto;
+.hios-page .hios-page__shot--design-382 {
   aspect-ratio: 680 / 382;
 }
 
-.hios-page .hios-page__shot--result {
-  height: auto;
-  aspect-ratio: 680 / 446;
+.hios-page .hios-page__insights {
+  gap: 48px;
+}
+
+.hios-page .hios-page__insights-copy {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hios-page .marshall-page__ordered-list {
+  margin: 0;
+  padding: 0 0 0 30px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.hios-page .marshall-page__ordered-list li + li {
+  margin-top: 0;
 }
 
 .hios-page .hios-page__research-link {
-  margin-top: 28px;
+  margin-top: 0;
 }
 
 @media (max-width: 767px) {
@@ -62,42 +58,7 @@
     max-width: 100%;
   }
 
-  .hios-page .hios-page__hero {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 400;
-  }
-
-  .hios-page .hios-page__shot--about,
-  .hios-page .hios-page__shot--concept-v2-main {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 400;
-  }
-
-  .hios-page .hios-page__shot--os-analysis,
-  .hios-page .hios-page__shot--concept-v1,
-  .hios-page .hios-page__shot--concept-v1-phone {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 374;
-  }
-
-  .hios-page .hios-page__shot--concept-v2-phone,
-  .hios-page .hios-page__shot--concept-v2-grid,
-  .hios-page .hios-page__shot--concept-v2-shot {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 382;
-  }
-
-  .hios-page .hios-page__shot--result {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 680 / 446;
-  }
-
-  .hios-page .hios-page__research-link {
-    margin-top: 8px;
+  .hios-page .hios-page__insights {
+    gap: 20px;
   }
 }
