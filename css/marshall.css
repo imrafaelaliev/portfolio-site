@@ -510,6 +510,22 @@
   }
 }
 
+@media (min-width: 1200px) {
+  .marshall-page {
+    --case-center-fluid: clamp(680px, calc(100vw * 680 / 1440), 920px);
+  }
+
+  .marshall-page__content {
+    width: var(--case-center-fluid);
+    max-width: none;
+  }
+
+  .marshall-page__next-case-link .project-card__copy {
+    width: min(calc(var(--case-center-fluid) * 506 / 680), calc(100% - 174px));
+    max-width: calc(100% - 174px);
+  }
+}
+
 @media (max-width: 1199px) {
   .marshall-page__intro,
   .marshall-page__actions,
