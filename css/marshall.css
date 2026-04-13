@@ -266,6 +266,23 @@
   object-fit: cover;
 }
 
+.marshall-page__shot-frame--design-laptop-user {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 680 / 400;
+  overflow: hidden;
+}
+
+.marshall-page__shot--design-laptop-user {
+  position: absolute;
+  left: -18.99%;
+  top: -16.49%;
+  width: 151.03%;
+  height: 171.19%;
+  max-width: none;
+  object-fit: cover;
+}
+
 .marshall-page__insights {
   gap: 20px;
 }
