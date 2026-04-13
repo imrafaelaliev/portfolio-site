@@ -215,6 +215,20 @@
   margin-top: 0;
 }
 
+.marshall-page__text-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.marshall-page__text-flow p,
+.marshall-page__text-flow ul,
+.marshall-page__text-flow ol {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
 .marshall-page__shot {
   width: 100%;
   display: block;
@@ -397,6 +411,9 @@
   .marshall-page__role,
   .marshall-page__text,
   .marshall-page__list,
+  .marshall-page__text-flow p,
+  .marshall-page__text-flow ul,
+  .marshall-page__text-flow ol,
   .marshall-page__insights-label,
   .marshall-page__insights-text,
   .marshall-page__solutions-metric {
