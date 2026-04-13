@@ -165,8 +165,8 @@
 }
 
 .marshall-page__content {
-  width: min(680px, calc(100% - 56px));
-  max-width: 100%;
+  width: 680px;
+  max-width: 680px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -526,7 +526,8 @@
   }
 
   .marshall-page__content {
-    width: min(680px, 100%);
+    width: min(680px, calc(100% - 64px));
+    max-width: 680px;
   }
 
   .marshall-page__actions {
@@ -569,7 +570,8 @@
   }
 
   .marshall-page__content {
-    width: 100%;
+    width: min(664px, calc(100% - 30px));
+    max-width: 664px;
     gap: 48px;
   }
 
