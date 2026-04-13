@@ -240,9 +240,11 @@
         const domImage = imageNode ? (imageNode.getAttribute('src') || '').trim() : '';
         const descriptionNode = card.querySelector('.project-item__desktop .project-card__description, .project-card__description');
         const roleNode = card.querySelector('.project-item__desktop .project-card__role-text, .project-card__role-text');
-        const tags = Array.from(card.querySelectorAll('.project-item__desktop .project-card__tag, .project-card__tag'))
+        const desktopScope = card.querySelector('.project-item__desktop') || card;
+        const tags = Array.from(desktopScope.querySelectorAll('.project-card__tag'))
           .map((tagNode) => tagNode.textContent.replace(/\s+/g, ' ').trim())
-          .filter(Boolean);
+          .filter(Boolean)
+          .filter((tag, idx, all) => all.indexOf(tag) === idx);
 
         return {
           slug,
@@ -271,7 +273,6 @@
 
   const refreshCaseSequenceFromHomePage = async () => {
     if (isFileProtocol) return;
-    if (readStoredCaseSequence()) return;
 
     try {
       const response = await fetch('../index.html', { credentials: 'same-origin' });
