@@ -165,7 +165,7 @@
 }
 
 .marshall-page__content {
-  width: min(680px, calc(100vw - 760px));
+  width: min(680px, calc(100% - 56px));
   max-width: 100%;
   margin: 0 auto;
   display: flex;
