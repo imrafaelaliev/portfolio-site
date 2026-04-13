@@ -444,6 +444,7 @@
   line-height: 1.1;
   letter-spacing: -0.96px;
   font-weight: 400;
+  text-transform: none;
 }
 
 .marshall-page__next-case-link .project-card__description {
