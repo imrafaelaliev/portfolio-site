@@ -280,9 +280,9 @@
     nextCaseLink.setAttribute('href', isFileProtocol ? `${nextHref}index.html` : nextHref);
     nextCaseLink.setAttribute('aria-label', `Открыть следующий кейс: ${nextCaseResolved.title}`);
 
+    const imageSource = toCasePreviewSrc(nextCaseResolved.image);
     const nextCaseImage = nextCaseLink.querySelector('.marshall-page__next-case-preview');
     if (nextCaseImage) {
-      const imageSource = toCasePreviewSrc(nextCaseResolved.image);
       if (imageSource) nextCaseImage.setAttribute('src', imageSource);
       nextCaseImage.setAttribute('alt', `Следующий кейс: ${nextCaseResolved.title}`);
     }
