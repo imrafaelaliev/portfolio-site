@@ -439,8 +439,8 @@
     });
     if (!marshallCard) return;
 
-    const mediaNodes = Array.from(marshallCard.querySelectorAll('.project-card__media'));
-    if (!mediaNodes.length) return;
+    const coverImages = Array.from(marshallCard.querySelectorAll('.project-card__cover'));
+    if (!coverImages.length) return;
 
     const slideshowSources = [
       './assets/images/marshall/design-hero-v3.png',
@@ -457,46 +457,13 @@
       preload.src = source;
     });
 
-    const slideshowLayers = mediaNodes
-      .map((mediaNode) => {
-        const baseImage = mediaNode.querySelector('.project-card__cover');
-        if (!baseImage) return null;
-
-        const initialSource = baseImage.getAttribute('src') || '';
-        const fadeImage = baseImage.cloneNode(true);
-        fadeImage.classList.add('project-card__cover--fade-layer', 'project-card__cover--hidden');
-        fadeImage.setAttribute('aria-hidden', 'true');
-        fadeImage.setAttribute('src', initialSource);
-
-        baseImage.classList.add('project-card__cover--base-layer', 'project-card__cover--visible');
-        mediaNode.classList.add('project-card__media--marshall-slideshow');
-        mediaNode.appendChild(fadeImage);
-
-        return {
-          baseImage,
-          fadeImage,
-          activeLayer: 'base',
-          initialSource
-        };
-      })
-      .filter(Boolean);
-    if (!slideshowLayers.length) return;
-
+    const initialSources = coverImages.map((img) => img.getAttribute('src') || '');
     let slideIndex = 0;
     let intervalId = null;
 
     const applySlide = (source) => {
-      slideshowLayers.forEach((layer) => {
-        const incomingImage = layer.activeLayer === 'base' ? layer.fadeImage : layer.baseImage;
-        const outgoingImage = layer.activeLayer === 'base' ? layer.baseImage : layer.fadeImage;
-
-        incomingImage.setAttribute('src', source);
-        incomingImage.classList.remove('project-card__cover--hidden');
-        incomingImage.classList.add('project-card__cover--visible');
-        outgoingImage.classList.remove('project-card__cover--visible');
-        outgoingImage.classList.add('project-card__cover--hidden');
-
-        layer.activeLayer = layer.activeLayer === 'base' ? 'fade' : 'base';
+      coverImages.forEach((img) => {
+        img.setAttribute('src', source);
       });
     };
 
@@ -514,15 +481,8 @@
         intervalId = null;
       }
       slideIndex = 0;
-
-      slideshowLayers.forEach((layer) => {
-        layer.baseImage.setAttribute('src', layer.initialSource);
-        layer.fadeImage.setAttribute('src', layer.initialSource);
-        layer.baseImage.classList.remove('project-card__cover--hidden');
-        layer.baseImage.classList.add('project-card__cover--visible');
-        layer.fadeImage.classList.remove('project-card__cover--visible');
-        layer.fadeImage.classList.add('project-card__cover--hidden');
-        layer.activeLayer = 'base';
+      coverImages.forEach((img, idx) => {
+        if (initialSources[idx]) img.setAttribute('src', initialSources[idx]);
       });
     };
 
