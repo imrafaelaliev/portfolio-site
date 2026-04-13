@@ -236,6 +236,21 @@
   object-fit: cover;
 }
 
+.marshall-page__shot--design-400 {
+  aspect-ratio: 680 / 400;
+  object-fit: cover;
+}
+
+.marshall-page__shot--design-332 {
+  aspect-ratio: 680 / 332;
+  object-fit: cover;
+}
+
+.marshall-page__shot--design-454 {
+  aspect-ratio: 680 / 454;
+  object-fit: cover;
+}
+
 .marshall-page__insights {
   gap: 20px;
 }
@@ -415,7 +430,10 @@
 
   .marshall-page__shot--hero,
   .marshall-page__shot--fixed,
-  .marshall-page__shot--checkout {
+  .marshall-page__shot--checkout,
+  .marshall-page__shot--design-400,
+  .marshall-page__shot--design-332,
+  .marshall-page__shot--design-454 {
     aspect-ratio: auto;
     height: 212px;
   }
