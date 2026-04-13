@@ -171,6 +171,14 @@
     return `../${cleanPath}`;
   };
 
+  const escapeHtml = (value) =>
+    String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
   const readStoredCaseSequence = () => {
     const raw = storage.get(CASE_SEQUENCE_KEY);
     if (!raw) return null;
@@ -279,34 +287,68 @@
       nextCaseImage.setAttribute('alt', `Следующий кейс: ${nextCaseResolved.title}`);
     }
 
-    const nextCaseCaption = nextCaseLink.querySelector('.marshall-page__next-case-caption');
-    if (nextCaseCaption) {
-      nextCaseCaption.textContent = nextCaseResolved.title;
-      nextCaseCaption.classList.remove(...NEXT_CASE_CAPTION_CLASSES);
-      nextCaseCaption.classList.add(nextCaseResolved.captionClass || 'marshall-page__next-case-caption--project');
+    const baseTitle = String(nextCaseResolved.title || '').replace(/\s*↳+\s*$/, '').trim();
+    const titleWithArrow = baseTitle ? `${baseTitle}↳` : '';
+    const description = nextCaseResolved.summary ? String(nextCaseResolved.summary).trim() : '';
+    const role = nextCaseResolved.role ? String(nextCaseResolved.role).trim() : '';
+    const tags = Array.isArray(nextCaseResolved.tags)
+      ? nextCaseResolved.tags.map((tag) => String(tag).trim()).filter(Boolean)
+      : [];
+
+    let tagsHtml = '';
+    if (tags.length >= 3) {
+      tagsHtml = `
+        <div class="project-card__tags project-card__tags--triple">
+          <span class="project-card__tag">${escapeHtml(tags[0])}</span>
+          <div class="project-card__tags-row">
+            ${tags
+              .slice(1)
+              .map((tag) => `<span class="project-card__tag">${escapeHtml(tag)}</span>`)
+              .join('')}
+          </div>
+        </div>
+      `;
+    } else if (tags.length) {
+      tagsHtml = `
+        <div class="project-card__tags">
+          ${tags.map((tag) => `<span class="project-card__tag">${escapeHtml(tag)}</span>`).join('')}
+        </div>
+      `;
     }
 
-    const nextCaseProjectTitle = nextCaseLink.querySelector('.marshall-page__next-case-project-title');
-    if (nextCaseProjectTitle) {
-      nextCaseProjectTitle.textContent = `${nextCaseResolved.title} ↳`;
-    }
+    const roleHtml = role
+      ? `
+        <div class="project-card__role">
+          <p class="project-card__role-label">Роль</p>
+          <span class="project-card__role-dot"></span>
+          <p class="project-card__role-text">${escapeHtml(role)}</p>
+        </div>
+      `
+      : '';
 
-    const nextCaseProjectDescription = nextCaseLink.querySelector('.marshall-page__next-case-project-description');
-    if (nextCaseProjectDescription && nextCaseResolved.summary) {
-      nextCaseProjectDescription.textContent = nextCaseResolved.summary;
-    }
+    const descriptionHtml = description ? `<p class="project-card__description">${escapeHtml(description)}</p>` : '';
 
-    const nextCaseRoleText = nextCaseLink.querySelector('.marshall-page__next-case-role-text');
-    if (nextCaseRoleText && nextCaseResolved.role) {
-      nextCaseRoleText.textContent = nextCaseResolved.role;
-    }
-
-    const nextCaseTags = nextCaseLink.querySelector('.marshall-page__next-case-tags');
-    if (nextCaseTags && Array.isArray(nextCaseResolved.tags) && nextCaseResolved.tags.length) {
-      nextCaseTags.innerHTML = nextCaseResolved.tags
-        .map((tag) => `<span class="marshall-page__next-case-tag">${tag}</span>`)
-        .join('');
-    }
+    nextCaseLink.innerHTML = `
+      <div class="project-item__desktop" aria-hidden="true">
+        <div class="project-card__media">
+          <img
+            class="project-card__cover"
+            src="${escapeHtml(imageSource || '')}"
+            alt="Следующий кейс: ${escapeHtml(nextCaseResolved.title || '')}"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="project-card__content">
+          <div class="project-card__copy">
+            <p class="project-item__title project-card__title">${escapeHtml(titleWithArrow)}</p>
+            ${descriptionHtml}
+            ${roleHtml}
+          </div>
+          ${tagsHtml}
+        </div>
+      </div>
+    `;
   };
 
 
