@@ -429,6 +429,68 @@
     });
   });
 
+  const initMarshallHomePreviewHover = () => {
+    if (!document.body.classList.contains('home')) return;
+
+    const marshallCard = Array.from(document.querySelectorAll('.projects--figma .project-item')).find((card) => {
+      const desktopLink = card.querySelector('.project-item__desktop a[data-case-link]');
+      const href = desktopLink ? desktopLink.getAttribute('href') || '' : '';
+      return extractCaseSlug(href) === 'marshall';
+    });
+    if (!marshallCard) return;
+
+    const coverImages = Array.from(marshallCard.querySelectorAll('.project-card__cover'));
+    if (!coverImages.length) return;
+
+    const slideshowSources = [
+      './assets/images/marshall/design-hero-v3.png',
+      './assets/images/marshall/design-catalog-cards-v3.png',
+      './assets/images/marshall/design-mobile-filter-v3.png',
+      './assets/images/marshall/design-mobile-academy-v3.png',
+      './assets/images/marshall/design-laptop-pipes-v3.png',
+      './assets/images/marshall/design-laptop-user-v3.png'
+    ];
+
+    // Warm image cache to avoid visible flicker on the first hover cycle.
+    slideshowSources.forEach((source) => {
+      const preload = new Image();
+      preload.src = source;
+    });
+
+    const initialSources = coverImages.map((img) => img.getAttribute('src') || '');
+    let slideIndex = 0;
+    let intervalId = null;
+
+    const applySlide = (source) => {
+      coverImages.forEach((img) => {
+        img.setAttribute('src', source);
+      });
+    };
+
+    const startSlideshow = () => {
+      if (intervalId) return;
+      intervalId = window.setInterval(() => {
+        slideIndex = (slideIndex + 1) % slideshowSources.length;
+        applySlide(slideshowSources[slideIndex]);
+      }, 2000);
+    };
+
+    const stopSlideshow = () => {
+      if (intervalId) {
+        window.clearInterval(intervalId);
+        intervalId = null;
+      }
+      slideIndex = 0;
+      coverImages.forEach((img, idx) => {
+        if (initialSources[idx]) img.setAttribute('src', initialSources[idx]);
+      });
+    };
+
+    marshallCard.addEventListener('mouseenter', startSlideshow);
+    marshallCard.addEventListener('mouseleave', stopSlideshow);
+  };
+
+  initMarshallHomePreviewHover();
   syncNextCaseCard();
   refreshCaseSequenceFromHomePage();
   const injectSharedCaseFooter = () => {
