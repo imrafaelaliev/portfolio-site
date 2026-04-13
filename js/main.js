@@ -63,25 +63,39 @@
       slug: 'marshall',
       title: 'Продуктовый сайт MARSHALL Autoparts',
       image: 'assets/images/marshall/hero-cover-20260407.png?v=20260407-marshall-cover-1',
-      captionClass: 'marshall-page__next-case-caption--project'
+      captionClass: 'marshall-page__next-case-caption--project',
+      summary:
+        'Объединил 3 сайта в единый E-commerce сервис и сократил путь до покупки с 5 до 3 шагов. Ускорил добавление в корзину с 15 до 8 секунд.',
+      role: 'Продуктовый дизайнер',
+      tags: ['e-commerce', 'b2b & b2c']
     },
     {
       slug: 'hios',
       title: 'Дизайн операционной системы HiOS под русский культурный код',
       image: 'assets/images/hios/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--project'
+      captionClass: 'marshall-page__next-case-caption--project',
+      summary:
+        'Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код.',
+      role: 'UI/UX дизайнер',
+      tags: ['operating system', 'b2c']
     },
     {
       slug: 'sladonezh',
       title: 'Корпоративный сайт Сладонеж',
       image: 'assets/images/sladonezh/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--project'
+      captionClass: 'marshall-page__next-case-caption--project',
+      summary: 'С нуля сделали дизайн крупного производителя кондитерских изделий.',
+      role: 'UI/UX дизайнер',
+      tags: ['corporate site', 'b2b']
     },
     {
       slug: 'lori',
       title: 'Мобильное приложение Lori',
       image: 'assets/images/lori/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--project'
+      captionClass: 'marshall-page__next-case-caption--project',
+      summary: 'С нуля разработал дизайн-концепцию приложения для трекинга калорий.',
+      role: 'Продуктовый дизайнер',
+      tags: ['medtech', 'mvp', 'b2c']
     },
     {
       slug: 'dacha',
@@ -249,22 +263,49 @@
     const forcedNextCase = forcedNextSlug ? caseMetaBySlug.get(forcedNextSlug) : null;
     const sequenceNextCase = caseSequence[(currentIndex + 1) % caseSequence.length];
     const nextCase = forcedNextCase || sequenceNextCase;
+    const nextCaseMeta = caseMetaBySlug.get(nextCase.slug) || {};
+    const nextCaseResolved = {
+      ...nextCaseMeta,
+      ...nextCase
+    };
     const nextHref = `../${nextCase.slug}/`;
     nextCaseLink.setAttribute('href', isFileProtocol ? `${nextHref}index.html` : nextHref);
-    nextCaseLink.setAttribute('aria-label', `Открыть следующий кейс: ${nextCase.title}`);
+    nextCaseLink.setAttribute('aria-label', `Открыть следующий кейс: ${nextCaseResolved.title}`);
 
     const nextCaseImage = nextCaseLink.querySelector('.marshall-page__next-case-preview');
     if (nextCaseImage) {
-      const imageSource = toCasePreviewSrc(nextCase.image);
+      const imageSource = toCasePreviewSrc(nextCaseResolved.image);
       if (imageSource) nextCaseImage.setAttribute('src', imageSource);
-      nextCaseImage.setAttribute('alt', `Следующий кейс: ${nextCase.title}`);
+      nextCaseImage.setAttribute('alt', `Следующий кейс: ${nextCaseResolved.title}`);
     }
 
     const nextCaseCaption = nextCaseLink.querySelector('.marshall-page__next-case-caption');
     if (nextCaseCaption) {
-      nextCaseCaption.textContent = nextCase.title;
+      nextCaseCaption.textContent = nextCaseResolved.title;
       nextCaseCaption.classList.remove(...NEXT_CASE_CAPTION_CLASSES);
-      nextCaseCaption.classList.add(nextCase.captionClass || 'marshall-page__next-case-caption--project');
+      nextCaseCaption.classList.add(nextCaseResolved.captionClass || 'marshall-page__next-case-caption--project');
+    }
+
+    const nextCaseProjectTitle = nextCaseLink.querySelector('.marshall-page__next-case-project-title');
+    if (nextCaseProjectTitle) {
+      nextCaseProjectTitle.textContent = `${nextCaseResolved.title} ↳`;
+    }
+
+    const nextCaseProjectDescription = nextCaseLink.querySelector('.marshall-page__next-case-project-description');
+    if (nextCaseProjectDescription && nextCaseResolved.summary) {
+      nextCaseProjectDescription.textContent = nextCaseResolved.summary;
+    }
+
+    const nextCaseRoleText = nextCaseLink.querySelector('.marshall-page__next-case-role-text');
+    if (nextCaseRoleText && nextCaseResolved.role) {
+      nextCaseRoleText.textContent = nextCaseResolved.role;
+    }
+
+    const nextCaseTags = nextCaseLink.querySelector('.marshall-page__next-case-tags');
+    if (nextCaseTags && Array.isArray(nextCaseResolved.tags) && nextCaseResolved.tags.length) {
+      nextCaseTags.innerHTML = nextCaseResolved.tags
+        .map((tag) => `<span class="marshall-page__next-case-tag">${tag}</span>`)
+        .join('');
     }
   };
 
