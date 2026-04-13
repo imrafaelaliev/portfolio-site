@@ -121,6 +121,10 @@
     }
   ];
   const caseMetaBySlug = new Map(FALLBACK_CASE_SEQUENCE.map((item) => [item.slug, item]));
+  const FORCED_NEXT_CASE_BY_SLUG = {
+    hios: 'lori',
+    lori: 'marshall'
+  };
 
   const extractCaseSlug = (href) => {
     if (!href) return '';
@@ -241,7 +245,10 @@
     const currentIndex = caseSequence.findIndex((entry) => entry.slug === currentSlug);
     if (currentIndex === -1) return;
 
-    const nextCase = caseSequence[(currentIndex + 1) % caseSequence.length];
+    const forcedNextSlug = FORCED_NEXT_CASE_BY_SLUG[currentSlug] || '';
+    const forcedNextCase = forcedNextSlug ? caseMetaBySlug.get(forcedNextSlug) : null;
+    const sequenceNextCase = caseSequence[(currentIndex + 1) % caseSequence.length];
+    const nextCase = forcedNextCase || sequenceNextCase;
     const nextHref = `../${nextCase.slug}/`;
     nextCaseLink.setAttribute('href', isFileProtocol ? `${nextHref}index.html` : nextHref);
     nextCaseLink.setAttribute('aria-label', `Открыть следующий кейс: ${nextCase.title}`);
