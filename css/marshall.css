@@ -437,7 +437,8 @@
   margin: 0;
   position: relative;
   display: inline-block;
-  width: max-content;
+  align-self: flex-start;
+  width: fit-content;
   max-width: 100%;
 }
 
