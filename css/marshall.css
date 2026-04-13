@@ -438,13 +438,16 @@
 }
 
 .marshall-page__next-case-link .project-card__title {
-  width: 100%;
+  display: inline;
+  width: auto;
   font-family: "Kommuna Narrow", "Times New Roman", serif;
   font-size: 48px;
   line-height: 1.1;
   letter-spacing: -0.96px;
   font-weight: 400;
   text-transform: none;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
 }
 
 .marshall-page__next-case-link .project-card__description {
@@ -505,9 +508,10 @@
 @media (hover: hover) and (pointer: fine) {
   .marshall-page__next-case-link:hover .project-card__title,
   .marshall-page__next-case-link:focus-visible .project-card__title {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
     text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
   }
 }
 
