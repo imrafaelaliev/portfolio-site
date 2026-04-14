@@ -61,7 +61,7 @@
   const FALLBACK_CASE_SEQUENCE = [
     {
       slug: 'marshall',
-      title: 'Продуктовый сайт MARSHALL Autoparts',
+      title: 'MARSHALL Autoparts',
       image: 'assets/images/marshall/hero-cover-20260407.png?v=20260407-marshall-cover-1',
       captionClass: 'marshall-page__next-case-caption--project',
       summary:
@@ -71,11 +71,11 @@
     },
     {
       slug: 'hios',
-      title: 'Дизайн операционной системы HiOS под русский культурный код',
+      title: 'HiOS (Tecno и Infinix)',
       image: 'assets/images/hios/hero-preview.png',
       captionClass: 'marshall-page__next-case-caption--project',
       summary:
-        'Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код.',
+        'Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код. Ожидаем полугодовое удержание на уровне 70% и увеличение доли компании на рынке',
       role: 'UI/UX дизайнер',
       tags: ['operating system', 'b2c']
     },
@@ -90,10 +90,10 @@
     },
     {
       slug: 'lori',
-      title: 'Мобильное приложение Lori',
+      title: 'Lori Mobile App',
       image: 'assets/images/lori/hero-preview.png',
       captionClass: 'marshall-page__next-case-caption--project',
-      summary: 'С нуля разработал дизайн-концепцию приложения для трекинга калорий.',
+      summary: 'Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность',
       role: 'Продуктовый дизайнер',
       tags: ['medtech', 'mvp', 'b2c']
     },
@@ -138,6 +138,11 @@
   const FORCED_NEXT_CASE_BY_SLUG = {
     hios: 'lori',
     lori: 'marshall'
+  };
+  const CANONICAL_NEXT_TITLE_BY_SLUG = {
+    marshall: 'MARSHALL Autoparts',
+    hios: 'HiOS (Tecno и Infinix)',
+    lori: 'Lori Mobile App'
   };
 
   const extractCaseSlug = (href) => {
@@ -222,7 +227,12 @@
     }
   };
 
-  const getCaseSequence = () => readStoredCaseSequence() || FALLBACK_CASE_SEQUENCE;
+  const getCaseSequence = () => {
+    if (document.body.classList.contains('marshall-page')) {
+      return FALLBACK_CASE_SEQUENCE;
+    }
+    return readStoredCaseSequence() || FALLBACK_CASE_SEQUENCE;
+  };
 
   const buildCaseSequenceFromCards = (cards = []) =>
     cards
@@ -320,6 +330,9 @@
       ...nextCaseMeta,
       ...nextCase
     };
+    if (CANONICAL_NEXT_TITLE_BY_SLUG[nextCaseResolved.slug]) {
+      nextCaseResolved.title = CANONICAL_NEXT_TITLE_BY_SLUG[nextCaseResolved.slug];
+    }
     const nextHref = `../${nextCase.slug}/`;
     nextCaseLink.setAttribute('href', isFileProtocol ? `${nextHref}index.html` : nextHref);
     nextCaseLink.setAttribute('aria-label', `Открыть следующий кейс: ${nextCaseResolved.title}`);
@@ -372,6 +385,10 @@
 
     const descriptionHtml = description ? `<p class="project-card__description">${escapeHtml(description)}</p>` : '';
 
+    const isMobileView = window.matchMedia('(max-width: 767px)').matches;
+    const roleInCopyHtml = isMobileView ? '' : roleHtml;
+    const roleAfterTagsHtml = isMobileView ? roleHtml : '';
+
     nextCaseLink.innerHTML = `
       <div class="project-item__desktop" aria-hidden="true">
         <div class="project-card__media">
@@ -387,9 +404,10 @@
           <div class="project-card__copy">
             <p class="project-item__title project-card__title">${escapeHtml(titleWithArrow)}</p>
             ${descriptionHtml}
-            ${roleHtml}
+            ${roleInCopyHtml}
           </div>
           ${tagsHtml}
+          ${roleAfterTagsHtml}
         </div>
       </div>
     `;
@@ -434,12 +452,11 @@
   const injectSharedCaseFooter = () => {
     if (!document.body.classList.contains('marshall-page')) return;
 
-    const mainNode = document.querySelector('main.marshall-page__main') || document.querySelector('main');
-    if (!mainNode) return;
-
     document.querySelectorAll('.marshall-page__footer').forEach((footerNode) => footerNode.remove());
+    document.querySelectorAll('[data-shared-home-footer]').forEach((footerNode) => footerNode.remove());
 
-    if (mainNode.querySelector('[data-shared-home-footer]')) return;
+    const rootNode = document.body;
+    if (!rootNode) return;
 
     const footerShell = document.createElement('div');
     footerShell.className = 'home home--rebuild marshall-page__shared-home-footer';
@@ -484,7 +501,7 @@
     `;
 
     footerShell.appendChild(footerSection);
-    mainNode.appendChild(footerShell);
+    rootNode.appendChild(footerShell);
   };
 
   injectSharedCaseFooter();

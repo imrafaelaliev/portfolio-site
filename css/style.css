@@ -3820,6 +3820,14 @@ main {
 }
 
 @media (max-width: 767px) {
+  .home.home--rebuild #contacts.contacts--figma.section {
+    padding-bottom: 16px;
+  }
+
+  body.marshall-page .marshall-page__shared-home-footer {
+    padding-bottom: 16px;
+  }
+
   body.marshall-page .marshall-page__shared-home-footer.home.home--rebuild .contacts--figma.section {
     width: 100%;
     max-width: 361px;

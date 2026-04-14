@@ -11,10 +11,10 @@
       content="Кейс MARSHALL: объединение трех продуктов в единый e-commerce сервис, UX-пересборка и результаты запуска."
     />
     <link rel="preload" as="image" href="../assets/images/home/projects-marshall-figma-2040x1200.png?v=20260412-projects-421-792-2" />
-    <link rel="stylesheet" href="../css/style.css?v=20260412-honorable-title-no-underline-1" />
-    <link rel="stylesheet" href="../css/marshall.css?v=20260413-case-width-sync-2" />
+    <link rel="stylesheet" href="../css/style.css?v=20260414-footer-bottom-16-2" />
+    <link rel="stylesheet" href="../css/marshall.css?v=20260414-nextcase-tags-size-match-1" />
   </head>
-  <body class="marshall-page">
+  <body class="marshall-page marshall-page--marshall">
     <main class="marshall-page__main">
       <aside class="marshall-page__intro" aria-label="Информация о кейсе">
         <div class="marshall-page__intro-copy">
@@ -45,14 +45,16 @@
       </div>
 
       <article class="marshall-page__content">
-        <img
-          class="marshall-page__shot marshall-page__shot--hero"
-          src="../assets/images/home/projects-marshall-figma-2040x1200.png?v=20260412-projects-421-792-2"
-          alt="Главный экран обновленного сайта MARSHALL"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
+        <div class="marshall-page__hero-frame">
+          <img
+            class="marshall-page__shot marshall-page__shot--hero marshall-page__hero-image"
+            src="../assets/images/home/projects-marshall-figma-2040x1200.png?v=20260412-projects-421-792-2"
+            alt="Главный экран обновленного сайта MARSHALL"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
 
         <section class="marshall-page__section">
           <h2 class="marshall-page__section-title">Контекст задачи</h2>
@@ -84,10 +86,10 @@
           <h2 class="marshall-page__section-title">Ограничения</h2>
           <p class="marshall-page__text">Проект разрабатывался в условиях сложной продуктовой и бизнес-среды:</p>
           <ul class="marshall-page__list">
-            <li>несколько разрозненных продуктов с разной логикой и сценариями;</li>
-            <li>необходимость сохранить привычные процессы для постоянных клиентов;</li>
-            <li>консервативная аудитория с устоявшимися паттернами поведения;</li>
-            <li>большое количество бизнес-требований от разных отделов.</li>
+            <li>Несколько разрозненных продуктов с разной логикой и сценариями;</li>
+            <li>Необходимость сохранить привычные процессы для постоянных клиентов;</li>
+            <li>Консервативная аудитория с устоявшимися паттернами поведения;</li>
+            <li>Большое количество бизнес-требований от разных отделов.</li>
           </ul>
         </section>
 
@@ -122,9 +124,9 @@
         />
 
         <section class="marshall-page__section marshall-page__insights">
-          <h2 class="marshall-page__section-title">Исследования</h2>
+          <h2 class="marshall-page__section-title">Инсайты после исследований</h2>
           <p class="marshall-page__text">
-            Проанализировал поведение пользователей и обращения в поддержку — большинство проблем возникало на этапе карточки товара. Пользователи тратили до 20 секунд, чтобы понять интерфейс и часто покидали страницу.
+            Я проанализировал существующие продукты MARSHALL, а также пользователей и готовые решения на рынке, что помогло мне получить инсайты, на основе которых я принял несколько решений:
           </p>
 
           <div class="marshall-page__insights-grid" aria-label="Инсайты и решения">
@@ -154,7 +156,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span class="marshall-page__research-link-text">Подробнее про исследования в полной версии</span>
+            <span class="marshall-page__research-link-text">Подробнее про исследования</span>
             <img class="marshall-page__research-link-icon" src="../assets/icons/marshall-research-arrow-v2.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" />
           </a>
         </section>
@@ -207,9 +209,9 @@
             />
             <p class="marshall-page__text">Сократил путь от карточки до оформления заказа:</p>
             <ul class="marshall-page__list">
-              <li>сделал выбор доставки прямо в карточке;</li>
-              <li>упростил оформление до 3 шагов;</li>
-              <li>добавил прозрачную информацию о наличии.</li>
+              <li>Сделал выбор доставки прямо в карточке;</li>
+              <li>Упростил оформление до 3 шагов;</li>
+              <li>Добавил прозрачную информацию о наличии.</li>
             </ul>
             <p class="marshall-page__solutions-metric">Флоу до покупки: 5 действий → 3 действия</p>
           </article>
@@ -228,8 +230,8 @@
             <p class="marshall-page__text">Разработал масштабируемую дизайн-систему:</p>
             <ul class="marshall-page__list">
               <li>220+ компонентов;</li>
-              <li>единые состояния и паттерны;</li>
-              <li>ускорение разработки новых разделов.</li>
+              <li>Единые состояния и паттерны;</li>
+              <li>Ускорение разработки новых разделов.</li>
             </ul>
             <p class="marshall-page__solutions-metric">С нуля создал масштабируемую дизайн-систему и UI-кит</p>
           </article>
@@ -238,49 +240,51 @@
         <section class="marshall-page__section marshall-page__design">
           <h2 class="marshall-page__section-title">Дизайн</h2>
           <img
-            class="marshall-page__shot marshall-page__shot--design-400"
+            class="marshall-page__shot marshall-page__shot--design-400 marshall-page__design-shot marshall-page__design-shot--212"
             src="../assets/images/marshall/design-hero-v3.png"
             alt="Главный экран MARSHALL в новом визуальном стиле"
             loading="lazy"
             decoding="async"
           />
           <img
-            class="marshall-page__shot marshall-page__shot--design-332"
+            class="marshall-page__shot marshall-page__shot--design-332 marshall-page__design-shot marshall-page__design-shot--176"
             src="../assets/images/marshall/design-mobile-filter-v3.png"
             alt="Мобильный экран фильтрации и продуктовая коммуникация"
             loading="lazy"
             decoding="async"
           />
           <img
-            class="marshall-page__shot marshall-page__shot--design-454"
+            class="marshall-page__shot marshall-page__shot--design-454 marshall-page__design-shot marshall-page__design-shot--240"
             src="../assets/images/marshall/design-laptop-pipes-v3.png"
             alt="Ноутбук с интерфейсом MARSHALL на темной сцене"
             loading="lazy"
             decoding="async"
           />
           <img
-            class="marshall-page__shot marshall-page__shot--design-400"
+            class="marshall-page__shot marshall-page__shot--design-400 marshall-page__design-shot marshall-page__design-shot--212"
             src="../assets/images/marshall/design-mobile-academy-v3.png"
             alt="Три мобильных сценария в приложении MARSHALL"
             loading="lazy"
             decoding="async"
           />
+          <div class="marshall-page__design-crop marshall-page__design-crop--212">
+            <img
+              class="marshall-page__design-crop-image"
+              src="../assets/images/marshall/design-laptop-user-v3.png?v=20260413-marshall-user-shot-2"
+              alt="Сценарий заказа на ноутбуке"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <img
-            class="marshall-page__shot marshall-page__shot--design-400"
-            src="../assets/images/marshall/design-laptop-user-v3.png?v=20260413-marshall-user-shot-2"
-            alt="Сценарий заказа на ноутбуке"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            class="marshall-page__shot marshall-page__shot--design-332"
+            class="marshall-page__shot marshall-page__shot--design-332 marshall-page__design-shot marshall-page__design-shot--176"
             src="../assets/images/marshall/design-mobile-icons-v3.png"
             alt="Фрагменты интерфейса и иконографика"
             loading="lazy"
             decoding="async"
           />
           <img
-            class="marshall-page__shot marshall-page__shot--design-400"
+            class="marshall-page__shot marshall-page__shot--design-400 marshall-page__design-shot marshall-page__design-shot--212"
             src="../assets/images/marshall/design-catalog-cards-v3.png"
             alt="Карточки товаров в каталоге MARSHALL"
             loading="lazy"
@@ -296,7 +300,7 @@
             <li>Сформировал понятный основной сценарий взаимодействия;</li>
             <li>Выстроил понятную логику продукта.</li>
           </ul>
-          <p class="marshall-page__text">
+          <p class="marshall-page__text marshall-page__result-metrics">
             Добавление в корзину: 15 секунд → 8 секунд;<br />
             Шаги до покупки: 5 шагов → 3 шага;<br />
             Снижение брошенных корзин на 20%;<br />
@@ -341,7 +345,7 @@
                 <div class="marshall-page__next-case-copy">
                   <p class="marshall-page__next-case-project-title">HiOS (Tecno и Infinix) ↳</p>
                   <p class="marshall-page__next-case-project-description">
-                    Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код.
+                    Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код. Ожидаем полугодовое удержание на уровне 70% и увеличение доли компании на рынке
                   </p>
                 </div>
                 <p class="marshall-page__next-case-role">
@@ -360,6 +364,6 @@
       </article>
     </main>
 
-    <script src="../js/main.js?v=20260413-next-case-home-block-4" defer></script>
+    <script src="../js/main.js?v=20260414-nextcase-canonical-titles-1" defer></script>
   </body>
 </html>
