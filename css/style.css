@@ -3363,7 +3363,7 @@ main {
   }
 
   .home--rebuild .hero--figma .hero__actions {
-    top: 20px;
+    top: 16px;
     left: 16px;
     width: min(274px, calc(100vw - 32px));
     gap: 8px;

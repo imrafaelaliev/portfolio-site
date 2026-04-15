@@ -67,6 +67,17 @@
   margin-top: 24px;
 }
 
+.lori-page__hypotheses {
+  gap: 20px;
+}
+
+.lori-page__hypotheses-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
 @media (max-width: 1199px) {
   .lori-page .marshall-page__intro {
     width: 300px;
@@ -237,5 +248,13 @@
   .lori-page__insights-head .marshall-page__insights-label:last-child {
     display: block;
     opacity: 0.4;
+  }
+
+  .lori-page__hypotheses {
+    gap: 12px;
+  }
+
+  .lori-page__hypotheses-flow {
+    gap: 16px;
   }
 }

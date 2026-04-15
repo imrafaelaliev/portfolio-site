@@ -245,6 +245,20 @@ body.marshall-page--marshall .marshall-page__solutions-item .marshall-page__list
   line-height: 1.5;
 }
 
+.marshall-page__hypothesis-label {
+  opacity: 0.4;
+}
+
+.marshall-page__hypotheses {
+  gap: 12px;
+}
+
+.marshall-page__hypotheses-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .marshall-page__shot {
   width: 100%;
   display: block;
