@@ -3885,7 +3885,7 @@ main {
   .home.home--rebuild .about--figma .about__canvas {
     position: relative;
     width: min(680px, calc(100% - 56px));
-    height: 908px;
+    height: 961px;
     margin: 0 auto;
     padding-top: 0;
   }
@@ -3913,7 +3913,7 @@ main {
   }
 
   .home.home--rebuild .about--figma .about__sublead {
-    top: 717px;
+    top: 770px;
   }
 
   .home.home--rebuild .about--figma .about__line {
@@ -3951,7 +3951,7 @@ main {
 
   .home.home--rebuild .about--figma .about__globe {
     position: absolute;
-    top: 345px;
+    top: 398px;
     left: 50%;
     width: 324px;
     height: 324px;
@@ -4685,5 +4685,28 @@ main {
   .home.home--rebuild .openwork--figma .openwork__links {
     width: min(var(--home-center-fluid), calc(100% - 32px));
     max-width: none;
+  }
+}
+
+/* HOME ABOUT MOBILE: MATCH FIGMA NODE 348:979 */
+@media (max-width: 767px) {
+  .home.home--rebuild .about--figma .about__canvas {
+    width: 393px;
+    max-width: 100%;
+    height: 772px;
+  }
+
+  .home.home--rebuild .about--figma .about__lead {
+    top: 20px;
+  }
+
+  .home.home--rebuild .about--figma .about__globe {
+    top: 340px;
+    width: 232px;
+    height: 232px;
+  }
+
+  .home.home--rebuild .about--figma .about__sublead {
+    top: 612px;
   }
 }
