@@ -4106,6 +4106,9 @@ main {
   background: transparent;
   appearance: none;
   -webkit-appearance: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .home.home--rebuild .companies--figma .companies__logo {
@@ -4115,11 +4118,21 @@ main {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   transition: filter 0.24s ease;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
 }
 
 .home.home--rebuild .companies--figma .companies__logo-picture {
   display: block;
   width: 100%;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
 }
 
 .home.home--rebuild .companies--figma .companies__cluster.is-hovering .companies__item:not(.is-active) .companies__logo {
