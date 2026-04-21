@@ -32,3 +32,18 @@ jobs:
             **/.github/**
             **/node_modules/**
             **/.DS_Store
+
+      - name: Deploy www alias directory
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.REGRU_FTP_HOST }}
+          username: ${{ secrets.REGRU_FTP_USER }}
+          password: ${{ secrets.REGRU_FTP_PASSWORD }}
+          server-dir: /www/www.imrafaelaliev.ru/
+          local-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/.DS_Store
