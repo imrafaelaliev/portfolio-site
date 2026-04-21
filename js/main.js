@@ -507,20 +507,6 @@
     clusterNode.addEventListener('pointerleave', resetHover);
   };
 
-  const initCompaniesAssetProtection = () => {
-    const companiesSection = document.querySelector('.home.home--rebuild .companies--figma');
-    if (!companiesSection) return;
-
-    companiesSection.addEventListener('contextmenu', (event) => {
-      const targetNode = event.target;
-      if (!(targetNode instanceof Element)) return;
-      if (targetNode.closest('.companies__item')) {
-        event.preventDefault();
-      }
-    });
-  };
-
-  initCompaniesAssetProtection();
   initCompaniesHover();
 
   const injectSharedCaseFooter = () => {
