@@ -1,0 +1,34 @@
+name: Deploy to REG.RU
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-reg-ru
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.REGRU_FTP_HOST }}
+          username: ${{ secrets.REGRU_FTP_USER }}
+          password: ${{ secrets.REGRU_FTP_PASSWORD }}
+          server-dir: ${{ secrets.REGRU_FTP_DIR }}
+          local-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/.DS_Store
