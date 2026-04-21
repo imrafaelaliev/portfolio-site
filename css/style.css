@@ -4061,124 +4061,6 @@ main {
   }
 }
 
-/* HOME COMPANIES BLOCK (FIGMA NODE 595:366) */
-.home.home--rebuild .companies--figma.section {
-  padding: 0;
-}
-
-.home.home--rebuild .companies--figma .companies__canvas {
-  position: relative;
-  width: 680px;
-  max-width: 680px;
-  margin: 0 auto;
-  aspect-ratio: 680 / 624;
-}
-
-.home.home--rebuild .companies--figma .companies__title {
-  position: absolute;
-  top: 3.205%;
-  left: 50%;
-  width: 100%;
-  margin: 0;
-  color: #070707;
-  font-family: "Kommuna Narrow", "Times New Roman", serif;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.96px;
-  text-align: center;
-  text-transform: uppercase;
-  --reveal-base-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.home.home--rebuild .companies--figma .companies__cluster {
-  position: absolute;
-  inset: 0;
-}
-
-.home.home--rebuild .companies--figma .companies__hint {
-  position: absolute;
-  left: -16.5%;
-  top: 24.6%;
-  width: 44%;
-  height: 44%;
-  overflow: visible;
-}
-
-.home.home--rebuild .companies--figma .companies__hint text {
-  fill: #070707;
-  font-family: "Arial Narrow", "IBM Plex Sans Condensed", sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
-.home.home--rebuild .companies--figma .companies__logo {
-  position: absolute;
-  width: 34.5588%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-.home.home--rebuild .companies--figma .companies__logo--tochka {
-  left: 1.1765%;
-  top: 36.3782%;
-}
-
-.home.home--rebuild .companies--figma .companies__logo--mz {
-  left: 32.7941%;
-  top: 36.3782%;
-}
-
-.home.home--rebuild .companies--figma .companies__logo--transsion {
-  left: 64.4118%;
-  top: 36.3782%;
-}
-
-.home.home--rebuild .companies--figma .companies__logo--nl {
-  left: 17.0588%;
-  top: 62.3397%;
-}
-
-.home.home--rebuild .companies--figma .companies__logo--x5 {
-  left: 48.5294%;
-  top: 62.3397%;
-}
-
-@media (max-width: 767px) {
-  .home.home--rebuild .companies--figma .companies__canvas {
-    width: min(393px, 100%);
-    max-width: 361px;
-    aspect-ratio: 361 / 352;
-  }
-
-  .home.home--rebuild .companies--figma .companies__title {
-    top: 12px;
-    font-size: 24px;
-    line-height: 1.12;
-    letter-spacing: -0.48px;
-  }
-
-  .home.home--rebuild .companies--figma .companies__hint {
-    display: none;
-  }
-
-  .home.home--rebuild .companies--figma .companies__logo--tochka,
-  .home.home--rebuild .companies--figma .companies__logo--mz,
-  .home.home--rebuild .companies--figma .companies__logo--transsion {
-    top: 38%;
-  }
-
-  .home.home--rebuild .companies--figma .companies__logo--nl,
-  .home.home--rebuild .companies--figma .companies__logo--x5 {
-    top: 62.5%;
-  }
-}
-
 /* HOME PROJECTS BLOCK REBUILD (FIGMA NODE 362:981) */
 .home.home--rebuild .projects--figma.section {
   padding: 200px 0 100px;
@@ -4741,7 +4623,6 @@ main {
   .home.home--rebuild .about--figma .about__canvas,
   .home.home--rebuild .about--figma .about__lead,
   .home.home--rebuild .about--figma .about__sublead,
-  .home.home--rebuild .companies--figma .companies__canvas,
   .home.home--rebuild .collage--figma .collage__canvas,
   .home.home--rebuild .projects--figma .projects__canvas,
   .home.home--rebuild .mentions--figma .mentions__canvas,
