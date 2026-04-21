@@ -1,0 +1,2 @@
+# Keep static site root predictable and avoid accidental redirect loops.
+DirectoryIndex index.html
