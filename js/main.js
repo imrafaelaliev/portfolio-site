@@ -449,6 +449,66 @@
 
   syncNextCaseCard();
   refreshCaseSequenceFromHomePage();
+
+  const initCompaniesHover = () => {
+    const companiesCanvas = document.querySelector('.home.home--rebuild .companies--figma .companies__canvas');
+    if (!companiesCanvas) return;
+
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (window.matchMedia('(max-width: 767px)').matches) return;
+
+    const clusterNode = companiesCanvas.querySelector('.companies__cluster');
+    const items = Array.from(companiesCanvas.querySelectorAll('.companies__item'));
+    const detailsNode = companiesCanvas.querySelector('.companies__details');
+    const titleNode = detailsNode?.querySelector('.companies__details-title');
+    const descriptionNode = detailsNode?.querySelector('.companies__details-description');
+
+    if (!clusterNode || !items.length || !detailsNode || !titleNode || !descriptionNode) return;
+
+    let activeItem = null;
+
+    const resetHover = () => {
+      if (!activeItem) return;
+      activeItem = null;
+      clusterNode.classList.remove('is-hovering');
+      detailsNode.classList.remove('is-visible');
+      items.forEach((item) => item.classList.remove('is-active'));
+      titleNode.textContent = '';
+      descriptionNode.textContent = '';
+    };
+
+    const activateItem = (item) => {
+      const title = (item.dataset.companyTitle || '').trim();
+      const description = (item.dataset.companyDescription || '').trim();
+      if (!title) return;
+      if (activeItem === item) return;
+
+      activeItem = item;
+      clusterNode.classList.add('is-hovering');
+      detailsNode.classList.add('is-visible');
+      items.forEach((node) => node.classList.toggle('is-active', node === item));
+      titleNode.textContent = title;
+      descriptionNode.textContent = description;
+    };
+
+    clusterNode.addEventListener('pointermove', (event) => {
+      const itemNode = event.target.closest('.companies__item');
+      if (!itemNode || !clusterNode.contains(itemNode)) {
+        resetHover();
+        return;
+      }
+      activateItem(itemNode);
+    });
+
+    items.forEach((item) => {
+      item.addEventListener('pointerenter', () => activateItem(item));
+    });
+
+    clusterNode.addEventListener('pointerleave', resetHover);
+  };
+
+  initCompaniesHover();
+
   const injectSharedCaseFooter = () => {
     if (!document.body.classList.contains('marshall-page')) return;
 

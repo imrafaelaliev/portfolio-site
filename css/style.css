@@ -4071,12 +4071,12 @@ main {
   width: 680px;
   max-width: 680px;
   margin: 0 auto;
-  aspect-ratio: 680 / 624;
+  aspect-ratio: 680 / 800;
 }
 
 .home.home--rebuild .companies--figma .companies__title {
   position: absolute;
-  top: 3.205%;
+  top: 2.5%;
   left: 50%;
   width: 100%;
   margin: 0;
@@ -4098,84 +4098,192 @@ main {
   inset: 0;
 }
 
-.home.home--rebuild .companies--figma .companies__hint {
+.home.home--rebuild .companies--figma .companies__item {
   position: absolute;
-  left: -16.5%;
-  top: 24.6%;
-  width: 44%;
-  height: 44%;
-  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-.home.home--rebuild .companies--figma .companies__hint text {
-  fill: #070707;
+.home.home--rebuild .companies--figma .companies__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: filter 0.24s ease;
+}
+
+.home.home--rebuild .companies--figma .companies__logo-picture {
+  display: block;
+  width: 100%;
+}
+
+.home.home--rebuild .companies--figma .companies__cluster.is-hovering .companies__item:not(.is-active) .companies__logo {
+  filter: brightness(0.28);
+}
+
+.home.home--rebuild .companies--figma .companies__details {
+  position: absolute;
+  left: 50%;
+  top: 84%;
+  width: 100%;
+  text-align: center;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.home.home--rebuild .companies--figma .companies__details.is-visible {
+  opacity: 1;
+}
+
+.home.home--rebuild .companies--figma .companies__details-title {
+  margin: 0;
+  color: #070707;
+  font-family: "Kommuna Narrow", "Times New Roman", serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.96px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.home.home--rebuild .companies--figma .companies__details-description {
+  margin: 8px 0 0;
+  color: #070707;
   font-family: "Arial Narrow", "IBM Plex Sans Condensed", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  letter-spacing: 0;
+  line-height: 1.5;
+  text-align: center;
 }
 
-.home.home--rebuild .companies--figma .companies__logo {
-  position: absolute;
-  width: 34.5588%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+.home.home--rebuild .companies--figma .companies__mobile-list {
+  display: none;
 }
 
-.home.home--rebuild .companies--figma .companies__logo--tochka {
-  left: 1.1765%;
-  top: 36.3782%;
+.home.home--rebuild .companies--figma .companies__item--tochka {
+  left: -2.5%;
+  top: 25.25%;
+  width: 38.2353%;
 }
 
-.home.home--rebuild .companies--figma .companies__logo--mz {
+.home.home--rebuild .companies--figma .companies__item--marshall {
   left: 32.7941%;
-  top: 36.3782%;
+  top: 28.375%;
+  width: 34.5588%;
 }
 
-.home.home--rebuild .companies--figma .companies__logo--transsion {
+.home.home--rebuild .companies--figma .companies__item--transsion {
   left: 64.4118%;
-  top: 36.3782%;
+  top: 28.375%;
+  width: 34.5588%;
 }
 
-.home.home--rebuild .companies--figma .companies__logo--nl {
+.home.home--rebuild .companies--figma .companies__item--nl {
   left: 17.0588%;
-  top: 62.3397%;
+  top: 48.625%;
+  width: 34.5588%;
 }
 
-.home.home--rebuild .companies--figma .companies__logo--x5 {
+.home.home--rebuild .companies--figma .companies__item--x5 {
   left: 48.5294%;
-  top: 62.3397%;
+  top: 48.625%;
+  width: 34.5588%;
 }
 
 @media (max-width: 767px) {
   .home.home--rebuild .companies--figma .companies__canvas {
     width: min(393px, 100%);
-    max-width: 361px;
-    aspect-ratio: 361 / 352;
+    max-width: 393px;
+    aspect-ratio: 393 / 1015;
   }
 
   .home.home--rebuild .companies--figma .companies__title {
-    top: 12px;
-    font-size: 24px;
-    line-height: 1.12;
-    letter-spacing: -0.48px;
+    top: 3.1527%;
+    width: 80.4071%;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.64px;
   }
 
-  .home.home--rebuild .companies--figma .companies__hint {
+  .home.home--rebuild .companies--figma .companies__item--tochka {
+    left: 4.0712%;
+    top: 17.4384%;
+    width: 32.5699%;
+  }
+
+  .home.home--rebuild .companies--figma .companies__item--marshall {
+    left: 33.8422%;
+    top: 17.4384%;
+    width: 32.3155%;
+  }
+
+  .home.home--rebuild .companies--figma .companies__item--transsion {
+    left: 63.3588%;
+    top: 17.4384%;
+    width: 32.5699%;
+  }
+
+  .home.home--rebuild .companies--figma .companies__item--nl {
+    left: 18.8295%;
+    top: 26.1084%;
+    width: 32.5699%;
+  }
+
+  .home.home--rebuild .companies--figma .companies__item--x5 {
+    left: 48.6005%;
+    top: 26.1084%;
+    width: 32.5699%;
+  }
+
+  .home.home--rebuild .companies--figma .companies__details {
     display: none;
   }
 
-  .home.home--rebuild .companies--figma .companies__logo--tochka,
-  .home.home--rebuild .companies--figma .companies__logo--mz,
-  .home.home--rebuild .companies--figma .companies__logo--transsion {
-    top: 38%;
+  .home.home--rebuild .companies--figma .companies__mobile-list {
+    position: absolute;
+    left: 4.0712%;
+    top: 43.3498%;
+    width: 91.8575%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
 
-  .home.home--rebuild .companies--figma .companies__logo--nl,
-  .home.home--rebuild .companies--figma .companies__logo--x5 {
-    top: 62.5%;
+  .home.home--rebuild .companies--figma .companies__mobile-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .home.home--rebuild .companies--figma .companies__mobile-title {
+    margin: 0;
+    color: #070707;
+    font-family: "Kommuna Narrow", "Times New Roman", serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.64px;
+    text-transform: uppercase;
+  }
+
+  .home.home--rebuild .companies--figma .companies__mobile-description {
+    margin: 0;
+    color: #070707;
+    font-family: "Arial Narrow", "IBM Plex Sans Condensed", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
   }
 }
 

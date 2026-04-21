@@ -156,18 +156,86 @@
           <h2 class="companies__title reveal">А ЕЩЕ Я УСПЕЛ ПОРАБОТАТЬ С КРУПНЫМИ РОССИЙСКИМИ И МЕЖДУНАРОДНЫМИ КОМПАНИЯМИ</h2>
 
           <div class="companies__cluster reveal">
-            <svg class="companies__hint" viewBox="0 0 320 320" aria-hidden="true">
-              <path id="companies-hint-arc" d="M 36 256 A 140 140 0 0 1 256 36" fill="none"></path>
-              <text>
-                <textPath href="#companies-hint-arc" startOffset="2%">Наведите, чтобы узнать больше</textPath>
-              </text>
-            </svg>
+            <button
+              class="companies__item companies__item--tochka"
+              type="button"
+              aria-label="Точка Банк"
+              data-company-title="ТОЧКА БАНК"
+              data-company-description="Онлайн-банк для бизнеса. Делал CJM для телеграм-бота"
+            >
+              <picture class="companies__logo-picture">
+                <source media="(max-width: 767px)" srcset="./assets/images/home/companies-figma/company-tochka-mobile.png" />
+                <img class="companies__logo" src="./assets/images/home/companies-figma/company-tochka.png" alt="" loading="lazy" decoding="async" />
+              </picture>
+            </button>
+            <button
+              class="companies__item companies__item--marshall"
+              type="button"
+              aria-label="Marshall Autoparts"
+              data-company-title="MARSHALL AUTOPARTS"
+              data-company-description="Производитель и дистрибьютор автозапчастей. Топ-5 поставщик в РФ"
+            >
+              <img class="companies__logo" src="./assets/images/home/companies-figma/company-mz.png" alt="" loading="lazy" decoding="async" />
+            </button>
+            <button
+              class="companies__item companies__item--transsion"
+              type="button"
+              aria-label="Transsion Holdings"
+              data-company-title="TRANSSION HOLDINGS"
+              data-company-description="Производитель телефонов Tecno и Infinix. Сегодня это каждый 9 смартфон в России"
+            >
+              <img class="companies__logo" src="./assets/images/home/companies-figma/company-transsion.png" alt="" loading="lazy" decoding="async" />
+            </button>
+            <button
+              class="companies__item companies__item--nl"
+              type="button"
+              aria-label="NL International"
+              data-company-title="NL INTERNATIONAL"
+              data-company-description="Производитель БАДов, косметики и продуктов питания"
+            >
+              <img class="companies__logo" src="./assets/images/home/companies-figma/company-nl.png" alt="" loading="lazy" decoding="async" />
+            </button>
+            <button
+              class="companies__item companies__item--x5"
+              type="button"
+              aria-label="X5 Retail Group"
+              data-company-title="X5 RETAIL GROUP"
+              data-company-description="Крупная российская компания в сфере розничной торговли"
+            >
+              <img class="companies__logo" src="./assets/images/home/companies-figma/company-x5.png" alt="" loading="lazy" decoding="async" />
+            </button>
+          </div>
 
-            <img class="companies__logo companies__logo--tochka" src="./assets/images/home/companies-figma/company-tochka.png" alt="Точка" loading="lazy" decoding="async" />
-            <img class="companies__logo companies__logo--mz" src="./assets/images/home/companies-figma/company-mz.png" alt="МЭЗ" loading="lazy" decoding="async" />
-            <img class="companies__logo companies__logo--transsion" src="./assets/images/home/companies-figma/company-transsion.png" alt="Transsion" loading="lazy" decoding="async" />
-            <img class="companies__logo companies__logo--nl" src="./assets/images/home/companies-figma/company-nl.png" alt="NL" loading="lazy" decoding="async" />
-            <img class="companies__logo companies__logo--x5" src="./assets/images/home/companies-figma/company-x5.png" alt="X5" loading="lazy" decoding="async" />
+          <div class="companies__details" aria-live="polite">
+            <p class="companies__details-title"></p>
+            <p class="companies__details-description"></p>
+          </div>
+
+          <div class="companies__mobile-list" aria-hidden="true">
+            <article class="companies__mobile-item">
+              <h3 class="companies__mobile-title">ТОЧКА БАНК</h3>
+              <p class="companies__mobile-description">Онлайн-банк для бизнеса.<br />Делал CJM для телеграм-бота</p>
+            </article>
+
+            <article class="companies__mobile-item">
+              <h3 class="companies__mobile-title">MARSHALL AUTOPARTS</h3>
+              <p class="companies__mobile-description">Производитель и дистрибьютор автозапчастей.<br />Топ-5 поставщик в РФ</p>
+            </article>
+
+            <article class="companies__mobile-item">
+              <h3 class="companies__mobile-title">TRANSSION HOLDINGS</h3>
+              <p class="companies__mobile-description">Производитель телефонов Tecno и Infinix.<br />Сегодня это каждый 9 смартфон в России</p>
+            </article>
+
+            <article class="companies__mobile-item">
+              <h3 class="companies__mobile-title">NL INTERNATIONAL</h3>
+              <p class="companies__mobile-description">Производитель БАДов, косметики<br />и продуктов питания</p>
+            </article>
+
+            <article class="companies__mobile-item">
+              <h3 class="companies__mobile-title">X5 RETAIL GROUP</h3>
+              <p class="companies__mobile-description">Крупная российская компания<br />в сфере розничной торговли</p>
+            </article>
           </div>
         </div>
       </section>
@@ -604,6 +672,6 @@
       </section>
     </main>
 
-    <script src="./js/main.js?v=20260414-nextcase-canonical-titles-1" defer></script>
+    <script src="./js/main.js?v=20260421-companies-hover-1" defer></script>
   </body>
 </html>
