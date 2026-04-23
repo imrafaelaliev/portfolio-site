@@ -161,6 +161,11 @@
     return normalizedHref.split('/')[0] || '';
   };
 
+  const toAbsoluteCaseHref = (href) => {
+    const slug = extractCaseSlug(href || '');
+    return slug ? `/${slug}/` : href;
+  };
+
   const getCurrentCaseSlug = () => {
     let normalizedPath = window.location.pathname.replace(/\\/g, '/');
     normalizedPath = normalizedPath.replace(/\/index\.html$/i, '/');
@@ -333,8 +338,9 @@
     if (CANONICAL_NEXT_TITLE_BY_SLUG[nextCaseResolved.slug]) {
       nextCaseResolved.title = CANONICAL_NEXT_TITLE_BY_SLUG[nextCaseResolved.slug];
     }
-    const nextHref = `../${nextCase.slug}/`;
-    nextCaseLink.setAttribute('href', isFileProtocol ? `${nextHref}index.html` : nextHref);
+    const webNextHref = `/${nextCase.slug}/`;
+    const localNextHref = `../${nextCase.slug}/index.html`;
+    nextCaseLink.setAttribute('href', isFileProtocol ? localNextHref : webNextHref);
     nextCaseLink.setAttribute('aria-label', `Открыть следующий кейс: ${nextCaseResolved.title}`);
 
     const imageSource = toCasePreviewSrc(nextCaseResolved.image);
@@ -413,6 +419,17 @@
     `;
   };
 
+
+  if (!isFileProtocol) {
+    const caseLinks = Array.from(document.querySelectorAll('a[data-case-link]'));
+    caseLinks.forEach((link) => {
+      const href = link.getAttribute('href') || '';
+      const absoluteHref = toAbsoluteCaseHref(href);
+      if (absoluteHref !== href) {
+        link.setAttribute('href', absoluteHref);
+      }
+    });
+  }
 
   if (document.body.classList.contains('home')) {
     const shouldRestore = storage.get(RESTORE_HOME_SCROLL_KEY) === '1';
