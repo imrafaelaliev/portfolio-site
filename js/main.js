@@ -163,7 +163,7 @@
 
   const toAbsoluteCaseHref = (href) => {
     const slug = extractCaseSlug(href || '');
-    return slug ? `/${slug}/` : href;
+    return slug ? `/${slug}/index.html` : href;
   };
 
   const getCurrentCaseSlug = () => {
@@ -338,7 +338,7 @@
     if (CANONICAL_NEXT_TITLE_BY_SLUG[nextCaseResolved.slug]) {
       nextCaseResolved.title = CANONICAL_NEXT_TITLE_BY_SLUG[nextCaseResolved.slug];
     }
-    const webNextHref = `/${nextCase.slug}/`;
+    const webNextHref = `/${nextCase.slug}/index.html`;
     const localNextHref = `../${nextCase.slug}/index.html`;
     nextCaseLink.setAttribute('href', isFileProtocol ? localNextHref : webNextHref);
     nextCaseLink.setAttribute('aria-label', `Открыть следующий кейс: ${nextCaseResolved.title}`);
