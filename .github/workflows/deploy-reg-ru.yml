@@ -13,6 +13,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      REGRU_FTP_WWW_DIR: ${{ secrets.REGRU_FTP_WWW_DIR }}
 
     steps:
       - name: Checkout repository
@@ -33,13 +35,15 @@ jobs:
             **/node_modules/**
             **/.DS_Store
 
-      - name: Deploy www alias directory
+      - name: Deploy www alias directory (optional)
+        if: ${{ env.REGRU_FTP_WWW_DIR != '' }}
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.REGRU_FTP_HOST }}
           username: ${{ secrets.REGRU_FTP_USER }}
           password: ${{ secrets.REGRU_FTP_PASSWORD }}
-          server-dir: /www/www.imrafaelaliev.ru/
+          server-dir: ${{ env.REGRU_FTP_WWW_DIR }}
           local-dir: ./
           exclude: |
             **/.git*
