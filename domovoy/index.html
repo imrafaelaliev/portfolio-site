@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icons/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png" />
+    <title>Домовой — кейс Рафаэля Алиева</title>
+    <meta
+      name="description"
+      content="Кейс Домовой: концепт и проработка основного флоу мобильного приложения для управления недвижимостью."
+    />
+    <link rel="preload" as="image" href="../assets/images/domovoy/hero.png?v=20260517-domovoy-1" />
+    <link rel="stylesheet" href="../css/style.css?v=20260422-companies-fix-1" />
+    <link rel="stylesheet" href="../css/marshall.css?v=20260415-marshall-mobile-hypotheses-242-1530-1" />
+  </head>
+  <body class="marshall-page marshall-page--domovoy">
+    <main class="marshall-page__main">
+      <aside class="marshall-page__intro" aria-label="Информация о кейсе">
+        <div class="marshall-page__intro-copy">
+          <h1 class="marshall-page__title">Домовой</h1>
+          <p class="marshall-page__subtitle">
+            Концепт и проработка основного флоу мобильного приложения для управления недвижимостью
+          </p>
+        </div>
+        <div class="marshall-page__tags" aria-label="Тип проекта">
+          <span class="marshall-page__tag">real estate</span>
+          <span class="marshall-page__tag">mvp</span>
+          <span class="marshall-page__tag">b2c</span>
+        </div>
+        <p class="marshall-page__role">
+          <span class="marshall-page__role-label">Роль</span>
+          <span class="marshall-page__role-dot" aria-hidden="true"></span>
+          <span>Продуктовый дизайнер</span>
+        </p>
+      </aside>
+
+      <a class="marshall-btn marshall-btn--ghost marshall-page__back" data-back-to-home href="../">↤ Назад</a>
+
+      <div class="marshall-page__actions">
+        <a class="btn btn--ghost" href="https://disk.yandex.ru/d/BzEm_BL0T9i5PQ" target="_blank" rel="noopener noreferrer">
+          Скачать CV
+          <img class="btn__icon-cv" src="../assets/icons/cv-arrow.svg" alt="" aria-hidden="true" />
+        </a>
+        <a class="btn btn--primary" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">Связаться ↦</a>
+      </div>
+
+      <article class="marshall-page__content">
+        <div class="marshall-page__hero-frame">
+          <img
+            class="marshall-page__shot marshall-page__shot--hero marshall-page__hero-image"
+            src="../assets/images/domovoy/hero.png?v=20260517-domovoy-1"
+            alt="Главный экран приложения Домовой"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Контекст задачи</h2>
+          <p class="marshall-page__text">
+            Более 5 миллионов россиян сдают жильё самостоятельно. Для большинства это дополнительный доход, а не бизнес: одна-две квартиры, редкий контакт с приложением, желание чтобы всё работало само.
+          </p>
+          <p class="marshall-page__text">
+            Я спроектировал концептуальное iOS-приложение, которое закрывает этот пробел. Фокус — один ключевой сценарий: жилец съезжает → квартира готова к новым арендаторам.
+          </p>
+        </section>
+
+        <img
+          class="marshall-page__shot marshall-page__shot--fixed"
+          src="../assets/images/domovoy/context.png?v=20260517-domovoy-1"
+          alt="Контекст задачи проекта Домовой"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Проблемы</h2>
+          <p class="marshall-page__text">Большинство людей управляют 1-2 квартирами и сталкиваются с одними и теми же проблемами:</p>
+          <ul class="marshall-page__list">
+            <li>Доказать ущерб почти невозможно;</li>
+            <li>Смена жильцов — неделя хаоса;</li>
+            <li>Тревожный фон — постоянный.</li>
+          </ul>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Цели проекта</h2>
+          <p class="marshall-page__text">
+            Создать приложение, которое будет удерживать пользователей не только за счет удобного функционала трекинга, но и вовлекающих механик. Для этого нужно создать продукт, который одновременно:
+          </p>
+          <ul class="marshall-page__list">
+            <li>Упрощает трекинг питания;</li>
+            <li>Помогает быстро составлять рацион;</li>
+            <li>Мотивирует пользователя продолжать следить за питанием.</li>
+          </ul>
+          <p class="marshall-page__text">Успешность проекта будем определять по метрике удержания.</p>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Анализ конкурентов</h2>
+          <p class="marshall-page__text">
+            Изучил пять продуктов — Яндекс.Аренда, Авито, Циан, Самолёт+, и западные аналоги Turno и Hospitable.
+          </p>
+          <p class="marshall-page__text">
+            Главный инсайт: все российские сервисы решают задачу поиска жильца. Никто не помогает с тем, что происходит после — управление, приёмка, смена жильцов. На западе этот рынок давно занят. В России — пусто.
+          </p>
+          <p class="marshall-page__text">Из отзывов пользователей выделил четыре ключевые боли:</p>
+          <ul class="marshall-page__list">
+            <li>Доказать ущерб при выезде жильца почти невозможно — нет фиксации, нет сравнения;</li>
+            <li>Смена жильцов — неделя ручной координации клинеров, мастеров, фотографов;</li>
+            <li>Сервисы «передают информацию», но не решают проблемы;</li>
+            <li>Нет единого места, чтобы быстро проверить: всё ли в порядке с квартирой.</li>
+          </ul>
+        </section>
+
+        <section class="marshall-page__section marshall-page__hypotheses">
+          <h2 class="marshall-page__section-title">Гипотезы</h2>
+          <div class="marshall-page__hypotheses-content">
+            <div class="marshall-page__text-flow">
+              <p class="marshall-page__text marshall-page__hypothesis-label">Гипотеза 1</p>
+              <p class="marshall-page__text">
+                Если показывать статус квартиры через конкретные факты, а не числовую метрику — пользователь понимает ситуацию за 3 секунды без ложного чувства контроля.
+              </p>
+            </div>
+
+            <div class="marshall-page__text-flow">
+              <p class="marshall-page__text marshall-page__hypothesis-label">Гипотеза 2</p>
+              <p class="marshall-page__text">
+                Если проводить приёмку через видеообход с AI-сравнением — собственник получает доказательную базу за минуту вместо споров без документов.
+              </p>
+            </div>
+
+            <div class="marshall-page__text-flow">
+              <p class="marshall-page__text marshall-page__hypothesis-label">Гипотеза 3</p>
+              <p class="marshall-page__text">
+                Если AI-ассистент появляется в контексте каждого шага, а не в отдельном чате — пользователь получает помощь там, где она нужна, без лишних усилий.
+              </p>
+            </div>
+
+            <div class="marshall-page__text-flow">
+              <p class="marshall-page__text marshall-page__hypothesis-label">Гипотеза 4</p>
+              <p class="marshall-page__text">
+                Если показывать конкретных исполнителей с историей («работали в декабре») вместо анонимных партнёров — конверсия в заказ растёт за счёт доверия через опыт.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Концепция продукта</h2>
+          <p class="marshall-page__text">
+            Домовой — AI-ассистент для собственников жилья. Помогает управлять квартирой между жильцами: приёмка, клининг, ремонт, документы и платежи — в одном месте.
+          </p>
+          <p class="marshall-page__text">
+            Продукт строится вокруг одного сценария: жилец съезжает → квартира готова к новым арендаторам. Всё, что между — на Домовом.
+          </p>
+          <p class="marshall-page__text">Три принципа, на которых стоит продукт:</p>
+          <ul class="marshall-page__list">
+            <li>AI помогает, а не доминирует. Ассистент появляется в нужный момент с конкретным предложением — подсказывает при видеообходе, предлагает план работ, подбирает замену при отмене заказа. Финальное решение всегда за пользователем;</li>
+            <li>Статус вместо тревоги. Главный экран отвечает на вопрос «всё ли в порядке» за три секунды — через конкретные факты, без выдуманных баллов и сложных дашбордов;</li>
+            <li>Уважение к редкому контакту. Арендодатель заходит раз в месяц. Каждый экран — одно главное действие, минимум когнитивной нагрузки, человеческий тон.</li>
+          </ul>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Дизайн и флоу</h2>
+          <img
+            class="marshall-page__shot marshall-page__shot--fixed"
+            src="../assets/images/domovoy/design-1.png?v=20260517-domovoy-1"
+            alt="Дизайн и флоу приложения Домовой — экран 1"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="marshall-page__shot marshall-page__shot--fixed"
+            src="../assets/images/domovoy/design-2.png?v=20260517-domovoy-1"
+            alt="Дизайн и флоу приложения Домовой — экран 2"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="marshall-page__shot marshall-page__shot--fixed"
+            src="../assets/images/domovoy/design-3.png?v=20260517-domovoy-1"
+            alt="Дизайн и флоу приложения Домовой — экран 3"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="marshall-page__shot marshall-page__shot--fixed"
+            src="../assets/images/domovoy/design-4.png?v=20260517-domovoy-1"
+            alt="Дизайн и флоу приложения Домовой — экран 4"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="marshall-page__shot marshall-page__shot--fixed"
+            src="../assets/images/domovoy/design-5.png?v=20260517-domovoy-1"
+            alt="Дизайн и флоу приложения Домовой — экран 5"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="marshall-page__shot marshall-page__shot--fixed"
+            src="../assets/images/domovoy/design-6.png?v=20260517-domovoy-1"
+            alt="Дизайн и флоу приложения Домовой — экран 6"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
+        <section class="marshall-page__section marshall-page__section--result">
+          <h2 class="marshall-page__section-title">Результат</h2>
+          <p class="marshall-page__text">
+            Спроектировал iOS-приложение для управления арендой — от главного экрана до финала ключевого сценария.
+          </p>
+          <p class="marshall-page__text">Что сделано:</p>
+          <ul class="marshall-page__list">
+            <li>Главный сценарий end-to-end — «Подготовка квартиры между жильцами» от триггера до экрана завершения. 14 экранов, включая два edge case;</li>
+            <li>AI-ассистент «Домовой» как сквозной слой — появляется в 7 точках сценария, предлагает конкретное действие, не перегружает интерфейс;</li>
+            <li>Персонаж-маскот — концепт плюшевого робота.</li>
+          </ul>
+        </section>
+
+        <section class="marshall-page__section">
+          <h2 class="marshall-page__section-title">Рефлексия</h2>
+          <p class="marshall-page__text">
+            UI-ремесло — отдельный навык, который не вырастает из продуктового мышления автоматически. Можно чётко понимать, что нужно сделать и почему — и при этом не дотянуть в том, как именно это выглядит. Это наблюдение стало отправной точкой для осознанной прокачки.
+          </p>
+        </section>
+
+        <section class="marshall-page__next-case" aria-label="Следующий проект">
+          <h2 class="marshall-page__next-case-title">Следующий кейс</h2>
+          <a
+            class="marshall-page__next-case-link"
+            data-case-link
+            href="../marshall/"
+            aria-label="Открыть следующий кейс: MARSHALL Autoparts"
+          >
+            <div class="marshall-page__next-case-preview-wrap">
+              <img
+                class="marshall-page__next-case-preview"
+                src="../assets/images/home/projects-marshall-figma-2040x1200.png?v=20260412-projects-421-792-2"
+                alt="Следующий кейс: MARSHALL Autoparts"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="marshall-page__next-case-bottom">
+              <div class="marshall-page__next-case-main">
+                <div class="marshall-page__next-case-copy">
+                  <p class="marshall-page__next-case-project-title">MARSHALL Autoparts ↳</p>
+                  <p class="marshall-page__next-case-project-description">
+                    Объединил 3 сайта в единый E-commerce сервис и сократил путь до покупки с 5 до 3 шагов. Ускорил добавление в корзину с 15 до 8 секунд
+                  </p>
+                </div>
+                <p class="marshall-page__next-case-role">
+                  <span class="marshall-page__next-case-role-label">Роль</span>
+                  <span class="marshall-page__next-case-role-dot" aria-hidden="true"></span>
+                  <span class="marshall-page__next-case-role-text">Продуктовый дизайнер</span>
+                </p>
+              </div>
+              <div class="marshall-page__next-case-tags" aria-label="Тип проекта">
+                <span class="marshall-page__next-case-tag">e-commerce</span>
+                <span class="marshall-page__next-case-tag">b2b &amp; b2c</span>
+              </div>
+            </div>
+          </a>
+        </section>
+      </article>
+    </main>
+
+    <script src="../js/main.js?v=20260423-yandex-link-fix-2" defer></script>
+  </body>
+</html>
