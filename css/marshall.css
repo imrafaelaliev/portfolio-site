@@ -282,6 +282,11 @@ body.marshall-page--marshall .marshall-page__solutions-item .marshall-page__list
   object-fit: cover;
 }
 
+body.marshall-page--domovoy .marshall-page__shot--fixed {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
 .marshall-page__shot--checkout {
   aspect-ratio: 680 / 378;
   object-fit: cover;
@@ -686,6 +691,10 @@ body.marshall-page--marshall .marshall-page__solutions-item .marshall-page__list
   .marshall-page__shot--design-454 {
     aspect-ratio: auto;
     height: 212px;
+  }
+
+  body.marshall-page--domovoy .marshall-page__shot--fixed {
+    height: auto;
   }
 
   .marshall-page__shot--result {
