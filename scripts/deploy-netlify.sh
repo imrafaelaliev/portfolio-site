@@ -41,10 +41,17 @@ cp -R \
   "${ROOT_DIR}/assets" \
   "${ROOT_DIR}/css" \
   "${ROOT_DIR}/js" \
+  "${ROOT_DIR}/dacha" \
+  "${ROOT_DIR}/domovoy" \
   "${ROOT_DIR}/marshall" \
   "${ROOT_DIR}/hios" \
+  "${ROOT_DIR}/insis" \
   "${ROOT_DIR}/sladonezh" \
   "${ROOT_DIR}/lori" \
+  "${ROOT_DIR}/mtelectro" \
+  "${ROOT_DIR}/nl" \
+  "${ROOT_DIR}/simplecoffee" \
+  "${ROOT_DIR}/tochka" \
   "${STAGE_DIR}/"
 
 for optional_file in "_headers" "_redirects"; do
