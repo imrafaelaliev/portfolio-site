@@ -14,8 +14,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      REGRU_FTP_MAIN_DIR: /www/imrafaelaliev.ru
-      REGRU_FTP_WWW_DIR: /www/www.imrafaelaliev.ru
+      REGRU_FTP_MAIN_DIR: /www/imrafaelaliev.ru/
+      REGRU_FTP_WWW_DIR: /www/www.imrafaelaliev.ru/
 
     steps:
       - name: Checkout repository
