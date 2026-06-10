@@ -91,7 +91,7 @@
     {
       slug: 'lori',
       title: 'Lori Mobile App',
-      image: 'assets/images/lori/hero-preview.png',
+      image: 'assets/images/lori/lori-hero-152-3220.png?v=20260610-lori-figma-1523220-1',
       captionClass: 'marshall-page__next-case-caption--project',
       summary: 'Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность',
       role: 'Продуктовый дизайнер',
