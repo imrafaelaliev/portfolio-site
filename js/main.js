@@ -70,12 +70,30 @@
       tags: ['e-commerce', 'b2b & b2c']
     },
     {
+      slug: 'lori',
+      title: 'Lori Mobile App',
+      image: 'assets/images/lori/lori-hero-152-3220.png?v=20260610-lori-figma-1523220-1',
+      captionClass: 'marshall-page__next-case-caption--project',
+      summary: 'Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность',
+      role: 'Продуктовый дизайнер',
+      tags: ['medtech', 'mvp', 'b2c']
+    },
+    {
+      slug: 'domovoy',
+      title: 'Домовой',
+      image: 'assets/images/domovoy/hero.png?v=20260528-domovoy-refresh-2',
+      captionClass: 'marshall-page__next-case-caption--project',
+      summary: 'Концепт мобильного приложения для управления недвижимостью',
+      role: 'Продуктовый дизайнер',
+      tags: ['real estate', 'mvp', 'b2c']
+    },
+    {
       slug: 'hios',
       title: 'HiOS (Tecno и Infinix)',
       image: 'assets/images/hios/hero-preview.png',
       captionClass: 'marshall-page__next-case-caption--project',
       summary:
-        'Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код. Ожидаем полугодовое удержание на уровне 70% и увеличение доли компании на рынке',
+        'Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код',
       role: 'UI/UX дизайнер',
       tags: ['operating system', 'b2c']
     },
@@ -87,15 +105,6 @@
       summary: 'С нуля сделали дизайн крупного производителя кондитерских изделий.',
       role: 'UI/UX дизайнер',
       tags: ['corporate site', 'b2b']
-    },
-    {
-      slug: 'lori',
-      title: 'Lori Mobile App',
-      image: 'assets/images/lori/lori-hero-152-3220.png?v=20260610-lori-figma-1523220-1',
-      captionClass: 'marshall-page__next-case-caption--project',
-      summary: 'Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность',
-      role: 'Продуктовый дизайнер',
-      tags: ['medtech', 'mvp', 'b2c']
     },
     {
       slug: 'dacha',
@@ -136,13 +145,13 @@
   ];
   const caseMetaBySlug = new Map(FALLBACK_CASE_SEQUENCE.map((item) => [item.slug, item]));
   const FORCED_NEXT_CASE_BY_SLUG = {
-    hios: 'lori',
-    lori: 'marshall'
+    hios: 'marshall'
   };
   const CANONICAL_NEXT_TITLE_BY_SLUG = {
     marshall: 'MARSHALL Autoparts',
-    hios: 'HiOS (Tecno и Infinix)',
-    lori: 'Lori Mobile App'
+    lori: 'Lori Mobile App',
+    domovoy: 'Домовой',
+    hios: 'HiOS (Tecno и Infinix)'
   };
 
   const extractCaseSlug = (href) => {
