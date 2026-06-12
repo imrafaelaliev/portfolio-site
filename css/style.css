@@ -2243,6 +2243,21 @@ main {
   object-fit: cover;
 }
 
+.home .shots--figma .shots__video {
+  width: 100%;
+  aspect-ratio: 1280 / 725;
+  overflow: hidden;
+  background: #fff;
+}
+
+.home .shots--figma .shots__video-frame {
+  display: block;
+  width: calc(100% + 36px);
+  height: calc(100% + 36px);
+  margin: -18px;
+  border: 0;
+}
+
 .home .shots--figma .shots__caption {
   margin: 0;
   width: 100%;
