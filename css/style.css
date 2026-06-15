@@ -2145,6 +2145,21 @@ main {
   object-fit: cover;
 }
 
+.home .mentions--figma .mentions__video {
+  width: 100%;
+  aspect-ratio: 680 / 332;
+  overflow: hidden;
+  background: #111;
+}
+
+.home .mentions--figma .mentions__video-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+}
+
 .home .mentions--figma .mentions__caption {
   margin: 0;
 }
