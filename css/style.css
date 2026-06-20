@@ -3149,8 +3149,9 @@ main {
     left: 32px;
     top: 88px;
     bottom: auto;
-    width: min(370px, calc(100vw - 64px));
+    width: min(520px, calc(100vw - 64px));
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 8px;
     z-index: 4;
   }
@@ -3414,7 +3415,7 @@ main {
 
   .home--rebuild .hero--figma .hero__brand {
     left: 16px;
-    top: 164px;
+    top: 180px;
     width: min(361px, calc(100vw - 32px));
     font-size: 24px;
   }
@@ -3439,6 +3440,8 @@ main {
     left: 16px;
     top: 76px;
     width: min(274px, calc(100vw - 32px));
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
     gap: 6px;
   }
 
