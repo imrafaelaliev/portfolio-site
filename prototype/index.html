@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f2f6fb" />
+    <title>Здоровье — мобильный экран</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="phone" aria-label="Главный экран приложения о здоровье">
+      <header class="status-bar" aria-label="Строка состояния">
+        <time class="status-time">9:41</time>
+        <div class="status-levels" aria-hidden="true">
+          <img src="./assets/cellular.svg" alt="" />
+          <img src="./assets/wifi.svg" alt="" />
+          <img class="battery" src="./assets/battery.svg" alt="" />
+        </div>
+      </header>
+
+      <section class="profile-header" aria-label="Профиль пользователя">
+        <div class="profile-summary">
+          <div class="avatar avatar--owner" aria-hidden="true">
+            <img src="./assets/app-source.png" alt="" />
+          </div>
+          <div class="profile-copy">
+            <h1>Олег Александров</h1>
+            <p>31 год</p>
+          </div>
+        </div>
+        <button class="family-button" type="button" aria-label="Семейный профиль">
+          <span class="family-crop" aria-hidden="true">
+            <img src="./assets/app-source.png" alt="" />
+          </span>
+        </button>
+      </section>
+
+      <div class="screen-content">
+        <section class="promo-card" aria-labelledby="promo-title">
+          <img class="promo-background" src="./assets/health-banner.png" alt="" aria-hidden="true" />
+          <div class="promo-copy">
+            <h2 id="promo-title">Проверьте основные показатели здоровья всего за 3990 ₽</h2>
+            <p>21 анализ и понятные<br />советы о вашем здоровье</p>
+          </div>
+          <a class="details-button" href="./checkup/">Подробнее</a>
+        </section>
+
+        <section class="treatment-section" aria-labelledby="treatment-title">
+          <div class="section-heading">
+            <h2 id="treatment-title">Мое лечение</h2>
+            <img src="./assets/chevron-section.svg" alt="" aria-hidden="true" />
+          </div>
+
+          <div class="plan-scroller" aria-label="Планы лечения">
+            <article class="plan-card">
+              <div class="plan-doctor">
+                <div class="doctor-avatar" aria-hidden="true">
+                  <img src="./assets/doctor.png" alt="" />
+                </div>
+                <div class="doctor-copy">
+                  <p class="plan-date">План лечения <strong>·</strong> от 2 марта</p>
+                  <p class="doctor-role">Терапевт</p>
+                </div>
+                <img class="card-chevron" src="./assets/chevron-card.svg" alt="" aria-hidden="true" />
+              </div>
+
+              <div class="plan-progress">
+                <h3>Этап 3 <span>/ 4</span></h3>
+                <div class="next-step">
+                  <div class="next-step-copy">
+                    <p>Медицинский советник</p>
+                    <p>Запишитесь до 1 апреля</p>
+                  </div>
+                  <button class="appointment-button" type="button">Записаться</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="plan-card" aria-hidden="true">
+              <div class="plan-doctor">
+                <div class="doctor-avatar">
+                  <img src="./assets/doctor.png" alt="" />
+                </div>
+                <div class="doctor-copy">
+                  <p class="plan-date">План лечения <strong>·</strong> от 2 марта</p>
+                  <p class="doctor-role">Терапевт</p>
+                </div>
+                <img class="card-chevron" src="./assets/chevron-card.svg" alt="" />
+              </div>
+              <div class="plan-progress">
+                <h3>Этап 3 <span>/ 4</span></h3>
+                <div class="next-step">
+                  <div class="next-step-copy">
+                    <p>Медицинский советник</p>
+                    <p>Запишитесь до 1 апреля</p>
+                  </div>
+                  <span class="appointment-button">Записаться</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="records-section" aria-labelledby="records-title">
+          <h2 id="records-title">Все записи</h2>
+          <div class="record-grid">
+            <button class="record-card" type="button">
+              <img src="./assets/doctor-icon.svg" alt="" aria-hidden="true" />
+              <span>Приемы и<br />консультации</span>
+            </button>
+            <button class="record-card" type="button">
+              <img src="./assets/flask-icon.svg" alt="" aria-hidden="true" />
+              <span>Анализы и<br />исследования</span>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <nav class="bottom-navigation" aria-label="Основная навигация">
+        <img src="./assets/app-source.png" alt="Главная, Медкарта, Помощник, Услуги, Профиль" />
+      </nav>
+
+      <div class="toast" role="status" aria-live="polite"></div>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
