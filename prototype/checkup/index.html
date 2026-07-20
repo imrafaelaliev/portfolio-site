@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f2f6fb" />
     <title>Чекап за 3990 ₽</title>
     <script>document.documentElement.classList.add('has-js');</script>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=add-payment-card" />
   </head>
   <body>
     <main class="phone" aria-label="Предложение чекапа">
@@ -206,16 +206,49 @@
               <h2 id="checkout-price">3990 ₽</h2>
             </div>
 
+            <div class="payment-details" aria-hidden="true" inert>
+              <div class="payment-methods">
+                <p>Выберите карту для оплаты</p>
+                <div class="payment-card-list" aria-label="Банковские карты">
+                  <button class="payment-card" type="button" aria-pressed="true">
+                    <span class="payment-card-choice" aria-hidden="true">
+                      <img class="payment-card-choice-selected" src="./assets/card-radio-selected.svg" alt="" />
+                      <img class="payment-card-choice-idle" src="./assets/card-radio.svg" alt="" />
+                    </span>
+                    <img class="payment-card-logo" src="./assets/mir-logo.svg" alt="Мир" />
+                    <strong>MIR *9812</strong>
+                  </button>
+                  <button class="payment-card" type="button" aria-pressed="false">
+                    <span class="payment-card-choice" aria-hidden="true">
+                      <img class="payment-card-choice-selected" src="./assets/card-radio-selected.svg" alt="" />
+                      <img class="payment-card-choice-idle" src="./assets/card-radio.svg" alt="" />
+                    </span>
+                    <img class="payment-card-logo" src="./assets/mir-logo.svg" alt="Мир" />
+                    <strong>MIR *4124</strong>
+                  </button>
+                  <button class="payment-add-card" type="button">
+                    <span>Добавить карту</span>
+                    <img src="./assets/add-card-plus.svg" alt="" aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+
+              <label class="payment-promo">
+                <span>Промокод на скидку</span>
+                <input type="text" inputmode="text" autocomplete="off" placeholder="Введите промокод" />
+              </label>
+            </div>
+
             <div class="checkout-footer">
               <p class="checkout-terms" id="checkout-terms" data-reveal="text">
                 <span>Нажимая «Оплатить», вы соглашаетесь с условиями</span>
                 <a href="#checkout-terms">договора на оказание услуг</a>
               </p>
               <div class="checkout-actions" data-reveal="scale" data-reveal-delay="90">
-                <button class="checkout-pay" type="button">Оплатить</button>
+                <button class="checkout-pay" type="button">К оплате</button>
                 <button class="checkout-promo" type="button">
                   <img src="./assets/ticket.svg" alt="" aria-hidden="true" />
-                  <span>У меня есть промокод</span>
+                  <span class="checkout-promo-label">У меня есть промокод</span>
                 </button>
               </div>
             </div>
@@ -238,7 +271,8 @@
       <div class="purchase-bar" data-reveal="button" data-reveal-delay="380">
         <button type="button">Купить за 3990 ₽</button>
       </div>
+
     </main>
-    <script src="./app.js"></script>
+    <script src="./app.js?v=add-payment-card"></script>
   </body>
 </html>

@@ -224,6 +224,9 @@ a:focus-visible {
   width: 375px;
   height: 46px;
   pointer-events: none;
+  transition:
+    opacity 260ms ease-out,
+    visibility 0s;
 }
 
 .app-header .status-bar {
@@ -933,6 +936,11 @@ a:focus-visible {
   flex-direction: column;
   gap: 16px;
   text-align: center;
+  transition:
+    top 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    left 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    width 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    gap 440ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .checkout-price p,
@@ -947,6 +955,9 @@ a:focus-visible {
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.5px;
+  transition:
+    font-size 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    line-height 440ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .checkout-price h2 {
@@ -955,6 +966,9 @@ a:focus-visible {
   font-weight: 600;
   line-height: 80px;
   letter-spacing: -2px;
+  transition:
+    font-size 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    line-height 440ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .checkout-footer {
@@ -974,6 +988,10 @@ a:focus-visible {
   line-height: 16px;
   letter-spacing: -0.5px;
   text-align: center;
+  transition:
+    opacity 260ms ease-out,
+    transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 320ms;
 }
 
 .checkout-terms span,
@@ -1019,18 +1037,38 @@ a:focus-visible {
   letter-spacing: -1px;
 }
 
-.checkout-promo {
+.checkout-actions .checkout-promo {
   height: 80px;
   gap: 8px;
   background: #199af0;
+  color: #fff;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.5px;
+  transition:
+    gap 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 320ms ease-out,
+    color 320ms ease-out;
 }
 
 .checkout-promo img {
   width: 20px;
   height: 20px;
+  opacity: 1;
+  transition:
+    width 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease-out;
+}
+
+.phone.is-payment-open .checkout-promo {
+  gap: 0;
+  background: #fff;
+  color: #26364b;
+}
+
+.phone.is-payment-open .checkout-promo img {
+  width: 0;
+  opacity: 0;
 }
 
 .purchase-bar {
@@ -1091,6 +1129,252 @@ a:focus-visible {
   pointer-events: none;
 }
 
+.payment-details {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 24px, 0) scale(0.985);
+  pointer-events: none;
+  transition:
+    opacity 320ms ease-out,
+    transform 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 440ms;
+}
+
+.phone.is-payment-open .payment-details {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+  transition:
+    opacity 320ms ease-out 80ms,
+    transform 440ms cubic-bezier(0.16, 1, 0.3, 1) 80ms,
+    visibility 0s;
+}
+
+.phone.is-payment-open .scroll-pane {
+  overflow-y: hidden;
+}
+
+.phone.is-payment-open .app-header {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 260ms ease-out,
+    visibility 0s linear 260ms;
+}
+
+.phone.is-payment-open .checkout-price {
+  top: 78px;
+  left: 16px;
+  width: 343px;
+  gap: 8px;
+}
+
+.phone.is-payment-open .checkout-price p {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.phone.is-payment-open .checkout-price h2 {
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.phone.is-payment-open .checkout-terms {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 10px, 0);
+}
+
+.payment-methods > p {
+  margin: 0;
+}
+
+.payment-methods > p,
+.payment-promo > span {
+  color: rgba(38, 54, 75, 0.4);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+}
+
+.payment-methods {
+  position: absolute;
+  top: 226px;
+  left: 16px;
+  z-index: 2;
+  display: flex;
+  width: 343px;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.payment-card-list {
+  display: flex;
+  width: 359px;
+  height: 88px;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  padding-right: 223px;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.payment-card-list.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.payment-card-list.is-dragging .payment-card,
+.payment-card-list.is-dragging .payment-add-card {
+  pointer-events: none;
+}
+
+.payment-card-list::-webkit-scrollbar {
+  display: none;
+}
+
+.payment-card,
+.payment-add-card {
+  position: relative;
+  display: flex;
+  width: 136px;
+  height: 88px;
+  flex: 0 0 136px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border: 0;
+  border-radius: 16px;
+  background: #fff;
+  color: #26364b;
+  cursor: pointer;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.payment-card:active,
+.payment-add-card:active {
+  transform: scale(0.985);
+}
+
+.payment-add-card {
+  justify-content: flex-end;
+}
+
+.payment-add-card span {
+  color: #26364b;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.16px;
+  text-align: left;
+}
+
+.payment-add-card img {
+  position: absolute;
+  top: 8px;
+  left: 104px;
+  width: 24px;
+  height: 24px;
+}
+
+.payment-card-choice {
+  position: absolute;
+  top: 12px;
+  left: 108px;
+  width: 16px;
+  height: 16px;
+}
+
+.payment-card-choice img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.payment-card-choice-selected,
+.payment-card[aria-pressed="false"] .payment-card-choice-idle {
+  opacity: 1;
+}
+
+.payment-card-choice-idle,
+.payment-card[aria-pressed="false"] .payment-card-choice-selected {
+  opacity: 0;
+}
+
+.payment-card-logo {
+  display: block;
+  width: 44px;
+  height: 20px;
+  padding-block: 4px;
+}
+
+.payment-card strong {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.16px;
+  white-space: nowrap;
+}
+
+.payment-promo {
+  position: absolute;
+  top: 410px;
+  left: 16px;
+  z-index: 2;
+  display: flex;
+  width: 343px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.payment-promo input {
+  width: 343px;
+  height: 64px;
+  padding: 8px 24px;
+  border: 0;
+  border-radius: 100px;
+  outline: 0;
+  background: #fff;
+  color: #26364b;
+  font-family: "SB Sans Text", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.payment-promo input::placeholder {
+  color: rgba(38, 54, 75, 0.4);
+  opacity: 1;
+}
+
+.payment-promo input:focus-visible {
+  outline: 3px solid rgba(25, 154, 240, 0.24);
+  outline-offset: 2px;
+}
+
 @media (max-width: 375px) {
   body { display: block; overflow-x: hidden; }
   .phone { box-shadow: none; }
@@ -1116,5 +1400,13 @@ a:focus-visible {
   .checkup-accordion-chevron,
   .checkup-accordion-panel,
   .analysis-tags span { transition: none; }
-  .checkout-glow { transition: none; }
+  .checkout-glow,
+  .checkout-price,
+  .checkout-price p,
+  .checkout-price h2,
+  .checkout-terms,
+  .checkout-promo,
+  .checkout-promo img,
+  .payment-details,
+  .app-header { transition: none; }
 }

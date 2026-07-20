@@ -21,6 +21,15 @@ if (scene) {
   const convenienceCards = [...convenienceScene.querySelectorAll('[data-card-index]')];
   const convenienceDots = [...convenienceScene.querySelectorAll('[data-dot-index]')];
   const purchaseBar = document.querySelector('.purchase-bar');
+  const purchaseButton = purchaseBar.querySelector('button');
+  const checkoutPay = document.querySelector('.checkout-pay');
+  const checkoutPromo = document.querySelector('.checkout-promo');
+  const checkoutPromoLabel = checkoutPromo.querySelector('.checkout-promo-label');
+  const paymentDetails = document.querySelector('.payment-details');
+  const paymentCardList = paymentDetails.querySelector('.payment-card-list');
+  const paymentCards = [...paymentDetails.querySelectorAll('.payment-card')];
+  const paymentAddCard = paymentDetails.querySelector('.payment-add-card');
+  const paymentCardItems = [...paymentDetails.querySelectorAll('.payment-card, .payment-add-card')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const revealElements = [...document.querySelectorAll('[data-reveal]')];
 
@@ -58,6 +67,11 @@ if (scene) {
   let convenienceAnimationFrame;
   let swipeState;
   let compositionResizeObserver;
+  let paymentOpen = false;
+  let paymentReturnScrollTop;
+  let paymentCardScrollState;
+  let paymentCardScrollDragged = false;
+  let paymentCardWheelTimer;
 
   revealElements.forEach((element) => {
     const delay = Number(element.dataset.revealDelay) || 0;
@@ -410,6 +424,130 @@ if (scene) {
     setupReveals();
   }
 
+  function setPaymentOpen(nextOpen, returnScrollTop) {
+    if (!nextOpen && paymentDetails.contains(document.activeElement)) {
+      checkoutPromo.focus({ preventScroll: true });
+    }
+
+    const scrollTopToRestore = !nextOpen ? paymentReturnScrollTop : undefined;
+    if (nextOpen) paymentReturnScrollTop = returnScrollTop;
+
+    paymentOpen = nextOpen;
+    paymentDetails.toggleAttribute('inert', !nextOpen);
+    paymentDetails.setAttribute('aria-hidden', String(!nextOpen));
+    phone.classList.toggle('is-payment-open', nextOpen);
+    checkoutPay.textContent = nextOpen ? 'Оплатить' : 'К оплате';
+    checkoutPromoLabel.textContent = nextOpen ? 'Назад' : 'У меня есть промокод';
+
+    if (!nextOpen && Number.isFinite(scrollTopToRestore)) {
+      paymentReturnScrollTop = undefined;
+      scrollPane.scrollTop = scrollTopToRestore;
+      requestUpdate();
+    }
+  }
+
+  function openPaymentFromPurchaseBar() {
+    if (paymentOpen) return;
+
+    const returnScrollTop = scrollPane.scrollTop;
+    scrollPane.scrollTop = scrollPane.scrollHeight - scrollPane.clientHeight;
+    requestUpdate();
+
+    window.requestAnimationFrame(() => setPaymentOpen(true, returnScrollTop));
+  }
+
+  function handlePaymentCardScrollStart(event) {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+    paymentCardScrollState = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startScrollLeft: paymentCardList.scrollLeft,
+    };
+    paymentCardScrollDragged = false;
+    paymentCardList.setPointerCapture?.(event.pointerId);
+  }
+
+  function handlePaymentCardScrollMove(event) {
+    if (!paymentCardScrollState || event.pointerId !== paymentCardScrollState.pointerId) return;
+
+    const deltaX = event.clientX - paymentCardScrollState.startX;
+    if (!paymentCardScrollDragged && Math.abs(deltaX) < 5) return;
+
+    paymentCardScrollDragged = true;
+    paymentCardList.classList.add('is-dragging');
+    event.preventDefault();
+    paymentCardList.scrollLeft = paymentCardScrollState.startScrollLeft - deltaX;
+  }
+
+  function snapPaymentCardList(targetCard) {
+    const firstCard = paymentCardItems[0];
+    if (!firstCard) return;
+
+    const listStyles = window.getComputedStyle(paymentCardList);
+    const gap = Number.parseFloat(listStyles.columnGap || listStyles.gap) || 0;
+    const cardStep = firstCard.offsetWidth + gap;
+    const targetIndex = targetCard
+      ? paymentCardItems.indexOf(targetCard)
+      : Math.round(paymentCardList.scrollLeft / cardStep);
+    const safeIndex = clamp(targetIndex, 0, paymentCardItems.length - 1);
+    const maxScrollLeft = paymentCardList.scrollWidth - paymentCardList.clientWidth;
+    const nextScrollLeft = Math.min(safeIndex * cardStep, maxScrollLeft);
+    const activeItem = paymentCardItems[safeIndex];
+
+    if (paymentCards.includes(activeItem)) selectPaymentCard(activeItem);
+    paymentCardList.scrollTo({
+      left: nextScrollLeft,
+      behavior: reducedMotion.matches ? 'auto' : 'smooth',
+    });
+  }
+
+  function finishPaymentCardScroll(event) {
+    if (!paymentCardScrollState || event.pointerId !== paymentCardScrollState.pointerId) return;
+
+    paymentCardScrollState = undefined;
+    paymentCardList.classList.remove('is-dragging');
+
+    if (paymentCardList.hasPointerCapture?.(event.pointerId)) {
+      paymentCardList.releasePointerCapture(event.pointerId);
+    }
+
+    if (paymentCardScrollDragged) {
+      window.requestAnimationFrame(() => snapPaymentCardList());
+    }
+
+    window.setTimeout(() => {
+      paymentCardScrollDragged = false;
+    }, 0);
+  }
+
+  function handlePaymentCardWheel(event) {
+    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+    const maxScrollLeft = paymentCardList.scrollWidth - paymentCardList.clientWidth;
+    const canScroll = (delta < 0 && paymentCardList.scrollLeft > 0)
+      || (delta > 0 && paymentCardList.scrollLeft < maxScrollLeft);
+
+    if (!canScroll) return;
+
+    event.preventDefault();
+    paymentCardList.scrollLeft += delta;
+    window.clearTimeout(paymentCardWheelTimer);
+    paymentCardWheelTimer = window.setTimeout(() => snapPaymentCardList(), 120);
+  }
+
+  function selectPaymentCard(selectedCard) {
+    paymentCards.forEach((card) => {
+      card.setAttribute('aria-pressed', String(card === selectedCard));
+    });
+  }
+
+  function handlePaymentKeydown(event) {
+    if (event.key !== 'Escape' || !paymentOpen) return;
+
+    event.preventDefault();
+    setPaymentOpen(false);
+  }
+
   scrollPane.addEventListener('scroll', requestUpdate, { passive: true });
   convenienceStage.addEventListener('pointerdown', handleSwipeStart);
   convenienceStage.addEventListener('pointermove', handleSwipeMove);
@@ -421,6 +559,26 @@ if (scene) {
   accordionTriggers.forEach((trigger) => {
     trigger.addEventListener('click', handleAccordionToggle);
   });
+  checkoutPay.addEventListener('click', () => {
+    if (!paymentOpen) setPaymentOpen(true);
+  });
+  checkoutPromo.addEventListener('click', () => setPaymentOpen(!paymentOpen));
+  purchaseButton.addEventListener('click', openPaymentFromPurchaseBar);
+  paymentCardList.addEventListener('pointerdown', handlePaymentCardScrollStart);
+  paymentCardList.addEventListener('pointermove', handlePaymentCardScrollMove);
+  paymentCardList.addEventListener('pointerup', finishPaymentCardScroll);
+  paymentCardList.addEventListener('pointercancel', finishPaymentCardScroll);
+  paymentCardList.addEventListener('wheel', handlePaymentCardWheel, { passive: false });
+  paymentCardList.addEventListener('dragstart', (event) => event.preventDefault());
+  paymentCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      if (!paymentCardScrollDragged) snapPaymentCardList(card);
+    });
+  });
+  paymentAddCard.addEventListener('click', () => {
+    if (!paymentCardScrollDragged) snapPaymentCardList(paymentAddCard);
+  });
+  document.addEventListener('keydown', handlePaymentKeydown);
   window.addEventListener('resize', refresh);
   reducedMotion.addEventListener?.('change', handleMotionPreferenceChange);
   renderConveniencePhase(0);
