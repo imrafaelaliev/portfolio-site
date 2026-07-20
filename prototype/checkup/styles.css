@@ -1238,23 +1238,10 @@ a:focus-visible {
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
-  padding-right: 223px;
+  padding-right: 16px;
   scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  touch-action: pan-y;
-  cursor: grab;
-  user-select: none;
+  touch-action: pan-x;
   -webkit-overflow-scrolling: touch;
-}
-
-.payment-card-list.is-dragging {
-  cursor: grabbing;
-  scroll-snap-type: none;
-}
-
-.payment-card-list.is-dragging .payment-card,
-.payment-card-list.is-dragging .payment-add-card {
-  pointer-events: none;
 }
 
 .payment-card-list::-webkit-scrollbar {
@@ -1277,8 +1264,6 @@ a:focus-visible {
   background: #fff;
   color: #26364b;
   cursor: pointer;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .payment-card:active,
