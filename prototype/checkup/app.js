@@ -26,6 +26,7 @@ if (scene) {
   const checkoutPromo = document.querySelector('.checkout-promo');
   const checkoutPromoLabel = checkoutPromo.querySelector('.checkout-promo-label');
   const paymentDetails = document.querySelector('.payment-details');
+  const checkoutSection = document.querySelector('.checkout-section');
   const paymentCardList = paymentDetails.querySelector('.payment-card-list');
   const paymentCards = [...paymentDetails.querySelectorAll('.payment-card')];
   const paymentAddCard = paymentDetails.querySelector('.payment-add-card');
@@ -34,9 +35,38 @@ if (scene) {
   const revealElements = [...document.querySelectorAll('[data-reveal]')];
 
   const target = { x: 187.5, y: 452 };
+  const mobileLayoutWidth = 375;
   const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
   const lerp = (start, end, progress) => start + (end - start) * progress;
   const smoothstep = (value) => value * value * (3 - 2 * value);
+
+  function syncMobileViewport() {
+    const isMobileViewport = window.innerWidth <= 600;
+    const scale = isMobileViewport ? window.innerWidth / mobileLayoutWidth : 1;
+    const layoutHeight = isMobileViewport ? window.innerHeight / scale : 812;
+
+    document.documentElement.style.setProperty('--mobile-scale', String(scale));
+    document.documentElement.style.setProperty('--mobile-layout-height', `${layoutHeight}px`);
+
+    if (!isMobileViewport) {
+      target.y = 452;
+      return;
+    }
+
+    target.y = 332;
+    document.documentElement.style.setProperty('--mobile-ball-size', '108px');
+    document.documentElement.style.setProperty('--mobile-ball-left', '75px');
+    document.documentElement.style.setProperty('--mobile-ball-right', '191px');
+    document.documentElement.style.setProperty('--mobile-balls-top', '172px');
+    document.documentElement.style.setProperty('--mobile-ball-row-step', '116px');
+    document.documentElement.style.setProperty('--mobile-ball-stagger', '16px');
+    document.documentElement.style.setProperty('--mobile-orb-size', '320px');
+    document.documentElement.style.setProperty('--mobile-orb-left', '27.5px');
+    document.documentElement.style.setProperty('--mobile-orb-top', '172px');
+    document.documentElement.style.setProperty('--mobile-payment-footer-top', `${Math.max(430, layoutHeight - 220)}px`);
+  }
+
+  syncMobileViewport();
   const problemCards = [
     {
       element: profilePhoto,
@@ -415,6 +445,7 @@ if (scene) {
   }
 
   function refresh() {
+    syncMobileViewport();
     measure();
     requestUpdate();
   }
@@ -430,7 +461,10 @@ if (scene) {
     }
 
     const scrollTopToRestore = !nextOpen ? paymentReturnScrollTop : undefined;
-    if (nextOpen) paymentReturnScrollTop = returnScrollTop;
+    if (nextOpen) {
+      paymentReturnScrollTop = Number.isFinite(returnScrollTop) ? returnScrollTop : scrollPane.scrollTop;
+      scrollPane.scrollTop = checkoutSection.offsetTop;
+    }
 
     paymentOpen = nextOpen;
     paymentDetails.toggleAttribute('inert', !nextOpen);
@@ -450,10 +484,8 @@ if (scene) {
     if (paymentOpen) return;
 
     const returnScrollTop = scrollPane.scrollTop;
-    scrollPane.scrollTop = scrollPane.scrollHeight - scrollPane.clientHeight;
+    setPaymentOpen(true, returnScrollTop);
     requestUpdate();
-
-    window.requestAnimationFrame(() => setPaymentOpen(true, returnScrollTop));
   }
 
   function handlePaymentCardScrollStart(event) {

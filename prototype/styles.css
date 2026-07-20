@@ -47,6 +47,8 @@
 }
 
 :root {
+  --mobile-scale: 1;
+  --mobile-layout-height: 812px;
   color-scheme: light;
   font-family: "SB Sans Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   background: #dce5ef;
@@ -601,18 +603,38 @@ a:focus-visible {
   transform: translateY(0);
 }
 
-@media (max-width: 375px) {
+@media (max-width: 600px) {
+  :root,
+  body {
+    background: #f2f6fb;
+  }
+
   body {
     display: block;
     overflow: hidden;
   }
 
   .phone {
+    width: 375px;
+    height: var(--mobile-layout-height);
     box-shadow: none;
+    zoom: var(--mobile-scale);
+  }
+
+  .status-bar {
+    display: none;
+  }
+
+  .profile-header {
+    top: 16px;
+  }
+
+  .screen-content {
+    inset: 76px 0 0;
   }
 }
 
-@media (max-height: 811px) and (min-width: 376px) {
+@media (max-height: 811px) and (min-width: 601px) {
   .phone {
     transform: scale(calc(100dvh / 812));
   }
