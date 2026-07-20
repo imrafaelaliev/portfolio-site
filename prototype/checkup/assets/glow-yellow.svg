@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 657.093 660.465" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#yellow-glow)">
+    <ellipse cx="328.546" cy="330.232" rx="162.656" ry="164.342" fill="#D8C600"/>
+  </g>
+  <defs>
+    <filter id="yellow-glow" x="0" y="0" width="657.093" height="660.465" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="82.9454" result="blur"/>
+    </filter>
+  </defs>
+</svg>
