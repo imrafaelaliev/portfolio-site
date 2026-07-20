@@ -1232,13 +1232,14 @@ a:focus-visible {
 
 .payment-card-list {
   display: flex;
-  width: 359px;
+  width: 375px;
   height: 88px;
   gap: 8px;
+  margin-left: -16px;
   overflow-x: auto;
   overflow-y: hidden;
   overscroll-behavior-x: contain;
-  padding-right: 16px;
+  padding-inline: 16px;
   scrollbar-width: none;
   touch-action: pan-x;
   -webkit-overflow-scrolling: touch;

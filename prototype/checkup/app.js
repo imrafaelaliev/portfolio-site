@@ -27,6 +27,7 @@ if (scene) {
   const checkoutPromoLabel = checkoutPromo.querySelector('.checkout-promo-label');
   const paymentDetails = document.querySelector('.payment-details');
   const checkoutSection = document.querySelector('.checkout-section');
+  const paymentCardList = paymentDetails.querySelector('.payment-card-list');
   const paymentCards = [...paymentDetails.querySelectorAll('.payment-card')];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const revealElements = [...document.querySelectorAll('[data-reveal]')];
@@ -466,6 +467,13 @@ if (scene) {
     phone.classList.toggle('is-payment-open', nextOpen);
     checkoutPay.textContent = nextOpen ? 'Оплатить' : 'К оплате';
     checkoutPromoLabel.textContent = nextOpen ? 'Назад' : 'У меня есть промокод';
+
+    if (nextOpen) {
+      paymentCardList.scrollLeft = 0;
+      window.requestAnimationFrame(() => {
+        if (paymentOpen) paymentCardList.scrollLeft = 0;
+      });
+    }
 
     if (!nextOpen && Number.isFinite(scrollTopToRestore)) {
       paymentReturnScrollTop = undefined;
