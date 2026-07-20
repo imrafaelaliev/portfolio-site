@@ -44,6 +44,19 @@
   --results-scroll-distance: 1100px;
   --composition-layout-extra: 214px;
   --checkout-lift: 144px;
+  --post-problem-gap-shift: 62px;
+  --mobile-scale: 1;
+  --mobile-layout-height: 812px;
+  --mobile-ball-size: 108px;
+  --mobile-ball-left: 75px;
+  --mobile-ball-right: 191px;
+  --mobile-balls-top: 172px;
+  --mobile-ball-row-step: 116px;
+  --mobile-ball-stagger: 16px;
+  --mobile-orb-size: 320px;
+  --mobile-orb-left: 27.5px;
+  --mobile-orb-top: 172px;
+  --mobile-payment-footer-top: 592px;
   color-scheme: light;
   font-family: "SB Sans Text", -apple-system, BlinkMacSystemFont, sans-serif;
   color: #26364b;
@@ -168,7 +181,7 @@ a:focus-visible {
 .checkup-content {
   position: relative;
   width: 375px;
-  height: calc(3905px - var(--problem-layout-lift) - var(--checkout-lift) + var(--problem-scroll-distance) + var(--results-scroll-distance) + var(--composition-layout-extra));
+  height: calc(3905px - var(--problem-layout-lift) - var(--checkout-lift) + var(--problem-scroll-distance) + var(--results-scroll-distance) + var(--composition-layout-extra) + var(--post-problem-gap-shift));
   overflow-x: clip;
   overflow-y: visible;
   background: #f2f6fb;
@@ -454,7 +467,7 @@ a:focus-visible {
 
 .results-scroll-scene {
   position: absolute;
-  top: calc(1409px - var(--problem-layout-lift) + var(--problem-scroll-distance));
+  top: calc(1409px - var(--problem-layout-lift) + var(--problem-scroll-distance) + var(--post-problem-gap-shift));
   left: 0;
   z-index: 5;
   width: 375px;
@@ -575,7 +588,7 @@ a:focus-visible {
 
 .composition-section {
   position: absolute;
-  top: calc(2221px - var(--problem-layout-lift) + var(--problem-scroll-distance) + var(--results-scroll-distance));
+  top: calc(2221px - var(--problem-layout-lift) + var(--problem-scroll-distance) + var(--results-scroll-distance) + var(--post-problem-gap-shift));
   left: 16px;
   z-index: 4;
   width: 343px;
@@ -721,7 +734,7 @@ a:focus-visible {
 
 .convenience-scroll-scene {
   position: absolute;
-  top: calc(2553px - var(--problem-layout-lift) + var(--problem-scroll-distance) + var(--results-scroll-distance) + var(--composition-layout-extra));
+  top: calc(2553px - var(--problem-layout-lift) + var(--problem-scroll-distance) + var(--results-scroll-distance) + var(--composition-layout-extra) + var(--post-problem-gap-shift));
   left: 0;
   z-index: 5;
   width: 375px;
@@ -900,7 +913,7 @@ a:focus-visible {
 
 .checkout-section {
   position: absolute;
-  top: calc(3093px - var(--problem-layout-lift) - var(--checkout-lift) + var(--problem-scroll-distance) + var(--results-scroll-distance) + var(--composition-layout-extra));
+  top: calc(3093px - var(--problem-layout-lift) - var(--checkout-lift) + var(--problem-scroll-distance) + var(--results-scroll-distance) + var(--composition-layout-extra) + var(--post-problem-gap-shift));
   left: 0;
   z-index: 6;
   width: 375px;
@@ -1375,9 +1388,120 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-@media (max-width: 375px) {
-  body { display: block; overflow-x: hidden; }
-  .phone { box-shadow: none; }
+@media (max-width: 600px) {
+  :root,
+  body {
+    background: #f2f6fb;
+  }
+
+  body {
+    display: block;
+    overflow: hidden;
+  }
+
+  .phone {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    box-shadow: none;
+  }
+
+  .scroll-pane {
+    width: 375px;
+    height: var(--mobile-layout-height);
+    margin: 0;
+    zoom: var(--mobile-scale);
+  }
+
+  .app-header {
+    display: none;
+  }
+
+  .results-section {
+    top: 16px;
+  }
+
+  .value {
+    width: var(--mobile-ball-size);
+    height: var(--mobile-ball-size);
+  }
+
+  .value--1 {
+    top: var(--mobile-balls-top);
+    left: var(--mobile-ball-left);
+  }
+
+  .value--2 {
+    top: calc(var(--mobile-balls-top) + var(--mobile-ball-stagger));
+    left: var(--mobile-ball-right);
+  }
+
+  .value--3 {
+    top: calc(var(--mobile-balls-top) + var(--mobile-ball-row-step));
+    left: var(--mobile-ball-left);
+  }
+
+  .value--4 {
+    top: calc(var(--mobile-balls-top) + var(--mobile-ball-row-step) + var(--mobile-ball-stagger));
+    left: var(--mobile-ball-right);
+  }
+
+  .value--5 {
+    top: calc(var(--mobile-balls-top) + var(--mobile-ball-row-step) + var(--mobile-ball-row-step));
+    left: var(--mobile-ball-left);
+  }
+
+  .value--6 {
+    top: calc(var(--mobile-balls-top) + var(--mobile-ball-row-step) + var(--mobile-ball-row-step) + var(--mobile-ball-stagger));
+    left: var(--mobile-ball-right);
+  }
+
+  .normal-orb {
+    top: var(--mobile-orb-top);
+    left: var(--mobile-orb-left);
+    width: var(--mobile-orb-size);
+    height: var(--mobile-orb-size);
+  }
+
+  .phone.is-payment-open .payment-details {
+    height: var(--mobile-layout-height);
+  }
+
+  .phone.is-payment-open .checkout-price {
+    top: 16px;
+  }
+
+  .phone.is-payment-open .payment-methods {
+    top: 124px;
+  }
+
+  .phone.is-payment-open .payment-promo {
+    top: 284px;
+  }
+
+  .phone.is-payment-open .checkout-footer {
+    top: var(--mobile-payment-footer-top);
+    bottom: auto;
+    gap: 0;
+  }
+
+  .phone.is-payment-open .checkout-terms {
+    display: none;
+  }
+
+  .phone.is-payment-open .purchase-bar {
+    visibility: hidden;
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+
+  .purchase-bar {
+    left: 0;
+    width: 375px;
+    padding-inline: 16px;
+    zoom: var(--mobile-scale);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
