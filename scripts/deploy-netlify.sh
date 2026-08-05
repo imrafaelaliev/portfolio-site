@@ -51,6 +51,7 @@ cp -R \
   "${ROOT_DIR}/mtelectro" \
   "${ROOT_DIR}/nl" \
   "${ROOT_DIR}/simplecoffee" \
+  "${ROOT_DIR}/sber-health" \
   "${ROOT_DIR}/tochka" \
   "${STAGE_DIR}/"
 

@@ -1,0 +1,156 @@
+(() => {
+  const phone = document.querySelector('[data-phone-screen]');
+  const permissionPanel = document.querySelector('[data-motion-permission]');
+  const enableMotionButton = document.querySelector('[data-enable-motion]');
+  const motionText = document.querySelector('[data-motion-text]');
+  const demoToggle = document.querySelector('[data-demo-toggle]');
+  const status = document.querySelector('[data-status]');
+
+  if (!phone || !permissionPanel || !enableMotionButton || !motionText || !demoToggle || !status) return;
+
+  const supportsMotion = 'DeviceMotionEvent' in window;
+  const isLocalhost = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+  const hasSecureMotionContext = window.isSecureContext || isLocalhost;
+  const needsPermission =
+    supportsMotion && typeof window.DeviceMotionEvent.requestPermission === 'function';
+
+  let isSummaryVisible = false;
+  let isListening = false;
+  let statusTimer = 0;
+  let lastMotion = null;
+  let lastPeakAt = 0;
+  let peakCount = 0;
+  let transitionLockedUntil = 0;
+  let motionEventSeen = false;
+  let motionCheckTimer = 0;
+
+  const showStatus = (message) => {
+    window.clearTimeout(statusTimer);
+    status.textContent = message;
+    status.classList.add('is-visible');
+    statusTimer = window.setTimeout(() => status.classList.remove('is-visible'), 1800);
+  };
+
+  const setSummary = (nextValue, source = 'demo') => {
+    const now = Date.now();
+    if (now < transitionLockedUntil) return;
+
+    transitionLockedUntil = now + 900;
+    isSummaryVisible = nextValue;
+    phone.classList.toggle('is-summary', isSummaryVisible);
+    phone.classList.remove('is-shaking');
+    void phone.offsetWidth;
+    phone.classList.add('is-shaking');
+    demoToggle.textContent = isSummaryVisible ? 'Вернуть главный экран' : 'Показать сводку';
+    demoToggle.setAttribute(
+      'aria-label',
+      isSummaryVisible ? 'Вернуть главный экран' : 'Показать экран сводки'
+    );
+
+    if (source === 'shake') {
+      showStatus(isSummaryVisible ? 'Сводка готова' : 'Главный экран');
+    }
+
+    if (typeof navigator.vibrate === 'function') {
+      navigator.vibrate([35, 30, 35]);
+    }
+  };
+
+  const registerPeak = (now) => {
+    if (now - lastPeakAt > 720) peakCount = 0;
+    peakCount += 1;
+    lastPeakAt = now;
+
+    if (peakCount >= 2) {
+      peakCount = 0;
+      setSummary(!isSummaryVisible, 'shake');
+    }
+  };
+
+  const onDeviceMotion = (event) => {
+    motionEventSeen = true;
+    window.clearTimeout(motionCheckTimer);
+
+    const linearAcceleration = event.acceleration;
+    const hasLinearValues =
+      linearAcceleration &&
+      [linearAcceleration.x, linearAcceleration.y, linearAcceleration.z].some(Number.isFinite);
+    const acceleration = hasLinearValues
+      ? linearAcceleration
+      : event.accelerationIncludingGravity;
+    if (!acceleration) return;
+
+    const x = Number(acceleration.x) || 0;
+    const y = Number(acceleration.y) || 0;
+    const z = Number(acceleration.z) || 0;
+    const now = event.timeStamp || performance.now();
+
+    if (!lastMotion) {
+      lastMotion = { x, y, z, time: now };
+      return;
+    }
+
+    const elapsed = Math.max(now - lastMotion.time, 12);
+    const delta = Math.abs(x - lastMotion.x) + Math.abs(y - lastMotion.y) + Math.abs(z - lastMotion.z);
+    const magnitude = Math.sqrt(x * x + y * y + z * z);
+    const intensity = (delta / elapsed) * 1000;
+
+    lastMotion = { x, y, z, time: now };
+
+    if (magnitude > 13 || intensity > 38) registerPeak(Date.now());
+  };
+
+  const startListening = () => {
+    if (isListening || !supportsMotion) return;
+    window.addEventListener('devicemotion', onDeviceMotion, { passive: true });
+    isListening = true;
+
+    window.clearTimeout(motionCheckTimer);
+    motionCheckTimer = window.setTimeout(() => {
+      if (motionEventSeen) return;
+      motionText.textContent = 'Датчик движения не отвечает. Нажми кнопку и разреши доступ.';
+      enableMotionButton.textContent = 'Подключить датчик';
+      enableMotionButton.disabled = false;
+      permissionPanel.hidden = false;
+    }, 2200);
+  };
+
+  const requestMotionPermission = async () => {
+    enableMotionButton.disabled = true;
+    enableMotionButton.textContent = 'Подключаю…';
+
+    try {
+      if (!hasSecureMotionContext) throw new Error('Secure context required');
+
+      if (needsPermission) {
+        const permission = await window.DeviceMotionEvent.requestPermission();
+        if (permission !== 'granted') throw new Error('Motion permission denied');
+      }
+
+      permissionPanel.hidden = true;
+      startListening();
+      showStatus('Готово — встряхни телефон');
+    } catch (error) {
+      enableMotionButton.disabled = false;
+      enableMotionButton.textContent = 'Попробовать ещё раз';
+      if (!hasSecureMotionContext) {
+        motionText.textContent = 'Для встряхивания нужна защищённая HTTPS-ссылка.';
+        enableMotionButton.textContent = 'Нужна HTTPS-ссылка';
+      }
+      showStatus('Датчик движения не подключён');
+    }
+  };
+
+  enableMotionButton.addEventListener('click', requestMotionPermission);
+  demoToggle.addEventListener('click', () => setSummary(!isSummaryVisible));
+
+  if (!hasSecureMotionContext && supportsMotion) {
+    motionText.textContent = 'Для встряхивания нужна защищённая HTTPS-ссылка.';
+    enableMotionButton.textContent = 'Нужна HTTPS-ссылка';
+    permissionPanel.hidden = false;
+  } else if (needsPermission) {
+    permissionPanel.hidden = false;
+  } else if (supportsMotion) {
+    startListening();
+  }
+})();

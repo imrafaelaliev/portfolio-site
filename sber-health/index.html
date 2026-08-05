@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f3f5f7" />
+    <title>ИИ-помощник — СберЗдоровье</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="../assets/icons/favicon.png" />
+    <meta
+      name="description"
+      content="Интерактивный концепт ИИ-помощника СберЗдоровья: встряхните телефон, чтобы открыть сводку здоровья."
+    />
+    <link rel="preload" as="image" href="../assets/images/sber-health/avatar.png" />
+    <link rel="preload" as="image" href="../assets/images/sber-health/summary.png" />
+    <link rel="stylesheet" href="../css/sber-health.css?v=20260805-shake-2" />
+  </head>
+  <body>
+    <main class="sber-demo" aria-label="Концепт ИИ-помощника СберЗдоровья">
+      <section class="sber-phone" data-phone-screen aria-live="polite">
+        <div
+          class="sber-screen sber-screen--home sber-home"
+          role="img"
+          aria-label="Главный экран ИИ-помощника с подсказкой встряхнуть телефон"
+        >
+          <div class="sber-home__statusbar" aria-hidden="true">
+            <span>18:41</span>
+            <span class="sber-home__system-icons">
+              <span class="sber-home__signal">▂▄▆█</span>
+              <span class="sber-home__wifi">⌁</span>
+              <span class="sber-home__battery"></span>
+            </span>
+          </div>
+
+          <div class="sber-home__nav" aria-hidden="true">
+            <span class="sber-home__round-button sber-home__close">×</span>
+            <span class="sber-home__brand">
+              <span class="sber-home__brand-mark">✣</span>
+              <span>ИИ-помощник</span>
+            </span>
+            <span class="sber-home__round-button sber-home__refresh">↻<i>+</i></span>
+          </div>
+
+          <h1 class="sber-home__title">Привет, Анна!<br />Чем могу помочь?</h1>
+
+          <div class="sber-home__visual" aria-hidden="true">
+            <div class="sber-home__card sber-home__prompt">
+              <span>Помоги<br />расшифровать<br />анализы</span>
+              <span class="sber-home__reactions">♣&nbsp; ⚑&nbsp; ♣&nbsp; •&nbsp; +4</span>
+            </div>
+
+            <div class="sber-home__green-card">
+              <span>Узнать состояние<br />родственников</span>
+            </div>
+
+            <img
+              class="sber-home__avatar"
+              src="../assets/images/sber-health/avatar.png"
+              alt=""
+              width="56"
+              height="56"
+              decoding="sync"
+              fetchpriority="high"
+            />
+
+            <div class="sber-home__card sber-home__appointment">
+              <span>Записаться<br />к врачу</span>
+              <span class="sber-home__medkit"></span>
+            </div>
+          </div>
+
+          <div class="sber-home__shake-hint" aria-hidden="true">
+            <span class="sber-home__shake-icon"></span>
+            <span>Встряхните, чтобы получить<br />сводку здоровья</span>
+          </div>
+
+          <div class="sber-home__composer" aria-hidden="true">
+            <span class="sber-home__plus">+</span>
+            <span class="sber-home__input">Введите сообщение</span>
+            <span class="sber-home__voice"><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+
+          <p class="sber-home__disclaimer">ИИ-помощник не заменяет консультацию врача</p>
+        </div>
+        <img
+          class="sber-screen sber-screen--summary"
+          src="../assets/images/sber-health/summary.png"
+          alt="Сводка здоровья с результатами анализа крови"
+          width="402"
+          height="874"
+          decoding="async"
+        />
+
+        <div class="motion-permission" data-motion-permission hidden>
+          <p class="motion-permission__text" data-motion-text>
+            Разреши доступ к движению — тогда встряхивание сработает.
+          </p>
+          <button class="motion-permission__button" type="button" data-enable-motion>
+            Включить встряхивание
+          </button>
+        </div>
+
+        <p class="sber-status" data-status aria-live="polite"></p>
+      </section>
+
+      <button class="demo-toggle" type="button" data-demo-toggle aria-label="Показать экран сводки">
+        Показать сводку
+      </button>
+    </main>
+
+    <script src="../js/sber-health.js?v=20260805-shake-2"></script>
+  </body>
+</html>
