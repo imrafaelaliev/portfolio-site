@@ -100,11 +100,12 @@ button {
 }
 
 .sber-home,
-.sber-screen {
+.sber-summary {
   position: absolute;
   inset: 0;
   display: block;
   width: 100%;
+  height: 100%;
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -121,12 +122,13 @@ button {
     filter 420ms ease;
 }
 
-.sber-stage {
+.sber-stage,
+.sber-summary-stage {
   position: absolute;
   top: 0;
   left: 0;
   width: 402px;
-  height: 874px;
+  height: var(--design-height, 874px);
   overflow: visible;
   background: #f3f5f7;
   transform: scale(var(--screen-scale, 1));
@@ -136,24 +138,24 @@ button {
 .assistant-nav {
   position: absolute;
   z-index: 20;
-  top: 0;
+  top: 44px;
   left: 0;
   display: flex;
   width: 402px;
   height: 56px;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 20px;
+  padding: 10px 20px;
 }
 
 .assistant-nav::before {
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: -44px;
   right: 0;
   left: 0;
-  height: 88px;
-  background: linear-gradient(to bottom, rgba(243, 245, 247, 0.94), rgba(243, 245, 247, 0));
+  height: 116px;
+  background: linear-gradient(to bottom, rgba(243, 245, 247, 0.6), rgba(243, 245, 247, 0));
   content: "";
   pointer-events: none;
 }
@@ -165,14 +167,18 @@ button {
   flex: 0 0 48px;
   place-items: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.28);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+  background: transparent;
 }
 
 .nav-button img {
   display: block;
   width: 20px;
   height: 20px;
+}
+
+.nav-button--close img {
+  width: 11.1px;
+  height: 11.1px;
 }
 
 .assistant-brand {
@@ -204,7 +210,7 @@ button {
 .assistant-title {
   position: absolute;
   z-index: 1;
-  top: var(--title-top, 80px);
+  top: var(--title-top, 124px);
   left: 20px;
   width: 362px;
   margin: 0;
@@ -227,21 +233,21 @@ button {
 
 .card-slot--lab {
   z-index: 2;
-  top: var(--lab-top, 176px);
+  top: var(--lab-top, 219px);
   left: 33.5px;
   --base-rotation: -2deg;
 }
 
 .card-slot--relatives {
   z-index: 3;
-  top: var(--relatives-top, 282px);
+  top: var(--relatives-top, 325px);
   left: 169.5px;
   --base-rotation: 2deg;
 }
 
 .card-slot--doctor {
   z-index: 4;
-  top: var(--doctor-top, 392.4px);
+  top: var(--doctor-top, 435.4px);
   left: 76px;
   --base-rotation: -2deg;
 }
@@ -345,7 +351,7 @@ button {
 .patient-avatar {
   position: absolute;
   z-index: 5;
-  top: var(--avatar-top, 188.4px);
+  top: var(--avatar-top, 231.4px);
   left: 247px;
   width: 106px;
   height: 106px;
@@ -365,7 +371,7 @@ button {
 .shake-hint {
   position: absolute;
   z-index: 1;
-  top: var(--shake-top, 614px);
+  top: var(--shake-top, 650px);
   left: 77px;
   display: flex;
   width: 249px;
@@ -416,15 +422,15 @@ button {
 .assistant-composer {
   position: absolute;
   z-index: 10;
-  top: var(--composer-top, 710px);
+  top: auto;
+  bottom: 0;
   left: 0;
   display: flex;
   width: 402px;
-  height: 120px;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding-bottom: 24px;
+  padding-bottom: 34px;
 }
 
 .composer-row {
@@ -484,16 +490,14 @@ button {
   text-align: center;
 }
 
-.sber-screen--summary {
+.sber-summary {
   z-index: 2;
-  top: -5.03%;
-  bottom: auto;
-  height: auto;
+  overflow: hidden;
   opacity: 0;
-  object-fit: contain;
   transform: translateY(4%) scale(0.985);
   transform-origin: center;
   filter: blur(7px);
+  pointer-events: none;
   transition:
     opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -504,49 +508,190 @@ button {
   opacity: 0;
   transform: translateY(-2%) scale(1.018);
   filter: blur(5px);
-}
-
-.sber-phone.is-summary .sber-screen--summary {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
-}
-
-.summary-mask {
-  position: absolute;
-  z-index: 3;
-  right: 0;
-  left: 0;
-  background: #f3f5f7;
-  opacity: 0;
   pointer-events: none;
 }
 
-.summary-mask--intro {
-  top: 8.5%;
-  height: 15.5%;
+.sber-phone.is-summary .sber-summary {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  pointer-events: auto;
 }
 
-.summary-mask--card {
-  top: 23%;
-  height: 33.5%;
+.summary-background {
+  position: absolute;
+  top: 0;
+  left: -136px;
+  display: block;
+  width: 666px;
+  height: 874px;
+  object-fit: cover;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
-.summary-mask--explanation {
-  top: 55%;
-  height: 27%;
+.summary-message {
+  position: absolute;
+  z-index: 2;
+  top: 124px;
+  left: 20px;
+  display: flex;
+  width: 362px;
+  max-height: calc(var(--design-height, 874px) - 254px);
+  flex-direction: column;
+  gap: 16px;
+  color: #3b3b3b;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
-.sber-phone.is-generating .summary-mask--intro {
-  animation: reveal-intro-message 5.6s ease both;
+.summary-message::-webkit-scrollbar {
+  display: none;
 }
 
-.sber-phone.is-generating .summary-mask--card {
-  animation: reveal-analysis-card 5.6s ease both;
+.summary-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.sber-phone.is-generating .summary-mask--explanation {
-  animation: reveal-explanation 5.6s ease both;
+.summary-intro h1,
+.summary-intro p,
+.summary-card h2,
+.summary-card p,
+.summary-explanation h2,
+.summary-explanation p {
+  margin: 0;
+}
+
+.summary-intro h1 {
+  color: #29333d;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.summary-intro p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.summary-intro strong,
+.summary-results strong {
+  font-weight: 600;
+}
+
+.summary-card {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border-radius: 32px;
+  background: #fff;
+}
+
+.summary-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.summary-card__header > div {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.summary-card__header p {
+  width: 274px;
+  color: #8292a2;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.summary-card__disclosure {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+}
+
+.summary-card__disclosure img {
+  display: block;
+  width: 8.55px;
+  height: 13.33px;
+}
+
+.summary-results {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-results p {
+  min-height: 48px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(41, 51, 61, 0.12);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.summary-results p:last-child {
+  min-height: 36px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.summary-explanation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-explanation h2 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 23px;
+}
+
+.summary-explanation p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.summary-explanation p:last-child {
+  line-height: 24px;
+}
+
+.sber-phone.is-generating .summary-intro,
+.sber-phone.is-generating .summary-card,
+.sber-phone.is-generating .summary-explanation {
+  animation: summary-message-in 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.sber-phone.is-generating .summary-intro {
+  animation-delay: 420ms;
+}
+
+.sber-phone.is-generating .summary-card {
+  animation-delay: 1.9s;
+}
+
+.sber-phone.is-generating .summary-explanation {
+  animation-delay: 3.65s;
 }
 
 .ai-writing {
@@ -720,6 +865,18 @@ button {
   }
 }
 
+@keyframes summary-message-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes ai-writing-bubble {
   0% {
     opacity: 0;
@@ -777,48 +934,6 @@ button {
   }
 }
 
-@keyframes reveal-intro-message {
-  0%,
-  12% {
-    opacity: 1;
-    clip-path: inset(0);
-  }
-
-  25%,
-  100% {
-    opacity: 1;
-    clip-path: inset(100% 0 0);
-  }
-}
-
-@keyframes reveal-analysis-card {
-  0%,
-  39% {
-    opacity: 1;
-    clip-path: inset(0);
-  }
-
-  54%,
-  100% {
-    opacity: 1;
-    clip-path: inset(100% 0 0);
-  }
-}
-
-@keyframes reveal-explanation {
-  0%,
-  70% {
-    opacity: 1;
-    clip-path: inset(0);
-  }
-
-  90%,
-  100% {
-    opacity: 1;
-    clip-path: inset(100% 0 0);
-  }
-}
-
 @keyframes ai-writing-dot {
   0%,
   100% {
@@ -857,7 +972,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .sber-home,
-  .sber-screen--summary,
+  .sber-summary,
   .sber-status {
     transition-duration: 1ms;
   }
@@ -866,8 +981,11 @@ button {
     animation: none;
   }
 
-  .sber-phone.is-generating .summary-mask {
+  .sber-phone.is-generating .summary-intro,
+  .sber-phone.is-generating .summary-card,
+  .sber-phone.is-generating .summary-explanation {
     animation-duration: 1ms;
+    animation-delay: 0ms;
   }
 
   .sber-phone.is-generating .ai-writing {

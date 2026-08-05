@@ -12,8 +12,8 @@
     />
     <link rel="preload" as="image" href="../assets/images/sber-health/avatar-figma.jpg" />
     <link rel="preload" as="image" href="../assets/images/sber-health/card-relatives.jpg" />
-    <link rel="preload" as="image" href="../assets/images/sber-health/summary.png" />
-    <link rel="stylesheet" href="../css/sber-health.css?v=20260805-shake-only-1" />
+    <link rel="preload" as="image" href="../assets/images/sber-health/summary-background.png" />
+    <link rel="stylesheet" href="../css/sber-health.css?v=20260805-figma-728-1" />
   </head>
   <body>
     <main class="sber-demo" aria-label="Концепт ИИ-помощника СберЗдоровья">
@@ -26,7 +26,7 @@
         <div class="sber-home" data-home-screen>
           <div class="sber-stage" data-design-stage>
             <header class="assistant-nav" aria-label="ИИ-помощник">
-              <span class="nav-button" aria-hidden="true">
+              <span class="nav-button nav-button--close" aria-hidden="true">
                 <img src="../assets/images/sber-health/icon-close.svg" alt="" />
               </span>
               <span class="assistant-brand">
@@ -103,18 +103,80 @@
           </div>
         </div>
 
-        <img
-          class="sber-screen sber-screen--summary"
-          src="../assets/images/sber-health/summary.png"
-          alt="Сводка здоровья с результатами анализа крови"
-          width="402"
-          height="874"
-          decoding="async"
-        />
+        <div class="sber-summary" data-summary-screen>
+          <div class="sber-summary-stage">
+            <img
+              class="summary-background"
+              src="../assets/images/sber-health/summary-background.png"
+              alt=""
+              aria-hidden="true"
+            />
 
-        <div class="summary-mask summary-mask--intro" aria-hidden="true"></div>
-        <div class="summary-mask summary-mask--card" aria-hidden="true"></div>
-        <div class="summary-mask summary-mask--explanation" aria-hidden="true"></div>
+            <header class="assistant-nav" aria-label="ИИ-помощник">
+              <span class="nav-button nav-button--close" aria-hidden="true">
+                <img src="../assets/images/sber-health/icon-close.svg" alt="" />
+              </span>
+              <span class="assistant-brand">
+                <img src="../assets/images/sber-health/icon-ai.svg" alt="" />
+                <span>ИИ-помощник</span>
+              </span>
+              <span class="nav-button" aria-hidden="true">
+                <img src="../assets/images/sber-health/icon-refresh.svg" alt="" />
+              </span>
+            </header>
+
+            <div class="summary-message">
+              <div class="summary-intro">
+                <h1>Ваша сводка</h1>
+                <p>
+                  Качество сна снижается третий день, вы спали<br />
+                  <strong>6 ч 12 мина,</strong> до дневной цели активности осталось<br />
+                  <strong>3 900 шагов</strong>. В анализе крови есть три отклонения.
+                </p>
+              </div>
+
+              <article class="summary-card">
+                <div class="summary-card__header">
+                  <div>
+                    <h2>Анализ крови</h2>
+                    <p>За 10 марта, 3 маркета требуют внимания</p>
+                  </div>
+                  <span class="summary-card__disclosure" aria-hidden="true">
+                    <img src="../assets/images/sber-health/icon-disclosure.svg" alt="" />
+                  </span>
+                </div>
+                <div class="summary-results">
+                  <p>Гемоглобин — 116 г/л, <strong>ниже нормы</strong></p>
+                  <p>Ферритин — 14 нг/мл, <strong>ниже нормы</strong></p>
+                  <p>MCV — 79 фл, <strong>ниже нормы</strong></p>
+                </div>
+              </article>
+
+              <div class="summary-explanation">
+                <h2>Гемоглобин, ферритин и MCV снижены.</h2>
+                <p>
+                  Такое сочетание может быть связано с недостатком железа. Результаты стоит
+                  обсудить с терапевтом, особенно если появились усталость, слабость,
+                  головокружение или одышка.
+                </p>
+                <p>Как вы себя чувствуете в последнее время?</p>
+              </div>
+            </div>
+
+            <div class="assistant-composer summary-composer" aria-label="Поле сообщения">
+              <div class="composer-row">
+                <span class="composer-plus" aria-hidden="true">
+                  <img src="../assets/images/sber-health/button-plus.svg" alt="" />
+                </span>
+                <div class="composer-input">
+                  <span>Введите сообщение</span>
+                  <img src="../assets/images/sber-health/icon-voice.svg" alt="" aria-hidden="true" />
+                </div>
+              </div>
+              <p>AI-помощник не заменяет консультацию врача</p>
+            </div>
+          </div>
+        </div>
 
         <div class="ai-writing" aria-hidden="true">
           <i></i><i></i><i></i>
@@ -145,6 +207,6 @@
       </button>
     </main>
 
-    <script src="../js/sber-health.js?v=20260805-shake-only-1"></script>
+    <script src="../js/sber-health.js?v=20260805-figma-728-1"></script>
   </body>
 </html>
