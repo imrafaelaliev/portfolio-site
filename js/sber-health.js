@@ -22,6 +22,9 @@
   const hasSecureMotionContext = window.isSecureContext || isLocalhost;
   const needsPermission =
     supportsMotion && typeof window.DeviceMotionEvent.requestPermission === 'function';
+  const requiredShakePeaks = 3;
+  const shakePeakWindow = 620;
+  const minimumPeakGap = 90;
 
   let isSummaryVisible = false;
   let isListening = false;
@@ -67,11 +70,13 @@
   };
 
   const registerPeak = (now) => {
-    if (now - lastPeakAt > 720) peakCount = 0;
+    if (now - lastPeakAt < minimumPeakGap) return;
+    if (now - lastPeakAt > shakePeakWindow) peakCount = 0;
+
     peakCount += 1;
     lastPeakAt = now;
 
-    if (peakCount >= 2) {
+    if (peakCount >= requiredShakePeaks) {
       peakCount = 0;
       setSummary(!isSummaryVisible, 'shake');
     }
@@ -107,7 +112,7 @@
 
     lastMotion = { x, y, z, time: now };
 
-    if (magnitude > 13 || intensity > 38) registerPeak(Date.now());
+    if (magnitude > 19 || intensity > 82) registerPeak(Date.now());
   };
 
   const startListening = () => {
