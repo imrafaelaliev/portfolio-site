@@ -25,7 +25,7 @@
   const requiredShakePeaks = 3;
   const shakePeakWindow = 620;
   const minimumPeakGap = 90;
-  const summaryGenerationDuration = 4800;
+  const summaryGenerationDuration = 5600;
 
   let isSummaryVisible = false;
   let isListening = false;
@@ -54,10 +54,8 @@
     isSummaryVisible = nextValue;
     window.clearTimeout(generationTimer);
     phone.classList.remove('is-generating');
-    phone.classList.toggle('is-summary', isSummaryVisible);
     phone.classList.remove('is-shaking');
     void phone.offsetWidth;
-    phone.classList.add('is-shaking');
 
     if (isSummaryVisible) {
       phone.classList.add('is-generating');
@@ -66,6 +64,9 @@
         if (source === 'shake') showStatus('Сводка готова');
       }, summaryGenerationDuration);
     }
+
+    phone.classList.toggle('is-summary', isSummaryVisible);
+    phone.classList.add('is-shaking');
 
     demoToggle.textContent = isSummaryVisible ? 'Вернуть главный экран' : 'Показать сводку';
     demoToggle.setAttribute(
