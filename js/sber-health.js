@@ -25,11 +25,13 @@
   const requiredShakePeaks = 3;
   const shakePeakWindow = 620;
   const minimumPeakGap = 90;
+  const summaryGenerationDuration = 4800;
 
   let isSummaryVisible = false;
   let isListening = false;
   let isRequestingPermission = false;
   let statusTimer = 0;
+  let generationTimer = 0;
   let lastMotion = null;
   let lastPeakAt = 0;
   let peakCount = 0;
@@ -50,10 +52,21 @@
 
     transitionLockedUntil = now + 900;
     isSummaryVisible = nextValue;
+    window.clearTimeout(generationTimer);
+    phone.classList.remove('is-generating');
     phone.classList.toggle('is-summary', isSummaryVisible);
     phone.classList.remove('is-shaking');
     void phone.offsetWidth;
     phone.classList.add('is-shaking');
+
+    if (isSummaryVisible) {
+      phone.classList.add('is-generating');
+      generationTimer = window.setTimeout(() => {
+        phone.classList.remove('is-generating');
+        if (source === 'shake') showStatus('Сводка готова');
+      }, summaryGenerationDuration);
+    }
+
     demoToggle.textContent = isSummaryVisible ? 'Вернуть главный экран' : 'Показать сводку';
     demoToggle.setAttribute(
       'aria-label',
@@ -61,7 +74,7 @@
     );
 
     if (source === 'shake') {
-      showStatus(isSummaryVisible ? 'Сводка готова' : 'Главный экран');
+      showStatus(isSummaryVisible ? 'ИИ-помощник формирует сводку…' : 'Главный экран');
     }
 
     if (typeof navigator.vibrate === 'function') {

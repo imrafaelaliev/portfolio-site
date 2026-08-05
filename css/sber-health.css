@@ -128,6 +128,51 @@ button {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
+  clip-path: inset(0);
+}
+
+.sber-phone.is-summary.is-generating .sber-screen--summary {
+  animation: summary-reveal 4.8s cubic-bezier(0.2, 0.72, 0.22, 1) both;
+}
+
+.ai-writing {
+  position: absolute;
+  z-index: 3;
+  top: 67%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 24px rgba(40, 61, 57, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.sber-phone.is-generating .ai-writing {
+  animation: ai-writing-bubble 4.8s ease both;
+}
+
+.ai-writing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #65dba6;
+  animation: ai-writing-dot 780ms ease-in-out infinite;
+}
+
+.ai-writing i:nth-child(2) {
+  animation-delay: 130ms;
+}
+
+.ai-writing i:nth-child(3) {
+  animation-delay: 260ms;
 }
 
 .sber-phone.is-shaking {
@@ -167,6 +212,61 @@ button {
 
   78% {
     transform: translate3d(4px, -1px, 0) rotate(0.4deg);
+  }
+}
+
+@keyframes summary-reveal {
+  0% {
+    clip-path: inset(0 0 88% 0);
+  }
+
+  16% {
+    clip-path: inset(0 0 75% 0);
+  }
+
+  42% {
+    clip-path: inset(0 0 45% 0);
+  }
+
+  72% {
+    clip-path: inset(0 0 18% 0);
+  }
+
+  100% {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes ai-writing-bubble {
+  0%,
+  5% {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+
+  12%,
+  76% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -5px);
+  }
+}
+
+@keyframes ai-writing-dot {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
   }
 }
 
@@ -295,5 +395,13 @@ button {
 
   .sber-phone.is-shaking {
     animation: none;
+  }
+
+  .sber-phone.is-summary.is-generating .sber-screen--summary {
+    animation-duration: 1ms;
+  }
+
+  .sber-phone.is-generating .ai-writing {
+    display: none;
   }
 }
