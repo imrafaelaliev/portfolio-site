@@ -13,7 +13,7 @@
     <link rel="preload" as="image" href="../assets/images/sber-health/avatar-figma.jpg" />
     <link rel="preload" as="image" href="../assets/images/sber-health/card-relatives.jpg" />
     <link rel="preload" as="image" href="../assets/images/sber-health/summary.png" />
-    <link rel="stylesheet" href="../css/sber-health.css?v=20260805-native-3d-3" />
+    <link rel="stylesheet" href="../css/sber-health.css?v=20260805-shake-only-1" />
   </head>
   <body>
     <main class="sber-demo" aria-label="Концепт ИИ-помощника СберЗдоровья">
@@ -41,8 +41,7 @@
             <h1 class="assistant-title">Привет, Анна!<br />Чем могу помочь?</h1>
 
             <div class="card-slot card-slot--lab">
-              <article class="health-card health-card--glass" data-tilt-card="lab">
-                <span class="card-shine" aria-hidden="true"></span>
+              <article class="health-card health-card--glass">
                 <h2>Помоги<br />расшифровать<br />анализы</h2>
                 <div class="analysis-icons" aria-hidden="true">
                   <span class="analysis-icon"><img src="../assets/images/sber-health/icon-brain.svg" alt="" /></span>
@@ -53,25 +52,23 @@
               </article>
             </div>
 
-            <div class="patient-avatar" data-tilt-avatar aria-hidden="true">
+            <div class="patient-avatar" aria-hidden="true">
               <img src="../assets/images/sber-health/avatar-figma.jpg" alt="" />
             </div>
 
             <div class="card-slot card-slot--relatives">
-              <article class="health-card health-card--relatives" data-tilt-card="relatives">
+              <article class="health-card health-card--relatives">
                 <img
                   class="relatives-image"
                   src="../assets/images/sber-health/card-relatives.jpg"
                   alt=""
                 />
-                <span class="card-shine" aria-hidden="true"></span>
                 <h2>Узнать состояние<br />родственников</h2>
               </article>
             </div>
 
             <div class="card-slot card-slot--doctor">
-              <article class="health-card health-card--glass" data-tilt-card="doctor">
-                <span class="card-shine" aria-hidden="true"></span>
+              <article class="health-card health-card--glass">
                 <h2>Записаться<br />к врачу</h2>
                 <img
                   class="medical-bag"
@@ -127,13 +124,13 @@
           class="motion-activation"
           type="button"
           data-motion-activation
-          aria-label="На iPhone нажмите один раз, разрешите доступ к движению, затем наклоняйте или встряхните телефон"
+          aria-label="На iPhone нажмите один раз, разрешите доступ к движению и встряхните телефон"
           hidden
         ></button>
 
         <div class="motion-permission" data-motion-permission hidden>
           <p class="motion-permission__text" data-motion-text>
-            Разреши доступ к движению — тогда сработают наклон и встряхивание.
+            Разреши доступ к движению — тогда встряхивание сработает.
           </p>
           <button class="motion-permission__button" type="button" data-enable-motion>
             Включить встряхивание
@@ -148,6 +145,6 @@
       </button>
     </main>
 
-    <script src="../js/sber-health.js?v=20260805-native-3d-3"></script>
+    <script src="../js/sber-health.js?v=20260805-shake-only-1"></script>
   </body>
 </html>

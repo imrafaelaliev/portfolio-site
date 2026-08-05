@@ -96,7 +96,6 @@ button {
   background: #f3f5f7;
   box-shadow: 0 24px 70px rgba(24, 45, 39, 0.22);
   cursor: pointer;
-  transform-style: preserve-3d;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -130,10 +129,8 @@ button {
   height: 874px;
   overflow: visible;
   background: #f3f5f7;
-  perspective: 900px;
   transform: scale(var(--screen-scale, 1));
   transform-origin: 0 0;
-  transform-style: preserve-3d;
 }
 
 .assistant-nav {
@@ -226,7 +223,6 @@ button {
   align-items: center;
   justify-content: center;
   transform: rotate(var(--base-rotation)) scale(var(--layout-card-scale, 1));
-  transform-style: preserve-3d;
 }
 
 .card-slot--lab {
@@ -261,14 +257,6 @@ button {
   overflow: hidden;
   padding: 20px;
   border-radius: 32px;
-  transform: translate3d(var(--move-x, 0), var(--move-y, 0), var(--depth, 0))
-    rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
-  transform-origin: center;
-  transform-style: preserve-3d;
-  transition:
-    box-shadow 220ms ease,
-    filter 220ms ease;
-  backface-visibility: hidden;
 }
 
 .health-card--glass {
@@ -313,35 +301,6 @@ button {
   object-fit: cover;
   object-position: bottom;
   pointer-events: none;
-}
-
-.card-shine {
-  position: absolute;
-  z-index: 2;
-  inset: -1px;
-  border-radius: inherit;
-  background:
-    radial-gradient(
-      circle at var(--shine-x, 50%) var(--shine-y, 35%),
-      rgba(255, 255, 255, 0.72) 0,
-      rgba(255, 255, 255, 0.22) 18%,
-      transparent 46%
-    ),
-    linear-gradient(
-      112deg,
-      transparent 18%,
-      rgba(255, 255, 255, 0.22) 43%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0.12) 58%,
-      transparent 78%
-    );
-  opacity: var(--shine-opacity, 0.18);
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-
-.health-card--glass .card-shine {
-  opacity: var(--shine-opacity, 0.12);
 }
 
 .analysis-icons {
@@ -393,11 +352,7 @@ button {
   overflow: hidden;
   border-radius: 100px;
   box-shadow: 0 12px 25px rgba(37, 61, 54, 0.13);
-  transform: translate3d(var(--avatar-x, 0), var(--avatar-y, 0), var(--avatar-depth, 0))
-    rotateX(var(--avatar-rx, 0deg)) rotateY(var(--avatar-ry, 0deg))
-    scale(var(--avatar-layout-scale, 1));
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+  transform: scale(var(--avatar-layout-scale, 1));
 }
 
 .patient-avatar img {
@@ -405,11 +360,6 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.sber-phone.is-tilting .health-card,
-.sber-phone.is-tilting .patient-avatar {
-  will-change: transform;
 }
 
 .shake-hint {
@@ -910,15 +860,6 @@ button {
   .sber-screen--summary,
   .sber-status {
     transition-duration: 1ms;
-  }
-
-  .health-card,
-  .patient-avatar {
-    transform: none !important;
-  }
-
-  .card-shine {
-    opacity: 0.08 !important;
   }
 
   .sber-phone.is-shaking {
