@@ -10,9 +10,10 @@
       name="description"
       content="Интерактивный концепт ИИ-помощника СберЗдоровья: встряхните телефон, чтобы открыть сводку здоровья."
     />
-    <link rel="preload" as="image" href="../assets/images/sber-health/home.png" />
+    <link rel="preload" as="image" href="../assets/images/sber-health/avatar-figma.jpg" />
+    <link rel="preload" as="image" href="../assets/images/sber-health/card-relatives.png" />
     <link rel="preload" as="image" href="../assets/images/sber-health/summary.png" />
-    <link rel="stylesheet" href="../css/sber-health.css?v=20260805-chat-1" />
+    <link rel="stylesheet" href="../css/sber-health.css?v=20260805-native-3d-1" />
   </head>
   <body>
     <main class="sber-demo" aria-label="Концепт ИИ-помощника СберЗдоровья">
@@ -22,15 +23,89 @@
         aria-label="Экран ИИ-помощника"
         aria-live="polite"
       >
-        <img
-          class="sber-screen sber-screen--home"
-          src="../assets/images/sber-health/home.png"
-          alt="Главный экран ИИ-помощника с подсказкой встряхнуть телефон"
-          width="402"
-          height="874"
-          decoding="sync"
-          fetchpriority="high"
-        />
+        <div class="sber-home" data-home-screen>
+          <div class="sber-stage" data-design-stage>
+            <header class="assistant-nav" aria-label="ИИ-помощник">
+              <span class="nav-button" aria-hidden="true">
+                <img src="../assets/images/sber-health/icon-close.svg" alt="" />
+              </span>
+              <span class="assistant-brand">
+                <img src="../assets/images/sber-health/icon-ai.svg" alt="" />
+                <span>ИИ-помощник</span>
+              </span>
+              <span class="nav-button" aria-hidden="true">
+                <img src="../assets/images/sber-health/icon-refresh.svg" alt="" />
+              </span>
+            </header>
+
+            <h1 class="assistant-title">Привет, Анна!<br />Чем могу помочь?</h1>
+
+            <div class="card-slot card-slot--lab">
+              <article class="health-card health-card--glass" data-tilt-card="lab">
+                <span class="card-shine" aria-hidden="true"></span>
+                <h2>Помоги<br />расшифровать<br />анализы</h2>
+                <div class="analysis-icons" aria-hidden="true">
+                  <span class="analysis-icon"><img src="../assets/images/sber-health/icon-brain.svg" alt="" /></span>
+                  <span class="analysis-icon"><img src="../assets/images/sber-health/icon-knee.svg" alt="" /></span>
+                  <span class="analysis-icon"><img src="../assets/images/sber-health/icon-spleen.svg" alt="" /></span>
+                  <b>+4</b>
+                </div>
+              </article>
+            </div>
+
+            <div class="patient-avatar" data-tilt-avatar aria-hidden="true">
+              <img src="../assets/images/sber-health/avatar-figma.jpg" alt="" />
+            </div>
+
+            <div class="card-slot card-slot--relatives">
+              <article class="health-card health-card--relatives" data-tilt-card="relatives">
+                <img
+                  class="relatives-image"
+                  src="../assets/images/sber-health/card-relatives.png"
+                  alt=""
+                />
+                <span class="card-shine" aria-hidden="true"></span>
+                <h2>Узнать состояние<br />родственников</h2>
+              </article>
+            </div>
+
+            <div class="card-slot card-slot--doctor">
+              <article class="health-card health-card--glass" data-tilt-card="doctor">
+                <span class="card-shine" aria-hidden="true"></span>
+                <h2>Записаться<br />к врачу</h2>
+                <img
+                  class="medical-bag"
+                  src="../assets/images/sber-health/icon-medical-bag.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </article>
+            </div>
+
+            <div class="shake-hint">
+              <span class="shake-symbol" aria-hidden="true">
+                <img class="shake-symbol__phone" src="../assets/images/sber-health/shake-phone.svg" alt="" />
+                <img class="shake-symbol__top" src="../assets/images/sber-health/shake-top.svg" alt="" />
+                <img class="shake-symbol__bottom" src="../assets/images/sber-health/shake-bottom.svg" alt="" />
+              </span>
+              <p>Встряхните, чтобы получить<br />сводку здоровья</p>
+            </div>
+
+            <div class="assistant-composer" aria-label="Поле сообщения">
+              <div class="composer-row">
+                <span class="composer-plus" aria-hidden="true">
+                  <img src="../assets/images/sber-health/button-plus.svg" alt="" />
+                </span>
+                <div class="composer-input">
+                  <span>Введите сообщение</span>
+                  <img src="../assets/images/sber-health/icon-voice.svg" alt="" aria-hidden="true" />
+                </div>
+              </div>
+              <p>AI-помощник не заменяет консультацию врача</p>
+            </div>
+          </div>
+        </div>
+
         <img
           class="sber-screen sber-screen--summary"
           src="../assets/images/sber-health/summary.png"
@@ -52,13 +127,13 @@
           class="motion-activation"
           type="button"
           data-motion-activation
-          aria-label="На iPhone нажмите один раз, разрешите доступ к движению и встряхните телефон"
+          aria-label="На iPhone нажмите один раз, разрешите доступ к движению, затем наклоняйте или встряхните телефон"
           hidden
         ></button>
 
         <div class="motion-permission" data-motion-permission hidden>
           <p class="motion-permission__text" data-motion-text>
-            Разреши доступ к движению — тогда встряхивание сработает.
+            Разреши доступ к движению — тогда сработают наклон и встряхивание.
           </p>
           <button class="motion-permission__button" type="button" data-enable-motion>
             Включить встряхивание
@@ -73,6 +148,6 @@
       </button>
     </main>
 
-    <script src="../js/sber-health.js?v=20260805-chat-1"></script>
+    <script src="../js/sber-health.js?v=20260805-native-3d-1"></script>
   </body>
 </html>

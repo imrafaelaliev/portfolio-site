@@ -39,9 +39,16 @@
 }
 
 :root {
+  --app-height: 100vh;
   color-scheme: light;
   font-family: "SB Sans Display", Arial, sans-serif;
   background: #dfe8e4;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --app-height: 100dvh;
+  }
 }
 
 * {
@@ -57,8 +64,10 @@ body {
 }
 
 body {
-  min-height: 100dvh;
+  height: var(--app-height);
+  min-height: var(--app-height);
   overflow: hidden;
+  overscroll-behavior: none;
   background:
     radial-gradient(circle at 50% 0%, rgba(100, 226, 171, 0.22), transparent 42%),
     #dfe8e4;
@@ -71,54 +80,476 @@ button {
 .sber-demo {
   position: relative;
   display: grid;
-  min-height: 100dvh;
+  width: 100%;
+  height: var(--app-height);
+  min-height: 0;
   place-items: center;
   padding: 16px;
 }
 
 .sber-phone {
   position: relative;
-  width: min(402px, 100vw, calc(100dvh * 402 / 874));
+  width: min(402px, calc(100vw - 32px), calc((var(--app-height) - 32px) * 402 / 874));
   aspect-ratio: 402 / 874;
   overflow: hidden;
   isolation: isolate;
   background: #f3f5f7;
   box-shadow: 0 24px 70px rgba(24, 45, 39, 0.22);
   cursor: pointer;
+  transform-style: preserve-3d;
   -webkit-tap-highlight-color: transparent;
 }
 
+.sber-home,
 .sber-screen {
   position: absolute;
-  top: -5.2%;
-  right: 0;
-  bottom: auto;
-  left: 0;
+  inset: 0;
   display: block;
   width: 100%;
-  height: 105.2%;
-  object-fit: cover;
-  object-position: center;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+.sber-home {
+  z-index: 1;
+  height: 100%;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transform-origin: center;
   transition:
     opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
     filter 420ms ease;
 }
 
-.sber-screen--home {
+.sber-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 402px;
+  height: 874px;
+  overflow: hidden;
+  background: #f3f5f7;
+  perspective: 900px;
+  transform: scale(var(--screen-scale, 1));
+  transform-origin: 0 0;
+  transform-style: preserve-3d;
+}
+
+.assistant-nav {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 402px;
+  height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 20px;
+}
+
+.assistant-nav::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 88px;
+  background: linear-gradient(to bottom, rgba(243, 245, 247, 0.94), rgba(243, 245, 247, 0));
+  content: "";
+  pointer-events: none;
+}
+
+.nav-button {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+.nav-button img {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.assistant-brand {
+  display: flex;
+  width: 148px;
+  align-items: center;
+  gap: 8px;
+  color: #32d88f;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.35px;
+  white-space: nowrap;
+}
+
+.assistant-brand img {
+  width: 24px;
+  height: 24px;
+}
+
+.assistant-brand span {
+  background: linear-gradient(90deg, #18d577, #83df70 37%, #43d3b2);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.assistant-title {
+  position: absolute;
   z-index: 1;
+  top: 80px;
+  left: 20px;
+  width: 362px;
+  margin: 0;
+  color: #29333d;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 36px;
+  text-align: center;
+}
+
+.card-slot {
+  position: absolute;
+  display: flex;
+  width: 199.2px;
+  height: 187.63px;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(var(--base-rotation));
+  transform-style: preserve-3d;
+}
+
+.card-slot--lab {
+  z-index: 2;
+  top: 176px;
+  left: 33.5px;
+  --base-rotation: -2deg;
+}
+
+.card-slot--relatives {
+  z-index: 3;
+  top: 282px;
+  left: 169.5px;
+  --base-rotation: 2deg;
+}
+
+.card-slot--doctor {
+  z-index: 4;
+  top: 392.4px;
+  left: 76px;
+  --base-rotation: -2deg;
+}
+
+.health-card {
+  position: relative;
+  display: flex;
+  width: 193px;
+  height: 181px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 32px;
+  transform: translate3d(var(--move-x, 0), var(--move-y, 0), var(--depth, 0))
+    rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transition:
+    box-shadow 220ms ease,
+    filter 220ms ease;
+  backface-visibility: hidden;
+}
+
+.health-card--glass {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background:
+    radial-gradient(circle at 18% 3%, rgba(221, 255, 237, 0.6), transparent 43%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(248, 251, 250, 0.52));
+  box-shadow:
+    inset 0 4px 16px rgba(10, 255, 124, 0.08),
+    0 16px 32px rgba(45, 77, 66, 0.045);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.health-card--relatives {
+  color: #fff;
+  box-shadow: 0 18px 34px rgba(37, 93, 75, 0.12);
+}
+
+.health-card h2 {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  color: #131313;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.health-card--relatives h2 {
+  width: 100%;
+  color: #fff;
+}
+
+.relatives-image {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: bottom;
+  pointer-events: none;
+}
+
+.card-shine {
+  position: absolute;
+  z-index: 2;
+  inset: -1px;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle at var(--shine-x, 50%) var(--shine-y, 35%),
+      rgba(255, 255, 255, 0.72) 0,
+      rgba(255, 255, 255, 0.22) 18%,
+      transparent 46%
+    ),
+    linear-gradient(
+      112deg,
+      transparent 18%,
+      rgba(255, 255, 255, 0.22) 43%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.12) 58%,
+      transparent 78%
+    );
+  opacity: var(--shine-opacity, 0.18);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.health-card--glass .card-shine {
+  opacity: var(--shine-opacity, 0.12);
+}
+
+.analysis-icons {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  height: 34px;
+  align-items: center;
+}
+
+.analysis-icon {
+  position: relative;
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin-right: -8px;
+}
+
+.analysis-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.analysis-icons b {
+  margin-left: 10px;
+  color: #121212;
+  font-size: 13.7px;
+  font-weight: 600;
+  line-height: 14px;
+}
+
+.medical-bag {
+  position: relative;
+  z-index: 3;
+  display: block;
+  width: 29px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.patient-avatar {
+  position: absolute;
+  z-index: 5;
+  top: 188.4px;
+  left: 247px;
+  width: 106px;
+  height: 106px;
+  overflow: hidden;
+  border-radius: 100px;
+  box-shadow: 0 12px 25px rgba(37, 61, 54, 0.13);
+  transform: translate3d(var(--avatar-x, 0), var(--avatar-y, 0), var(--avatar-depth, 0))
+    rotateX(var(--avatar-rx, 0deg)) rotateY(var(--avatar-ry, 0deg));
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.patient-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sber-phone.is-tilting .health-card,
+.sber-phone.is-tilting .patient-avatar {
+  will-change: transform;
+}
+
+.shake-hint {
+  position: absolute;
+  z-index: 1;
+  top: 614px;
+  left: 77px;
+  display: flex;
+  width: 249px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.shake-hint p {
+  margin: 0;
+  color: #828ea5;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+}
+
+.shake-symbol {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 32px;
+}
+
+.shake-symbol img {
+  position: absolute;
+  display: block;
+  width: 18.3px;
+  height: 18.3px;
+}
+
+.shake-symbol__phone {
+  top: 6.9px;
+  left: 4.6px;
+}
+
+.shake-symbol__top {
+  top: 0;
+  left: 9.1px;
+}
+
+.shake-symbol__bottom {
+  top: 13.7px;
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.assistant-composer {
+  position: absolute;
+  z-index: 10;
+  top: 710px;
+  left: 0;
+  display: flex;
+  width: 402px;
+  height: 120px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 24px;
+}
+
+.composer-row {
+  display: flex;
+  width: 402px;
+  height: 72px;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 20px;
+}
+
+.composer-plus {
+  display: block;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+}
+
+.composer-plus img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.composer-input {
+  display: flex;
+  width: 302px;
+  height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px 5px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 200px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.composer-input span {
+  color: rgba(19, 19, 19, 0.6);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.composer-input img {
+  width: 22px;
+  height: 22px;
+  margin: 9px;
+}
+
+.assistant-composer > p {
+  width: 100%;
+  margin: 0;
+  color: #828ea5;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
 }
 
 .sber-screen--summary {
   z-index: 2;
+  top: -5.03%;
+  bottom: auto;
+  height: auto;
   opacity: 0;
+  object-fit: contain;
   transform: translateY(4%) scale(0.985);
+  transform-origin: center;
   filter: blur(7px);
+  transition:
+    opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 420ms ease;
 }
 
-.sber-phone.is-summary .sber-screen--home {
+.sber-phone.is-summary .sber-home {
   opacity: 0;
   transform: translateY(-2%) scale(1.018);
   filter: blur(5px);
@@ -222,6 +653,97 @@ button {
   opacity: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+
+.motion-permission {
+  position: absolute;
+  z-index: 6;
+  right: 14px;
+  bottom: 18px;
+  left: 14px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 35px rgba(31, 54, 47, 0.16);
+  text-align: center;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.motion-permission__text {
+  margin: 0 0 10px;
+  color: #38413f;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.motion-permission__button,
+.demo-toggle {
+  border: 0;
+  border-radius: 999px;
+  color: #163a30;
+  background: linear-gradient(110deg, #56e4b0, #8cea83);
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.motion-permission__button {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 16px;
+}
+
+.motion-permission__button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
+.motion-permission__button:focus-visible,
+.demo-toggle:focus-visible {
+  outline: 3px solid rgba(34, 185, 132, 0.42);
+  outline-offset: 3px;
+}
+
+.sber-status {
+  position: absolute;
+  z-index: 7;
+  top: 64px;
+  left: 50%;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  margin: 0;
+  padding: 8px 13px;
+  border-radius: 999px;
+  color: #34413d;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 7px 24px rgba(31, 54, 47, 0.12);
+  font-size: 12px;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -8px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.sber-status.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.demo-toggle {
+  position: fixed;
+  z-index: 10;
+  right: 22px;
+  bottom: 22px;
+  min-height: 44px;
+  padding: 11px 18px;
+  box-shadow: 0 10px 25px rgba(28, 92, 71, 0.2);
 }
 
 @keyframes phone-shake {
@@ -359,97 +881,6 @@ button {
   }
 }
 
-.motion-permission {
-  position: absolute;
-  z-index: 6;
-  right: 14px;
-  bottom: max(18px, env(safe-area-inset-bottom));
-  left: 14px;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.78);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 10px 35px rgba(31, 54, 47, 0.16);
-  text-align: center;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.motion-permission__text {
-  margin: 0 0 10px;
-  color: #38413f;
-  font-size: 13px;
-  line-height: 1.35;
-}
-
-.motion-permission__button,
-.demo-toggle {
-  border: 0;
-  border-radius: 999px;
-  color: #163a30;
-  background: linear-gradient(110deg, #56e4b0, #8cea83);
-  font-weight: 600;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.motion-permission__button {
-  width: 100%;
-  min-height: 44px;
-  padding: 10px 16px;
-}
-
-.motion-permission__button:disabled {
-  cursor: wait;
-  opacity: 0.68;
-}
-
-.motion-permission__button:focus-visible,
-.demo-toggle:focus-visible {
-  outline: 3px solid rgba(34, 185, 132, 0.42);
-  outline-offset: 3px;
-}
-
-.sber-status {
-  position: absolute;
-  z-index: 7;
-  top: 74px;
-  left: 50%;
-  width: max-content;
-  max-width: calc(100% - 32px);
-  margin: 0;
-  padding: 8px 13px;
-  border-radius: 999px;
-  color: #34413d;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 7px 24px rgba(31, 54, 47, 0.12);
-  font-size: 12px;
-  line-height: 1.2;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -8px);
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.sber-status.is-visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
-
-.demo-toggle {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 10;
-  min-height: 44px;
-  padding: 11px 18px;
-  box-shadow: 0 10px 25px rgba(28, 92, 71, 0.2);
-}
-
 @media (max-width: 600px) {
   :root,
   body {
@@ -457,22 +888,13 @@ button {
   }
 
   .sber-demo {
-    width: 100%;
-    height: 100dvh;
-    min-height: 100dvh;
     padding: 0;
   }
 
   .sber-phone {
-    width: 100vw;
-    height: 100dvh;
+    width: min(402px, 100vw, calc(var(--app-height) * 402 / 874));
     max-width: none;
-    aspect-ratio: auto;
     box-shadow: none;
-  }
-
-  .sber-screen {
-    height: calc(105.2% - env(safe-area-inset-bottom));
   }
 
   .demo-toggle {
@@ -481,9 +903,19 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sber-screen,
+  .sber-home,
+  .sber-screen--summary,
   .sber-status {
     transition-duration: 1ms;
+  }
+
+  .health-card,
+  .patient-avatar {
+    transform: none !important;
+  }
+
+  .card-shine {
+    opacity: 0.08 !important;
   }
 
   .sber-phone.is-shaking {
