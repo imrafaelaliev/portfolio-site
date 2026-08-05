@@ -3,10 +3,19 @@
   const permissionPanel = document.querySelector('[data-motion-permission]');
   const enableMotionButton = document.querySelector('[data-enable-motion]');
   const motionText = document.querySelector('[data-motion-text]');
+  const motionActivation = document.querySelector('[data-motion-activation]');
   const demoToggle = document.querySelector('[data-demo-toggle]');
   const status = document.querySelector('[data-status]');
 
-  if (!phone || !permissionPanel || !enableMotionButton || !motionText || !demoToggle || !status) return;
+  if (
+    !phone ||
+    !permissionPanel ||
+    !enableMotionButton ||
+    !motionText ||
+    !motionActivation ||
+    !demoToggle ||
+    !status
+  ) return;
 
   const supportsMotion = 'DeviceMotionEvent' in window;
   const isLocalhost = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
@@ -16,6 +25,7 @@
 
   let isSummaryVisible = false;
   let isListening = false;
+  let isRequestingPermission = false;
   let statusTimer = 0;
   let lastMotion = null;
   let lastPeakAt = 0;
@@ -116,6 +126,9 @@
   };
 
   const requestMotionPermission = async () => {
+    if (isListening || isRequestingPermission) return;
+
+    isRequestingPermission = true;
     enableMotionButton.disabled = true;
     enableMotionButton.textContent = 'Подключаю…';
 
@@ -128,6 +141,7 @@
       }
 
       permissionPanel.hidden = true;
+      motionActivation.hidden = true;
       startListening();
       showStatus('Готово — встряхни телефон');
     } catch (error) {
@@ -137,11 +151,16 @@
         motionText.textContent = 'Для встряхивания нужна защищённая HTTPS-ссылка.';
         enableMotionButton.textContent = 'Нужна HTTPS-ссылка';
       }
+      motionActivation.hidden = true;
+      permissionPanel.hidden = false;
       showStatus('Датчик движения не подключён');
+    } finally {
+      isRequestingPermission = false;
     }
   };
 
   enableMotionButton.addEventListener('click', requestMotionPermission);
+  motionActivation.addEventListener('click', requestMotionPermission);
   demoToggle.addEventListener('click', () => setSummary(!isSummaryVisible));
 
   if (!hasSecureMotionContext && supportsMotion) {
@@ -149,8 +168,10 @@
     enableMotionButton.textContent = 'Нужна HTTPS-ссылка';
     permissionPanel.hidden = false;
   } else if (needsPermission) {
-    permissionPanel.hidden = false;
+    permissionPanel.hidden = true;
+    motionActivation.hidden = false;
   } else if (supportsMotion) {
+    motionActivation.hidden = true;
     startListening();
   }
 })();
