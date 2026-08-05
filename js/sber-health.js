@@ -78,7 +78,25 @@
       );
 
       const phoneWidth = phone.getBoundingClientRect().width;
-      phone.style.setProperty('--screen-scale', (phoneWidth / 402).toFixed(6));
+      const phoneHeight = phone.getBoundingClientRect().height;
+      const screenScale = phoneWidth / 402;
+      const visibleDesignHeight = phoneHeight / screenScale;
+      const heightDeficit = clamp(874 - visibleDesignHeight, 0, 240);
+      const layoutCardScale = 1 - Math.min(0.25, heightDeficit * 0.0012);
+      const bottomGap = 44 - Math.min(28, heightDeficit * 0.28);
+      const composerTop = Math.max(450, visibleDesignHeight - 120 - bottomGap);
+
+      phone.style.setProperty('--screen-scale', screenScale.toFixed(6));
+      phone.style.setProperty('--title-top', `${(80 - heightDeficit * 0.13).toFixed(2)}px`);
+      phone.style.setProperty('--title-size', `${(36 - Math.min(4, heightDeficit * 0.02)).toFixed(2)}px`);
+      phone.style.setProperty('--lab-top', `${(176 - heightDeficit * 0.17).toFixed(2)}px`);
+      phone.style.setProperty('--avatar-top', `${(188.4 - heightDeficit * 0.17).toFixed(2)}px`);
+      phone.style.setProperty('--relatives-top', `${(282 - heightDeficit * 0.25).toFixed(2)}px`);
+      phone.style.setProperty('--doctor-top', `${(392.4 - heightDeficit * 0.5).toFixed(2)}px`);
+      phone.style.setProperty('--shake-top', `${Math.min(614, composerTop - 88).toFixed(2)}px`);
+      phone.style.setProperty('--composer-top', `${composerTop.toFixed(2)}px`);
+      phone.style.setProperty('--layout-card-scale', layoutCardScale.toFixed(3));
+      phone.style.setProperty('--avatar-layout-scale', layoutCardScale.toFixed(3));
     });
   };
 

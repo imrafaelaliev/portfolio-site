@@ -128,7 +128,7 @@ button {
   left: 0;
   width: 402px;
   height: 874px;
-  overflow: hidden;
+  overflow: visible;
   background: #f3f5f7;
   perspective: 900px;
   transform: scale(var(--screen-scale, 1));
@@ -207,14 +207,14 @@ button {
 .assistant-title {
   position: absolute;
   z-index: 1;
-  top: 80px;
+  top: var(--title-top, 80px);
   left: 20px;
   width: 362px;
   margin: 0;
   color: #29333d;
-  font-size: 36px;
+  font-size: var(--title-size, 36px);
   font-weight: 600;
-  line-height: 36px;
+  line-height: var(--title-size, 36px);
   text-align: center;
 }
 
@@ -225,27 +225,27 @@ button {
   height: 187.63px;
   align-items: center;
   justify-content: center;
-  transform: rotate(var(--base-rotation));
+  transform: rotate(var(--base-rotation)) scale(var(--layout-card-scale, 1));
   transform-style: preserve-3d;
 }
 
 .card-slot--lab {
   z-index: 2;
-  top: 176px;
+  top: var(--lab-top, 176px);
   left: 33.5px;
   --base-rotation: -2deg;
 }
 
 .card-slot--relatives {
   z-index: 3;
-  top: 282px;
+  top: var(--relatives-top, 282px);
   left: 169.5px;
   --base-rotation: 2deg;
 }
 
 .card-slot--doctor {
   z-index: 4;
-  top: 392.4px;
+  top: var(--doctor-top, 392.4px);
   left: 76px;
   --base-rotation: -2deg;
 }
@@ -386,7 +386,7 @@ button {
 .patient-avatar {
   position: absolute;
   z-index: 5;
-  top: 188.4px;
+  top: var(--avatar-top, 188.4px);
   left: 247px;
   width: 106px;
   height: 106px;
@@ -394,7 +394,8 @@ button {
   border-radius: 100px;
   box-shadow: 0 12px 25px rgba(37, 61, 54, 0.13);
   transform: translate3d(var(--avatar-x, 0), var(--avatar-y, 0), var(--avatar-depth, 0))
-    rotateX(var(--avatar-rx, 0deg)) rotateY(var(--avatar-ry, 0deg));
+    rotateX(var(--avatar-rx, 0deg)) rotateY(var(--avatar-ry, 0deg))
+    scale(var(--avatar-layout-scale, 1));
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
@@ -414,7 +415,7 @@ button {
 .shake-hint {
   position: absolute;
   z-index: 1;
-  top: 614px;
+  top: var(--shake-top, 614px);
   left: 77px;
   display: flex;
   width: 249px;
@@ -465,7 +466,7 @@ button {
 .assistant-composer {
   position: absolute;
   z-index: 10;
-  top: 710px;
+  top: var(--composer-top, 710px);
   left: 0;
   display: flex;
   width: 402px;
@@ -892,8 +893,10 @@ button {
   }
 
   .sber-phone {
-    width: min(402px, 100vw, calc(var(--app-height) * 402 / 874));
+    width: 100vw;
+    height: var(--app-height);
     max-width: none;
+    aspect-ratio: auto;
     box-shadow: none;
   }
 
