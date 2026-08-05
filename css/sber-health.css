@@ -97,8 +97,6 @@ button {
   background: #f3f5f7;
   box-shadow: 0 24px 70px rgba(24, 45, 39, 0.22);
   cursor: pointer;
-  perspective: 800px;
-  transform-style: preserve-3d;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -125,55 +123,8 @@ button {
   z-index: 1;
 }
 
-.parallax-layer {
-  pointer-events: none;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  will-change: transform;
-  transition:
-    opacity 320ms ease,
-    transform 140ms ease-out,
-    filter 320ms ease;
-}
-
-.parallax-layer--prompt {
-  z-index: 2;
-  clip-path: inset(20% 50% 56% 7% round 28px);
-  filter: drop-shadow(0 10px 10px rgba(35, 55, 50, 0.1));
-  transform: translate3d(var(--prompt-x, 0px), var(--prompt-y, 0px), 16px)
-    rotateX(var(--prompt-rx, 0deg)) rotateY(var(--prompt-ry, 0deg));
-  transform-origin: 29% 32%;
-}
-
-.parallax-layer--green {
-  z-index: 3;
-  clip-path: inset(32% 7% 43% 41% round 32px);
-  filter: drop-shadow(0 12px 12px rgba(34, 70, 57, 0.12));
-  transform: translate3d(var(--green-x, 0px), var(--green-y, 0px), 24px)
-    rotateX(var(--green-rx, 0deg)) rotateY(var(--green-ry, 0deg));
-  transform-origin: 67% 44%;
-}
-
-.parallax-layer--avatar {
-  z-index: 4;
-  clip-path: circle(8.5% at 75% 28%);
-  filter: drop-shadow(0 12px 10px rgba(35, 55, 50, 0.14));
-  transform: translate3d(var(--avatar-x, 0px), var(--avatar-y, 0px), 32px)
-    rotateX(var(--avatar-rx, 0deg)) rotateY(var(--avatar-ry, 0deg));
-  transform-origin: 75% 28%;
-}
-
-.parallax-layer--appointment {
-  z-index: 5;
-  clip-path: inset(45% 30% 29% 18% round 32px);
-  filter: drop-shadow(0 14px 13px rgba(35, 55, 50, 0.13));
-  transform: translate3d(var(--appointment-x, 0px), var(--appointment-y, 0px), 28px)
-    rotateX(var(--appointment-rx, 0deg)) rotateY(var(--appointment-ry, 0deg));
-  transform-origin: 44% 58%;
-}
-
 .sber-screen--summary {
-  z-index: 6;
+  z-index: 2;
   opacity: 0;
   transform: translateY(4%) scale(0.985);
   filter: blur(7px);
@@ -191,14 +142,9 @@ button {
   filter: blur(0);
 }
 
-.sber-phone.is-summary .parallax-layer {
-  opacity: 0;
-  filter: blur(5px);
-}
-
 .summary-mask {
   position: absolute;
-  z-index: 7;
+  z-index: 3;
   right: 0;
   left: 0;
   background: #f3f5f7;
@@ -235,7 +181,7 @@ button {
 
 .ai-writing {
   position: absolute;
-  z-index: 8;
+  z-index: 4;
   top: 18%;
   left: 50%;
   display: flex;
@@ -279,7 +225,7 @@ button {
 
 .motion-activation {
   position: absolute;
-  z-index: 9;
+  z-index: 5;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -427,7 +373,7 @@ button {
 
 .motion-permission {
   position: absolute;
-  z-index: 10;
+  z-index: 6;
   right: 14px;
   bottom: max(18px, env(safe-area-inset-bottom));
   left: 14px;
@@ -478,7 +424,7 @@ button {
 
 .sber-status {
   position: absolute;
-  z-index: 11;
+  z-index: 7;
   top: 74px;
   left: 50%;
   width: max-content;
@@ -566,10 +512,5 @@ button {
 
   .sber-phone.is-generating .ai-writing {
     display: none;
-  }
-
-  .parallax-layer {
-    filter: none;
-    transform: none !important;
   }
 }
