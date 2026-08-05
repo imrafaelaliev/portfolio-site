@@ -39,18 +39,9 @@
 }
 
 :root {
-  --app-height: 100vh;
-  --safe-bottom: 16px;
-  --safe-bottom: max(16px, env(safe-area-inset-bottom));
   color-scheme: light;
   font-family: "SB Sans Display", Arial, sans-serif;
   background: #dfe8e4;
-}
-
-@supports (height: 100dvh) {
-  :root {
-    --app-height: 100dvh;
-  }
 }
 
 * {
@@ -66,11 +57,8 @@ body {
 }
 
 body {
-  min-height: 100vh;
   min-height: 100dvh;
-  min-height: var(--app-height);
   overflow: hidden;
-  overscroll-behavior: none;
   background:
     radial-gradient(circle at 50% 0%, rgba(100, 226, 171, 0.22), transparent 42%),
     #dfe8e4;
@@ -470,25 +458,21 @@ button {
 
   .sber-demo {
     width: 100%;
-    height: 100vh;
-    height: var(--app-height);
-    min-height: 0;
+    height: 100dvh;
+    min-height: 100dvh;
     padding: 0;
   }
 
   .sber-phone {
     width: 100vw;
-    height: 100vh;
-    height: var(--app-height);
+    height: 100dvh;
     max-width: none;
     aspect-ratio: auto;
     box-shadow: none;
-    contain: layout paint;
   }
 
   .sber-screen {
-    height: calc(105.2% - var(--safe-bottom));
-    object-fit: fill;
+    height: calc(105.2% - env(safe-area-inset-bottom));
   }
 
   .demo-toggle {

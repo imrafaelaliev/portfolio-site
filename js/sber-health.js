@@ -1,24 +1,4 @@
 (() => {
-  let viewportUpdateFrame = 0;
-
-  const syncViewportHeight = () => {
-    window.cancelAnimationFrame(viewportUpdateFrame);
-    viewportUpdateFrame = window.requestAnimationFrame(() => {
-      const viewport = window.visualViewport;
-      const measuredHeight = viewport
-        ? viewport.height * viewport.scale
-        : window.innerHeight;
-      const safeHeight = Math.max(320, Math.round(measuredHeight));
-      document.documentElement.style.setProperty('--app-height', `${safeHeight}px`);
-    });
-  };
-
-  syncViewportHeight();
-  window.addEventListener('resize', syncViewportHeight, { passive: true });
-  window.addEventListener('orientationchange', syncViewportHeight, { passive: true });
-  window.visualViewport?.addEventListener('resize', syncViewportHeight, { passive: true });
-  window.visualViewport?.addEventListener('scroll', syncViewportHeight, { passive: true });
-
   const phone = document.querySelector('[data-phone-screen]');
   const permissionPanel = document.querySelector('[data-motion-permission]');
   const enableMotionButton = document.querySelector('[data-enable-motion]');
