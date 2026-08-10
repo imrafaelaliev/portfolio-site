@@ -28,6 +28,32 @@ if (!is_string($receivedSecret) || !hash_equals($config['webhook_secret'], $rece
 }
 
 $job = (string) ($_GET['job'] ?? '');
+if ($job === 'check') {
+    try {
+        $response = tb_tg($config, 'getMe');
+        echo json_encode(
+            [
+                'ok' => true,
+                'telegram_api' => true,
+                'bot_id' => (int) ($response['result']['id'] ?? 0),
+            ],
+            JSON_UNESCAPED_UNICODE
+        );
+    } catch (Throwable $error) {
+        tb_log_error($config, 'Telegram API check: ' . $error->getMessage());
+        http_response_code(502);
+        echo json_encode(
+            [
+                'ok' => false,
+                'telegram_api' => false,
+                'error' => $error->getMessage(),
+            ],
+            JSON_UNESCAPED_UNICODE
+        );
+    }
+    exit;
+}
+
 if ($job === 'all') {
     $updateIds = tb_queued_update_ids($config, 20);
 } elseif (preg_match('/^\d+$/', $job)) {
