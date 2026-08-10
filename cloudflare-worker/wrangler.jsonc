@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "alievtalk-telegram-relay",
+  "main": "worker.js",
+  "compatibility_date": "2026-08-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "UPSTREAM_URL": "https://www.imrafaelaliev.ru/telegram-bot/index.php"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}

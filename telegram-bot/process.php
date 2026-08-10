@@ -28,15 +28,17 @@ if (!is_string($receivedSecret) || !hash_equals($config['webhook_secret'], $rece
 }
 
 $job = (string) ($_GET['job'] ?? '');
-if (!preg_match('/^\d+$/', $job)) {
+if ($job === 'all') {
+    $updateIds = tb_queued_update_ids($config, 20);
+} elseif (preg_match('/^\d+$/', $job)) {
+    $updateIds = [(int) $job];
+} else {
     http_response_code(400);
     echo json_encode(['ok' => false]);
     exit;
 }
 
-$updateId = (int) $job;
-$update = tb_read_queued_update($config, $updateId);
-if ($update === null) {
+if ($updateIds === []) {
     echo json_encode(['ok' => true, 'empty' => true]);
     exit;
 }
@@ -44,7 +46,7 @@ if ($update === null) {
 // Внутренний запрос закрывает соединение сразу, но PHP продолжает работу.
 ignore_user_abort(true);
 set_time_limit(120);
-echo json_encode(['ok' => true, 'processing' => true]);
+echo json_encode(['ok' => true, 'processing' => count($updateIds)]);
 if (function_exists('fastcgi_finish_request')) {
     fastcgi_finish_request();
 } else {
@@ -54,9 +56,16 @@ if (function_exists('fastcgi_finish_request')) {
     flush();
 }
 
-try {
-    tb_handle_update($config, $update);
-    tb_delete_queued_update($config, $updateId);
-} catch (Throwable $error) {
-    tb_log_error($config, 'Queued update ' . $updateId . ': ' . $error->getMessage());
+foreach ($updateIds as $updateId) {
+    try {
+        $update = tb_take_queued_update($config, $updateId);
+        if ($update === null) {
+            continue;
+        }
+        tb_handle_update($config, $update);
+        tb_complete_queued_update($config, $updateId);
+    } catch (Throwable $error) {
+        tb_restore_queued_update($config, $updateId);
+        tb_log_error($config, 'Queued update ' . $updateId . ': ' . $error->getMessage());
+    }
 }

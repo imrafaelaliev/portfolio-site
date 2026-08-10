@@ -90,6 +90,11 @@ function tb_queue_path(array $config, int $updateId): string
     return tb_queue_dir($config) . '/' . $updateId . '.json';
 }
 
+function tb_processing_queue_path(array $config, int $updateId): string
+{
+    return tb_queue_dir($config) . '/' . $updateId . '.processing';
+}
+
 function tb_enqueue_update(array $config, array $update): void
 {
     $updateId = (int) ($update['update_id'] ?? 0);
@@ -123,18 +128,79 @@ function tb_read_queued_update(array $config, int $updateId): ?array
     return is_array($update) ? $update : null;
 }
 
+function tb_take_queued_update(array $config, int $updateId): ?array
+{
+    $queuedPath = tb_queue_path($config, $updateId);
+    $processingPath = tb_processing_queue_path($config, $updateId);
+    if (!is_file($queuedPath)) {
+        return null;
+    }
+    if (!@rename($queuedPath, $processingPath)) {
+        return null;
+    }
+
+    $raw = file_get_contents($processingPath);
+    $update = json_decode($raw ?: '', true);
+    if (!is_array($update)) {
+        @unlink($processingPath);
+        throw new RuntimeException('Повреждённый элемент очереди ' . $updateId);
+    }
+    return $update;
+}
+
+function tb_complete_queued_update(array $config, int $updateId): void
+{
+    $processingPath = tb_processing_queue_path($config, $updateId);
+    if (is_file($processingPath)) {
+        @unlink($processingPath);
+    }
+}
+
+function tb_restore_queued_update(array $config, int $updateId): void
+{
+    $processingPath = tb_processing_queue_path($config, $updateId);
+    $queuedPath = tb_queue_path($config, $updateId);
+    if (is_file($processingPath) && !is_file($queuedPath)) {
+        @rename($processingPath, $queuedPath);
+    }
+}
+
+function tb_queued_update_ids(array $config, int $limit = 20): array
+{
+    $files = glob(tb_queue_dir($config) . '/*.json');
+    if (!is_array($files)) {
+        return [];
+    }
+
+    $ids = [];
+    foreach ($files as $file) {
+        $basename = basename($file, '.json');
+        if (preg_match('/^\d+$/', $basename)) {
+            $ids[] = (int) $basename;
+        }
+    }
+    sort($ids, SORT_NUMERIC);
+    return array_slice($ids, 0, max(1, $limit));
+}
+
 function tb_delete_queued_update(array $config, int $updateId): void
 {
     $path = tb_queue_path($config, $updateId);
     if (is_file($path)) {
         @unlink($path);
     }
+    $processingPath = tb_processing_queue_path($config, $updateId);
+    if (is_file($processingPath)) {
+        @unlink($processingPath);
+    }
 }
 
 function tb_queue_count(array $config): int
 {
-    $files = glob(tb_queue_dir($config) . '/*.json');
-    return is_array($files) ? count($files) : 0;
+    $queued = glob(tb_queue_dir($config) . '/*.json');
+    $processing = glob(tb_queue_dir($config) . '/*.processing');
+    return (is_array($queued) ? count($queued) : 0)
+        + (is_array($processing) ? count($processing) : 0);
 }
 
 function tb_trigger_worker(array $config, int $updateId): bool
