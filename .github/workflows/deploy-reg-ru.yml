@@ -68,6 +68,16 @@ jobs:
           find telegram-bot -name '*.php' -print0 | xargs -0 -n1 php -l
           php -r "require 'telegram-bot/lib.php'; exit(tb_normalize('  ПРОФЕССИЯ  ') === 'профессия' ? 0 : 1);"
 
+      - name: Decrypt private Telegram material
+        env:
+          TELEGRAM_WEBHOOK_SECRET: ${{ secrets.TELEGRAM_WEBHOOK_SECRET }}
+        run: |
+          mkdir -p telegram-bot/private
+          openssl enc -d -aes-256-cbc -pbkdf2 \
+            -in telegram-bot/encrypted-assets/profession.pdf.enc \
+            -out telegram-bot/private/profession.pdf \
+            -pass env:TELEGRAM_WEBHOOK_SECRET
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -83,6 +93,7 @@ jobs:
             **/node_modules/**
             **/.DS_Store
             **/config.example.php
+            **/encrypted-assets/**
 
       - name: Deploy www alias directory
         continue-on-error: true
@@ -100,3 +111,4 @@ jobs:
             **/node_modules/**
             **/.DS_Store
             **/config.example.php
+            **/encrypted-assets/**

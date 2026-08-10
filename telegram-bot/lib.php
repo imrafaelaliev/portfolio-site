@@ -4,9 +4,11 @@ declare(strict_types=1);
 function tb_initial_storage(): array
 {
     return [
-        'version' => 1,
-        'next_material_id' => 1,
-        'materials' => [],
+        'version' => 2,
+        'next_material_id' => 2,
+        'materials' => [
+            '1' => tb_profession_material(1),
+        ],
         'users' => [],
         'requests' => [],
         'fsm' => [],
@@ -18,6 +20,46 @@ function tb_initial_storage(): array
             'unknown_keyword_text' => "Не нашёл такой материал. Проверь кодовое слово и попробуй ещё раз.",
         ],
     ];
+}
+
+function tb_profession_material(int $id): array
+{
+    return [
+        'id' => $id,
+        'title' => 'Профессия',
+        'keyword' => 'ПРОФЕССИЯ',
+        'aliases' => [],
+        'active' => true,
+        'items' => [[
+            'type' => 'document_local',
+            'path' => 'private/profession.pdf',
+            'caption' => 'Материал «Профессия»',
+        ]],
+        'created_at' => date('c'),
+    ];
+}
+
+function tb_migrate_storage(array &$storage): void
+{
+    if ((int) ($storage['version'] ?? 1) >= 2) {
+        return;
+    }
+    $found = false;
+    foreach (($storage['materials'] ?? []) as $material) {
+        $words = array_merge([$material['keyword'] ?? ''], $material['aliases'] ?? []);
+        foreach ($words as $word) {
+            if (tb_normalize((string) $word) === tb_normalize('ПРОФЕССИЯ')) {
+                $found = true;
+                break 2;
+            }
+        }
+    }
+    if (!$found) {
+        $id = max(1, (int) ($storage['next_material_id'] ?? 1));
+        $storage['materials'][(string) $id] = tb_profession_material($id);
+        $storage['next_material_id'] = $id + 1;
+    }
+    $storage['version'] = 2;
 }
 
 function tb_data_dir(array $config): string
@@ -76,6 +118,7 @@ function tb_storage_update(array $config, callable $callback)
         if (!is_array($storage)) {
             $storage = tb_initial_storage();
         }
+        tb_migrate_storage($storage);
         $result = $callback($storage);
         $encoded = json_encode(
             $storage,
@@ -201,6 +244,72 @@ function tb_tg_safe(array $config, string $method, array $params = []): ?array
     }
 }
 
+function tb_tg_upload_document(
+    array $config,
+    int $chatId,
+    string $path,
+    ?string $caption = null
+): array {
+    if (!function_exists('curl_init') || !class_exists('CURLFile')) {
+        throw new RuntimeException('На хостинге недоступна загрузка файлов через cURL');
+    }
+    $privateRoot = realpath(__DIR__ . '/private');
+    $realPath = realpath(__DIR__ . '/' . ltrim($path, '/'));
+    if (
+        $privateRoot === false ||
+        $realPath === false ||
+        strpos($realPath, $privateRoot . DIRECTORY_SEPARATOR) !== 0 ||
+        !is_file($realPath)
+    ) {
+        throw new RuntimeException('Закрытый PDF не найден');
+    }
+
+    $params = [
+        'chat_id' => (string) $chatId,
+        'document' => new CURLFile($realPath, 'application/pdf', 'Профессия.pdf'),
+    ];
+    if ($caption !== null && $caption !== '') {
+        $params['caption'] = $caption;
+    }
+    $curl = curl_init('https://api.telegram.org/bot' . $config['bot_token'] . '/sendDocument');
+    curl_setopt_array($curl, [
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $params,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CONNECTTIMEOUT => 5,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
+    ]);
+    $raw = curl_exec($curl);
+    $curlError = curl_error($curl);
+    curl_close($curl);
+    if ($raw === false) {
+        throw new RuntimeException('Telegram file upload error: ' . $curlError);
+    }
+    $response = json_decode($raw, true);
+    if (!is_array($response) || empty($response['ok'])) {
+        $description = is_array($response) ? ($response['description'] ?? 'unknown error') : 'invalid response';
+        throw new RuntimeException('Telegram file upload error: ' . $description);
+    }
+    return $response;
+}
+
+function tb_cache_document_file_id(
+    array $config,
+    int $materialId,
+    int $itemIndex,
+    string $fileId
+): void {
+    tb_storage_update($config, static function (array &$storage) use (
+        $materialId, $itemIndex, $fileId
+    ): void {
+        $key = (string) $materialId;
+        if (isset($storage['materials'][$key]['items'][$itemIndex])) {
+            $storage['materials'][$key]['items'][$itemIndex]['file_id'] = $fileId;
+        }
+    });
+}
+
 function tb_send_message(array $config, int $chatId, string $text, ?array $keyboard = null): void
 {
     $params = ['chat_id' => $chatId, 'text' => $text];
@@ -319,7 +428,7 @@ function tb_subscription_status(array $config, int $userId): string
 function tb_send_material(array $config, int $chatId, array $material): void
 {
     tb_send_message($config, $chatId, 'Готово! Забирай материал 👇');
-    foreach (($material['items'] ?? []) as $item) {
+    foreach (($material['items'] ?? []) as $itemIndex => $item) {
         $type = $item['type'] ?? 'text';
         if ($type === 'text') {
             tb_send_message($config, $chatId, (string) ($item['content'] ?? ''));
@@ -330,6 +439,30 @@ function tb_send_material(array $config, int $chatId, array $material): void
                 (string) ($item['caption'] ?? 'Материал по ссылке 👇'),
                 [[['text' => $item['button_text'] ?? 'Открыть материал', 'url' => $item['content']]]]
             );
+        } elseif ($type === 'document_local') {
+            if (!empty($item['file_id'])) {
+                tb_tg($config, 'sendDocument', [
+                    'chat_id' => $chatId,
+                    'document' => $item['file_id'],
+                    'caption' => $item['caption'] ?? '',
+                ]);
+            } else {
+                $response = tb_tg_upload_document(
+                    $config,
+                    $chatId,
+                    (string) ($item['path'] ?? ''),
+                    $item['caption'] ?? null
+                );
+                $fileId = $response['result']['document']['file_id'] ?? null;
+                if (is_string($fileId) && $fileId !== '') {
+                    tb_cache_document_file_id(
+                        $config,
+                        (int) $material['id'],
+                        (int) $itemIndex,
+                        $fileId
+                    );
+                }
+            }
         } else {
             $methods = [
                 'photo' => 'sendPhoto',

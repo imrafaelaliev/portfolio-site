@@ -15,3 +15,5 @@ portfolio-*.zip
 telegram-bot/config.php
 telegram-bot/data/*
 !telegram-bot/data/.htaccess
+telegram-bot/private/*
+!telegram-bot/private/.htaccess
