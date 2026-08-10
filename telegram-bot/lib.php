@@ -76,6 +76,102 @@ function tb_storage_path(array $config): string
     return tb_data_dir($config) . '/storage.json';
 }
 
+function tb_queue_dir(array $config): string
+{
+    $directory = tb_data_dir($config) . '/queue';
+    if (!is_dir($directory) && !mkdir($directory, 0700, true) && !is_dir($directory)) {
+        throw new RuntimeException('Не удалось создать очередь');
+    }
+    return $directory;
+}
+
+function tb_queue_path(array $config, int $updateId): string
+{
+    return tb_queue_dir($config) . '/' . $updateId . '.json';
+}
+
+function tb_enqueue_update(array $config, array $update): void
+{
+    $updateId = (int) ($update['update_id'] ?? 0);
+    if ($updateId <= 0) {
+        throw new RuntimeException('Неверный update_id');
+    }
+    $encoded = json_encode($update, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    if ($encoded === false) {
+        throw new RuntimeException('Не удалось записать Telegram update');
+    }
+    $path = tb_queue_path($config, $updateId);
+    $temporary = $path . '.tmp-' . bin2hex(random_bytes(6));
+    if (file_put_contents($temporary, $encoded, LOCK_EX) === false) {
+        throw new RuntimeException('Не удалось записать очередь');
+    }
+    chmod($temporary, 0600);
+    if (!rename($temporary, $path)) {
+        @unlink($temporary);
+        throw new RuntimeException('Не удалось сохранить очередь');
+    }
+}
+
+function tb_read_queued_update(array $config, int $updateId): ?array
+{
+    $path = tb_queue_path($config, $updateId);
+    if (!is_file($path)) {
+        return null;
+    }
+    $raw = file_get_contents($path);
+    $update = json_decode($raw ?: '', true);
+    return is_array($update) ? $update : null;
+}
+
+function tb_delete_queued_update(array $config, int $updateId): void
+{
+    $path = tb_queue_path($config, $updateId);
+    if (is_file($path)) {
+        @unlink($path);
+    }
+}
+
+function tb_queue_count(array $config): int
+{
+    $files = glob(tb_queue_dir($config) . '/*.json');
+    return is_array($files) ? count($files) : 0;
+}
+
+function tb_trigger_worker(array $config, int $updateId): bool
+{
+    $host = 'www.imrafaelaliev.ru';
+    $ip = '37.140.192.181';
+    $context = stream_context_create(['ssl' => [
+        'peer_name' => $host,
+        'verify_peer' => true,
+        'verify_peer_name' => true,
+        'SNI_enabled' => true,
+    ]]);
+    $socket = @stream_socket_client(
+        'ssl://' . $ip . ':443',
+        $errorNumber,
+        $errorMessage,
+        2,
+        STREAM_CLIENT_CONNECT,
+        $context
+    );
+    if ($socket === false) {
+        tb_log_error($config, 'Worker connection error: ' . $errorMessage);
+        return false;
+    }
+    stream_set_timeout($socket, 2);
+    $path = '/telegram-bot/process.php?job=' . rawurlencode((string) $updateId);
+    $request = "POST {$path} HTTP/1.1\r\n" .
+        "Host: {$host}\r\n" .
+        "X-Telegram-Bot-Worker-Secret: {$config['webhook_secret']}\r\n" .
+        "Content-Length: 0\r\n" .
+        "Connection: close\r\n\r\n";
+    $written = fwrite($socket, $request);
+    fflush($socket);
+    fclose($socket);
+    return $written === strlen($request);
+}
+
 function tb_storage_read(array $config): array
 {
     $path = tb_storage_path($config);

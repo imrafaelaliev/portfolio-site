@@ -17,9 +17,14 @@ require __DIR__ . '/lib.php';
 
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET') {
     try {
-        tb_storage_read($config);
+        $storage = tb_storage_read($config);
         echo json_encode(
-            ['status' => 'ok', 'service' => 'telegram-materials-bot'],
+            [
+                'status' => 'ok',
+                'service' => 'telegram-materials-bot',
+                'materials' => count($storage['materials'] ?? []),
+                'queued_updates' => tb_queue_count($config),
+            ],
             JSON_UNESCAPED_UNICODE
         );
     } catch (Throwable $error) {
@@ -60,25 +65,23 @@ try {
     exit;
 }
 
-// Telegram ждёт ответ всего несколько секунд. На shared-хостинге
-// сразу закрываем HTTP-ответ, а обработку заканчиваем после этого.
-echo json_encode(['ok' => true]);
-ignore_user_abort(true);
-if (function_exists('fastcgi_finish_request')) {
-    fastcgi_finish_request();
-} else {
-    if (ob_get_level() > 0) {
-        ob_end_flush();
-    }
-    flush();
-}
-
 if (!$claimed) {
+    echo json_encode(['ok' => true, 'duplicate' => true]);
     exit;
 }
 
 try {
-    tb_handle_update($config, $update);
+    tb_enqueue_update($config, $update);
+    if (!tb_trigger_worker($config, (int) $update['update_id'])) {
+        throw new RuntimeException('Не удалось запустить внутренний обработчик');
+    }
+    // На этом HTTP-запрос Telegram закончен. Отправка ответа
+    // и PDF идёт отдельным внутренним запросом и не вызывает таймаут.
+    echo json_encode(['ok' => true, 'queued' => true]);
 } catch (Throwable $error) {
-    tb_log_error($config, 'Update ' . (int) $update['update_id'] . ': ' . $error->getMessage());
+    tb_delete_queued_update($config, (int) $update['update_id']);
+    tb_release_update($config, (int) $update['update_id']);
+    tb_log_error($config, $error->getMessage());
+    http_response_code(500);
+    echo json_encode(['ok' => false]);
 }

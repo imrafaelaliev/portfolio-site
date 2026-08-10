@@ -11,3 +11,7 @@ REG.RU and is protected from web access by `.htaccess`.
 The `Профессия.pdf` material is committed only as AES-256 encrypted data.
 GitHub Actions decrypts it during deployment, and the deployed `private` folder
 is blocked from direct web access.
+
+Incoming updates are acknowledged immediately and written to a protected local
+queue. A separate internal request processes Telegram API calls and file uploads,
+so slow shared-hosting execution cannot make Telegram retry the webhook.
