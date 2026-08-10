@@ -53,15 +53,32 @@ if (!is_array($update) || !isset($update['update_id'])) {
 
 try {
     $claimed = tb_claim_update($config, (int) $update['update_id']);
-    if ($claimed) {
-        tb_handle_update($config, $update);
-    }
-    echo json_encode(['ok' => true]);
 } catch (Throwable $error) {
-    if (!empty($claimed)) {
-        tb_release_update($config, (int) $update['update_id']);
-    }
     tb_log_error($config, $error->getMessage());
     http_response_code(500);
     echo json_encode(['ok' => false]);
+    exit;
+}
+
+// Telegram ждёт ответ всего несколько секунд. На shared-хостинге
+// сразу закрываем HTTP-ответ, а обработку заканчиваем после этого.
+echo json_encode(['ok' => true]);
+ignore_user_abort(true);
+if (function_exists('fastcgi_finish_request')) {
+    fastcgi_finish_request();
+} else {
+    if (ob_get_level() > 0) {
+        ob_end_flush();
+    }
+    flush();
+}
+
+if (!$claimed) {
+    exit;
+}
+
+try {
+    tb_handle_update($config, $update);
+} catch (Throwable $error) {
+    tb_log_error($config, 'Update ' . (int) $update['update_id'] . ': ' . $error->getMessage());
 }
