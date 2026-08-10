@@ -21,6 +21,53 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create private Telegram bot config
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_WEBHOOK_SECRET: ${{ secrets.TELEGRAM_WEBHOOK_SECRET }}
+          TELEGRAM_ADMIN_ID: ${{ secrets.TELEGRAM_ADMIN_ID }}
+          TELEGRAM_CHANNEL_USERNAME: ${{ secrets.TELEGRAM_CHANNEL_USERNAME }}
+          TELEGRAM_CHANNEL_LINK: ${{ secrets.TELEGRAM_CHANNEL_LINK }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+
+          required = [
+              "TELEGRAM_BOT_TOKEN",
+              "TELEGRAM_WEBHOOK_SECRET",
+              "TELEGRAM_ADMIN_ID",
+              "TELEGRAM_CHANNEL_USERNAME",
+              "TELEGRAM_CHANNEL_LINK",
+          ]
+          missing = [name for name in required if not os.environ.get(name, "").strip()]
+          if missing:
+              raise SystemExit("Missing GitHub secrets: " + ", ".join(missing))
+
+          def php_string(value: str) -> str:
+              return "'" + value.replace("\\", "\\\\").replace("'", "\\'") + "'"
+
+          admin_id = int(os.environ["TELEGRAM_ADMIN_ID"])
+          values = {
+              "bot_token": os.environ["TELEGRAM_BOT_TOKEN"],
+              "webhook_secret": os.environ["TELEGRAM_WEBHOOK_SECRET"],
+              "admin_id": admin_id,
+              "channel_username": os.environ["TELEGRAM_CHANNEL_USERNAME"],
+              "channel_link": os.environ["TELEGRAM_CHANNEL_LINK"],
+          }
+          content = "<?php\nreturn [\n"
+          for key, value in values.items():
+              rendered = str(value) if isinstance(value, int) else php_string(value)
+              content += f"    {php_string(key)} => {rendered},\n"
+          content += "];\n"
+          Path("telegram-bot/config.php").write_text(content, encoding="utf-8")
+          PY
+
+      - name: Check Telegram bot PHP
+        run: |
+          find telegram-bot -name '*.php' -print0 | xargs -0 -n1 php -l
+          php -r "require 'telegram-bot/lib.php'; exit(tb_normalize('  ПРОФЕССИЯ  ') === 'профессия' ? 0 : 1);"
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -35,6 +82,7 @@ jobs:
             **/.github/**
             **/node_modules/**
             **/.DS_Store
+            **/config.example.php
 
       - name: Deploy www alias directory
         continue-on-error: true
@@ -51,3 +99,4 @@ jobs:
             **/.github/**
             **/node_modules/**
             **/.DS_Store
+            **/config.example.php

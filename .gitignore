@@ -12,3 +12,6 @@ deploy-clean-urls
 node_modules
 portfolio-*.zip
 *.tmp
+telegram-bot/config.php
+telegram-bot/data/*
+!telegram-bot/data/.htaccess
