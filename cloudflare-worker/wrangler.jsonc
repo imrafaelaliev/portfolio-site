@@ -11,4 +11,5 @@
     "enabled": true,
     "head_sampling_rate": 1
   }
+  // Secrets configured in Cloudflare: BOT_TOKEN, TELEGRAM_PROXY_SECRET
 }

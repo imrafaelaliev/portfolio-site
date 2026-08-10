@@ -5,4 +5,5 @@ return [
     'admin_id' => 123456789,
     'channel_username' => '@channel',
     'channel_link' => 'https://t.me/channel',
+    'telegram_proxy_url' => 'https://your-worker.workers.dev/telegram-api',
 ];

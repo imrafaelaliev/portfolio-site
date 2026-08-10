@@ -344,6 +344,24 @@ function tb_release_update(array $config, int $updateId): void
     });
 }
 
+function tb_telegram_api_endpoint(array $config, string $method): string
+{
+    $proxyUrl = trim((string) ($config['telegram_proxy_url'] ?? ''));
+    if ($proxyUrl !== '') {
+        return rtrim($proxyUrl, '/') . '/' . rawurlencode($method);
+    }
+    return 'https://api.telegram.org/bot' . $config['bot_token'] . '/' . $method;
+}
+
+function tb_telegram_proxy_signature(array $config, string $method): ?string
+{
+    $proxyUrl = trim((string) ($config['telegram_proxy_url'] ?? ''));
+    if ($proxyUrl === '') {
+        return null;
+    }
+    return hash_hmac('sha256', $method, $config['webhook_secret']);
+}
+
 function tb_tg(array $config, string $method, array $params = []): array
 {
     foreach ($params as $key => $value) {
@@ -353,9 +371,14 @@ function tb_tg(array $config, string $method, array $params = []): array
             $params[$key] = $value ? 'true' : 'false';
         }
     }
-    $url = 'https://api.telegram.org/bot' . $config['bot_token'] . '/' . $method;
+    $url = tb_telegram_api_endpoint($config, $method);
     $payload = http_build_query($params);
     $raw = false;
+    $headers = ['Content-Type: application/x-www-form-urlencoded'];
+    $proxySignature = tb_telegram_proxy_signature($config, $method);
+    if ($proxySignature !== null) {
+        $headers[] = 'X-Telegram-Proxy-Signature: ' . $proxySignature;
+    }
 
     if (function_exists('curl_init')) {
         $curl = curl_init($url);
@@ -366,7 +389,7 @@ function tb_tg(array $config, string $method, array $params = []): array
             CURLOPT_CONNECTTIMEOUT => 5,
             CURLOPT_TIMEOUT => 15,
             CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
-            CURLOPT_HTTPHEADER => ['Content-Type: application/x-www-form-urlencoded'],
+            CURLOPT_HTTPHEADER => $headers,
         ]);
         $raw = curl_exec($curl);
         $curlError = curl_error($curl);
@@ -377,7 +400,7 @@ function tb_tg(array $config, string $method, array $params = []): array
     } else {
         $context = stream_context_create(['http' => [
             'method' => 'POST',
-            'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+            'header' => implode("\r\n", $headers) . "\r\n",
             'content' => $payload,
             'timeout' => 15,
             'ignore_errors' => true,
@@ -433,7 +456,12 @@ function tb_tg_upload_document(
     if ($caption !== null && $caption !== '') {
         $params['caption'] = $caption;
     }
-    $curl = curl_init('https://api.telegram.org/bot' . $config['bot_token'] . '/sendDocument');
+    $curl = curl_init(tb_telegram_api_endpoint($config, 'sendDocument'));
+    $headers = [];
+    $proxySignature = tb_telegram_proxy_signature($config, 'sendDocument');
+    if ($proxySignature !== null) {
+        $headers[] = 'X-Telegram-Proxy-Signature: ' . $proxySignature;
+    }
     curl_setopt_array($curl, [
         CURLOPT_POST => true,
         CURLOPT_POSTFIELDS => $params,
@@ -441,6 +469,7 @@ function tb_tg_upload_document(
         CURLOPT_CONNECTTIMEOUT => 5,
         CURLOPT_TIMEOUT => 30,
         CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
+        CURLOPT_HTTPHEADER => $headers,
     ]);
     $raw = curl_exec($curl);
     $curlError = curl_error($curl);

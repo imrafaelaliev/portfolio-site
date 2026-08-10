@@ -54,6 +54,7 @@ jobs:
               "admin_id": admin_id,
               "channel_username": os.environ["TELEGRAM_CHANNEL_USERNAME"],
               "channel_link": os.environ["TELEGRAM_CHANNEL_LINK"],
+              "telegram_proxy_url": "https://alievtalk-telegram-relay.rafaelaliev53.workers.dev/telegram-api",
           }
           content = "<?php\nreturn [\n"
           for key, value in values.items():
