@@ -4,10 +4,11 @@ declare(strict_types=1);
 function tb_initial_storage(): array
 {
     return [
-        'version' => 2,
-        'next_material_id' => 2,
+        'version' => 3,
+        'next_material_id' => 3,
         'materials' => [
             '1' => tb_profession_material(1),
+            '2' => tb_concept_material(2),
         ],
         'users' => [],
         'requests' => [],
@@ -33,33 +34,69 @@ function tb_profession_material(int $id): array
         'items' => [[
             'type' => 'document_local',
             'path' => 'private/profession.pdf',
+            'filename' => 'Профессия.pdf',
             'caption' => 'Материал «Профессия»',
         ]],
         'created_at' => date('c'),
     ];
 }
 
-function tb_migrate_storage(array &$storage): void
+function tb_concept_material(int $id): array
 {
-    if ((int) ($storage['version'] ?? 1) >= 2) {
-        return;
-    }
-    $found = false;
+    return [
+        'id' => $id,
+        'title' => 'Концептинг',
+        'keyword' => 'Концепт',
+        'aliases' => [],
+        'active' => true,
+        'items' => [[
+            'type' => 'document_local',
+            'path' => 'private/concepting.pdf',
+            'filename' => 'Концептинг.pdf',
+            'caption' => 'Материал «Концептинг»',
+        ]],
+        'created_at' => date('c'),
+    ];
+}
+
+function tb_add_bundled_material(
+    array &$storage,
+    string $keyword,
+    callable $materialFactory
+): void {
     foreach (($storage['materials'] ?? []) as $material) {
         $words = array_merge([$material['keyword'] ?? ''], $material['aliases'] ?? []);
         foreach ($words as $word) {
-            if (tb_normalize((string) $word) === tb_normalize('ПРОФЕССИЯ')) {
-                $found = true;
-                break 2;
+            if (tb_normalize((string) $word) === tb_normalize($keyword)) {
+                return;
             }
         }
     }
-    if (!$found) {
-        $id = max(1, (int) ($storage['next_material_id'] ?? 1));
-        $storage['materials'][(string) $id] = tb_profession_material($id);
-        $storage['next_material_id'] = $id + 1;
+
+    $id = max(1, (int) ($storage['next_material_id'] ?? 1));
+    while (isset($storage['materials'][(string) $id])) {
+        $id++;
     }
-    $storage['version'] = 2;
+    $storage['materials'][(string) $id] = $materialFactory($id);
+    $storage['next_material_id'] = $id + 1;
+}
+
+function tb_migrate_storage(array &$storage): void
+{
+    $version = (int) ($storage['version'] ?? 1);
+    if ($version >= 3) {
+        return;
+    }
+
+    if ($version < 2) {
+        tb_add_bundled_material($storage, 'ПРОФЕССИЯ', 'tb_profession_material');
+        $version = 2;
+    }
+    if ($version < 3) {
+        tb_add_bundled_material($storage, 'Концепт', 'tb_concept_material');
+        $version = 3;
+    }
+    $storage['version'] = $version;
 }
 
 function tb_data_dir(array $config): string
@@ -433,7 +470,8 @@ function tb_tg_upload_document(
     array $config,
     int $chatId,
     string $path,
-    ?string $caption = null
+    ?string $caption = null,
+    ?string $filename = null
 ): array {
     if (!function_exists('curl_init') || !class_exists('CURLFile')) {
         throw new RuntimeException('На хостинге недоступна загрузка файлов через cURL');
@@ -449,9 +487,16 @@ function tb_tg_upload_document(
         throw new RuntimeException('Закрытый PDF не найден');
     }
 
+    $uploadFilename = trim((string) $filename);
+    if ($uploadFilename === '') {
+        $uploadFilename = basename($realPath);
+    } else {
+        $uploadFilename = basename(str_replace('\\', '/', $uploadFilename));
+    }
+
     $params = [
         'chat_id' => (string) $chatId,
-        'document' => new CURLFile($realPath, 'application/pdf', 'Профессия.pdf'),
+        'document' => new CURLFile($realPath, 'application/pdf', $uploadFilename),
     ];
     if ($caption !== null && $caption !== '') {
         $params['caption'] = $caption;
@@ -642,7 +687,8 @@ function tb_send_material(array $config, int $chatId, array $material): void
                     $config,
                     $chatId,
                     (string) ($item['path'] ?? ''),
-                    $item['caption'] ?? null
+                    $item['caption'] ?? null,
+                    $item['filename'] ?? null
                 );
                 $fileId = $response['result']['document']['file_id'] ?? null;
                 if (is_string($fileId) && $fileId !== '') {
