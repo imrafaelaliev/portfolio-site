@@ -82,6 +82,10 @@ jobs:
             -in telegram-bot/encrypted-assets/concepting.pdf.enc \
             -out telegram-bot/private/concepting.pdf \
             -pass env:TELEGRAM_WEBHOOK_SECRET
+          openssl enc -d -aes-256-cbc -pbkdf2 \
+            -in telegram-bot/encrypted-assets/presentation-template.pdf.enc \
+            -out telegram-bot/private/presentation-template.pdf \
+            -pass env:TELEGRAM_WEBHOOK_SECRET
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6

@@ -4,11 +4,12 @@ declare(strict_types=1);
 function tb_initial_storage(): array
 {
     return [
-        'version' => 3,
-        'next_material_id' => 3,
+        'version' => 4,
+        'next_material_id' => 4,
         'materials' => [
             '1' => tb_profession_material(1),
             '2' => tb_concept_material(2),
+            '3' => tb_interview_material(3),
         ],
         'users' => [],
         'requests' => [],
@@ -59,6 +60,24 @@ function tb_concept_material(int $id): array
     ];
 }
 
+function tb_interview_material(int $id): array
+{
+    return [
+        'id' => $id,
+        'title' => 'Шаблон презентации',
+        'keyword' => 'собес',
+        'aliases' => [],
+        'active' => true,
+        'items' => [[
+            'type' => 'document_local',
+            'path' => 'private/presentation-template.pdf',
+            'filename' => 'Шаблон презентации.pdf',
+            'caption' => 'Шаблон презентации для собеседования',
+        ]],
+        'created_at' => date('c'),
+    ];
+}
+
 function tb_add_bundled_material(
     array &$storage,
     string $keyword,
@@ -84,7 +103,7 @@ function tb_add_bundled_material(
 function tb_migrate_storage(array &$storage): void
 {
     $version = (int) ($storage['version'] ?? 1);
-    if ($version >= 3) {
+    if ($version >= 4) {
         return;
     }
 
@@ -95,6 +114,10 @@ function tb_migrate_storage(array &$storage): void
     if ($version < 3) {
         tb_add_bundled_material($storage, 'Концепт', 'tb_concept_material');
         $version = 3;
+    }
+    if ($version < 4) {
+        tb_add_bundled_material($storage, 'собес', 'tb_interview_material');
+        $version = 4;
     }
     $storage['version'] = $version;
 }
