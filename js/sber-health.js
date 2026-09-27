@@ -59,26 +59,30 @@
       const screenScale = phoneWidth / 402;
       const visibleDesignHeight = phoneHeight / screenScale;
       const heightDeficit = clamp(874 - visibleDesignHeight, 0, 240);
-      const layoutCardScale = 1 - Math.min(0.25, heightDeficit * 0.0012);
-      const shakeTop = Math.max(440, Math.min(650, visibleDesignHeight - 224));
+      const headerShift = Math.min(44, heightDeficit * 0.32);
+      const contentShift = Math.min(70, heightDeficit * 0.46);
+      const layoutCardScale = 1 - Math.min(0.1, heightDeficit * 0.00065);
+      const isCompactHeight = heightDeficit > 70;
+      const shakeTop = isCompactHeight
+        ? Math.max(490, visibleDesignHeight - 168)
+        : Math.min(650, visibleDesignHeight - 224);
 
       phone.style.setProperty('--screen-scale', screenScale.toFixed(6));
       phone.style.setProperty('--design-height', `${visibleDesignHeight.toFixed(2)}px`);
-      phone.style.setProperty('--title-top', `${(124 - heightDeficit * 0.1).toFixed(2)}px`);
+      phone.style.setProperty('--nav-top', `${(44 - headerShift).toFixed(2)}px`);
+      phone.style.setProperty('--title-top', `${(124 - headerShift).toFixed(2)}px`);
       phone.style.setProperty(
         '--title-size',
-        `${(36 - Math.min(4, heightDeficit * 0.02)).toFixed(2)}px`
+        `${(36 - Math.min(2, Math.max(0, heightDeficit - 170) * 0.04)).toFixed(2)}px`
       );
-      phone.style.setProperty('--lab-top', `${(219 - heightDeficit * 0.25).toFixed(2)}px`);
-      phone.style.setProperty('--avatar-top', `${(231.4 - heightDeficit * 0.25).toFixed(2)}px`);
-      phone.style.setProperty(
-        '--relatives-top',
-        `${(325 - heightDeficit * 0.35).toFixed(2)}px`
-      );
-      phone.style.setProperty('--doctor-top', `${(435.4 - heightDeficit * 0.7).toFixed(2)}px`);
+      phone.style.setProperty('--lab-top', `${(219 - contentShift).toFixed(2)}px`);
+      phone.style.setProperty('--avatar-top', `${(231.4 - contentShift).toFixed(2)}px`);
+      phone.style.setProperty('--relatives-top', `${(325 - contentShift).toFixed(2)}px`);
+      phone.style.setProperty('--doctor-top', `${(435.4 - contentShift).toFixed(2)}px`);
       phone.style.setProperty('--shake-top', `${shakeTop.toFixed(2)}px`);
       phone.style.setProperty('--layout-card-scale', layoutCardScale.toFixed(3));
       phone.style.setProperty('--avatar-layout-scale', layoutCardScale.toFixed(3));
+      phone.classList.toggle('is-compact-height', isCompactHeight);
     });
   };
 

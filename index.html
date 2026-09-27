@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
-    <title>Рафаэль Алиев — UI/UX дизайнер</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/icons/favicon.png?v=20260927-photo" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png?v=20260927-photo" />
+    <title>Рафаэль Алиев — продуктовый дизайнер</title>
     <meta
       name="description"
-      content="Портфолио Рафаэля Алиева: продуктовые интерфейсы, цифровые продукты и кейсы MARSHALL, HiOS, Сладонеж, Lori."
+      content="Портфолио продуктового дизайнера Рафаэля Алиева: цифровые продукты и кейсы MARSHALL, HiOS, Сладонеж, Lori."
     />
-    <meta property="og:title" content="Рафаэль Алиев — UI/UX дизайнер" />
+    <meta property="og:title" content="Рафаэль Алиев — продуктовый дизайнер" />
     <meta
       property="og:description"
       content="Портфолио с кейсами: MARSHALL, HiOS, Сладонеж, Lori."
@@ -18,9 +18,12 @@
     <meta property="og:type" content="website" />
     <script>
       document.documentElement.classList.add('js');
+      if (!location.hash && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('hero-intro-playing');
+      }
     </script>
-    <link rel="preload" as="image" href="./assets/images/home/hero-portrait.png" />
-    <link rel="stylesheet" href="./css/style.css?v=20260618-concepts-video-1" />
+    <link rel="preload" as="image" href="./assets/images/home/hero-redesign/portrait-raw-1.png" />
+    <link rel="stylesheet" href="./css/style.css?v=20260927-project-zoom-2" />
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
@@ -36,741 +39,249 @@
   </head>
   <body class="home home--rebuild">
     <noscript><div><img src="https://mc.yandex.ru/watch/109543635" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <div class="site-chrome">
+          <img class="hero__mini-signature" src="./assets/images/home/about-redesign/mini-signature.svg" alt="" aria-hidden="true" />
+          <div class="hero__menu-backdrop" aria-hidden="true"></div>
+          <div class="hero__menu-panel" aria-hidden="true"></div>
+          <button class="hero__menu-toggle" type="button" aria-label="Открыть меню" aria-controls="hero-navigation" aria-expanded="false">
+            <img class="hero__menu-icon" src="./assets/images/home/hero-redesign/menu.svg" alt="" aria-hidden="true" />
+            <img class="hero__close-icon" src="./assets/images/home/hero-redesign/menu-close.svg" alt="" aria-hidden="true" />
+          </button>
+
+          <div class="hero__actions">
+            <a class="hero__button" href="https://disk.yandex.ru/d/BzEm_BL0T9i5PQ" target="_blank" rel="noopener noreferrer">CV</a>
+            <a class="hero__button" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">Написать</a>
+          </div>
+
+          <p class="hero__availability">
+            <picture class="hero__availability-dot" aria-hidden="true">
+              <source media="(max-width: 1199px)" srcset="./assets/images/home/hero-redesign/status-dot-mobile.svg" />
+              <img src="./assets/images/home/hero-redesign/status-dot-desktop.svg" alt="" />
+            </picture>
+            Открыт к сотрудничеству
+          </p>
+
+          <nav class="hero__side-nav" id="hero-navigation" aria-label="Навигация по странице">
+            <a href="#about">Обо мне</a>
+            <a href="#projects">Проекты</a>
+            <a href="#concepts">Концепты</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+    </div>
     <main>
       <section class="hero hero--figma">
         <div class="container hero__canvas">
-          <p class="hero__brand">Алиев Рафаэль,<br />UI/UX дизайнер</p>
-
-          <nav class="hero__side-nav" aria-label="Навигация по странице">
-            <a href="#about">обо мне</a>
-            <a href="#projects">проекты</a>
-            <a href="#concepts">концепты</a>
-            <a href="#contacts">контакты</a>
-          </nav>
-
-          <div class="hero__actions">
-            <a class="btn btn--ghost" href="https://disk.yandex.ru/d/BzEm_BL0T9i5PQ" target="_blank" rel="noopener noreferrer">
-              Скачать CV
-              <img class="btn__icon-cv" src="./assets/icons/cv-arrow.svg" alt="" aria-hidden="true" />
-            </a>
-            <a class="btn btn--primary" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">Связаться ↦</a>
+          <div class="hero__profile">
+            <img class="hero__profile-photo" src="./assets/images/home/hero-redesign/portrait-raw-1.png" alt="Портрет Рафаэля Алиева" width="640" height="640" fetchpriority="high" />
+            <h1 class="hero__profile-name">Алиев Рафаэль,<br />продуктовый дизайнер</h1>
+            <div class="hero__experience">
+              <p>Опыт:</p>
+              <p>СберЗдоровье (2026 — Н. В.)</p>
+              <p>Восход (2024 — 2026)</p>
+            </div>
           </div>
 
-          <picture>
-            <img
-              class="hero__word-art reveal"
-              data-reveal-group="hero-intro"
-              src="./assets/images/home/hero-word.svg"
-              alt="ALIEV R"
-              decoding="async"
-              fetchpriority="high"
-            />
+          <div class="hero__signature" aria-hidden="true">
+            <svg class="hero__signature-art hero__signature-art--desktop" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" width="772.002" height="664.005" viewBox="0 0 772.002 664.005" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="Group 1">
+            <path pathLength="1" id="Vector 4817" d="M42.5693 81.1111C64.32 81.8811 86.0706 82.651 204.941 85.3574C323.812 88.0639 539.143 92.6835 608.383 114.697C677.622 136.71 594.245 175.977 474.803 223.923C355.361 271.869 202.382 327.304 118.499 358.557C34.6161 389.809 24.4658 395.199 18.1493 398.36C11.8328 401.522 9.65776 402.291 11.7999 404.228C13.942 406.165 20.4672 409.244 78.2053 415.45C135.943 421.657 244.697 430.896 361.26 430.651C477.824 430.406 598.903 420.397 667.077 414.085C735.251 407.774 746.851 405.465 761 403.085" stroke="black" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+            <path pathLength="1" id="Vector 4818" d="M243.309 11.002C242.579 14.854 241.849 18.706 210.446 124.694C179.043 230.683 116.99 438.691 53.0557 653.002" stroke="black" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+            <path pathLength="1" id="Vector 4819" d="M278.356 471.296C289.665 458.295 300.974 445.293 318.888 427.61C336.803 409.928 360.98 387.959 384.939 369.469C408.898 350.978 431.905 336.631 449.217 326.775C466.529 316.918 477.448 311.986 485.997 308.549C500.251 302.818 508.373 301.47 511.522 302.816C515.133 304.358 513.123 320.382 507.658 360.448C503.631 389.967 492.833 437.277 497.755 447.86C502.677 458.444 522.565 430.647 539.634 409.378C556.704 388.109 570.352 374.21 584.013 361.895C597.673 349.579 610.931 339.267 617.177 345.836C623.422 352.405 622.252 376.167 617.165 409.48C612.078 442.793 603.109 484.937 598.488 507.544C593.868 530.151 593.868 531.945 622.14 481.982C650.412 432.019 706.956 330.246 735.889 279.162C764.823 228.078 764.433 230.769 756.043 261.296C747.653 291.824 731.275 350.109 718.353 410.621C705.431 471.133 696.462 532.108 691.842 569.796C687.221 607.483 687.221 620.037 687.221 632.971" stroke="black" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            </svg>
+            <svg class="hero__signature-art hero__signature-art--mobile" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" width="357.999" height="308.003" viewBox="0 0 357.999 308.003" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="Group 1">
+            <path pathLength="1" id="Vector 4817" d="M21.4797 39.1075C31.456 39.4601 41.4322 39.8127 95.9539 41.0521C150.476 42.2915 249.24 44.407 280.998 54.4878C312.756 64.5686 274.514 82.5506 219.73 104.507C164.946 126.464 94.7799 151.85 56.3059 166.162C17.8319 180.474 13.1763 182.942 10.2791 184.39C7.38199 185.838 6.38436 186.19 7.36687 187.077C8.34938 187.964 11.3423 189.374 37.8246 192.216C64.307 195.058 114.188 199.289 167.652 199.177C221.115 199.065 276.65 194.481 307.919 191.591C339.188 188.701 344.508 187.643 350.998 186.553" stroke="black" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+            <path pathLength="1" id="Vector 4818" d="M113.554 7.00127C113.219 8.76527 112.884 10.5293 98.4805 59.066C84.0771 107.603 55.6153 202.859 26.291 301.001" stroke="black" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+            <path pathLength="1" id="Vector 4819" d="M129.629 217.79C134.816 211.836 140.003 205.882 148.219 197.785C156.436 189.687 167.526 179.627 178.515 171.159C189.504 162.691 200.056 156.121 207.997 151.607C215.937 147.094 220.945 144.835 224.866 143.261C231.404 140.637 235.129 140.02 236.574 140.636C238.23 141.342 237.308 148.68 234.801 167.028C232.954 180.546 228.002 202.211 230.259 207.058C232.517 211.905 241.638 199.175 249.468 189.435C257.297 179.695 263.557 173.33 269.822 167.69C276.088 162.051 282.169 157.328 285.034 160.336C287.898 163.345 287.362 174.226 285.028 189.482C282.695 204.737 278.581 224.037 276.462 234.39C274.343 244.743 274.343 245.564 287.31 222.684C300.277 199.804 326.212 153.197 339.483 129.804C352.754 106.41 352.575 107.642 348.727 121.622C344.879 135.602 337.366 162.293 331.44 190.004C325.513 217.716 321.399 245.639 319.28 262.897C317.161 280.156 317.161 285.905 317.161 291.828" stroke="black" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            </svg>
+          </div>
+
+          <div class="hero__oval" aria-label="Случайное изображение из проектов на этой странице">
+            <img class="hero__oval-image" src="./assets/images/home/projects-marshall-figma-2040x1200.png?v=20260412-projects-421-792-2" alt="Превью проекта MARSHALL" fetchpriority="high" />
+          </div>
+
+        </div>
+      </section>
+
+      <section id="about" class="section about-intro" aria-label="Обо мне">
+        <img
+          class="about-intro__collage"
+          src="./assets/images/home/about-redesign/collage-source-1.png"
+          alt="Коллаж моих проектов: сайты, интерфейсы и мобильные приложения"
+          width="1831"
+          height="4096"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <div class="about-intro__copy">
+          <p class="about-intro__lead">
+            привет! меня зовут Рафаэль.<br />
+            я — дизайнер с 3+ годами опыта, 2 из которых работал в топовом креативном агентстве России
+            <span class="about-intro__no-break"><a class="about-intro__link about-intro__link--voskhod" href="https://voskhod.agency/" target="_blank" rel="noopener noreferrer">«Восход»</a><span class="about-intro__badge about-intro__badge--voskhod" aria-label="Логотип агентства Восход"><picture><source media="(max-width: 767px)" srcset="./assets/images/home/about-redesign/voskhod-mobile.svg" /><img src="./assets/images/home/about-redesign/voskhod-desktop.svg" alt="" /></picture></span></span>
+          </p>
+          <p class="about-intro__lead about-intro__lead--current">
+            сейчас работаю в <span class="about-intro__no-break"><span class="about-intro__link about-intro__link--sber">СберЗдоровье</span><span class="about-intro__badge about-intro__badge--sber" aria-label="Логотип СберЗдоровья"><picture><source media="(max-width: 767px)" srcset="./assets/images/home/about-redesign/sber-mobile.svg" /><img src="./assets/images/home/about-redesign/sber-desktop.svg" alt="" /></picture></span></span>, где делаю концепты и помогаю команде с редизайном цифровых продуктов
+          </p>
+        </div>
+
+        <div class="about-intro__orbit">
+          <picture class="about-intro__orbit-outline" aria-hidden="true">
+            <source media="(max-width: 767px)" srcset="./assets/images/home/about-redesign/orbit-mobile.svg" />
+            <img src="./assets/images/home/about-redesign/orbit-desktop.svg" alt="" loading="lazy" decoding="async" />
           </picture>
-          <img
-            class="hero__portrait reveal"
-            data-reveal-group="hero-intro"
-            src="./assets/images/home/hero-portrait.png"
-            alt="Портрет Рафаэля Алиева"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
+          <picture class="about-intro__star" aria-hidden="true">
+            <source media="(max-width: 767px)" srcset="./assets/images/home/about-redesign/star-mobile.svg" />
+            <img src="./assets/images/home/about-redesign/star-desktop.svg" alt="" loading="lazy" decoding="async" />
+          </picture>
+          <p class="about-intro__orbit-text">Моя north star — дизайн, который влюбляет в продукт, работает в связке с функцией и создает уникальный пользовательский опыт</p>
         </div>
       </section>
 
-      <section class="section collage collage--figma" aria-label="Коллаж кейсов">
-        <div class="collage__canvas">
-          <img class="collage__flat reveal" src="./assets/images/home/about-collage-figma.png?v=20260406-hq-all-1" alt="Коллаж проектов" loading="lazy" decoding="async" />
-        </div>
-      </section>
-
-      <section id="about" class="section about about--figma">
-        <div class="about__canvas">
-          <p class="about__lead reveal">
-            <span class="about__lead--desktop">
-              <span class="about__line">привет! меня зовут рафаэль.</span>
-              <span class="about__line">я — ui/ux дизайнер с 3+ годами опыта,</span>
-              <span class="about__line">2 из которых работал в топовом</span>
-              <span class="about__line">креативном агентстве россии</span>
-              <span class="about__line about__line--with-logo">
-                <span class="about__line-chunk"><a class="about__accent about__accent-link" href="https://voskhod.agency/" target="_blank" rel="noopener noreferrer">«восход»</a></span>
-                <span class="about__logo-inline" aria-hidden="true">
-                  <img
-                    src="./assets/images/home/about-voshkod-figma.svg"
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </span>
-                <span class="about__line-chunk">где делал web &amp; mobile</span>
-              </span>
-              <span class="about__line">интерфейсы для b2c и b2b компаний</span>
-            </span>
-            <span class="about__lead--mobile">
-              <span class="about__line">привет! меня зовут рафаэль.</span>
-              <span class="about__line">я — ui/ux дизайнер с 3+ годами</span>
-              <span class="about__line">опыта, 2 из которых проработал</span>
-              <span class="about__line">в топовом креативном</span>
-              <span class="about__line">агентстве россии</span>
-              <span class="about__line about__line--with-logo">
-                <span class="about__line-chunk"><a class="about__accent about__accent-link" href="https://voskhod.agency/" target="_blank" rel="noopener noreferrer">«восход»</a></span>
-                <span class="about__logo-inline" aria-hidden="true">
-                  <img
-                    src="./assets/images/home/about-voshkod-figma.svg"
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </span>
-                <span class="about__line-chunk">где делал web &amp;</span>
-              </span>
-              <span class="about__line">mobile интерфейсы для b2c</span>
-              <span class="about__line">и b2b компаний</span>
-            </span>
-          </p>
-
-          <img
-            class="about__globe reveal"
-            src="./assets/images/about-globe.gif"
-            alt="Глобус"
-            loading="lazy"
-            decoding="async"
-          />
-
-          <p class="about__sublead reveal">
-            <span class="about__sublead--desktop">
-              <span class="about__line about__line--with-star">
-                <span class="about__line-chunk">моя north star (</span>
-                <span class="about__star-icon" aria-hidden="true">
-                  <img src="./assets/images/home/about-star-figma.svg" alt="" loading="lazy" decoding="async" />
-                </span>
-                <span class="about__line-chunk">) — ui, который</span>
-              </span>
-              <span class="about__line">влюбляет в продукт, работает</span>
-              <span class="about__line">в связке с функцией и создает</span>
-              <span class="about__line">уникальный пользовательский опыт</span>
-            </span>
-            <span class="about__sublead--mobile">
-              <span class="about__line about__line--with-star">
-                <span class="about__line-chunk">моя north star (</span>
-                <span class="about__star-icon" aria-hidden="true">
-                  <img src="./assets/images/home/about-star-figma.svg" alt="" loading="lazy" decoding="async" />
-                </span>
-                <span class="about__line-chunk">) —</span>
-              </span>
-              <span class="about__line">интерфейс, который влюбляет в</span>
-              <span class="about__line">продукт, работает в связке с</span>
-              <span class="about__line">функцией и создает уникальный</span>
-              <span class="about__line">пользовательский опыт</span>
-            </span>
-          </p>
-        </div>
-      </section>
-
-      <section class="section companies companies--figma" aria-label="Компании">
-        <div class="companies__canvas">
-          <h2 class="companies__title reveal">А ЕЩЕ Я УСПЕЛ ПОРАБОТАТЬ С КРУПНЫМИ РОССИЙСКИМИ И&nbsp;МЕЖДУНАРОДНЫМИ БИЗНЕСАМИ</h2>
-
-          <div class="companies__cluster reveal">
-            <button
-              class="companies__item companies__item--tochka"
-              type="button"
-              aria-label="Точка Банк"
-              data-company-title="ТОЧКА БАНК"
-              data-company-description="Онлайн-банк для бизнеса"
-            >
-              <picture class="companies__logo-picture">
-                <source media="(max-width: 767px)" srcset="./assets/images/home/companies-figma/company-tochka-mobile.png?v=20260422-2" />
-                <img class="companies__logo" src="./assets/images/home/companies-figma/company-tochka.png?v=20260422-2" alt="" loading="lazy" decoding="async" />
-              </picture>
-            </button>
-            <button
-              class="companies__item companies__item--marshall"
-              type="button"
-              aria-label="Marshall Autoparts"
-              data-company-title="MARSHALL AUTOPARTS"
-              data-company-description="Производитель и дистрибьютор автозапчастей. Топ-5 поставщик в РФ"
-            >
-              <img class="companies__logo" src="./assets/images/home/companies-figma/company-mz.png" alt="" loading="lazy" decoding="async" />
-            </button>
-            <button
-              class="companies__item companies__item--transsion"
-              type="button"
-              aria-label="Transsion Holdings"
-              data-company-title="TRANSSION HOLDINGS"
-              data-company-description="Производитель телефонов Tecno и Infinix. Сегодня это каждый 9 смартфон в России"
-            >
-              <img class="companies__logo" src="./assets/images/home/companies-figma/company-transsion.png" alt="" loading="lazy" decoding="async" />
-            </button>
-            <button
-              class="companies__item companies__item--nl"
-              type="button"
-              aria-label="NL International"
-              data-company-title="NL INTERNATIONAL"
-              data-company-description="Производитель БАДов, косметики и продуктов питания"
-            >
-              <img class="companies__logo" src="./assets/images/home/companies-figma/company-nl.png" alt="" loading="lazy" decoding="async" />
-            </button>
-            <button
-              class="companies__item companies__item--x5"
-              type="button"
-              aria-label="X5 Retail Group"
-              data-company-title="X5 RETAIL GROUP"
-              data-company-description="Крупная российская компания в сфере розничной торговли"
-            >
-              <img class="companies__logo" src="./assets/images/home/companies-figma/company-x5.png" alt="" loading="lazy" decoding="async" />
-            </button>
-          </div>
-
-          <div class="companies__details" aria-live="polite">
-            <p class="companies__details-title"></p>
-            <p class="companies__details-description"></p>
-          </div>
-
-          <div class="companies__mobile-list" aria-hidden="true">
-            <article class="companies__mobile-item">
-              <h3 class="companies__mobile-title">ТОЧКА БАНК</h3>
-              <p class="companies__mobile-description">Онлайн-банк для бизнеса</p>
-            </article>
-
-            <article class="companies__mobile-item">
-              <h3 class="companies__mobile-title">MARSHALL AUTOPARTS</h3>
-              <p class="companies__mobile-description">Производитель и дистрибьютор автозапчастей.<br />Топ-5 поставщик в РФ</p>
-            </article>
-
-            <article class="companies__mobile-item">
-              <h3 class="companies__mobile-title">TRANSSION HOLDINGS</h3>
-              <p class="companies__mobile-description">Производитель телефонов Tecno и Infinix.<br />Сегодня это каждый 9 смартфон в России</p>
-            </article>
-
-            <article class="companies__mobile-item">
-              <h3 class="companies__mobile-title">NL INTERNATIONAL</h3>
-              <p class="companies__mobile-description">Производитель БАДов, косметики<br />и продуктов питания</p>
-            </article>
-
-            <article class="companies__mobile-item">
-              <h3 class="companies__mobile-title">X5 RETAIL GROUP</h3>
-              <p class="companies__mobile-description">Крупная российская компания<br />в сфере розничной торговли</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="section projects projects--figma">
-        <div class="projects__canvas">
-          <div class="projects__head reveal" aria-hidden="true">
-            <img class="projects__word" src="./assets/images/home/projects-word.svg" alt="" loading="lazy" decoding="async" />
-            <img class="projects__sticker" src="./assets/images/home/projects-sticker.png" alt="" loading="lazy" decoding="async" />
-          </div>
-
-          <article class="project-item reveal">
-            <div class="project-item__desktop" aria-hidden="true">
-              <a class="project-card__media-link" data-case-link href="/marshall/index.html" aria-label="Открыть кейс MARSHALL">
-                <div class="project-card__media">
-                  <img
-                    class="project-card__cover"
-                    src="./assets/images/home/projects-marshall-figma-2040x1200.png?v=20260412-projects-421-792-2"
-                    alt="Превью кейса MARSHALL"
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                  />
-                </div>
-              </a>
-              <div class="project-card__content">
-                <div class="project-card__copy">
-                  <a class="project-item__title-link" data-case-link href="/marshall/index.html" aria-label="Открыть кейс MARSHALL">
-                    <p class="project-item__title project-card__title">MARSHALL Autoparts↳</p>
-                  </a>
-                  <p class="project-card__description">
-                    Объединил 3 сайта в единый E-commerce сервис и сократил путь до покупки с 5 до 3 шагов. Ускорил добавление в корзину с 15 до 8 секунд
-                  </p>
-                  <div class="project-card__role">
-                    <p class="project-card__role-label">Роль</p>
-                    <span class="project-card__role-dot"></span>
-                    <p class="project-card__role-text">Продуктовый дизайнер</p>
-                  </div>
-                </div>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">E-COMMERCE</span>
-                  <span class="project-card__tag">B2B &amp; B2C</span>
-                </div>
-              </div>
+      <section id="projects" class="section projects projects--redesign" aria-label="Проекты">
+        <div class="project-showcase">
+          <article class="project-showcase__card project-showcase__card--soon">
+            <div class="project-showcase__media project-showcase__media--sber">
+              <img class="project-showcase__image project-showcase__image--sber" src="./assets/images/home/projects-redesign/sber-health.png" alt="Концепт редизайна приложения СберЗдоровье" width="960" height="1280" loading="lazy" decoding="async" />
+              <span class="project-showcase__soon"><img src="./assets/images/home/projects-redesign/lock.svg" alt="" aria-hidden="true" width="20" height="20" />Скоро</span>
             </div>
-
-            <div class="project-item__mobile">
-              <a class="project-card__media-link" data-case-link href="/marshall/index.html" aria-label="Открыть кейс MARSHALL">
-                <div class="project-card__media">
-                  <img
-                    class="project-card__cover"
-                    src="./assets/images/home/projects-marshall-figma-2040x1200.png?v=20260412-projects-421-792-2"
-                    alt="Превью кейса MARSHALL"
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                  />
-                </div>
-              </a>
-              <div class="project-mobile__content">
-                <div class="project-mobile__paragraph">
-                  <a class="project-item__title-link" data-case-link href="/marshall/index.html" aria-label="Открыть кейс MARSHALL">
-                    <p class="project-item__title project-card__title">MARSHALL Autoparts↳</p>
-                  </a>
-                  <p class="project-card__description">
-                    Объединил 3 сайта в единый E-commerce сервис и сократил путь до покупки с 5 до 3 шагов. Ускорил добавление в корзину с 15 до 8 секунд
-                  </p>
-                </div>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">E-COMMERCE</span>
-                  <span class="project-card__tag">B2B &amp; B2C</span>
-                </div>
-                <div class="project-card__role">
-                  <p class="project-card__role-label">Роль</p>
-                  <span class="project-card__role-dot"></span>
-                  <p class="project-card__role-text">UI/UX дизайнер</p>
-                </div>
+            <div class="project-showcase__info">
+              <ul class="project-showcase__tags" aria-label="Категории проекта"><li>B2C</li><li>Mobile</li><li>Medtech</li></ul>
+              <div class="project-showcase__copy">
+                <h2 class="project-showcase__title">Редизайн мобильного<br />приложения СберЗдоровье</h2>
+                <p class="project-showcase__description">Редизайн мобильного приложения с ~1 млн MAU. Новый стиль, свежие элементы и пересборка нескольких флоу</p>
               </div>
             </div>
           </article>
 
-          <article class="project-item reveal">
-            <div class="project-item__desktop" aria-hidden="true">
-              <a class="project-card__media-link" data-case-link href="/lori/index.html" aria-label="Открыть кейс Lori">
-                <div class="project-card__media">
-                  <img
-                    class="project-card__cover"
-                    src="./assets/images/lori/lori-hero-152-3220.png?v=20260610-lori-figma-1523220-1"
-                    alt="Превью кейса Lori"
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                  />
-                </div>
-              </a>
-              <div class="project-card__content">
-                <div class="project-card__copy">
-                  <a class="project-item__title-link" data-case-link href="/lori/index.html" aria-label="Открыть кейс Lori">
-                    <p class="project-item__title project-card__title">Lori Mobile App↳</p>
-                  </a>
-                  <p class="project-card__description">
-                    Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность
-                  </p>
-                  <div class="project-card__role">
-                    <p class="project-card__role-label">Роль</p>
-                    <span class="project-card__role-dot"></span>
-                    <p class="project-card__role-text">Продуктовый дизайнер</p>
-                  </div>
-                </div>
-                <div class="project-card__tags project-card__tags--triple">
-                  <span class="project-card__tag">MEDTECH</span>
-                  <div class="project-card__tags-row">
-                    <span class="project-card__tag">MVP</span>
-                    <span class="project-card__tag">B2C</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-item__mobile">
-              <a class="project-card__media-link" data-case-link href="/lori/index.html" aria-label="Открыть кейс Lori">
-                <div class="project-card__media">
-                  <img
-                    class="project-card__cover"
-                    src="./assets/images/lori/lori-hero-152-3220.png?v=20260610-lori-figma-1523220-1"
-                    alt="Превью кейса Lori"
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                  />
-                </div>
-              </a>
-              <div class="project-mobile__content">
-                <div class="project-mobile__paragraph">
-                  <a class="project-item__title-link" data-case-link href="/lori/index.html" aria-label="Открыть кейс Lori">
-                    <p class="project-item__title project-card__title">Lori Mobile App↳</p>
-                  </a>
-                  <p class="project-card__description">
-                    Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность
-                  </p>
-                </div>
-                <div class="project-card__tags project-card__tags--triple">
-                  <span class="project-card__tag">MEDTECH</span>
-                  <span class="project-card__tag">MVP</span>
-                  <span class="project-card__tag">B2C</span>
-                </div>
-                <div class="project-card__role">
-                  <p class="project-card__role-label">Роль</p>
-                  <span class="project-card__role-dot"></span>
-                  <p class="project-card__role-text">Продуктовый дизайнер</p>
-                </div>
+          <article class="project-showcase__card" data-case="marshall">
+            <a class="project-showcase__media project-showcase__media--marshall" data-case-link href="/marshall/index.html" aria-label="Открыть кейс MARSHALL Autoparts">
+              <img class="project-showcase__image project-showcase__image--marshall" src="./assets/images/home/projects-redesign/marshall.png" alt="Веб-сервис MARSHALL Autoparts на ноутбуке" width="4000" height="3000" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-showcase__info">
+              <ul class="project-showcase__tags" aria-label="Категории проекта"><li>B2B &amp; B2C</li><li>Web</li><li>E-commerce</li></ul>
+              <div class="project-showcase__copy project-showcase__copy--marshall">
+                <h2 class="project-showcase__title"><a data-case-link href="/marshall/index.html">Веб-сервис MARSHALL Autoparts</a></h2>
+                <p class="project-showcase__description">Объединил 3 платформы в единый E-commerce сервис и сократил путь до покупки с 5 до 3 шагов. Ускорил добавление в корзину с 15 до 8 секунд</p>
               </div>
             </div>
           </article>
 
-          <article class="project-item reveal">
-            <div class="project-item__desktop" aria-hidden="true">
-              <a class="project-card__media-link" data-case-link href="/domovoy/index.html" aria-label="Открыть кейс Домовой">
-                <div class="project-card__media">
-                  <img
-                    class="project-card__cover"
-                    src="./assets/images/domovoy/hero.png?v=20260528-domovoy-refresh-2"
-                    alt="Превью кейса Домовой"
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                  />
-                </div>
-              </a>
-              <div class="project-card__content">
-                <div class="project-card__copy">
-                  <a class="project-item__title-link" data-case-link href="/domovoy/index.html" aria-label="Открыть кейс Домовой">
-                    <p class="project-item__title project-card__title">Домовой↳</p>
-                  </a>
-                  <p class="project-card__description">
-                    Концепт мобильного приложения для управления недвижимостью
-                  </p>
-                  <div class="project-card__role">
-                    <p class="project-card__role-label">Роль</p>
-                    <span class="project-card__role-dot"></span>
-                    <p class="project-card__role-text">Продуктовый дизайнер</p>
-                  </div>
-                </div>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">REAL ESTATE</span>
-                  <div class="project-card__tags-row">
-                    <span class="project-card__tag">MVP</span>
-                    <span class="project-card__tag">B2C</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-item__mobile">
-              <a class="project-card__media-link" data-case-link href="/domovoy/index.html" aria-label="Открыть кейс Домовой">
-                <div class="project-card__media">
-                  <img
-                    class="project-card__cover"
-                    src="./assets/images/domovoy/hero.png?v=20260528-domovoy-refresh-2"
-                    alt="Превью кейса Домовой"
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                  />
-                </div>
-              </a>
-              <div class="project-mobile__content">
-                <div class="project-mobile__paragraph">
-                  <a class="project-item__title-link" data-case-link href="/domovoy/index.html" aria-label="Открыть кейс Домовой">
-                    <p class="project-item__title project-card__title">Домовой↳</p>
-                  </a>
-                  <p class="project-card__description">
-                    Концепт мобильного приложения для управления недвижимостью
-                  </p>
-                </div>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">REAL ESTATE</span>
-                  <div class="project-card__tags-row">
-                    <span class="project-card__tag">MVP</span>
-                    <span class="project-card__tag">B2C</span>
-                  </div>
-                </div>
-                <div class="project-card__role">
-                  <p class="project-card__role-label">Роль</p>
-                  <span class="project-card__role-dot"></span>
-                  <p class="project-card__role-text">Продуктовый дизайнер</p>
-                </div>
+          <article class="project-showcase__card" data-case="hios">
+            <a class="project-showcase__media project-showcase__media--hios" data-case-link href="/hios/index.html" aria-label="Открыть кейс HiOS">
+              <img class="project-showcase__image project-showcase__image--hios" src="./assets/images/home/projects-redesign/hios.png" alt="Концепция операционной системы HiOS" width="1992" height="1200" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-showcase__info">
+              <ul class="project-showcase__tags" aria-label="Категории проекта"><li>B2C</li><li>Mobile</li><li>Operating system</li></ul>
+              <div class="project-showcase__copy project-showcase__copy--hios">
+                <h2 class="project-showcase__title"><a data-case-link href="/hios/index.html">Дизайн операционной системы HiOS (Tecno и Infinix)</a></h2>
+                <p class="project-showcase__description">Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код</p>
               </div>
             </div>
           </article>
 
-          <article class="project-item reveal">
-            <div class="project-item__desktop" aria-hidden="true">
-              <a class="project-card__media-link" data-case-link href="/hios/index.html" aria-label="Открыть кейс HiOS">
-                <div class="project-card__media">
-                  <img
-                    class="project-card__cover"
-                    src="./assets/images/home/projects-hios-figma-1992x1200.png?v=20260412-projects-421-792-2"
-                    alt="Превью кейса HiOS"
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                  />
-                </div>
-              </a>
-              <div class="project-card__content">
-                <div class="project-card__copy">
-                  <a class="project-item__title-link" data-case-link href="/hios/index.html" aria-label="Открыть кейс HiOS">
-                    <p class="project-item__title project-card__title">HiOS (Tecno и Infinix)↳</p>
-                  </a>
-                  <p class="project-card__description">
-                    Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе
-                    — русский культурный код
-                  </p>
-                  <div class="project-card__role">
-                    <p class="project-card__role-label">Роль</p>
-                    <span class="project-card__role-dot"></span>
-                    <p class="project-card__role-text">UI/UX дизайнер</p>
-                  </div>
-                </div>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">OPERATING SYSTEM</span>
-                  <span class="project-card__tag">B2C</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-item__mobile">
-              <a class="project-card__media-link" data-case-link href="/hios/index.html" aria-label="Открыть кейс HiOS">
-                <div class="project-card__media">
-                  <img
-                    class="project-card__cover"
-                    src="./assets/images/home/projects-hios-figma-1992x1200.png?v=20260412-projects-421-792-2"
-                    alt="Превью кейса HiOS"
-                    loading="lazy"
-                    decoding="async"
-                    fetchpriority="low"
-                  />
-                </div>
-              </a>
-              <div class="project-mobile__content">
-                <div class="project-mobile__paragraph">
-                  <a class="project-item__title-link" data-case-link href="/hios/index.html" aria-label="Открыть кейс HiOS">
-                    <p class="project-item__title project-card__title">HiOS (Tecno и Infinix)↳</p>
-                  </a>
-                  <p class="project-card__description">
-                    Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе —
-                    русский культурный код
-                  </p>
-                </div>
-                <div class="project-card__tags">
-                  <span class="project-card__tag">OPERATING SYSTEM</span>
-                  <span class="project-card__tag">B2C</span>
-                </div>
-                <div class="project-card__role">
-                  <p class="project-card__role-label">Роль</p>
-                  <span class="project-card__role-dot"></span>
-                  <p class="project-card__role-text">Продуктовый дизайнер</p>
-                </div>
+          <article class="project-showcase__card" data-case="lori">
+            <a class="project-showcase__media project-showcase__media--calorie" data-case-link href="/lori/index.html" aria-label="Открыть кейс приложения для трекинга калорий">
+              <img class="project-showcase__image project-showcase__image--calorie" src="./assets/images/home/projects-redesign/calorie-tracker.png" alt="Интерфейсы приложения для трекинга калорий" width="1992" height="1200" loading="lazy" decoding="async" />
+            </a>
+            <div class="project-showcase__info">
+              <ul class="project-showcase__tags" aria-label="Категории проекта"><li>B2C</li><li>Mobile</li><li>Medtech</li></ul>
+              <div class="project-showcase__copy project-showcase__copy--calorie">
+                <h2 class="project-showcase__title"><a data-case-link href="/lori/index.html">Мобильное приложение<br />для трекинга калорий</a></h2>
+                <p class="project-showcase__description">Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность</p>
               </div>
             </div>
           </article>
-
         </div>
       </section>
 
-      <section class="section mentions mentions--figma" aria-label="Honorable mentions">
-        <div class="mentions__canvas">
-          <img class="mentions__title reveal" src="./assets/images/marshall/mentions/mentions-title-new.svg" alt="Honorable mentions" loading="lazy" decoding="async" />
-
-          <div class="mentions__list">
-            <article class="mentions__card reveal">
-              <div class="mentions__head">
-                <div class="mentions__project-link">
-                  <h3 class="mentions__project-title mentions__caption">Дача</h3>
-                </div>
-                <p class="mentions__project-description">
-                  Дизайн-концепция и диджитал-айдентика приложения для поиска событий и друзей на карте
-                </p>
+      <section id="mentions" class="section mentions mentions--redesign" aria-labelledby="mentions-title">
+        <div class="mentions-reel__sticky">
+          <h2 id="mentions-title" class="mentions-reel__heading">Проекты, достойные<br />упоминания</h2>
+          <div class="mentions-reel__gallery">
+            <div class="mentions-reel__group" data-mentions-project="Дача">
+              <h3 class="mentions-reel__group-title">Дача</h3>
+              <div class="mentions-reel__media is-active">
+                <img src="./assets/images/home/mentions-redesign/dacha-1.png" alt="Дача — экраны приложения на красном фоне" width="2720" height="1600" decoding="async" />
               </div>
-
-              <div class="mentions__shots">
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/dacha-row-1.png?v=20260415-mentions-419-526-1" alt="Дача — превью 1" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <div class="mentions__video" aria-label="Дача — анимированное превью 2">
-                    <iframe
-                      class="mentions__video-frame"
-                      src="https://player.vimeo.com/video/1201332532?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"
-                      title="Дача — анимированное превью"
-                      frameborder="0"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/dacha-row-2-photo.png?v=20260615-dacha-photo-1" alt="Дача — рука с телефоном" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/dacha-row-3.png?v=20260415-mentions-419-526-1" alt="Дача — превью 3" loading="lazy" decoding="async" />
-                </div>
+              <div class="mentions-reel__media">
+                <img class="mentions-reel__image--dacha-second" src="./assets/images/home/mentions-redesign/dacha-2.png" alt="Дача — приложение на телефоне в руке" width="1251" height="723" loading="lazy" decoding="async" />
               </div>
-            </article>
-
-            <article class="mentions__card reveal">
-              <div class="mentions__head">
-                <div class="mentions__project-link">
-                  <h3 class="mentions__project-title mentions__caption">NL International</h3>
-                </div>
-                <p class="mentions__project-description">
-                  Новый сайт для крупнейшего в РФ производителя БАДов. Генерировал 3D-шки и анимации при помощи Hailuo и Kling
-                </p>
+              <div class="mentions-reel__media">
+                <img src="./assets/images/home/mentions-redesign/dacha-3.png" alt="Дача — экраны приложения на фоне города" width="2720" height="1600" loading="lazy" decoding="async" />
               </div>
-
-              <div class="mentions__shots">
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/nl-row-1.png?v=20260415-mentions-419-526-1" alt="NL International — превью 1" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/nl-row-2.png?v=20260415-mentions-419-526-1" alt="NL International — превью 2" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/nl-row-3.png?v=20260415-mentions-419-526-1" alt="NL International — превью 3" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/nl-row-4.png?v=20260415-mentions-419-526-1" alt="NL International — превью 4" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/nl-row-5.png?v=20260415-mentions-419-526-1" alt="NL International — превью 5" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/nl-row-6.png?v=20260415-mentions-419-526-2" alt="NL International — превью 6" loading="lazy" decoding="async" />
-                </div>
+            </div>
+            <div class="mentions-reel__group" data-mentions-project="NL International">
+              <h3 class="mentions-reel__group-title">NL International</h3>
+              <div class="mentions-reel__media">
+                <img class="mentions-reel__image--portrait" src="./assets/images/home/mentions-redesign/nl-1.png" alt="NL International — сайт на ноутбуке среди ромашек" width="2815" height="4096" loading="lazy" decoding="async" />
               </div>
-            </article>
-
-            <article class="mentions__card reveal">
-              <div class="mentions__head">
-                <div class="mentions__project-link">
-                  <h3 class="mentions__project-title mentions__caption">Simple Coffee</h3>
-                </div>
-                <p class="mentions__project-description">Мобильное приложение для кофейной сети Урала с 25+ точками в Екатеринбурге</p>
+              <div class="mentions-reel__media">
+                <img src="./assets/images/home/mentions-redesign/nl-2.png" alt="NL International — два экрана сайта на розовом фоне" width="2720" height="1600" loading="lazy" decoding="async" />
               </div>
-
-              <div class="mentions__shots">
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/simplecoffee-row-1.png?v=20260513-sc-row1-1" alt="Simple Coffee — превью 1" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/simplecoffee-row-2.png?v=20260415-mentions-419-526-1" alt="Simple Coffee — превью 2" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/simplecoffee-row-3.png?v=20260415-mentions-419-526-1" alt="Simple Coffee — превью 3" loading="lazy" decoding="async" />
-                </div>
-                <div class="mentions__shot-link">
-                  <img class="mentions__shot" src="./assets/images/home/mentions-figma/simplecoffee-row-4.png?v=20260415-mentions-419-526-1" alt="Simple Coffee — превью 4" loading="lazy" decoding="async" />
-                </div>
+              <div class="mentions-reel__media">
+                <img src="./assets/images/home/mentions-redesign/nl-3.png" alt="NL International — элементы сайта и продуктов" width="1920" height="1520" loading="lazy" decoding="async" />
               </div>
-            </article>
+            </div>
+            <div class="mentions-reel__group" data-mentions-project="Simple Coffee">
+              <h3 class="mentions-reel__group-title">Simple Coffee</h3>
+              <div class="mentions-reel__media">
+                <img src="./assets/images/home/mentions-redesign/coffee-1.png" alt="Simple Coffee — главный экран приложения на градиентном фоне" width="2720" height="1600" loading="lazy" decoding="async" />
+              </div>
+              <div class="mentions-reel__media">
+                <img class="mentions-reel__image--portrait" src="./assets/images/home/mentions-redesign/coffee-2.png" alt="Simple Coffee — приложение рядом с чашкой кофе" width="2731" height="4096" loading="lazy" decoding="async" />
+              </div>
+              <div class="mentions-reel__media">
+                <img src="./assets/images/home/mentions-redesign/coffee-3.png" alt="Simple Coffee — три экрана приложения" width="2720" height="1600" loading="lazy" decoding="async" />
+              </div>
+            </div>
           </div>
+          <p class="mentions-reel__current" aria-hidden="true">Дача</p>
         </div>
+        <div class="mentions-reel__track" aria-hidden="true"></div>
       </section>
 
-      <section id="concepts" class="section shots shots--figma" aria-label="Концепты">
-        <div class="shots__canvas">
-          <img
-            class="shots__headline reveal"
-            src="./assets/images/home/shots/headline.svg?v=20260412-shots-434-1359-1"
-            alt="Шоты"
-            loading="lazy"
-            decoding="async"
-          />
-
-          <div class="shots__list">
-            <article class="shots__item reveal">
-              <div class="shots__video shots__video--concept">
-                <iframe
-                  class="shots__video-frame"
-                  src="https://player.vimeo.com/video/1202378724?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"
-                  title="Концепт — анимированное превью"
-                  frameborder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  loading="lazy"
-                ></iframe>
-              </div>
-              <p class="shots__caption">Концепт раздела «Выгода» в приложении Альфа Банка</p>
-            </article>
-
-            <article class="shots__item reveal">
-              <img
-                class="shots__image"
-                src="./assets/images/home/shots/shot-1.png?v=20260412-shots-434-1359-1"
-                alt="Концепт профиля курьера для Яндекс Лавки"
-                loading="lazy"
-                decoding="async"
-              />
-              <p class="shots__caption">Концепт профиля курьера для Яндекс Лавки</p>
-            </article>
-
-            <article class="shots__item reveal">
-              <div class="shots__video">
-                <iframe
-                  class="shots__video-frame"
-                  src="https://player.vimeo.com/video/1200866158?h=cf5db5140c&background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"
-                  title="Тиндер для Золотого Яблока"
-                  frameborder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  loading="lazy"
-                ></iframe>
-              </div>
-              <p class="shots__caption">Тиндер для Золотого Яблока</p>
-            </article>
-
-            <article class="shots__item reveal">
-              <img
-                class="shots__image"
-                src="./assets/images/home/shots/shot-2.png?v=20260412-shots-434-1359-1"
-                alt="Концепт спецпроекта ко Дню космонавтики для Яндекс Музыки"
-                loading="lazy"
-                decoding="async"
-              />
-              <p class="shots__caption">Концепт спецпроекта ко Дню космонавтики для Яндекс Музыки</p>
-            </article>
-
-            <article class="shots__item reveal">
-              <img
-                class="shots__image"
-                src="./assets/images/home/shots/shot-3.png?v=20260517-shots-ozon-bank-2"
-                alt="Редизайн главной страницы приложения Озон Банка"
-                loading="lazy"
-                decoding="async"
-              />
-              <p class="shots__caption">Редизайн главной страницы приложения Озон Банка</p>
-            </article>
-
-            <article class="shots__item reveal">
-              <img
-                class="shots__image"
-                src="./assets/images/home/shots/shot-4.png?v=20260412-shots-434-1359-1"
-                alt="Концепт трекера финансовых привычек для Альфа Банка"
-                loading="lazy"
-                decoding="async"
-              />
-              <p class="shots__caption">Концепт трекера финансовых привычек для Альфа Банка</p>
-            </article>
-
-            <article class="shots__item reveal">
-              <img
-                class="shots__image"
-                src="./assets/images/home/shots/shot-5.png?v=20260417-shots-vk-redesign-2"
-                alt="Редизайн страницы профиля ВК"
-                loading="lazy"
-                decoding="async"
-              />
-              <p class="shots__caption">Редизайн страницы профиля ВК</p>
-            </article>
-
-            <article class="shots__item reveal">
-              <img
-                class="shots__image"
-                src="./assets/images/home/shots/shot-6.png?v=20260425-shots-434-1359-2"
-                alt="Концепт приложения для трекинга калорий"
-                loading="lazy"
-                decoding="async"
-              />
-              <p class="shots__caption">Концепт приложения для трекинга калорий</p>
-            </article>
-
-          </div>
+      <section id="concepts" class="section concepts-grid" aria-labelledby="concepts-title">
+        <h2 id="concepts-title" class="concepts-grid__heading"><img src="./assets/images/home/concepts-redesign/heading.svg" alt="Концепты" width="584" height="124" loading="lazy" decoding="async" /></h2>
+        <div class="concepts-grid__list">
+          <article class="concepts-grid__card" aria-label="Концепт профиля курьера в голубом приложении">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/courier.png?v=2x" alt="Концепт профиля курьера в голубом приложении" width="448" height="700" loading="lazy" decoding="async" />
+          </article>
+          <article class="concepts-grid__card" aria-label="Концепт приложения для путешествий с экраном авиаперелёта">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/flight.png?v=2x" alt="Концепт приложения для путешествий с экраном авиаперелёта" width="448" height="700" loading="lazy" decoding="async" />
+          </article>
+          <article class="concepts-grid__card" aria-label="Концепт главного экрана банковского приложения">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/ozon.png?v=2x" alt="Концепт главного экрана банковского приложения" width="448" height="700" loading="lazy" decoding="async" />
+          </article>
+          <article class="concepts-grid__card" aria-label="Концепт приложения Альфа Банка">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/alfa.png?v=2x" alt="Концепт приложения Альфа Банка" width="448" height="700" loading="lazy" decoding="async" />
+            <iframe class="concepts-grid__video-frame concepts-grid__video-frame--wide" src="https://player.vimeo.com/video/1202378724?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;controls=0&amp;title=0&amp;byline=0&amp;portrait=0" title="Альфа Банк — видео концепта" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </article>
+          <article class="concepts-grid__card" aria-label="Концепт карты Ozon Банка">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/ozon-card.png?v=2x" alt="Концепт карты Ozon Банка" width="448" height="700" loading="lazy" decoding="async" />
+          </article>
+          <article class="concepts-grid__card" aria-label="Концепт поиска авиабилетов">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/tickets.png?v=2x" alt="Концепт поиска авиабилетов" width="448" height="700" loading="lazy" decoding="async" />
+          </article>
+          <article class="concepts-grid__card" aria-label="Концепт приложения для питания">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/nutrition.png?v=2x" alt="Концепт приложения для питания" width="448" height="700" loading="lazy" decoding="async" />
+          </article>
+          <article class="concepts-grid__card" aria-label="Концепт приложения для косметики">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/beauty.png?v=2x" alt="Концепт приложения для косметики" width="448" height="700" loading="lazy" decoding="async" />
+          </article>
+          <article class="concepts-grid__card concepts-grid__card--video" aria-label="Концепт Кинопоиска">
+            <img class="concepts-grid__image" src="./assets/images/home/concepts-redesign/final-video-poster.jpg" alt="Экран концепта Кинопоиска" width="640" height="360" loading="lazy" decoding="async" />
+            <iframe class="concepts-grid__video-frame" src="https://player.vimeo.com/video/1230625967?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;controls=0&amp;title=0&amp;byline=0&amp;portrait=0" title="Кинопоиск — видео концепта" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </article>
         </div>
       </section>
 
       <section class="section openwork openwork--figma" aria-label="Open For Work">
         <div class="openwork__canvas">
           <p class="openwork__headline reveal">
-            веду блог про дизайн<br />
-            в телеграме и Linkedin
+            веду блог про дизайн и карьеру
           </p>
 
           <div class="openwork__links reveal">
@@ -780,42 +291,41 @@
         </div>
       </section>
 
-      <section id="contacts" class="section contacts contacts--figma">
-        <div class="contacts__canvas">
-          <img
-            class="contacts__phone reveal"
-            src="./assets/images/contacts-phone.gif"
-            alt="Телефон"
-            loading="lazy"
-            decoding="async"
-          />
-
-          <div class="contacts__links-row reveal">
-            <a class="contacts__link contacts__link--telegram" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">telegram</a>
-            <a
-              class="contacts__link contacts__link--linkedin"
-              href="https://www.behance.net/rafaelaliev"
-              target="_blank"
-              rel="noopener noreferrer"
-              >behance</a
-            >
-            <a class="contacts__link contacts__link--email" href="mailto:rafaelaliev53@gmail.com">email</a>
+      <footer id="contacts" class="portfolio-footer" aria-label="Контакты">
+        <div class="portfolio-footer__frame">
+          <div class="portfolio-footer__art" role="img" aria-label="Made with love">
+          <img src="./assets/images/home/footer-redesign/vector-4855.svg" alt="" style="left:105.24px;top:141.7px;width:122.47px;height:127.06px" />
+          <img src="./assets/images/home/footer-redesign/vector-4856.svg" alt="" style="left:238.73px;top:142.42px;width:98.61px;height:90.18px" />
+          <img src="./assets/images/home/footer-redesign/vector-4857.svg" alt="" style="left:345.95px;top:111px;width:61.66px;height:116.09px" />
+          <img src="./assets/images/home/footer-redesign/vector-4858.svg" alt="" style="left:417.51px;top:117.8px;width:92.74px;height:107.99px" />
+          <img src="./assets/images/home/footer-redesign/vector-4859.svg" alt="" style="left:82.14px;top:298.33px;width:138.6px;height:126.35px" />
+          <img src="./assets/images/home/footer-redesign/vector-4860.svg" alt="" style="left:252.45px;top:306.19px;width:31.17px;height:80.95px" />
+          <img src="./assets/images/home/footer-redesign/vector-4861.svg" alt="" style="left:243.28px;top:272.13px;width:24.62px;height:24.62px" />
+          <img src="./assets/images/home/footer-redesign/vector-4862.svg" alt="" style="left:313.98px;top:268.2px;width:73.14px;height:100.15px" />
+          <img src="./assets/images/home/footer-redesign/vector-4863.svg" alt="" style="left:283.89px;top:293.09px;width:92.74px;height:29.86px" />
+          <img src="./assets/images/home/footer-redesign/vector-4864.svg" alt="" style="left:388.69px;top:261.65px;width:78.33px;height:84.89px" />
+          <img src="./assets/images/home/footer-redesign/vector-4865.svg" alt="" style="left:169.92px;top:447.67px;width:65.23px;height:112.39px" />
+          <img src="./assets/images/home/footer-redesign/vector-4866.svg" alt="" style="left:231.36px;top:456.84px;width:71.53px;height:87.21px" />
+          <img src="./assets/images/home/footer-redesign/vector-4867.svg" alt="" style="left:310.09px;top:433.26px;width:58.69px;height:81.61px" />
+          <img src="./assets/images/home/footer-redesign/vector-4868.svg" alt="" style="left:380.83px;top:412.94px;width:75.67px;height:92.67px" />
+          <img src="./assets/images/home/footer-redesign/vector-4869.svg" alt="" style="left:521px;top:438.8px;width:68.08px;height:181.81px" />
+          <img src="./assets/images/home/footer-redesign/vector-4870.svg" alt="" style="left:550.01px;top:471.28px;width:99.76px;height:143.99px" />
           </div>
-
-          <div class="contacts__banner reveal" aria-hidden="true">
-            <img
-              class="contacts__banner-image contacts__banner-image--mobile"
-              src="./assets/images/home/footer-banner-mobile-figma.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
-            <img class="contacts__banner-bg" src="./assets/images/home/footer-banner-figma-406-851.png" alt="" loading="lazy" decoding="async" />
+          <div class="portfolio-footer__contacts">
+            <p class="portfolio-footer__label">Контакты и социальные сети</p>
+            <div class="portfolio-footer__links">
+              <a href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer"><span class="animated-underline">Telegram</span> <span aria-hidden="true">→</span></a>
+              <a href="mailto:rafaelaliev53@gmail.com"><span class="animated-underline">Email</span> <span aria-hidden="true">→</span></a>
+              <a href="https://www.instagram.com/imrafaelaliev/" target="_blank" rel="noopener noreferrer"><span class="animated-underline">Instagram*</span> <span aria-hidden="true">→</span></a>
+              <a href="https://ru.pinterest.com/imrafaelaliev/" target="_blank" rel="noopener noreferrer"><span class="animated-underline">Pinterest</span> <span aria-hidden="true">→</span></a>
+            </div>
           </div>
+          <p class="portfolio-footer__note"><span aria-hidden="true">*</span><span>Meta признана экстремистской<br />на территории РФ</span></p>
         </div>
-      </section>
+      </footer>
     </main>
 
-    <script src="./js/main.js?v=20260613-project-order-1" defer></script>
+    <script src="https://player.vimeo.com/api/player.js" defer></script>
+    <script src="./js/main.js?v=20260927-project-filter-1" defer></script>
   </body>
 </html>

@@ -1,7 +1,177 @@
 (() => {
   document.documentElement.classList.add('js');
+
+  const hero = document.querySelector('.home--rebuild .hero--figma');
+  if (hero) {
+    const portfolioFooter = document.querySelector('#contacts.portfolio-footer');
+    const updateHeroChrome = () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const actionsTop = document.querySelector('.site-chrome .hero__actions').getBoundingClientRect().top;
+      const footerRect = portfolioFooter?.getBoundingClientRect();
+      if (portfolioFooter && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+        portfolioFooter.classList.add('is-filled');
+      }
+      document.body.classList.toggle('about-intro-visible', heroBottom <= 32);
+      document.body.classList.toggle('hero-controls-on-white', heroBottom <= actionsTop);
+      document.body.classList.toggle('hero-menu-on-white', heroBottom <= 68);
+      document.body.classList.toggle('footer-in-view', !!footerRect && footerRect.top <= actionsTop && footerRect.bottom > actionsTop);
+      document.body.classList.toggle('footer-is-filled', !!portfolioFooter?.classList.contains('is-filled'));
+    };
+    updateHeroChrome();
+    window.addEventListener('scroll', updateHeroChrome, { passive: true });
+    window.addEventListener('resize', updateHeroChrome);
+
+    if (document.documentElement.classList.contains('hero-intro-playing')) {
+      const finishIntro = () => {
+        if (!document.documentElement.classList.contains('hero-intro-playing')) return;
+        document.documentElement.classList.remove('hero-intro-playing');
+        document.documentElement.classList.add('hero-intro-complete');
+        window.removeEventListener('scroll', skipIntroOnScroll);
+      };
+      const skipIntroOnScroll = () => {
+        if (window.scrollY > 32) finishIntro();
+      };
+      if (window.scrollY > 32) {
+        finishIntro();
+      } else {
+        const activeSignature = hero.querySelector(
+          window.matchMedia('(max-width: 1199px)').matches
+            ? '.hero__signature-art--mobile'
+            : '.hero__signature-art--desktop'
+        );
+        activeSignature?.querySelector('path:last-child')?.addEventListener('animationend', finishIntro, { once: true });
+        window.addEventListener('scroll', skipIntroOnScroll, { passive: true });
+        window.setTimeout(finishIntro, 4500);
+      }
+    }
+
+    const menuToggle = document.querySelector('.site-chrome .hero__menu-toggle');
+    const navigation = document.querySelector('.site-chrome .hero__side-nav');
+    const siteChrome = document.querySelector('.site-chrome');
+    const menuBackdrop = siteChrome.querySelector('.hero__menu-backdrop');
+    const closeMenu = () => {
+      navigation.classList.remove('is-open');
+      siteChrome.classList.remove('is-menu-open');
+      document.body.classList.remove('mobile-menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Открыть меню');
+    };
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('is-open');
+      siteChrome.classList.toggle('is-menu-open', isOpen);
+      document.body.classList.toggle('mobile-menu-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    });
+    menuBackdrop.addEventListener('click', closeMenu);
+    navigation.addEventListener('click', (event) => {
+      if (event.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+    const ovalImage = hero.querySelector('.hero__oval-image');
+    const previewNodes = document.querySelectorAll(
+      '#projects .project-showcase__image, .mentions-reel__media img'
+    );
+    const previews = Array.from(previewNodes, (node) => ({
+      src: node.getAttribute('src'),
+      alt: node.getAttribute('alt') || 'Работа из портфолио'
+    })).filter((item, index, items) => item.src && items.findIndex((candidate) => candidate.src === item.src) === index);
+
+    if (previews.length > 1) {
+      let currentSrc = ovalImage.getAttribute('src');
+      let loading = false;
+
+      window.setInterval(() => {
+        if (loading) return;
+        const choices = previews.filter((item) => item.src !== currentSrc);
+        const next = choices[Math.floor(Math.random() * choices.length)];
+        const incoming = new Image();
+        loading = true;
+        incoming.onload = () => {
+          ovalImage.src = next.src;
+          ovalImage.alt = next.alt;
+          currentSrc = next.src;
+          loading = false;
+        };
+        incoming.onerror = () => {
+          loading = false;
+        };
+        incoming.src = next.src;
+      }, 500);
+    }
+  }
+
+  const mentionsSection = document.querySelector('.home--rebuild .mentions--redesign');
+  if (mentionsSection) {
+    const media = Array.from(mentionsSection.querySelectorAll('.mentions-reel__media'));
+    const currentLabel = mentionsSection.querySelector('.mentions-reel__current');
+    const mobileLayout = window.matchMedia('(max-width: 1199px)');
+    let activeIndex = -1;
+    let scrollFrame = 0;
+
+    const updateMentions = () => {
+      scrollFrame = 0;
+      if (mobileLayout.matches || !media.length) return;
+
+      const sectionTop = mentionsSection.getBoundingClientRect().top;
+      const scrollDistance = Math.max(1, mentionsSection.offsetHeight - window.innerHeight);
+      const stageLength = scrollDistance / media.length;
+      const nextIndex = Math.min(media.length - 1, Math.max(0, Math.floor(-sectionTop / stageLength)));
+      if (nextIndex === activeIndex) return;
+
+      activeIndex = nextIndex;
+      media.forEach((item, index) => item.classList.toggle('is-active', index === activeIndex));
+      currentLabel.textContent = media[activeIndex].closest('[data-mentions-project]').dataset.mentionsProject;
+    };
+
+    const queueMentionsUpdate = () => {
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(updateMentions);
+    };
+
+    window.addEventListener('scroll', queueMentionsUpdate, { passive: true });
+    window.addEventListener('resize', () => {
+      activeIndex = -1;
+      queueMentionsUpdate();
+    });
+    updateMentions();
+  }
+
+  const conceptVideos = Array.from(document.querySelectorAll('.concepts-grid__video-frame'));
+  if (conceptVideos.length) {
+    if (window.Vimeo?.Player) {
+      conceptVideos.forEach((video) => {
+        const player = new window.Vimeo.Player(video);
+        player.on('play', () => video.classList.add('is-playing'));
+        player.on('error', () => video.classList.remove('is-playing'));
+      });
+    }
+    window.addEventListener('message', (event) => {
+      if (event.origin !== 'https://player.vimeo.com') return;
+      const video = conceptVideos.find((frame) => frame.contentWindow === event.source);
+      if (!video) return;
+      let payload = event.data;
+      if (typeof payload === 'string') {
+        try {
+          payload = JSON.parse(payload);
+        } catch {
+          return;
+        }
+      }
+      if (payload?.event === 'ready') {
+        video.contentWindow.postMessage({ method: 'addEventListener', value: 'play' }, 'https://player.vimeo.com');
+      }
+      if (payload?.event === 'play' || payload?.event === 'playing') {
+        video.classList.add('is-playing');
+      }
+    });
+  }
+
   const revealAll = () => {
-    document.querySelectorAll('.reveal').forEach((node) => node.classList.add('is-visible'));
+    document.querySelectorAll('.reveal, .motion-reveal').forEach((node) => node.classList.add('is-visible'));
   };
 
   const storage = {
@@ -67,90 +237,33 @@
       summary:
         'Объединил 3 сайта в единый E-commerce сервис и сократил путь до покупки с 5 до 3 шагов. Ускорил добавление в корзину с 15 до 8 секунд.',
       role: 'Продуктовый дизайнер',
-      tags: ['e-commerce', 'b2b & b2c']
-    },
-    {
-      slug: 'lori',
-      title: 'Lori Mobile App',
-      image: 'assets/images/lori/lori-hero-152-3220.png?v=20260610-lori-figma-1523220-1',
-      captionClass: 'marshall-page__next-case-caption--project',
-      summary: 'Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность',
-      role: 'Продуктовый дизайнер',
-      tags: ['medtech', 'mvp', 'b2c']
-    },
-    {
-      slug: 'domovoy',
-      title: 'Домовой',
-      image: 'assets/images/domovoy/hero.png?v=20260528-domovoy-refresh-2',
-      captionClass: 'marshall-page__next-case-caption--project',
-      summary: 'Концепт мобильного приложения для управления недвижимостью',
-      role: 'Продуктовый дизайнер',
-      tags: ['real estate', 'mvp', 'b2c']
+      tags: ['B2B & B2C', 'Web', 'E-commerce']
     },
     {
       slug: 'hios',
       title: 'HiOS (Tecno и Infinix)',
-      image: 'assets/images/hios/hero-preview.png',
+      image: 'assets/images/home/projects-redesign/hios.png',
       captionClass: 'marshall-page__next-case-caption--project',
       summary:
         'Провел анализ рынка ОС в РФ и разработал дизайн-концепцию операционной системы с аудиторией 10+ млн. человек. В основе — русский культурный код',
       role: 'UI/UX дизайнер',
-      tags: ['operating system', 'b2c']
+      tags: ['B2C', 'Mobile', 'Operating system']
     },
     {
-      slug: 'sladonezh',
-      title: 'Корпоративный сайт Сладонеж',
-      image: 'assets/images/sladonezh/hero-preview.png',
+      slug: 'lori',
+      title: 'Мобильное приложение для трекинга калорий',
+      image: 'assets/images/home/projects-redesign/calorie-tracker.png',
       captionClass: 'marshall-page__next-case-caption--project',
-      summary: 'С нуля сделали дизайн крупного производителя кондитерских изделий.',
-      role: 'UI/UX дизайнер',
-      tags: ['corporate site', 'b2b']
-    },
-    {
-      slug: 'dacha',
-      title: 'Дача | Приложение для поиска друзей',
-      image: 'assets/images/dacha/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--short'
-    },
-    {
-      slug: 'mtelectro',
-      title: 'МТ Электро | Прототип и концепт сайта светотехнической компании',
-      image: 'assets/images/mtelectro/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--mention'
-    },
-    {
-      slug: 'nl',
-      title: 'NL International | Концепт сайта',
-      image: 'assets/images/nl/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--short'
-    },
-    {
-      slug: 'simplecoffee',
-      title: 'Simple Coffee | Мобильное приложение',
-      image: 'assets/images/simplecoffee/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--mention'
-    },
-    {
-      slug: 'tochka',
-      title: 'Точка Банк | CJM телеграм бота',
-      image: 'assets/images/tochka/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--mention'
-    },
-    {
-      slug: 'insis',
-      title: 'ИНСИС | Креативная кампания',
-      image: 'assets/images/insis/hero-preview.png',
-      captionClass: 'marshall-page__next-case-caption--mention'
+      summary: 'Разработал механику удержания в приложении для трекинга питания через привычки и эмоциональную вовлеченность.',
+      role: 'Продуктовый дизайнер',
+      tags: ['B2C', 'Mobile', 'Medtech']
     }
   ];
   const caseMetaBySlug = new Map(FALLBACK_CASE_SEQUENCE.map((item) => [item.slug, item]));
-  const FORCED_NEXT_CASE_BY_SLUG = {
-    hios: 'marshall'
-  };
+  const FORCED_NEXT_CASE_BY_SLUG = {};
   const CANONICAL_NEXT_TITLE_BY_SLUG = {
     marshall: 'MARSHALL Autoparts',
-    lori: 'Lori Mobile App',
-    domovoy: 'Домовой',
+    lori: 'Мобильное приложение для трекинга калорий',
     hios: 'HiOS (Tecno и Infinix)'
   };
 
@@ -258,14 +371,14 @@
         if (!slug) return null;
 
         const fallback = caseMetaBySlug.get(slug);
-        const titleNode = card.querySelector('.project-item__title, .mentions__caption');
+        const titleNode = card.querySelector('.project-showcase__title, .project-item__title, .mentions__caption');
         const domTitle = titleNode ? titleNode.textContent.replace(/\s+/g, ' ').trim() : '';
-        const imageNode = card.querySelector('.project-item__desktop .project-card__cover, .project-card__cover, .mentions__cover img, img');
+        const imageNode = card.querySelector('.project-showcase__image, .project-item__desktop .project-card__cover, .project-card__cover, .mentions__cover img, img');
         const domImage = imageNode ? (imageNode.getAttribute('src') || '').trim() : '';
-        const descriptionNode = card.querySelector('.project-item__desktop .project-card__description, .project-card__description');
+        const descriptionNode = card.querySelector('.project-showcase__description, .project-item__desktop .project-card__description, .project-card__description');
         const roleNode = card.querySelector('.project-item__desktop .project-card__role-text, .project-card__role-text');
         const desktopScope = card.querySelector('.project-item__desktop') || card;
-        const tags = Array.from(desktopScope.querySelectorAll('.project-card__tag'))
+        const tags = Array.from(desktopScope.querySelectorAll('.project-showcase__tags li, .project-card__tag'))
           .map((tagNode) => tagNode.textContent.replace(/\s+/g, ' ').trim())
           .filter(Boolean)
           .filter((tag, idx, all) => all.indexOf(tag) === idx);
@@ -285,7 +398,7 @@
   const storeCaseSequenceFromHome = () => {
     if (!document.body.classList.contains('home')) return;
 
-    const cards = Array.from(document.querySelectorAll('.project-item, .mentions__card[data-case-link]'));
+    const cards = Array.from(document.querySelectorAll('.project-showcase__card[data-case], .project-item, .mentions__card[data-case-link]'));
     if (!cards.length) return;
 
     const sequence = buildCaseSequenceFromCards(cards);
@@ -305,7 +418,7 @@
       const html = await response.text();
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
-      const cards = Array.from(doc.querySelectorAll('.project-item, .mentions__card[data-case-link]'));
+      const cards = Array.from(doc.querySelectorAll('.project-showcase__card[data-case], .project-item, .mentions__card[data-case-link]'));
       if (!cards.length) return;
 
       const sequence = buildCaseSequenceFromCards(cards);
@@ -360,7 +473,7 @@
     }
 
     const baseTitle = String(nextCaseResolved.title || '').replace(/\s*↳+\s*$/, '').trim();
-    const titleWithArrow = baseTitle ? `${baseTitle}↳` : '';
+    const titleWithArrow = baseTitle;
     const description = nextCaseResolved.summary ? String(nextCaseResolved.summary).trim() : '';
     const role = nextCaseResolved.role ? String(nextCaseResolved.role).trim() : '';
     const tags = Array.isArray(nextCaseResolved.tags)
@@ -592,7 +705,28 @@
 
   injectSharedCaseFooter();
 
-  const revealItems = Array.from(document.querySelectorAll('.reveal'));
+  if (document.body.classList.contains('home--rebuild') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const motionSelectors = [
+      '.about-intro__collage',
+      '.about-intro__lead',
+      '.about-intro__orbit',
+      '.project-showcase__card',
+      '.mentions-reel__heading',
+      '.concepts-grid__heading',
+      '.concepts-grid__card',
+      '.portfolio-footer__art',
+      '.portfolio-footer__contacts',
+      '.portfolio-footer__note'
+    ];
+    const mobileMentions = window.matchMedia('(max-width: 1199px)');
+    motionSelectors.push(mobileMentions.matches ? '.mentions-reel__group' : '.mentions-reel__gallery');
+    document.querySelectorAll(motionSelectors.join(', ')).forEach((node) => node.classList.add('motion-reveal'));
+    mobileMentions.addEventListener('change', () => {
+      document.querySelectorAll('.motion-reveal').forEach((node) => node.classList.add('is-visible'));
+    }, { once: true });
+  }
+
+  const revealItems = Array.from(document.querySelectorAll('.reveal, .motion-reveal'));
 
   if (revealItems.length) {
     if (!('IntersectionObserver' in window)) {

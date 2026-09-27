@@ -138,7 +138,7 @@ button {
 .assistant-nav {
   position: absolute;
   z-index: 20;
-  top: 44px;
+  top: var(--nav-top, 44px);
   left: 0;
   display: flex;
   width: 402px;
@@ -151,7 +151,7 @@ button {
 .assistant-nav::before {
   position: absolute;
   z-index: -1;
-  top: -44px;
+  top: calc(-1 * var(--nav-top, 44px));
   right: 0;
   left: 0;
   height: 116px;
@@ -387,6 +387,22 @@ button {
   font-weight: 500;
   line-height: 16px;
   text-align: center;
+}
+
+.sber-phone.is-compact-height .shake-hint {
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sber-phone.is-compact-height .shake-hint p {
+  width: 186px;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.sber-phone.is-compact-height .shake-hint p br {
+  display: none;
 }
 
 .shake-symbol {
