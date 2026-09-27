@@ -231,7 +231,7 @@
   const FALLBACK_CASE_SEQUENCE = [
     {
       slug: 'marshall',
-      title: 'MARSHALL Autoparts',
+      title: 'Веб-сервис MARSHALL Autoparts',
       image: 'assets/images/marshall/hero-cover-20260407.png?v=20260407-marshall-cover-1',
       captionClass: 'marshall-page__next-case-caption--project',
       summary:
@@ -241,7 +241,7 @@
     },
     {
       slug: 'hios',
-      title: 'HiOS (Tecno и Infinix)',
+      title: 'Дизайн операционной системы HiOS (Tecno и Infinix)',
       image: 'assets/images/home/projects-redesign/hios.png',
       captionClass: 'marshall-page__next-case-caption--project',
       summary:
@@ -261,11 +261,7 @@
   ];
   const caseMetaBySlug = new Map(FALLBACK_CASE_SEQUENCE.map((item) => [item.slug, item]));
   const FORCED_NEXT_CASE_BY_SLUG = {};
-  const CANONICAL_NEXT_TITLE_BY_SLUG = {
-    marshall: 'MARSHALL Autoparts',
-    lori: 'Мобильное приложение для трекинга калорий',
-    hios: 'HiOS (Tecno и Infinix)'
-  };
+  let fetchedCaseSequence = null;
 
   const extractCaseSlug = (href) => {
     if (!href) return '';
@@ -356,9 +352,16 @@
 
   const getCaseSequence = () => {
     if (document.body.classList.contains('marshall-page')) {
-      return FALLBACK_CASE_SEQUENCE;
+      return fetchedCaseSequence || FALLBACK_CASE_SEQUENCE;
     }
     return readStoredCaseSequence() || FALLBACK_CASE_SEQUENCE;
+  };
+
+  const getProjectTitle = (node) => {
+    if (!node) return '';
+    const copy = node.cloneNode(true);
+    copy.querySelectorAll('br').forEach((breakNode) => breakNode.replaceWith(' '));
+    return copy.textContent.replace(/\s+/g, ' ').trim();
   };
 
   const buildCaseSequenceFromCards = (cards = []) =>
@@ -372,7 +375,7 @@
 
         const fallback = caseMetaBySlug.get(slug);
         const titleNode = card.querySelector('.project-showcase__title, .project-item__title, .mentions__caption');
-        const domTitle = titleNode ? titleNode.textContent.replace(/\s+/g, ' ').trim() : '';
+        const domTitle = getProjectTitle(titleNode);
         const imageNode = card.querySelector('.project-showcase__image, .project-item__desktop .project-card__cover, .project-card__cover, .mentions__cover img, img');
         const domImage = imageNode ? (imageNode.getAttribute('src') || '').trim() : '';
         const descriptionNode = card.querySelector('.project-showcase__description, .project-item__desktop .project-card__description, .project-card__description');
@@ -424,7 +427,16 @@
       const sequence = buildCaseSequenceFromCards(cards);
       if (!sequence.length) return;
 
+      fetchedCaseSequence = sequence;
       storage.set(CASE_SEQUENCE_KEY, JSON.stringify(sequence));
+      const currentCase = sequence.find((entry) => entry.slug === getCurrentCaseSlug());
+      const caseHeading = document.querySelector('body.marshall-page .marshall-page__title');
+      if (currentCase && caseHeading) {
+        if (getProjectTitle(caseHeading) !== currentCase.title) {
+          caseHeading.textContent = currentCase.title;
+        }
+        document.title = `${currentCase.title} — кейс Рафаэля Алиева`;
+      }
       syncNextCaseCard();
     } catch {
       // Keep fallback behavior when preload from home is unavailable.
@@ -457,9 +469,6 @@
       ...nextCaseMeta,
       ...nextCase
     };
-    if (CANONICAL_NEXT_TITLE_BY_SLUG[nextCaseResolved.slug]) {
-      nextCaseResolved.title = CANONICAL_NEXT_TITLE_BY_SLUG[nextCaseResolved.slug];
-    }
     const webNextHref = `/${nextCase.slug}/index.html`;
     const localNextHref = `../${nextCase.slug}/index.html`;
     nextCaseLink.setAttribute('href', isFileProtocol ? localNextHref : webNextHref);
