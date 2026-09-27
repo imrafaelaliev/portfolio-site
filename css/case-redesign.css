@@ -144,7 +144,7 @@ body.marshall-page .marshall-page__tag {
   justify-content: center;
   width: auto;
   height: 40px;
-  padding: 8px 20px;
+  padding: 0 20px;
   border: 0;
   border-radius: 100px;
   background: #f3f3f3;
@@ -152,7 +152,7 @@ body.marshall-page .marshall-page__tag {
   font-family: "Inter Tight", Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 20px;
   text-transform: none;
   white-space: nowrap;
 }
@@ -202,11 +202,16 @@ body.marshall-page .marshall-page__ordered-list {
   padding-left: 30px;
 }
 
+body.marshall-page .marshall-page__list li + li,
+body.marshall-page .marshall-page__ordered-list li + li {
+  margin-top: 4px;
+}
+
 body.marshall-page .marshall-page__section .marshall-page__text + .marshall-page__list,
 body.marshall-page .marshall-page__section .marshall-page__list + .marshall-page__text,
 body.marshall-page .marshall-page__solutions-item .marshall-page__text + .marshall-page__list,
 body.marshall-page .marshall-page__solutions-item .marshall-page__list + .marshall-page__text {
-  margin-top: -16px;
+  margin-top: 0;
 }
 
 body.marshall-page .marshall-page__hypotheses {
@@ -218,7 +223,7 @@ body.marshall-page .marshall-page__hypotheses-content {
 }
 
 body.marshall-page .marshall-page__text-flow {
-  gap: 0;
+  gap: 12px;
 }
 
 body.marshall-page .marshall-page__hypothesis-label {
@@ -351,14 +356,35 @@ body.marshall-page .marshall-page__next-case-link .project-card__tags-row {
 
 body.marshall-page .marshall-page__next-case-link .project-card__tag {
   height: 40px;
-  padding: 8px 20px;
+  padding: 0 20px;
   border-radius: 100px;
   background: #f3f3f3;
   font-family: "Inter Tight", Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 20px;
   text-transform: none;
+}
+
+body.marshall-page .marshall-page__next-case-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 100px;
+  background: #f3f3f3;
+  font-family: "Inter Tight", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+body.marshall-page .marshall-page__next-case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 body.marshall-page .marshall-page__next-case-link .project-card__copy {
@@ -393,6 +419,12 @@ body.marshall-page .marshall-page__next-case-link .project-card__role {
 }
 
 @media (max-width: 1199px) {
+  body.marshall-page .marshall-page__tag,
+  body.marshall-page .marshall-page__next-case-link .project-card__tag,
+  body.marshall-page .marshall-page__next-case-tag {
+    background: #e8e8e8;
+  }
+
   body.marshall-page .marshall-page__main {
     width: 100%;
     margin: 0;
@@ -472,14 +504,17 @@ body.marshall-page .marshall-page__next-case-link .project-card__role {
 
   body.marshall-page .marshall-page__tags,
   body.marshall-page .marshall-page__tags-row {
-    gap: 6px;
+    gap: 8px;
   }
 
   body.marshall-page .marshall-page__tag,
-  body.marshall-page .marshall-page__next-case-link .project-card__tag {
-    height: 32px;
-    padding: 7px 14px;
-    font-size: 12px;
+  body.marshall-page .marshall-page__next-case-link .project-card__tag,
+  body.marshall-page .marshall-page__next-case-tag {
+    height: 40px;
+    padding: 0 20px;
+    background: #e8e8e8;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   body.marshall-page .marshall-page__section {
@@ -508,13 +543,6 @@ body.marshall-page .marshall-page__next-case-link .project-card__role {
   body.marshall-page .marshall-page__list,
   body.marshall-page .marshall-page__ordered-list {
     padding-left: 24px;
-  }
-
-  body.marshall-page .marshall-page__section .marshall-page__text + .marshall-page__list,
-  body.marshall-page .marshall-page__section .marshall-page__list + .marshall-page__text,
-  body.marshall-page .marshall-page__solutions-item .marshall-page__text + .marshall-page__list,
-  body.marshall-page .marshall-page__solutions-item .marshall-page__list + .marshall-page__text {
-    margin-top: -12px;
   }
 
   body.marshall-page .marshall-page__solutions > .marshall-page__section-title,
@@ -559,7 +587,7 @@ body.marshall-page .marshall-page__next-case-link .project-card__role {
 
   body.marshall-page .marshall-page__next-case-link .project-card__tags {
     order: -1;
-    gap: 6px;
+    gap: 8px;
   }
 
   body.marshall-page .marshall-page__next-case-link .project-card__copy {

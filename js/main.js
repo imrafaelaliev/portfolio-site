@@ -648,62 +648,17 @@
 
   initCompaniesHover();
 
-  const injectSharedCaseFooter = () => {
-    if (!document.body.classList.contains('marshall-page')) return;
-
-    document.querySelectorAll('.marshall-page__footer').forEach((footerNode) => footerNode.remove());
-    document.querySelectorAll('[data-shared-home-footer]').forEach((footerNode) => footerNode.remove());
-
-    const rootNode = document.body;
-    if (!rootNode) return;
-
-    const footerShell = document.createElement('div');
-    footerShell.className = 'home home--rebuild marshall-page__shared-home-footer';
-    footerShell.setAttribute('data-shared-home-footer', '');
-
-    const footerSection = document.createElement('section');
-    footerSection.className = 'section contacts contacts--figma';
-    footerSection.setAttribute('aria-label', 'Контакты');
-    footerSection.innerHTML = `
-      <div class="contacts__canvas">
-        <img
-          class="contacts__phone reveal"
-          src="../assets/images/contacts-phone.gif"
-          alt="Телефон"
-          loading="lazy"
-          decoding="async"
-        />
-
-        <div class="contacts__links-row reveal">
-          <a class="contacts__link contacts__link--telegram" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">telegram</a>
-          <a
-            class="contacts__link contacts__link--linkedin"
-            href="https://www.behance.net/rafaelaliev"
-            target="_blank"
-            rel="noopener noreferrer"
-            >behance</a
-          >
-          <a class="contacts__link contacts__link--email" href="mailto:rafaelaliev53@gmail.com">email</a>
-        </div>
-
-        <div class="contacts__banner reveal" aria-hidden="true">
-          <img
-            class="contacts__banner-image contacts__banner-image--mobile"
-            src="../assets/images/home/footer-banner-mobile-figma.png"
-            alt=""
-            loading="lazy"
-            decoding="async"
-          />
-          <img class="contacts__banner-bg" src="../assets/images/home/footer-banner-figma-406-851.png" alt="" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    `;
-
-    footerShell.appendChild(footerSection);
-    rootNode.appendChild(footerShell);
-  };
-
-  injectSharedCaseFooter();
+  const caseFooter = document.querySelector('body.marshall-page #contacts.portfolio-footer');
+  if (caseFooter) {
+    const fillCaseFooter = () => {
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+        caseFooter.classList.add('is-filled');
+      }
+    };
+    fillCaseFooter();
+    window.addEventListener('scroll', fillCaseFooter, { passive: true });
+    window.addEventListener('resize', fillCaseFooter);
+  }
 
   if (document.body.classList.contains('home--rebuild') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const motionSelectors = [
