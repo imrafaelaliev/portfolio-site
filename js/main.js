@@ -1,6 +1,35 @@
 (() => {
   document.documentElement.classList.add('js');
 
+  const siteChrome = document.querySelector('.site-chrome');
+  const menuToggle = siteChrome?.querySelector('.hero__menu-toggle');
+  const navigation = siteChrome?.querySelector('.hero__side-nav');
+  const menuBackdrop = siteChrome?.querySelector('.hero__menu-backdrop');
+  if (menuToggle && navigation && menuBackdrop) {
+    const closeMenu = () => {
+      navigation.classList.remove('is-open');
+      siteChrome.classList.remove('is-menu-open');
+      document.body.classList.remove('mobile-menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Открыть меню');
+    };
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('is-open');
+      siteChrome.classList.toggle('is-menu-open', isOpen);
+      document.body.classList.toggle('mobile-menu-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    });
+    menuBackdrop.addEventListener('click', closeMenu);
+    navigation.addEventListener('click', (event) => {
+      if (event.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  }
+
   const hero = document.querySelector('.home--rebuild .hero--figma');
   if (hero) {
     const portfolioFooter = document.querySelector('#contacts.portfolio-footer');
@@ -45,32 +74,6 @@
       }
     }
 
-    const menuToggle = document.querySelector('.site-chrome .hero__menu-toggle');
-    const navigation = document.querySelector('.site-chrome .hero__side-nav');
-    const siteChrome = document.querySelector('.site-chrome');
-    const menuBackdrop = siteChrome.querySelector('.hero__menu-backdrop');
-    const closeMenu = () => {
-      navigation.classList.remove('is-open');
-      siteChrome.classList.remove('is-menu-open');
-      document.body.classList.remove('mobile-menu-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', 'Открыть меню');
-    };
-
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navigation.classList.toggle('is-open');
-      siteChrome.classList.toggle('is-menu-open', isOpen);
-      document.body.classList.toggle('mobile-menu-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
-    });
-    menuBackdrop.addEventListener('click', closeMenu);
-    navigation.addEventListener('click', (event) => {
-      if (event.target.closest('a')) closeMenu();
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeMenu();
-    });
     const ovalImage = hero.querySelector('.hero__oval-image');
     const previewNodes = document.querySelectorAll(
       '#projects .project-showcase__image, .mentions-reel__media img'
@@ -660,9 +663,13 @@
   const caseFooter = document.querySelector('body.marshall-page #contacts.portfolio-footer');
   if (caseFooter) {
     const fillCaseFooter = () => {
+      const footerRect = caseFooter.getBoundingClientRect();
+      const actionsTop = document.querySelector('.case-chrome .hero__actions')?.getBoundingClientRect().top ?? 32;
       if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
         caseFooter.classList.add('is-filled');
       }
+      document.body.classList.toggle('footer-in-view', footerRect.top <= actionsTop && footerRect.bottom > actionsTop);
+      document.body.classList.toggle('footer-is-filled', caseFooter.classList.contains('is-filled'));
     };
     fillCaseFooter();
     window.addEventListener('scroll', fillCaseFooter, { passive: true });

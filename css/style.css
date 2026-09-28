@@ -6630,8 +6630,12 @@ main {
 }
 
 @media (max-width: 374px) {
+  .portfolio-footer__frame {
+    min-height: max(920px, 100svh);
+  }
+
   .portfolio-footer__art {
-    transform: translate(-24px, 258px) scale(0.48);
+    transform: translate(-24px, 295px) scale(0.4);
   }
 
   .portfolio-footer__contacts {
@@ -6764,6 +6768,48 @@ main {
   .site-chrome .hero__menu-backdrop,
   .site-chrome .hero__menu-panel {
     transition: none;
+  }
+}
+
+/* One rhythm for the spaces between full content blocks. */
+:root {
+  --section-gap: 200px;
+}
+
+.home.home--rebuild main > section.about-intro {
+  padding-top: var(--section-gap) !important;
+}
+
+.home.home--rebuild main > section.projects--redesign.section {
+  padding-top: calc(var(--section-gap) - 80px) !important;
+}
+
+.projects--redesign .project-showcase {
+  gap: var(--section-gap);
+}
+
+.home.home--rebuild main > section.concepts-grid.section {
+  padding-top: var(--section-gap) !important;
+}
+
+.home.home--rebuild main > section.concepts-grid + section.openwork--figma.section {
+  padding-top: var(--section-gap) !important;
+  padding-bottom: var(--section-gap) !important;
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --section-gap: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home.home--rebuild main > section.projects--redesign.section {
+    padding-top: calc(var(--section-gap) - 64px) !important;
+  }
+
+  .home.home--rebuild main > section.concepts-grid.section {
+    padding-bottom: 0 !important;
   }
 }
 

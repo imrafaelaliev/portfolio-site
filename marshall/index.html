@@ -11,9 +11,9 @@
       content="Кейс MARSHALL: объединение трех продуктов в единый e-commerce сервис, UX-пересборка и результаты запуска."
     />
     <link rel="preload" as="image" href="../assets/images/home/projects-marshall-figma-2040x1200.png?v=20260412-projects-421-792-2" />
-    <link rel="stylesheet" href="../css/style.css?v=20260927-case-footer-1" />
+    <link rel="stylesheet" href="../css/style.css?v=20260928-spacing-header-1" />
     <link rel="stylesheet" href="../css/marshall.css?v=20260415-marshall-mobile-hypotheses-242-1530-1" />
-    <link rel="stylesheet" href="../css/case-redesign.css?v=20260927-3" />
+    <link rel="stylesheet" href="../css/case-redesign.css?v=20260928-spacing-header-1" />
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
@@ -29,17 +29,33 @@
   </head>
   <body class="marshall-page marshall-page--marshall">
     <noscript><div><img src="https://mc.yandex.ru/watch/109543635" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <main class="marshall-page__main">
-
-      <a class="marshall-page__back" data-back-to-home href="../" aria-label="На главную"><img src="../assets/icons/case-logo.svg" alt="" aria-hidden="true" /></a>
-
-      <div class="marshall-page__actions">
-        <a class="btn btn--ghost" href="https://disk.yandex.ru/d/BzEm_BL0T9i5PQ" target="_blank" rel="noopener noreferrer">
-          CV
-        </a>
-        <a class="btn btn--primary" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">Написать</a>
+    <div class="site-chrome case-chrome">
+      <a class="case-chrome__back" data-back-to-home href="../" aria-label="На главную"><img src="../assets/icons/case-logo.svg" alt="" aria-hidden="true" /></a>
+      <div class="hero__menu-backdrop" aria-hidden="true"></div>
+      <div class="hero__menu-panel" aria-hidden="true"></div>
+      <button class="hero__menu-toggle" type="button" aria-label="Открыть меню" aria-controls="case-navigation" aria-expanded="false">
+        <img class="hero__menu-icon" src="../assets/images/home/hero-redesign/menu.svg" alt="" aria-hidden="true" />
+        <img class="hero__close-icon" src="../assets/images/home/hero-redesign/menu-close.svg" alt="" aria-hidden="true" />
+      </button>
+      <div class="hero__actions">
+        <a class="hero__button" href="https://disk.yandex.ru/d/BzEm_BL0T9i5PQ" target="_blank" rel="noopener noreferrer">CV</a>
+        <a class="hero__button" href="https://t.me/imrafaelaliev" target="_blank" rel="noopener noreferrer">Написать</a>
       </div>
-
+      <p class="hero__availability">
+        <picture class="hero__availability-dot" aria-hidden="true">
+          <source media="(max-width: 1199px)" srcset="../assets/images/home/hero-redesign/status-dot-mobile.svg" />
+          <img src="../assets/images/home/hero-redesign/status-dot-desktop.svg" alt="" />
+        </picture>
+        Открыт к сотрудничеству
+      </p>
+      <nav class="hero__side-nav" id="case-navigation" aria-label="Навигация по сайту">
+        <a href="../#about">Обо мне</a>
+        <a href="../#projects">Проекты</a>
+        <a href="../#concepts">Концепты</a>
+        <a href="../#contacts">Контакты</a>
+      </nav>
+    </div>
+    <main class="marshall-page__main">
       <article class="marshall-page__content">
         <aside class="marshall-page__intro" aria-label="Информация о кейсе">
           <div class="marshall-page__intro-copy">
@@ -438,6 +454,6 @@
         </div>
       </footer>
 
-    <script src="../js/main.js?v=20260927-case-titles-1" defer></script>
+    <script src="../js/main.js?v=20260928-spacing-header-1" defer></script>
   </body>
 </html>
