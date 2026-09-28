@@ -5125,9 +5125,10 @@ main {
 
 .hero-intro-playing .hero__signature-art path {
   opacity: 0;
+  stroke-linecap: butt;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: hero-signature-draw 1.65s cubic-bezier(0.42, 0, 0.34, 1) forwards;
+  animation: hero-signature-draw 1.65s cubic-bezier(0.42, 0, 0.34, 1) both;
 }
 
 .hero-intro-playing .hero__signature-art path:nth-child(2) {
@@ -5141,8 +5142,10 @@ main {
 }
 
 @keyframes hero-signature-draw {
-  from { opacity: 1; stroke-dashoffset: 1; }
-  to { opacity: 1; stroke-dashoffset: 0; }
+  0% { opacity: 0; stroke-dashoffset: 1; }
+  6% { opacity: 0; stroke-dashoffset: 0.94; }
+  9% { opacity: 1; stroke-dashoffset: 0.91; }
+  100% { opacity: 1; stroke-dashoffset: 0; }
 }
 
 .hero-intro-playing .hero--figma .hero__profile,
