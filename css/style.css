@@ -5119,6 +5119,10 @@ main {
   max-width: none;
 }
 
+.hero--figma .hero__signature-art path {
+  stroke-linecap: butt;
+}
+
 .hero--figma .hero__signature-art--mobile {
   display: none;
 }
