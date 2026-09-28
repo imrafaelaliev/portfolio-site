@@ -6795,7 +6795,7 @@ main {
 }
 
 .projects--redesign .project-showcase {
-  gap: var(--section-gap);
+  gap: 64px;
 }
 
 .home.home--rebuild main > section.concepts-grid.section {
@@ -6810,6 +6810,10 @@ main {
 @media (max-width: 1199px) {
   :root {
     --section-gap: 120px;
+  }
+
+  .projects--redesign .project-showcase {
+    gap: 48px;
   }
 }
 
