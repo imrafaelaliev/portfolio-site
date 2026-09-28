@@ -605,9 +605,6 @@
     const companiesCanvas = document.querySelector('.home.home--rebuild .companies--figma .companies__canvas');
     if (!companiesCanvas) return;
 
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    if (window.matchMedia('(max-width: 767px)').matches) return;
-
     const clusterNode = companiesCanvas.querySelector('.companies__cluster');
     const items = Array.from(companiesCanvas.querySelectorAll('.companies__item'));
     const detailsNode = companiesCanvas.querySelector('.companies__details');
@@ -616,6 +613,7 @@
 
     if (!clusterNode || !items.length || !detailsNode || !titleNode || !descriptionNode) return;
 
+    const hoverMedia = window.matchMedia('(min-width: 1200px) and (hover: hover) and (pointer: fine)');
     let activeItem = null;
 
     const resetHover = () => {
@@ -629,6 +627,7 @@
     };
 
     const activateItem = (item) => {
+      if (!hoverMedia.matches) return;
       const title = (item.dataset.companyTitle || '').trim();
       const description = (item.dataset.companyDescription || '').trim();
       if (!title) return;
@@ -640,6 +639,7 @@
       items.forEach((node) => node.classList.toggle('is-active', node === item));
       titleNode.textContent = title;
       descriptionNode.textContent = description;
+      detailsNode.style.top = `${clusterNode.offsetTop + item.offsetTop + 8}px`;
     };
 
     clusterNode.addEventListener('pointermove', (event) => {
@@ -653,9 +653,21 @@
 
     items.forEach((item) => {
       item.addEventListener('pointerenter', () => activateItem(item));
+      item.addEventListener('focus', () => activateItem(item));
+      item.addEventListener('blur', () => {
+        if (!clusterNode.contains(document.activeElement)) resetHover();
+      });
     });
 
     clusterNode.addEventListener('pointerleave', resetHover);
+
+    const updateMode = () => {
+      resetHover();
+      items.forEach((item) => { item.disabled = !hoverMedia.matches; });
+    };
+
+    hoverMedia.addEventListener('change', updateMode);
+    updateMode();
   };
 
   initCompaniesHover();
@@ -681,6 +693,8 @@
       '.about-intro__collage',
       '.about-intro__lead',
       '.about-intro__orbit',
+      '.companies__title',
+      '.companies__cluster',
       '.project-showcase__card',
       '.mentions-reel__heading',
       '.concepts-grid__heading',

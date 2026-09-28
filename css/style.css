@@ -4104,229 +4104,230 @@ main {
   }
 }
 
-/* HOME COMPANIES BLOCK (FIGMA NODE 595:366) */
+/* HOME COMPANIES BLOCK (FIGMA NODE 5200:40054) */
 .home.home--rebuild .companies--figma.section {
-  padding: 0;
+  color: #070707;
+  background: #fff;
+  font-family: "Inter Tight", Arial, sans-serif;
 }
 
 .home.home--rebuild .companies--figma .companies__canvas {
   position: relative;
-  width: 680px;
-  max-width: 680px;
+  width: min(680px, calc(100% - 32px));
   margin: 0 auto;
-  aspect-ratio: 680 / 800;
 }
 
 .home.home--rebuild .companies--figma .companies__title {
-  position: absolute;
-  top: 2.5%;
-  left: 50%;
-  width: 100%;
   margin: 0;
-  color: #070707;
-  font-family: "Kommuna Narrow", "Times New Roman", serif;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.96px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
   text-align: center;
-  text-transform: uppercase;
-  --reveal-base-transform: translateX(-50%);
-  transform: translateX(-50%);
 }
 
 .home.home--rebuild .companies--figma .companies__cluster {
-  position: absolute;
-  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  margin-top: 40px;
 }
 
 .home.home--rebuild .companies--figma .companies__item {
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: max-content;
+  max-width: 100%;
+  height: 72px;
   margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
+  color: inherit;
+  font: 500 56px/1 "Inter Tight", Arial, sans-serif;
+  cursor: default;
   appearance: none;
   -webkit-appearance: none;
+  transition: opacity 0.25s ease;
+}
+
+.home.home--rebuild .companies--figma .companies__item:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 8px;
+}
+
+.home.home--rebuild .companies--figma .companies__cluster.is-hovering .companies__item:not(.is-active) {
+  opacity: 0.2;
 }
 
 .home.home--rebuild .companies--figma .companies__logo {
   display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  transition: filter 0.24s ease;
+  flex: none;
+  max-width: none;
+  object-fit: contain;
 }
 
-.home.home--rebuild .companies--figma .companies__logo-picture {
+.home.home--rebuild .companies--figma .companies__logo--tochka {
+  width: 286px;
+  height: 56px;
+}
+
+.home.home--rebuild .companies--figma .companies__logo--x5 {
+  width: 99px;
+  height: 72px;
+}
+
+.home.home--rebuild .companies--figma .companies__logo--transsion {
+  width: 294px;
+  height: 48px;
+}
+
+.home.home--rebuild .companies--figma .companies__logo-crop {
+  position: relative;
   display: block;
-  width: 100%;
+  flex: none;
+  width: 72px;
+  height: 72px;
 }
 
-.home.home--rebuild .companies--figma .companies__cluster.is-hovering .companies__item:not(.is-active) .companies__logo {
-  filter: brightness(0.28);
+.home.home--rebuild .companies--figma .companies__logo-crop img {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+
+.home.home--rebuild .companies--figma .companies__logo-crop--nl {
+  width: 144px;
+  overflow: hidden;
+}
+
+.home.home--rebuild .companies--figma .companies__logo-crop--nl img {
+  top: -47.08%;
+  left: -32.76%;
+  width: 153.03%;
+  height: 194.16%;
+}
+
+.home.home--rebuild .companies--figma .companies__logo-crop--mz img {
+  top: -20px;
+  left: -20px;
+  width: 112px;
+  height: 112px;
 }
 
 .home.home--rebuild .companies--figma .companies__details {
   position: absolute;
-  left: 50%;
-  top: 84%;
-  width: 100%;
-  text-align: center;
-  transform: translateX(-50%);
+  z-index: 1;
+  top: 112px;
+  left: calc(100% - 130px);
+  width: 280px;
+  padding: 32px;
+  border-radius: 32px;
+  background: #f3f3f3;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.22s ease;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
 }
 
 .home.home--rebuild .companies--figma .companies__details.is-visible {
   opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .home.home--rebuild .companies--figma .companies__details-title {
   margin: 0;
-  color: #070707;
-  font-family: "Kommuna Narrow", "Times New Roman", serif;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.96px;
-  text-align: center;
-  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
 }
 
 .home.home--rebuild .companies--figma .companies__details-description {
-  margin: 8px 0 0;
-  color: #070707;
-  font-family: "Arial Narrow", "IBM Plex Sans Condensed", sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
+  margin: 24px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
-.home.home--rebuild .companies--figma .companies__mobile-list {
-  display: none;
-}
-
-.home.home--rebuild .companies--figma .companies__item--tochka {
-  left: -2.5%;
-  top: 25.25%;
-  width: 38.2353%;
-}
-
-.home.home--rebuild .companies--figma .companies__item--marshall {
-  left: 32.7941%;
-  top: 28.375%;
-  width: 34.5588%;
-}
-
-.home.home--rebuild .companies--figma .companies__item--transsion {
-  left: 64.4118%;
-  top: 28.375%;
-  width: 34.5588%;
-}
-
-.home.home--rebuild .companies--figma .companies__item--nl {
-  left: 17.0588%;
-  top: 48.625%;
-  width: 34.5588%;
-}
-
-.home.home--rebuild .companies--figma .companies__item--x5 {
-  left: 48.5294%;
-  top: 48.625%;
-  width: 34.5588%;
-}
-
-@media (max-width: 767px) {
-  .home.home--rebuild .companies--figma .companies__canvas {
-    width: min(393px, 100%);
-    max-width: 393px;
-    aspect-ratio: 393 / 1015;
-  }
-
-  .home.home--rebuild .companies--figma .companies__title {
-    top: 3.1527%;
-    width: 80.4071%;
-    font-size: 32px;
-    line-height: 1.1;
-    letter-spacing: -0.64px;
-  }
-
-  .home.home--rebuild .companies--figma .companies__item--tochka {
-    left: 4.0712%;
-    top: 17.4384%;
-    width: 32.5699%;
-  }
-
-  .home.home--rebuild .companies--figma .companies__item--marshall {
-    left: 33.8422%;
-    top: 17.4384%;
-    width: 32.3155%;
-  }
-
-  .home.home--rebuild .companies--figma .companies__item--transsion {
-    left: 63.3588%;
-    top: 17.4384%;
-    width: 32.5699%;
-  }
-
-  .home.home--rebuild .companies--figma .companies__item--nl {
-    left: 18.8295%;
-    top: 26.1084%;
-    width: 32.5699%;
-  }
-
-  .home.home--rebuild .companies--figma .companies__item--x5 {
-    left: 48.6005%;
-    top: 26.1084%;
-    width: 32.5699%;
-  }
-
+@media (max-width: 1199px) {
   .home.home--rebuild .companies--figma .companies__details {
     display: none;
   }
 
-  .home.home--rebuild .companies--figma .companies__mobile-list {
-    position: absolute;
-    left: 4.0712%;
-    top: 43.3498%;
-    width: 91.8575%;
-    display: flex;
-    flex-direction: column;
+  .home.home--rebuild .companies--figma .companies__item {
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .home.home--rebuild .companies--figma .companies__canvas {
+    width: min(100% - 32px, 393px);
+  }
+
+  .home.home--rebuild .companies--figma .companies__title {
+    font-size: 24px;
+    line-height: 1.08;
+  }
+
+  .home.home--rebuild .companies--figma .companies__cluster {
     gap: 32px;
+    margin-top: 32px;
   }
 
-  .home.home--rebuild .companies--figma .companies__mobile-item {
-    width: 100%;
-    text-align: center;
+  .home.home--rebuild .companies--figma .companies__item {
+    gap: 14px;
+    height: 56px;
+    font-size: 40px;
   }
 
-  .home.home--rebuild .companies--figma .companies__mobile-title {
-    margin: 0;
-    color: #070707;
-    font-family: "Kommuna Narrow", "Times New Roman", serif;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.64px;
-    text-transform: uppercase;
+  .home.home--rebuild .companies--figma .companies__logo--tochka {
+    width: 220px;
+    height: auto;
   }
 
-  .home.home--rebuild .companies--figma .companies__mobile-description {
-    margin: 0;
-    color: #070707;
-    font-family: "Arial Narrow", "IBM Plex Sans Condensed", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5;
+  .home.home--rebuild .companies--figma .companies__logo--x5 {
+    width: 77px;
+    height: auto;
+  }
+
+  .home.home--rebuild .companies--figma .companies__logo--transsion {
+    width: 220px;
+    height: auto;
+  }
+
+  .home.home--rebuild .companies--figma .companies__logo-crop {
+    width: 56px;
+    height: 56px;
+  }
+
+  .home.home--rebuild .companies--figma .companies__logo-crop--nl {
+    width: 112px;
+  }
+
+  .home.home--rebuild .companies--figma .companies__logo-crop--mz img {
+    top: -16px;
+    left: -16px;
+    width: 88px;
+    height: 88px;
+  }
+}
+
+@media (max-width: 359px) {
+  .home.home--rebuild .companies--figma .companies__title {
+    font-size: 21px;
+  }
+
+  .home.home--rebuild .companies--figma .companies__item {
+    gap: 10px;
+  }
+
+  .home.home--rebuild .companies--figma .companies__logo--tochka,
+  .home.home--rebuild .companies--figma .companies__logo--transsion {
+    width: 196px;
   }
 }
 
@@ -4892,7 +4893,6 @@ main {
   .home.home--rebuild .about--figma .about__canvas,
   .home.home--rebuild .about--figma .about__lead,
   .home.home--rebuild .about--figma .about__sublead,
-  .home.home--rebuild .companies--figma .companies__canvas,
   .home.home--rebuild .collage--figma .collage__canvas,
   .home.home--rebuild .projects--figma .projects__canvas,
   .home.home--rebuild .mentions--figma .mentions__canvas,
@@ -6780,8 +6780,18 @@ main {
   padding-top: var(--section-gap) !important;
 }
 
-.home.home--rebuild main > section.projects--redesign.section {
+.home.home--rebuild main > .about-intro + .companies--figma,
+.home.home--rebuild main > .companies--figma + .projects--redesign {
+  margin-top: 0 !important;
+}
+
+.home.home--rebuild main > section.companies--figma.section {
   padding-top: calc(var(--section-gap) - 80px) !important;
+  padding-bottom: 0 !important;
+}
+
+.home.home--rebuild main > section.projects--redesign.section {
+  padding-top: var(--section-gap) !important;
 }
 
 .projects--redesign .project-showcase {
@@ -6804,7 +6814,7 @@ main {
 }
 
 @media (max-width: 767px) {
-  .home.home--rebuild main > section.projects--redesign.section {
+  .home.home--rebuild main > section.companies--figma.section {
     padding-top: calc(var(--section-gap) - 64px) !important;
   }
 
