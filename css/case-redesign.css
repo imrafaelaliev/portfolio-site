@@ -1,5 +1,6 @@
 /* Shared layout for every project story. The content and imagery stay project specific. */
 body.marshall-page {
+  --case-section-gap: 64px;
   background: #fff;
   color: #070707;
   font-family: "Inter Tight", Arial, sans-serif;
@@ -645,13 +646,13 @@ body.marshall-page .case-chrome .hero__side-nav {
 }
 
 body.marshall-page .marshall-page__content {
-  gap: var(--section-gap);
-  padding-bottom: var(--section-gap);
+  gap: var(--case-section-gap);
+  padding-bottom: var(--case-section-gap);
 }
 
 body.marshall-page .marshall-page__content > .marshall-page__intro + :is(.marshall-page__hero-frame, .marshall-page__hero-block),
 body.marshall-page .marshall-page__content > .marshall-page__section + .marshall-page__shot {
-  margin-top: calc(32px - var(--section-gap));
+  margin-top: calc(32px - var(--case-section-gap));
 }
 
 body.marshall-page .marshall-page__next-case {
@@ -659,6 +660,10 @@ body.marshall-page .marshall-page__next-case {
 }
 
 @media (max-width: 1199px) {
+  body.marshall-page {
+    --case-section-gap: 48px;
+  }
+
   body.marshall-page .case-chrome__back {
     display: none;
   }
@@ -720,7 +725,7 @@ body.marshall-page .marshall-page__next-case {
 
   body.marshall-page .marshall-page__content > .marshall-page__intro + :is(.marshall-page__hero-frame, .marshall-page__hero-block),
   body.marshall-page .marshall-page__content > .marshall-page__section + .marshall-page__shot {
-    margin-top: calc(24px - var(--section-gap));
+    margin-top: calc(24px - var(--case-section-gap));
   }
 }
 
