@@ -32,6 +32,7 @@
 .home.home--rebuild main > section.consultations-teaser {
   margin-top: 0 !important;
   padding: 0 32px var(--section-gap);
+  scroll-margin-top: 160px;
   color: #070707;
   font-family: "Inter Tight", Arial, sans-serif;
   font-weight: 500;
@@ -43,6 +44,12 @@
   margin: 0 auto;
   flex-direction: column;
   align-items: center;
+}
+
+.consultations-teaser:target .consultations-teaser__inner {
+  opacity: 1;
+  translate: none;
+  transition: none;
 }
 
 .consultations-teaser__title {
