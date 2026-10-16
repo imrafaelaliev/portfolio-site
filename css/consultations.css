@@ -79,6 +79,7 @@
 
 .consultation-page__back {
   position: absolute;
+  z-index: 1;
   top: 32px;
   left: 32px;
 }
