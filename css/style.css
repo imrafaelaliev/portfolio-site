@@ -5018,7 +5018,8 @@ main {
   z-index: 5;
 }
 
-.hero--figma .hero__button {
+.hero--figma .hero__button,
+.consultation-button {
   display: inline-flex;
   height: 48px;
   align-items: center;
@@ -5034,7 +5035,9 @@ main {
 }
 
 .hero--figma .hero__button:hover,
-.hero--figma .hero__button:focus-visible {
+.hero--figma .hero__button:focus-visible,
+.consultation-button:hover,
+.consultation-button:focus-visible {
   background: #070707;
   color: #fff;
 }

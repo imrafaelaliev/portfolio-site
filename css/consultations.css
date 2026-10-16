@@ -1,0 +1,275 @@
+/* Consultations: Figma 6104:28669 (teaser) and 6104:27781 (page). */
+.consultation-button {
+  flex-shrink: 0;
+  background: var(--consultation-button-fill, #fff);
+  font-family: "Inter Tight", Arial, sans-serif;
+  font-weight: 500;
+}
+
+.consultation-button:focus-visible {
+  outline: 2px solid #070707;
+  outline-offset: 4px;
+}
+
+.consultation-portrait {
+  position: relative;
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 56px;
+}
+
+.consultation-portrait img {
+  position: absolute;
+  top: -173.37%;
+  left: -36.54%;
+  width: 173.07%;
+  height: 307.52%;
+  max-width: none;
+}
+
+.home.home--rebuild main > section.consultations-teaser {
+  margin-top: 0 !important;
+  padding: 0 32px var(--section-gap);
+  color: #070707;
+  font-family: "Inter Tight", Arial, sans-serif;
+  font-weight: 500;
+}
+
+.consultations-teaser__inner {
+  display: flex;
+  width: min(680px, 100%);
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.consultations-teaser__title {
+  width: 100%;
+  margin: 24px 0 32px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: pre-wrap;
+}
+
+.consultation-page {
+  --consultation-button-fill: transparent;
+  min-height: 100svh;
+  background: #ff954a;
+  color: #070707;
+  font-family: "Inter Tight", Arial, sans-serif;
+  font-weight: 500;
+}
+
+.consultation-page__layout {
+  position: relative;
+  display: grid;
+  width: min(1440px, 100%);
+  min-height: max(800px, 100svh);
+  margin: 0 auto;
+  padding: 32px 32px 56px;
+  grid-template-columns: minmax(0, 802fr) minmax(0, 506fr);
+  column-gap: 68px;
+}
+
+.consultation-page__back {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+}
+
+.consultation-page__summary {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.consultation-page__title,
+.consultation-page__price {
+  margin: 0;
+  font-size: clamp(90px, 7.5vw, 108px);
+  font-weight: 500;
+  line-height: 0.814814815;
+  letter-spacing: 0;
+}
+
+.consultation-page__price {
+  margin-top: 48px;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.consultation-page__details {
+  min-width: 0;
+}
+
+.consultation-page__intro {
+  margin: 24px 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.consultation-benefits {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.consultation-benefits__item {
+  display: grid;
+  min-height: 76px;
+  grid-template-columns: 101px minmax(0, 1fr);
+  gap: 23px;
+  align-items: center;
+}
+
+.consultation-benefits__number {
+  position: relative;
+  display: grid;
+  height: 76px;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.48px;
+}
+
+.consultation-benefits__number img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: none;
+  transform: translate(-50%, -50%) rotate(75deg);
+}
+
+.consultation-benefits__text {
+  max-width: 303px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  translate: 0 -8px;
+}
+
+.consultation-benefits__item:first-child .consultation-benefits__text {
+  max-width: 327px;
+}
+
+.consultation-benefits__item:nth-child(2) .consultation-benefits__text {
+  max-width: 293px;
+}
+
+.consultation-page__contact {
+  width: 100%;
+  height: 80px;
+  margin-top: 32px;
+  font-size: 18px;
+}
+
+.consultation-page__summary,
+.consultation-page__details {
+  animation: consultation-entrance 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes consultation-entrance {
+  from { opacity: 0; translate: 0 14px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (max-width: 1199px) {
+  .consultation-page__layout {
+    display: flex;
+    width: min(744px, 100%);
+    min-height: 100svh;
+    padding-top: 144px;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .consultation-page__title,
+  .consultation-page__price {
+    font-size: clamp(56px, 8vw, 80px);
+    line-height: 0.95;
+  }
+
+  .consultation-page__price {
+    margin-top: 32px;
+  }
+
+  .consultation-page__details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .home.home--rebuild main > section.consultations-teaser {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .consultations-teaser__inner {
+    max-width: 560px;
+  }
+
+  .consultations-teaser__title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .consultations-teaser .consultation-portrait {
+    width: 144px;
+    height: 144px;
+    border-radius: 44px;
+  }
+
+  .consultation-page__layout {
+    padding: 112px 16px 40px;
+    gap: 48px;
+  }
+
+  .consultation-page__back {
+    top: 16px;
+    left: 16px;
+  }
+
+  .consultation-page__title,
+  .consultation-page__price {
+    font-size: clamp(44px, 12.2vw, 64px);
+  }
+
+  .consultation-page__price {
+    margin-top: 24px;
+    line-height: 1;
+  }
+
+  .consultation-page__details .consultation-portrait {
+    width: 144px;
+    height: 144px;
+    border-radius: 44px;
+  }
+
+  .consultation-benefits__item {
+    grid-template-columns: 101px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .consultation-page__contact {
+    height: 64px;
+    margin-top: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consultation-page__summary,
+  .consultation-page__details {
+    animation: none;
+  }
+}

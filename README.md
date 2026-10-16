@@ -6,6 +6,7 @@
 - `hios/index.html` — кейс HiOS
 - `sladonezh/index.html` — кейс Сладонеж
 - `lori/index.html` — кейс Lori
+- `consultations/index.html` — консультации для дизайнеров
 
 ## Локальный запуск
 Открой `index.html` в браузере или запусти простой сервер:
