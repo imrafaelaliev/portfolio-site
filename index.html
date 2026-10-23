@@ -24,7 +24,7 @@
     </script>
     <link rel="preload" as="image" href="./assets/images/home/hero-redesign/portrait-raw-1.png?opt=20261016" />
     <link rel="stylesheet" href="./css/style.css?v=20261023-concepts-1" />
-    <link rel="stylesheet" href="./css/consultations.css?v=20261016-3" />
+    <link rel="stylesheet" href="./css/consultations.css?v=20261023-cortisol-1" />
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
@@ -336,12 +336,21 @@
       </section>
 
       <section id="consultations" class="consultations-teaser" aria-labelledby="consultations-title">
-        <div class="consultations-teaser__inner motion-reveal">
-          <div class="consultation-portrait">
-            <img src="./assets/images/consultations/portrait.png" alt="Рафаэль Алиев с ноутбуком" width="941" height="1672" loading="lazy" decoding="async" />
+        <div class="consultations-teaser__inner motion-reveal" data-cortisol="high">
+          <h2 id="consultations-title" class="consultations-teaser__heading"><span>Cortisol level</span></h2>
+          <button class="cortisol-toggle" type="button" role="switch" aria-checked="false" aria-label="Низкий уровень кортизола" aria-controls="consultations-description consultations-photo" hidden>
+            <span>High</span>
+            <span class="cortisol-toggle__track" aria-hidden="true"><span class="cortisol-toggle__thumb"></span></span>
+            <span>Low</span>
+          </button>
+          <div class="consultations-teaser__content">
+            <div id="consultations-photo" class="consultations-teaser__photo" role="img" aria-label="Рафаэль Алиев в костюме с кружкой кофе">
+              <img class="consultations-teaser__photo-high" src="./assets/images/consultations/cortisol-high.webp" alt="" width="286" height="368" loading="lazy" decoding="async" />
+              <img class="consultations-teaser__photo-low" src="./assets/images/consultations/cortisol-low.webp" alt="" width="286" height="368" loading="lazy" decoding="async" />
+            </div>
+            <p id="consultations-description" class="consultations-teaser__description" aria-live="polite" aria-atomic="true">консультирую джуниор и мидл дизайнеров. помогаю улучшить UI,  собрать портфолио, найти работу и подготовиться к собесу</p>
           </div>
-          <h2 id="consultations-title" class="consultations-teaser__title">консультирую джуниор и мидл дизайнеров. помогаю улучшить UI,  собрать портфолио, найти работу и подготовиться к собесу</h2>
-          <a class="consultation-button" href="./consultations/index.html">Подробнее</a>
+          <a class="consultation-button consultations-teaser__more" href="./consultations/index.html">Подробнее</a>
         </div>
       </section>
 
@@ -380,6 +389,6 @@
     </main>
 
     <script src="https://player.vimeo.com/api/player.js" defer></script>
-    <script src="./js/main.js?v=20261023-about-1" defer></script>
+    <script src="./js/main.js?v=20261023-cortisol-1" defer></script>
   </body>
 </html>

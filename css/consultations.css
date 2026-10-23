@@ -1,4 +1,12 @@
-/* Consultations: Figma 6104:28669 (teaser) and 6104:27781 (page). */
+/* Consultations: Figma 6381:53511 / 6381:54249 (teaser states), 6104:27781 (page). */
+@font-face {
+  font-family: "Inter Tight Cortisol";
+  src: url("../assets/fonts/InterTight-ExtraBold-Cortisol.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
 .consultation-button {
   flex-shrink: 0;
   background: var(--consultation-button-fill, #fff);
@@ -44,6 +52,7 @@
   margin: 0 auto;
   flex-direction: column;
   align-items: center;
+  gap: 24px;
 }
 
 .consultations-teaser:target .consultations-teaser__inner {
@@ -52,16 +61,133 @@
   transition: none;
 }
 
-.consultations-teaser__title {
+.consultations-teaser__heading {
+  position: relative;
+  width: min(300.84px, 100%);
+  height: 80px;
+  margin: 0;
+  font-family: "Inter Tight Cortisol", "Inter Tight", Arial, sans-serif;
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.consultations-teaser__heading span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 8.175em;
+  white-space: nowrap;
+  transform: translateX(-50%) scaleX(0.46);
+}
+
+.cortisol-toggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #000;
+  font: 500 24px/32px "Inter Tight", Arial, sans-serif;
+  cursor: pointer;
+}
+
+.cortisol-toggle[hidden] {
+  display: none;
+}
+
+.cortisol-toggle:focus-visible {
+  outline: 2px solid #070707;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+.cortisol-toggle__track {
+  position: relative;
+  flex-shrink: 0;
+  width: 38px;
+  height: 24px;
+  border: 2px solid #070707;
+  border-radius: 100px;
+  background: #fff;
+}
+
+.cortisol-toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #000;
+  transition: transform 0.2s ease;
+}
+
+.cortisol-toggle[aria-checked="true"] .cortisol-toggle__track {
+  height: 22px;
+  border-width: 1px;
+}
+
+.cortisol-toggle[aria-checked="true"] .cortisol-toggle__thumb {
+  transform: translateX(16px);
+}
+
+.consultations-teaser__content {
+  display: flex;
   width: 100%;
-  margin: 24px 0 32px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.consultations-teaser__photo {
+  position: relative;
+  flex-shrink: 0;
+  width: 286px;
+  height: 368px;
+}
+
+.consultations-teaser__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s ease;
+}
+
+.consultations-teaser__photo-low,
+[data-cortisol="low"] .consultations-teaser__photo-high {
+  opacity: 0;
+}
+
+[data-cortisol="low"] .consultations-teaser__photo-low {
+  opacity: 1;
+}
+
+.consultations-teaser__description {
+  width: 100%;
+  min-height: 96px;
+  margin: 0;
   font-size: 32px;
   font-weight: 500;
-  line-height: 40px;
+  line-height: 32px;
   text-align: center;
   text-transform: none;
   letter-spacing: 0;
   white-space: pre-wrap;
+}
+
+.consultations-teaser__more {
+  margin-top: 8px;
+}
+
+[data-cortisol="low"] .consultations-teaser__more {
+  border: 0;
 }
 
 .consultation-page {
@@ -227,15 +353,11 @@
     max-width: 560px;
   }
 
-  .consultations-teaser__title {
+  .consultations-teaser__description {
+    min-height: 0;
     font-size: 24px;
-    line-height: 30px;
-  }
-
-  .consultations-teaser .consultation-portrait {
-    width: 144px;
-    height: 144px;
-    border-radius: 44px;
+    line-height: 28px;
+    white-space: normal;
   }
 
   .consultation-page__layout {
@@ -276,6 +398,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cortisol-toggle__thumb,
+  .consultations-teaser__photo img {
+    transition: none;
+  }
+
   .consultation-page__summary,
   .consultation-page__details {
     animation: none;
