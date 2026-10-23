@@ -690,6 +690,8 @@
 
   if (document.body.classList.contains('home--rebuild') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const motionSelectors = [
+      '.about-intro__headline',
+      '.about-intro__tagline',
       '.about-intro__collage',
       '.about-intro__lead',
       '.about-intro__orbit',

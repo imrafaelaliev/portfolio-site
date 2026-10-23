@@ -39,6 +39,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Inter Tight Creative";
+  src: url("../assets/fonts/InterTight-ExtraBold-CreativeAI.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  unicode-range: U+0020, U+002B, U+0041, U+0043, U+0045, U+0049, U+0052, U+0054, U+0056;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5399,7 +5408,7 @@ main {
   }
 }
 
-/* Second screen: Figma nodes 5155:16008 and 5155:16161 */
+/* About: Figma 5155:16008 and 5155:16161; Creative + AI showcase: 6381:52587. */
 .home.home--rebuild main > .hero--figma + .about-intro {
   margin-top: 0 !important;
 }
@@ -5412,6 +5421,52 @@ main {
   background: #fff;
   color: #070707;
   font-family: "Inter Tight", Arial, sans-serif;
+}
+
+.about-intro__showcase {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding-top: 32px;
+}
+
+.about-intro__headline {
+  position: relative;
+  width: min(759.92px, calc(100% - 32px));
+  height: 1em;
+  margin: 0 auto 16px;
+  font-family: "Inter Tight Creative", "Inter Tight", Arial, sans-serif;
+  font-size: clamp(80px, calc((100vw - 32px) * 240 / 759.92), 240px);
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.about-intro__headline span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 6.883333333em;
+  color: transparent;
+  background-image: url("../assets/images/home/about-redesign/creative-ai-front.webp"), url("../assets/images/home/about-redesign/creative-ai-back.webp"), linear-gradient(#070707, #070707);
+  background-position: center, center, top left;
+  background-size: cover, cover, auto;
+  background-repeat: no-repeat, no-repeat, repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: translateX(-50%) scaleX(0.46);
+  white-space: nowrap;
+}
+
+.about-intro__tagline {
+  width: min(680px, calc(100% - 32px));
+  margin: 0 auto 80px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+  white-space: pre-wrap;
 }
 
 .about-intro__collage {
@@ -5786,6 +5841,27 @@ main {
 @media (max-width: 767px) {
   .home.home--rebuild main > section.about-intro {
     padding-bottom: 64px !important;
+  }
+
+  .about-intro__showcase {
+    padding-top: 16px;
+  }
+
+  .about-intro__headline {
+    margin-bottom: 24px;
+  }
+
+  .about-intro__tagline {
+    max-width: 560px;
+    margin-bottom: 56px;
+    font-size: 24px;
+    line-height: 28px;
+    text-wrap: balance;
+    white-space: normal;
+  }
+
+  .about-intro__desktop-break {
+    display: none;
   }
 
   .about-intro__collage {
