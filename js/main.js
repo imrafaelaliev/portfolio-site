@@ -16,7 +16,7 @@
         // The section includes the spacing before the footer; exclude it from the block.
         const sectionGap = Number.parseFloat(getComputedStyle(section).getPropertyValue('--section-gap'));
         const screenCenter = window.innerHeight / 2;
-        isNearBlock = screenCenter > bounds.top - 300 && screenCenter < bounds.bottom - sectionGap + 300;
+        isNearBlock = screenCenter > bounds.top - 200 && screenCenter < bounds.bottom - sectionGap + 200;
       }
       section.classList.toggle('is-background-visible', isNearBlock);
     };
