@@ -9,16 +9,19 @@
     const photo = cortisolTeaser.querySelector('.consultations-teaser__photo');
     const highDescription = description.textContent;
     const lowDescription = 'помогаю молодым и средним дизайнерам работать по кайфу, делать по красоте \nи быть счастливыми';
-    let backgroundStartY = null;
-    const hideBackground = () => {
-      backgroundStartY = null;
-      section.classList.remove('is-background-visible');
-    };
-    window.addEventListener('scroll', () => {
-      if (backgroundStartY !== null && Math.abs(window.scrollY - backgroundStartY) >= 100) {
-        hideBackground();
+    const updateBackground = () => {
+      let isNearBlock = false;
+      if (cortisolToggle.getAttribute('aria-checked') === 'true') {
+        const bounds = section.getBoundingClientRect();
+        // The section includes the spacing before the footer; exclude it from the block.
+        const sectionGap = Number.parseFloat(getComputedStyle(section).getPropertyValue('--section-gap'));
+        const screenCenter = window.innerHeight / 2;
+        isNearBlock = screenCenter > bounds.top - 300 && screenCenter < bounds.bottom - sectionGap + 300;
       }
-    }, { passive: true });
+      section.classList.toggle('is-background-visible', isNearBlock);
+    };
+    window.addEventListener('scroll', updateBackground, { passive: true });
+    window.addEventListener('resize', updateBackground);
     cortisolToggle.hidden = false;
     cortisolToggle.addEventListener('click', () => {
       const isLow = cortisolToggle.getAttribute('aria-checked') !== 'true';
@@ -29,12 +32,7 @@
       photo.setAttribute('aria-label', isLow
         ? 'Рафаэль Алиев в солнечных очках и гавайской рубашке с коктейлем'
         : 'Рафаэль Алиев в костюме с кружкой кофе');
-      if (isLow) {
-        backgroundStartY = window.scrollY;
-        section.classList.add('is-background-visible');
-      } else {
-        hideBackground();
-      }
+      updateBackground();
     });
   }
 
