@@ -4,20 +4,37 @@
   const cortisolTeaser = document.querySelector('.consultations-teaser__inner[data-cortisol]');
   const cortisolToggle = cortisolTeaser?.querySelector('.cortisol-toggle');
   if (cortisolToggle) {
+    const section = cortisolTeaser.closest('.consultations-teaser');
     const description = cortisolTeaser.querySelector('.consultations-teaser__description');
     const photo = cortisolTeaser.querySelector('.consultations-teaser__photo');
     const highDescription = description.textContent;
     const lowDescription = 'помогаю молодым и средним дизайнерам работать по кайфу, делать по красоте \nи быть счастливыми';
+    let backgroundStartY = null;
+    const hideBackground = () => {
+      backgroundStartY = null;
+      section.classList.remove('is-background-visible');
+    };
+    window.addEventListener('scroll', () => {
+      if (backgroundStartY !== null && Math.abs(window.scrollY - backgroundStartY) >= 100) {
+        hideBackground();
+      }
+    }, { passive: true });
     cortisolToggle.hidden = false;
     cortisolToggle.addEventListener('click', () => {
       const isLow = cortisolToggle.getAttribute('aria-checked') !== 'true';
       cortisolToggle.setAttribute('aria-checked', String(isLow));
       cortisolTeaser.dataset.cortisol = isLow ? 'low' : 'high';
-      cortisolTeaser.closest('.consultations-teaser').classList.toggle('is-low', isLow);
+      section.classList.toggle('is-low', isLow);
       description.textContent = isLow ? lowDescription : highDescription;
       photo.setAttribute('aria-label', isLow
         ? 'Рафаэль Алиев в солнечных очках и гавайской рубашке с коктейлем'
         : 'Рафаэль Алиев в костюме с кружкой кофе');
+      if (isLow) {
+        backgroundStartY = window.scrollY;
+        section.classList.add('is-background-visible');
+      } else {
+        hideBackground();
+      }
     });
   }
 

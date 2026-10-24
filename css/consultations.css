@@ -39,6 +39,7 @@
 
 .home.home--rebuild main > section.consultations-teaser {
   position: relative;
+  z-index: 90;
   isolation: isolate;
   margin-top: 0 !important;
   padding: 36px 32px calc(var(--section-gap) + 36px);
@@ -49,9 +50,9 @@
 }
 
 .consultations-teaser::before {
-  position: absolute;
+  position: fixed;
   z-index: -1;
-  inset: 0 0 var(--section-gap);
+  inset: 0;
   background: url("../assets/images/consultations/beach-background.webp") center / cover no-repeat;
   opacity: 0;
   pointer-events: none;
@@ -59,7 +60,7 @@
   content: "";
 }
 
-.consultations-teaser.is-low::before {
+.consultations-teaser.is-background-visible::before {
   opacity: 1;
 }
 
