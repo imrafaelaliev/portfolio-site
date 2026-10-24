@@ -13,6 +13,7 @@
       const isLow = cortisolToggle.getAttribute('aria-checked') !== 'true';
       cortisolToggle.setAttribute('aria-checked', String(isLow));
       cortisolTeaser.dataset.cortisol = isLow ? 'low' : 'high';
+      cortisolTeaser.closest('.consultations-teaser').classList.toggle('is-low', isLow);
       description.textContent = isLow ? lowDescription : highDescription;
       photo.setAttribute('aria-label', isLow
         ? 'Рафаэль Алиев в солнечных очках и гавайской рубашке с коктейлем'

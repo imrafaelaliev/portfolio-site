@@ -38,12 +38,33 @@
 }
 
 .home.home--rebuild main > section.consultations-teaser {
+  position: relative;
+  isolation: isolate;
   margin-top: 0 !important;
-  padding: 0 32px var(--section-gap);
+  padding: 36px 32px calc(var(--section-gap) + 36px);
   scroll-margin-top: 160px;
   color: #070707;
   font-family: "Inter Tight", Arial, sans-serif;
   font-weight: 500;
+}
+
+.consultations-teaser::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 var(--section-gap);
+  background: url("../assets/images/consultations/beach-background.webp") center / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  content: "";
+}
+
+.consultations-teaser.is-low::before {
+  opacity: 1;
+}
+
+.consultations-teaser.is-low .cortisol-toggle__track {
+  background: transparent;
 }
 
 .consultations-teaser__inner {
@@ -398,6 +419,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .consultations-teaser::before,
   .cortisol-toggle__thumb,
   .consultations-teaser__photo img {
     transition: none;
