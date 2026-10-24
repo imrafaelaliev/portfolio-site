@@ -9,6 +9,7 @@
     const photo = cortisolTeaser.querySelector('.consultations-teaser__photo');
     const highDescription = description.textContent;
     const lowDescription = 'помогаю молодым и средним дизайнерам работать по кайфу, делать по красоте \nи быть счастливыми';
+    const mobileViewport = window.matchMedia('(max-width: 767px)');
     const updateBackground = () => {
       let isNearBlock = false;
       if (cortisolToggle.getAttribute('aria-checked') === 'true') {
@@ -16,7 +17,8 @@
         // The section includes the spacing before the footer; exclude it from the block.
         const sectionGap = Number.parseFloat(getComputedStyle(section).getPropertyValue('--section-gap'));
         const screenCenter = window.innerHeight / 2;
-        isNearBlock = screenCenter > bounds.top - 200 && screenCenter < bounds.bottom - sectionGap + 200;
+        const backgroundMargin = mobileViewport.matches ? 100 : 200;
+        isNearBlock = screenCenter > bounds.top - backgroundMargin && screenCenter < bounds.bottom - sectionGap + backgroundMargin;
       }
       section.classList.toggle('is-background-visible', isNearBlock);
     };
